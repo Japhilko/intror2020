@@ -1,5 +1,4 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
@@ -11,7 +10,7 @@
 \setbeamertemplate{caption label separator}{: }
 \setbeamercolor{caption name}{fg=normal text.fg}
 \beamertemplatenavigationsymbolsempty
-% Prevent slide breaks in the middle of a paragraph
+% Prevent slide breaks in the middle of a paragraph:
 \widowpenalties 1 10000
 \raggedbottom
 \setbeamertemplate{part page}{
@@ -50,8 +49,8 @@
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
@@ -59,7 +58,7 @@
 \usetheme[]{Warsaw}
 \usecolortheme{whale}
 \usefonttheme{structuresmallcapsserif}
-% Use upquote if available, for straight quotes in verbatim environments
+% use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \IfFileExists{microtype.sty}{% use microtype if available
   \usepackage[]{microtype}
@@ -81,9 +80,9 @@
 \hypersetup{
   pdftitle={A1 Getting started with R},
   pdfauthor={Jan-Philipp Kolb},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
+  pdfborder={0 0 0},
+  breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
 \newif\ifbibliography
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -127,7 +126,7 @@
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.50,0.62,0.50}{\textbf{#1}}}
 \usepackage{longtable,booktabs}
 \usepackage{caption}
-% Make caption package work with longtable
+% These lines are needed to make table captions work with longtable:
 \makeatletter
 \def\fnum@table{\tablename~\thetable}
 \makeatother
@@ -140,18 +139,20 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-2}
+
+% set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
 
 \title{A1 Getting started with R}
 \author{Jan-Philipp Kolb}
-\date{07 Januar, 2020}
+\date{10 Januar, 2020}
 
 \begin{document}
 \frame{\titlepage}
@@ -268,7 +269,7 @@ OBJECTIVES}}
   e.g.~\href{https://github.com/Japhilko/RInterfaces/blob/master/slides/Datenimport.md}{\textbf{data
   linking}}
 \item
-  \ldots R can be used
+  \ldots{}R can be used
   \href{https://cran.r-project.org/web/packages/MplusAutomation/index.html}{\textbf{for
   automation}}
 \item
@@ -1288,7 +1289,7 @@ to find routines}}}
 \item
   R can be modularly extended by so-called packages or libraries
 \item
-  Most important packages hosted on CRAN (15314 at Di Jan 07)
+  Most important packages hosted on CRAN (15342 at Fr Jan 10)
 \item
   Further packages can be found e.g.~at
   \href{www.bioconductor.org}{\textbf{bioconductor}}
@@ -1488,11 +1489,11 @@ Have a look at the package documentation. What are these packages for?
   \href{https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages}{\textbf{quick-list
   of useful packages}},\ldots{}
 \item
-  \ldots, or at a list with the
+  \ldots{}, or at a list with the
   \href{http://www.computerworld.com/article/2921176/business-intelligence/great-r-packages-for-data-import-wrangling-visualization.html}{\textbf{best
   packages for data processing and analysis}},\ldots{}
 \item
-  \ldots, or at
+  \ldots{}, or at
   \href{https://www.r-bloggers.com/the-50-most-used-r-packages/}{\textbf{the
   50 most used packages}}
 \end{itemize}
