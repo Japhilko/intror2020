@@ -12,11 +12,6 @@ output:
     highlight: zenburn
     colortheme: whale
     theme: Warsaw
-  nature:
-    highlightStyle: github
-    highlightLines: true
-    ratio: "16:9"
-  seal: false
   xaringan::moon_reader:
   pdf_document:
     toc: yes
@@ -344,8 +339,9 @@ http://www.rstudio.com/ide/docs/using/customizing
 
 ![](figure/runskript.PNG) run line where cursor is
 
+<!--
 ![](figure/find_replace.PNG) find and replace
-
+-->
 
 
 ## R as a calculator
