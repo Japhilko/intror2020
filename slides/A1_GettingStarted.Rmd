@@ -21,6 +21,7 @@ output:
     keep_md: yes
 ---
 
+
 ```{r, include=FALSE,purl=F}
 #https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
 knitr::opts_chunk$set(echo = T,warning=F,message=F,size="small",cache=F)
@@ -29,6 +30,8 @@ knitr::opts_chunk$set(echo = T,warning=F,message=F,size="small",cache=F)
 ```{r,eval=F,echo=F}
 knitr::purl("slides/GettingStarted.Rmd",documentation = 2)
 ```
+
+---
 
 ## [COURSE OBJECTIVES](http://uc-r.github.io/data_wrangling/week-1)
 
@@ -46,6 +49,7 @@ knitr::purl("slides/GettingStarted.Rmd",documentation = 2)
 - Get an introduction to machine learning  - 
 -->
 
+---
 
 ## Introduction round
 
