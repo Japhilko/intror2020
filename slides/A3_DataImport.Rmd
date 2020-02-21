@@ -234,6 +234,96 @@ head(dat$bbzc007a)
 
 - The import must be controlled, because otherwise errors can easily happen. 
 
+
+## Get stata attributes
+
+```{r,eval=T}
+att_dat <- attributes(ames_df)
+head(names(att_dat))
+```
+
+### Example: the variable names 
+
+```{r}
+head(att_dat$names)
+```
+
+<!--
+## Get variable labels
+
+```{r,eval=F}
+ncol(dat)
+length(att_dat$names)
+
+att_dat$var.labels[att_dat$names=="a11d054a"]
+att_dat$label.table[names(att_dat$label.table)=="a11d054a"]
+```
+
+
+## [Variable labels](https://stackoverflow.com/questions/2151147/using-stata-variable-labels-in-r)
+
+```{r,eval=F,echo=F}
+library(foreign)
+dat <- read.dta("../data/ZA5666_v1-0-0_Stata12.dta")
+```
+
+```{r,eval=F}
+attributes(gpdat)
+```
+
+
+
+```{r,eval=T}
+var.labels <- attr(gpdat,"var.labels")
+```
+
+- The same applies to the `haven` package
+
+```{r,eval=F,echo=T}
+library(haven)
+dat_hav <- read_dta("../data/ZA5666_v1-0-0_Stata14.dta")
+var.labels2 <- attr(dat_hav,"var.labels")
+```
+
+
+## GESIS Panel Variable - Estimated duration (bazq020a)
+
+### How long did it take you to fill in the questionnaire?
+
+```{r,eval=F}
+duration <- as.numeric(gpdat$bazq020a)
+```
+
+```{r,eval=F}
+summary(duration)
+```
+
+-->
+
+<!--
+## Recode missing values
+
+```{r,eval=F}
+summary(Ozone)
+```
+
+```{r}
+gpdat$bazq020a[gpdat$bazq020a==-99] <- NA
+summary(as.numeric(gpdat$bazq020a))
+```
+-->
+
+
+<!--
+## [Multiple Logical tests](http://uc-r.github.io/data_wrangling/week-4)
+
+
+![](figure/multiple_logical.PNG)
+-->
+
+
+
+
 ## Get an initial overview of the data
 
 ```{r,eval=F}

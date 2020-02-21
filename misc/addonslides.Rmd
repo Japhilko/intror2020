@@ -138,3 +138,497 @@ mylist[["mynumbers"]] # component named mynumbers in list
 
 
 
+## What is the difference?
+
+![](figure/datastructures.PNG)
+
+## [Indexing](http://uc-r.github.io/data_wrangling/week-3)
+
+### The principle of indexing
+
+```{r,eval=F}
+vector[element]
+data.frame[rows, columns]
+matrix[rows, columns]
+list[component]
+list[[component]]
+list$component
+```
+
+<!--
+- `vector[element]`
+- `data.frame[rows, columns]`
+- `matrix[rows, columns]`
+- `list[component]`
+- `list[[component]]`
+- `list$component`
+-->
+
+
+## Private internet usage (a11c034a)
+
+> The Internet is constantly growing in significance for society. Therefore, we
+are interested whether you yourself use the Internet at least occasionally
+for private purposes?
+
+```{r}
+table(gpdat$a11c034a)
+```
+
+
+```{r,eval=T,echo=T}
+ind <- which(names(att_dat$label.table)=="a11c034a")
+att_dat$label.table[ind]
+```
+
+
+## Very simple imputation 
+
+```{r}
+# data frame with missing data
+df <- data.frame(col1 = c(1:3, NA),
+                 col2 = c("this", NA,"is", "text"), 
+                 col3 = c(TRUE, FALSE, TRUE, TRUE), 
+                 col4 = c(2.5, 4.2, 3.2, NA),
+                 stringsAsFactors = FALSE)
+                 
+(df$col4[is.na(df$col4)] <- mean(df$col4, na.rm = TRUE))
+```
+
+
+## [Codebook entries](https://github.com/tidyverse/tibble/issues/90)
+
+- It is also possible to create stata like codebook entries with `memisc`.
+
+```{r,eval=F}
+codebook(gpdat$a11c019a)
+```
+
+<!--
+## Another function
+
+```{r}
+name1 <- tolower(c("DEEPAYAN","SARKAR"))
+```
+
+```{r}
+firstup <- function(x) {
+   substr(x, 1, 1) <- toupper(substr(x, 1, 1))
+    return(x)
+}
+```
+
+```{r}
+firstup(name1)
+```
+-->
+
+<!--
+## Restrict with the `tidyverse` package
+
+```{r,eval=F}
+head(gpdat[duration>20,1:4])
+```
+
+- the same with a command from `tidyverse` package
+
+```{r,eval=F}
+library(tidyverse)
+filter(gpdat, duration>20)
+```
+
+```{r,echo=F,eval=F}
+library(tidyverse)
+head(filter(gpdat, duration>20))
+```
+
+
+```{r,eval=F,echo=F}
+install.packages("tidyverse")
+```
+-->
+
+
+<!--
+## Excursus: Logical operations
+
+```{r}
+(a <- 1:7) # Example data - numerical
+```
+
+```{r}
+a>4
+a>=4
+a<3
+```
+
+## Excursus: Logical operations II 
+
+```{r}
+(b <- letters[1:7]) # Example data - strings
+b=="e"
+b %in% c("e","f")
+```
+-->
+
+<!--
+
+## The use of sequences in indexing
+
+```{r,eval=T,echo=F}
+library("readstata13")
+gpdat <- read.dta13("../data/ZA5666_v1-0-0_Stata14.dta",
+                   convert.factors = F)
+```
+
+```{r}
+gpdat[15:23,10:14]
+```
+
+
+-->
+
+
+## Levels of a factor
+
+```{r,eval=T}
+let <- as.factor(c(LETTERS[1:5],LETTERS[1:3]))
+str(let)
+levels(let)
+levels(let)[2:4] <- c("first","second","third")
+levels(let)
+```
+
+
+## Factor
+A factor- type vector contains a set of numeric codes with character-valued levels.
+
+### Example
+
+- a family of two girls (1) and four boys (0),
+
+```{r}
+(kids <- factor(c(1,0,1,0,0,0),levels= c(0,1),
+                labels= c("boy","girl")))
+class(kids)
+mode(kids)
+```
+
+
+## A factor
+
+<!--
+Regardless of the levels/labels of the factor,  the numeric storage is an integer with 1 corresponding to the
+first level (in alph-order).
+-->
+
+```{r,warning=T}
+kids + 1
+as.numeric(kids)
+1 + as.numeric(kids)
+```
+
+
+
+
+## Excursus - how to use labels 
+
+> Tools for Working with Categorical Variables (Factors) 
+
+```{r}
+library("forcats") 
+```
+
+- `fct_collapse` -  to summarize factor levels
+- `fct_count` - to count the entries in a factor
+- `fct_drop`	- Take out unused levels
+
+## The command `fct_count`
+
+### Leisure time frequency: Read books (a11c026a)
+
+```{r,echo=F,eval=F}
+dat$a11c026a<-as.factor(dat$a11c026a)
+```
+
+
+```{r}
+fct_count(f = let)
+```
+
+## The command `fct_collapse`
+
+```{r}
+letb <- fct_collapse(.f = let,
+    important=c("first","second"))
+```
+
+```{r}
+fct_count(letb)
+```
+
+## [`recode`](https://www.r-bloggers.com/recoding-variables-in-r-pedagogic-considerations/) command in package `car`
+
+```{r,echo=F,eval=F}
+install.packages("car")
+```
+
+
+
+```{r}
+library(car)
+```
+
+```{r,eval=T}
+head(let)
+head(recode(let,"'first'='A';else='B'"))
+```
+
+
+
+
+## [The `reshape` package](https://www.statmethods.net/management/reshape.html)
+
+```{r,echo=F,eval=F}
+install.packages("reshape")
+```
+
+
+### Example dataset 
+
+```{r}
+(mydata <- data.frame(id=rep(1:2,each=2), # sample dataset
+                     time=rep(c(1,2),2),
+                     x1 = c(5,3,6,2),
+                     x2 = c(6,5,1,4)))
+```
+
+
+## Example of command `melt`
+
+```{r}
+library(reshape)
+melt(mydata, id=c("id","time")) #  
+```
+
+
+## Merge data
+
+
+```{r,eval=T,echo=F}
+authors <- data.frame(
+    ## I(*) : use character columns of names to get sensible sort order
+    surname = I(c("Tukey", "Venables", "Tierney", "Ripley", "McNeil")),
+    nationality = c("US", "Australia", "US", "UK", "Australia"),
+    deceased = c("yes", rep("no", 4)))
+authorN <- within(authors, { name <- surname; rm(surname) })
+books <- data.frame(
+    name = I(c("Tukey", "Venables", "Tierney",
+             "Ripley", "Ripley", "McNeil", "R Core")),
+    title = c("Exploratory Data Analysis",
+              "Modern Applied Statistics ...",
+              "LISP-STAT",
+              "Spatial Statistics", "Stochastic Simulation",
+              "Interactive Data Analysis",
+              "An Introduction to R"),
+    other.author = c(NA, "Ripley", NA, NA, NA, NA,
+                     "Venables & Smith"))
+```
+
+```{r,eval=F,echo=F}
+save(authorN,books,file="../data/merge_example_data.RData")
+```
+
+```{r,eval=F}
+load("../data/merge_example_data.RData")
+```
+
+![](figure/authorbooks_exdata.PNG)
+
+## `merge` data
+
+- these two give the same results:
+
+```{r}
+(m0 <- merge(authorN, books))
+```
+
+```{r}
+(m1 <- merge(authors, books, by.x = "surname", 
+             by.y = "name"))
+```
+
+
+<!--
+## The package `tibble`
+
+```{r,eval=F,echo=F}
+install.packages("tibble")
+```
+
+### Difference between tibble and data.frame
+
+- There are three key differences between tibbles and data frames: printing, subsetting, and recycling rules.
+
+
+```{r,eval=F}
+library(tibble)
+(gpanel1 <- as_tibble(dat))
+```
+-->
+
+<!--
+## Exercise: make a interactive table
+
+- Download the dataset `dat_cf2.RData` from ILIAS
+- Import dataset into R 
+- Create an interactive table using the following commands
+
+```{r,eval=F}
+library(DT)
+DT::datatable(dat_cf2)
+```
+
+- See which additional arguments of the function `datatable` are valuable
+
+-->
+
+
+<!--
+```{r,echo=showSolution,eval=showSolution}
+dat <- readstata13::read.dta13("../data/ZA5666_v1-0-0_Stata14.dta")
+```
+
+- Calculate the average duration (variable `bfzq020a`) by age group
+
+
+```{r,echo=showSolution,eval=showSolution}
+dat$Dauer <- as.numeric(dat$bfzq020a)
+dat$Dauer[dat$bfzq020a %in% c(-77,-22,-33,-77.-99)] <- NA
+tapply(dat$Dauer,dat$bfzh070z,mean,na.rm=T)
+```
+-->
+
+# Basic graphics
+
+
+<!--
+## Datensatz
+
+```{r,echo=F,eval=F}
+install.packages("mlmRev")
+```
+
+
+```{r,message=F}
+library(mlmRev)
+data(Chem97)
+```
+
+- [lea] Local Education Authority - a factor
+- [school] School identifier - a factor
+- [student] Student identifier - a factor
+- [score] Point score on A-level Chemistry in 1997
+- [gender] Student's gender
+- [age] Age in month, centred at 222 months or 18.5 years
+- [gcsescore] Average GCSE score of individual.
+- [gcsecnt] Average GCSE score of individual, centered at mean.
+-->
+
+
+<!--
+mentioned later:
+https://cran.r-project.org/doc/contrib/usingR.pdf
+
+to specific:
+https://www.stat.auckland.ac.nz/~paul/R/graphicsqc.pdf
+-->
+
+
+## Import GESIS Panel data
+
+```{r,echo=F}
+dat <- readstata13::read.dta13("../data/ZA5666_v1-0-0_Stata14.dta")
+dat$duration <- as.numeric(dat$bfzq020a)
+dat$duration[dat$bfzq020a %in% c(-77,-22,-33,-77.-99)] <- NA
+```
+
+```{r,eval=F,size="small"}
+dat <- readstata13::read.dta13("../data/ZA5666_v1-0-0_Stata14.dta")
+```
+
+```{r,eval=T,size="small"}
+datf <- readstata13::read.dta13("../data/ZA5666_v1-0-0_Stata14.dta",
+                                convert.factors = F)
+```
+
+
+## Estimated duration (bfzq020a)
+
+### How long did it take you to fill in the questionnaire?
+
+```{r,eval=F}
+dat <- readstata13::read.dta13("ZA5666_v1-0-0_Stata14.dta")
+dat$duration <- as.numeric(dat$bfzq020a)
+summary(dat$duration)
+```
+
+```{r,echo=F}
+summary(dat$duration)
+```
+
+
+![](figure/hist_duration.PNG)
+
+
+## Recode the missing values
+
+```{r}
+transform_miss <- function(x){
+  x[x%in%c(-11,-22,-33,-44,-55,-66,-77,-88,-99,-111)] <- NA
+  x[x%in%c("Item nonresponse","Missing by filter",
+           "Not reached","Unit nonresponse",
+           "Not in panel")] <- NA
+  return(x)
+}
+```
+
+```{r}
+Inetfriends <- as.character(transform_miss(dat$bbzc024a))
+(tab2dim <- table(Inetfriends,sex))
+```
+
+### Internet search for information: Friends (bbzc024a) and gender (a11d054a)
+
+![](figure/condtable.PNG)
+
+![](figure/barplotbeside.PNG)
+
+
+## The `jitter` function 
+
+```{r,eval=F}
+# par(mfrow=c(2,1))
+a <- rnorm(1000)
+b <- rep(3,1000)
+plot(a,b,pch=20,col=rgb(1,0,0,.1))
+plot(a,jitter(b),col=rgb(1,0,0,.1),pch=20,ylim=c(2,4))
+```
+
+```{r,eval=F,echo=F}
+par(mfrow=c(1,2))
+plot(a,b,pch=20,col=rgb(1,0,0,.1))
+plot(a,jitter(b),col=rgb(1,0,0,.1),pch=20,ylim=c(2,4))
+```
+
+![](figure/jitterfun.PNG)
+
+
+
+```{r,eval=F,echo=F}
+save(littlegp,file="../data/littlegp.RData")
+```
+
+```{r,echo=T,eval=T}
+load("../data/littlegp.RData")
+```
