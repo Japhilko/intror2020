@@ -32,7 +32,11 @@ if (sysInfo["nodename"]=="MAC14026"){
   path_wherepicslive <- "D:/github/summerschool_uganda/slides/"
 }
 
-  
+if (sysInfo["nodename"]=="MAL15039"){
+  new.folder <- "E:/github/intror2020/slides/"
+  path_wherepicslive <- "E:/github/summerschool_uganda/slides/"
+}
+
 
 if (sysInfo["nodename"]=="MAL15037"){
   new.folder <- "D:/github/summerschool_uganda/slides/"

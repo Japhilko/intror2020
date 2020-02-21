@@ -1,27 +1,28 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>A1 Getting started with R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Jan-Philipp Kolb" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="..\workshop.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# A1 Getting started with R
+### Jan-Philipp Kolb
+### 21 Februar, 2020
+
 ---
-title: "A1 Getting started with R"
-author: "Jan-Philipp Kolb"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
-fontsize: 10pt
-output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    css: ["default", "default-fonts", "../workshop.css"]
-    nature:
-      highlightStyle: "github"
-      highlightLines: true
-      countIncrementalSlides: false
----
 
 
-```{r, include=FALSE,purl=F}
-#https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
-knitr::opts_chunk$set(echo = T,warning=F,message=F,size="small",cache=F)
-```
 
-```{r,eval=F,echo=F}
-knitr::purl("slides/GettingStarted.Rmd",documentation = 2)
-```
+
+
+
 
 ---
 
@@ -37,9 +38,9 @@ knitr::purl("slides/GettingStarted.Rmd",documentation = 2)
 
 ... all with R!
 
-<!--
+&lt;!--
 - Get an introduction to machine learning  - 
--->
+--&gt;
 
 ---
 
@@ -74,37 +75,23 @@ collaborative work!
 - Please ask us, if something is unclear.
 
 
-<!--
+&lt;!--
 ## Outline for this part
--->
+--&gt;
 
 
-```{r,echo=F,eval=F}
 
-c("A1 Getting started","A2 How to get help", "A3 Data import","A4 The GESIS panel data data","A5 data export")
 
-c("B1 Basic data analysis","B2 The use of the survey package","B3 Graphics","B4 linear regression","B5 logistic regression")
 
-c("C1 Understanding error messages","C2 Hierarchical/Multilevel models")
-```
 
-```{r,echo=F,eval=F}
-library(knitr)
-sched <- xlsx::read.xlsx2("../orga/schedule.xlsx",1)
-dats <- sched[1:7,c(1,4,5)]
-dats <- dats[-which(dats$Part=="Break"),]
-
-kable(dats,row.names = F)
-```
-
-<!--
+&lt;!--
 ## Overview - advantages of R
 
 ![http://bigdatahadooppro.com/tag/advantages-of-using-r/](figure/Importance-of-Learning-R.jpg)
--->
+--&gt;
 
 
-<!--
+&lt;!--
 https://www.quora.com/What-is-R-programming-language
 
 - [**Cross-Platform Compatible**](https://en.wikipedia.org/wiki/Cross-platform)
@@ -115,16 +102,16 @@ https://www.quora.com/What-is-R-programming-language
 - Flexible and fun
 
 
--->
+--&gt;
 
 ---
 
 ## Reasons for using R...
 
 
-<!--
+&lt;!--
 Outstanding Graphs
--->
+--&gt;
 
 - ... because it is an [**open source language**](https://stackoverflow.com/questions/1546583/what-is-the-definition-of-an-open-source-programming-language)
 - ... outstanding graphs - [**graphics**](http://matthewlincoln.net/2014/12/20/adjacency-matrix-plots-with-r-and-ggplot2.html), [**graphics**](https://www.r-bloggers.com/3d-plots-with-ggplot2-and-plotly /), [**graphics**](https://procomun.wordpress.com/2011/03/18/splomr/)
@@ -137,9 +124,9 @@ Outstanding Graphs
 
 ## Advantages of R
 
-<!--
+&lt;!--
 R is [freely available](http://www.inside-r.org/why-use-r).
--->
+--&gt;
 
 - R can be downloaded for [**free**](http://mirrors.softliste.de/cran/).
 
@@ -152,9 +139,9 @@ R is [freely available](http://www.inside-r.org/why-use-r).
 - R is becoming more [**popular**](https://twitter.com/josiahjdavis/status/559778930476220418)
 - [**Good**](http://www.sr.bham.ac.uk/~ajrs/R/r-gallery.html) possibilities for [**visualization**](http://research.stowers.org/mcm/efg/R/) 
 
-<!--
+&lt;!--
 http://blog.revolutionanalytics.com/popularity/
--->
+--&gt;
 
 ---
 
@@ -164,7 +151,7 @@ http://blog.revolutionanalytics.com/popularity/
 
 - Interface to: [**Python**](https://cran.r-project.org/web/packages/reticulate/vignettes/calling_python.html), [**Excel**](https://www.springer.com/de/book/9781441900517), [**SPSS**](https://www.ibm.com/support/knowledgecenter/en/SSFUEU_7.2.0/com.ibm.swg.ba.cognos.op_capmod_ig.7.2.0.doc/t_essentials_for_r_statistics.html), [**SAS**](https://cran.r-project.org/web/packages/SASmixed/index.html), [**Stata**](https://cran.r-project.org/web/packages/RStata/index.html)  
 
-<!--
+&lt;!--
 - [**Calling Python from R**](https://cran.r-project.org/web/packages/reticulate/vignettes/calling_python.html)
 
 - [**R Through Excel**](https://www.springer.com/de/book/9781441900517) - A Spreadsheet Interface for Statistics, Data Analysis, and Graphics
@@ -176,15 +163,15 @@ http://blog.revolutionanalytics.com/popularity/
 - [**RStata: A Bit of Glue Between R and Stata**](https://cran.r-project.org/web/packages/RStata/index.html)
 
 - [**Getting Started in R Stata Notes on Exploring Data**](https://www.princeton.edu/~otorres/RStata.pdf)
--->
+--&gt;
 
-<!--
+&lt;!--
 ## [Use R because other programs have big bugs:](https://www.bloomberg.com/news/articles/2013-04-18/faq-reinhart-rogoff-and-the-excel-error-that-changed-history)
 
 ![](figure/RheinhartRogoff.PNG)
--->
+--&gt;
 
-<!--
+&lt;!--
 Reinhart, Rogoff and the Excel Error that changed history
 
 
@@ -200,13 +187,13 @@ https://www.nytimes.com/2013/04/19/opinion/krugman-the-excel-depression.html
 - [**It becomes particularly complicated when working with time data. **](https://coffeehouse.dataone.org/2014/04/09/abandon-all-hope-ye-who-enter-dates-in-excel/)
 
 ![[Abandon all hope, ye who enter dates in Excel](http://uc3.cdlib.org/2014/04/09/abandon-all-hope-ye-who-enter-dates-in-excel/)](figure/Abandon.PNG)
--->
+--&gt;
 
-<!--
+&lt;!--
 ### [**Problems with Excel**](http://www.biomedcentral.com/1471-2105/5/80)
 
 ![Mistaken Identifiers in Excel](figure/ExcelProblems.PNG)
--->
+--&gt;
 
 ---
 
@@ -219,7 +206,7 @@ https://www.nytimes.com/2013/04/19/opinion/krugman-the-excel-depression.html
 
 ## Download R:
 
-<http://www.r-project.org/>
+&lt;http://www.r-project.org/&gt;
 
 ![The CRAN website](figure/CRAN1picture.PNG)
 
@@ -227,12 +214,12 @@ https://www.nytimes.com/2013/04/19/opinion/krugman-the-excel-depression.html
 
 ## Open Source Programm R
 
-- R is a free, non-commercial implementation of the S programming language (by AT&T Bell Laboratories)
+- R is a free, non-commercial implementation of the S programming language (by AT&amp;T Bell Laboratories)
 - Free participation - modular structure 
 
-<!--
+&lt;!--
 (growing number of packages)
--->
+--&gt;
 
 
 ### This is base R:
@@ -265,14 +252,14 @@ For the following reasons:
 
 
 
-<!--
+&lt;!--
 ## Download course files
 
 All files (slides, r-code,...) are available on  [gitlab](https://github.com/Japhilko/IntroR/tree/master/2017).
 
 
 [How to use gitlab?](https://guides.github.com/activities/hello-world/)
--->
+--&gt;
 
 ---
 
@@ -280,18 +267,18 @@ All files (slides, r-code,...) are available on  [gitlab](https://github.com/Jap
 
 ![](figure/rstudio_ide.PNG){width=110%}
 
-<!--
+&lt;!--
 ![](figure/RstudioExample.PNG)
--->
+--&gt;
 
-<!--
+&lt;!--
 ## Customizing RStudio
 
 
 ![](figure/options_general.png)
--->
+--&gt;
 
-<!--
+&lt;!--
 - [**Customize Rstudio**](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio)
 
 - Six [**reasons**](http://www.r-bloggers.com/top-6-reasons-you-need-to-be-using-rstudio/) to use Rstudio.
@@ -300,7 +287,7 @@ All files (slides, r-code,...) are available on  [gitlab](https://github.com/Jap
 
 
 http://www.rstudio.com/ide/docs/using/customizing
--->
+--&gt;
 
 ---
 
@@ -312,25 +299,63 @@ http://www.rstudio.com/ide/docs/using/customizing
 
 ![](figure/runskript.PNG) run line where cursor is
 
-<!--
+&lt;!--
 ![](figure/find_replace.PNG) find and replace
--->
+--&gt;
 
 ---
 
 ## R as a calculator
 
-```{r}
+
+```r
 3 + 2 / 10^2 # Uses PEMDAS convention (order of operations)
+```
+
+```
+## [1] 3.02
+```
+
+```r
 3 + (2 / 10^2)
+```
+
+```
+## [1] 3.02
+```
+
+```r
 (3 + 2) / 10^2
 ```
 
+```
+## [1] 0.05
+```
 
-```{r}
+
+
+```r
 1 /19^4 # scientific notation is used for large numbers
+```
+
+```
+## [1] 7.67336e-06
+```
+
+```r
 1/0 # Undefined calculations
+```
+
+```
+## [1] Inf
+```
+
+```r
 Inf - Inf
+```
+
+```
+## [1] NaN
 ```
 
 ---
@@ -343,17 +368,20 @@ Inf - Inf
 - If not - [**install**](http://www.rstudio.com/) Rstudio.
 - Start RStudio. Go to the console (lower left window) and write
 
-```{r,eval=F}
+
+```r
 3+2
 ```
 
 - If there is not already an editor open in the upper left window, then go to the file menu and open a new script. Check the date with `date()` and the R version with `sessionInfo()`.
 
-```{R,eval=F}
+
+```r
 date()
 ```
 
-```{R,eval=F}
+
+```r
 sessionInfo()
 ```
 
@@ -365,11 +393,12 @@ sessionInfo()
 - Write and execute the following code in the `.R` script and identify
 where in Rstudio the outputs can be found.
 
-```{r,eval=F}
+
+```r
 mtcars
 ?sum
 hist(mtcars$mpg)
-random_numbers <- runif(40)
+random_numbers &lt;- runif(40)
 history()
 ```
 
@@ -380,22 +409,40 @@ history()
 ### Vectors and assignments
 
 -  R is a object-orientiented language
--  `<-` is the assignment operator
+-  `&lt;-` is the assignment operator
 
-```{r}
-b <- c(1,2) # create an object with the numbers 1 and 2
+
+```r
+b &lt;- c(1,2) # create an object with the numbers 1 and 2
 ```
 -  A function can be applied to this object:
 
-```{r}
+
+```r
 mean(b) # computes the mean
+```
+
+```
+## [1] 1.5
 ```
 
 We can learn something about the properties of the object:
 
-```{r}
+
+```r
 length(b) # b has the length 2
+```
+
+```
+## [1] 2
+```
+
+```r
 sqrt(b) # the square root of b
+```
+
+```
+## [1] 1.000000 1.414214
 ```
 
 ---
@@ -427,25 +474,70 @@ These functions only need one argument.
 
  
 
-```{r}
+
+```r
 quantile(b,.9)
+```
+
+```
+## 90% 
+## 1.9
+```
+
+```r
 sample(b,1) 
+```
+
+```
+## [1] 1
 ```
 
 ---
 
 ## Examples - Functions with more than one argument
 
-```{r}
+
+```r
 max(b); min(b)
+```
+
+```
+## [1] 2
+```
+
+```
+## [1] 1
+```
+
+```r
 sd(b); var(b)
+```
+
+```
+## [1] 0.7071068
+```
+
+```
+## [1] 0.5
 ```
 
 ### Functions with one argument
 
-```{r}
+
+```r
 mean(b)
+```
+
+```
+## [1] 1.5
+```
+
+```r
 median(b)
+```
+
+```
+## [1] 1.5
 ```
 
 ---
@@ -467,7 +559,7 @@ Create a vector `b` with the numbers from 1 to 5 and calculate ...
 
 ## [**Overview commands**](http://cran.r-project.org/doc/manuals/R-intro.html)
 
-<http://cran.r-project.org/doc/manuals/R-intro.html>
+&lt;http://cran.r-project.org/doc/manuals/R-intro.html&gt;
 
 ![Overview commands](figure/UebersichtBefehle.PNG)
 
@@ -481,7 +573,7 @@ $$
 Q = \sqrt{\dfrac{2DK}{h}}
 $$
 
-### Calculate $Q$ where:
+### Calculate `\(Q\)` where:
 
 - D = 1000
 - K = 5
@@ -498,12 +590,38 @@ $$
 
 – binary, two possible values represented by `TRUE` and `FALSE`
 
-```{r}
-x <- c(3,7, 1, 2)
-x > 2
+
+```r
+x &lt;- c(3,7, 1, 2)
+x &gt; 2
+```
+
+```
+## [1]  TRUE  TRUE FALSE FALSE
+```
+
+```r
 x == 2
-!(x < 3)
-which(x > 2)
+```
+
+```
+## [1] FALSE FALSE FALSE  TRUE
+```
+
+```r
+!(x &lt; 3)
+```
+
+```
+## [1]  TRUE  TRUE FALSE FALSE
+```
+
+```r
+which(x &gt; 2)
+```
+
+```
+## [1] 1 2
 ```
 
 
@@ -511,12 +629,38 @@ which(x > 2)
 
 ## [Character vectors](https://www.stat.berkeley.edu/~nolan/stat133/Fall05/lectures/DataTypes4.pdf)
 
-```{r}
-y <- c("a","bc","def")
+
+```r
+y &lt;- c("a","bc","def")
 length(y)
+```
+
+```
+## [1] 3
+```
+
+```r
 nchar(y)
+```
+
+```
+## [1] 1 2 3
+```
+
+```r
 y == "a"
+```
+
+```
+## [1]  TRUE FALSE FALSE
+```
+
+```r
 y == "b"
+```
+
+```
+## [1] FALSE FALSE FALSE
 ```
 
 
@@ -524,17 +668,41 @@ y == "b"
 
 ## Object structure
 
-```{r}
+
+```r
 str(b) # b is a numeric vector
+```
+
+```
+##  num [1:2] 1 2
 ```
 
 ### Variable type `character` 
 
-```{r}
-a <- letters
+
+```r
+a &lt;- letters
 length(letters)
+```
+
+```
+## [1] 26
+```
+
+```r
 a[1:4]
+```
+
+```
+## [1] "a" "b" "c" "d"
+```
+
+```r
 str(a)
+```
+
+```
+##  chr [1:26] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" ...
 ```
 
 
@@ -542,13 +710,34 @@ str(a)
 
 ## Problems with character vector
 
-```{r}
+
+```r
 mean(b)
 ```
 
-```{r,warning=T}
-(b1 <- c(b,"a"))
+```
+## [1] 1.5
+```
+
+
+```r
+(b1 &lt;- c(b,"a"))
+```
+
+```
+## [1] "1" "2" "a"
+```
+
+```r
 mean(b1)
+```
+
+```
+## Warning in mean.default(b1): argument is not numeric or logical: returning NA
+```
+
+```
+## [1] NA
 ```
 
 
@@ -561,18 +750,35 @@ mean(b1)
 - All elements in a vector must be of the same type. R coerces the elements to a common type
 - `c(1.2,3,TRUE)` – In this case all elements are coerced to numeric.
 
-```{r}
-x <- c(TRUE,FALSE,TRUE)
+
+```r
+x &lt;- c(TRUE,FALSE,TRUE)
 c(1.2,x)
-y <- c("2","3",".2")
+```
+
+```
+## [1] 1.2 1.0 0.0 1.0
+```
+
+```r
+y &lt;- c("2","3",".2")
 c(1.2,y, x)
+```
+
+```
+## [1] "1.2"   "2"     "3"     ".2"    "TRUE"  "FALSE" "TRUE"
 ```
 
 
 - Sometimes this coercion occurs to perform an arithmetic operation:
 
-```{r}
+
+```r
 1 + x
+```
+
+```
+## [1] 2 1 2
 ```
 
 
@@ -582,9 +788,21 @@ c(1.2,y, x)
 
 - Other times we need to perform the coercion
 
-```{r}
+
+```r
 c(1.2,y)
+```
+
+```
+## [1] "1.2" "2"   "3"   ".2"
+```
+
+```r
 c(1.2,as.numeric(y))
+```
+
+```
+## [1] 1.2 2.0 3.0 0.2
 ```
 
 
@@ -592,9 +810,9 @@ c(1.2,as.numeric(y))
 
 ## Information about Vectors 
 
-<!--
+&lt;!--
 - `length(x)`- number of elements in a vector
--->
+--&gt;
 
 - Aggregator functions - `sum`, `mean`, `range`, `min`, `max`, `summary`, `table`, `cut`, ...
 
@@ -614,13 +832,18 @@ is often returned by expressions and functions whose value is undefined.
 
 - `as.numeric(x)` – we use the as-type functions to coerce objects from one type (e.g. logical) to another, in this case numeric. 
 - There are several of these functions, including `as.integer`, `as.character`, `as.logical`
-<!--
+&lt;!--
 , `as.POSIXct`.
--->
+--&gt;
 
-```{r}
-x <- c("1",2,"one","1plus","2_and")
+
+```r
+x &lt;- c("1",2,"one","1plus","2_and")
 as.numeric(x)
+```
+
+```
+## [1]  1  2 NA NA NA
 ```
 
 
@@ -630,31 +853,34 @@ as.numeric(x)
 
 ## Data Frames
 
-<!--
+&lt;!--
 A data frame is more general than a matrix - different columns can have different modes (numeric, character, factor, etc.). This is similar to SAS and SPSS datasets.
--->
+--&gt;
 
 A data frame is a collection of vectors - different columns can have different modes (numeric, character, factor, etc.).
 
 ### Three example vectors
 
-```{r}
-d <- c(1,2,3,4)
-e <- c("red", "white", "red", NA)
-f <- c(TRUE,TRUE,TRUE,FALSE)
+
+```r
+d &lt;- c(1,2,3,4)
+e &lt;- c("red", "white", "red", NA)
+f &lt;- c(TRUE,TRUE,TRUE,FALSE)
 ```
 
 
 ### Bind the example vectors together:
 
-```{r}
-mydata <- data.frame(d,e,f)
+
+```r
+mydata &lt;- data.frame(d,e,f)
 ```
 
 ### Give the columns some names
 
-```{r}
-names(mydata) <- c("ID","Color","Passed") # variable names
+
+```r
+names(mydata) &lt;- c("ID","Color","Passed") # variable names
 ```
 
 
@@ -666,7 +892,8 @@ names(mydata) <- c("ID","Color","Passed") # variable names
 
 There are a variety of ways to identify the elements of a data frame .
 
-```{r,eval=F}
+
+```r
 myframe[3:5] # columns 3,4,5 of data frame
 myframe[c("ID","Age")] # columns ID and Age from data frame
 myframe$X1 # variable x1 in the data frame 
@@ -681,19 +908,21 @@ myframe$X1 # variable x1 in the data frame
 
 All columns in a matrix must have the same mode (numeric, character, etc.) and the same length. The general format is:
 
-```{r,eval=F}
+
+```r
 # generates 5 x 4 numeric matrix
-y <- matrix(1:20, nrow=5,ncol=4)
+y &lt;- matrix(1:20, nrow=5,ncol=4)
 ```
 
 
 - `byrow=TRUE` indicates that the matrix should be filled by rows. 
 - `byrow=FALSE` - matrix should be filled by columns (the default). 
 
-```{r}
+
+```r
 # an example
-cells <- c(1,26,24,68)
-mymatrix <- matrix(cells, nrow=2, ncol=2, byrow=TRUE) 
+cells &lt;- c(1,26,24,68)
+mymatrix &lt;- matrix(cells, nrow=2, ncol=2, byrow=TRUE) 
 ```
 
 
@@ -705,11 +934,12 @@ mymatrix <- matrix(cells, nrow=2, ncol=2, byrow=TRUE)
 
 - `dimnames` provides optional labels for the columns and rows. 
 
-```{r}
+
+```r
 # another example
-rnames <- c("R1", "R2")
-cnames <- c("C1", "C2")
-mymatrix <- matrix(cells, nrow=2, ncol=2, byrow=TRUE,
+rnames &lt;- c("R1", "R2")
+cnames &lt;- c("C1", "C2")
+mymatrix &lt;- matrix(cells, nrow=2, ncol=2, byrow=TRUE,
   dimnames=list(rnames, cnames)) 
 ```
 
@@ -722,7 +952,8 @@ mymatrix <- matrix(cells, nrow=2, ncol=2, byrow=TRUE,
 
 Identify rows, columns or elements using subscripts. 
 
-```{r,eval=F}
+
+```r
 x[,4] # 4th column of matrix
 x[3,] # 3rd row of matrix
 x[2:4,1:3] # rows 2,3,4 of columns 1,2,3 
@@ -736,19 +967,21 @@ x[2:4,1:3] # rows 2,3,4 of columns 1,2,3
 
 An ordered collection of objects (components). A list allows you to gather a variety of (possibly unrelated) objects under one name.
 
-```{r,eval=F}
+
+```r
 # example of a list with 4 components -
 # a string, a numeric vector, a matrix, and a scaler
-w <- list(name="Fred", mynumbers=a, mymatrix=y, age=5.3)
+w &lt;- list(name="Fred", mynumbers=a, mymatrix=y, age=5.3)
 
 # example of a list containing two lists
-v <- c(list1,list2)
+v &lt;- c(list1,list2)
 ```
 
 
 Identify elements of a list using the [[ ]] convention.
 
-```{r,eval=F}
+
+```r
 mylist[[2]] # 2nd component of the list
 mylist[["mynumbers"]] # component named mynumbers in list
 ```
@@ -759,21 +992,14 @@ mylist[["mynumbers"]] # component named mynumbers in list
 
 ## [**Where to find routines**](https://stats.idre.ucla.edu/r/seminars/intro/)
 
-```{r,eval=T,echo=F}
-# http://blog.revolutionanalytics.com/2015/06/how-many-packages-are-there-really-on-cran.html
-CRANmirror <- "http://cran.revolutionanalytics.com"
-cran <- contrib.url(repos = CRANmirror, 
-                      type = "source")
-info <- available.packages(contriburl = cran, type = "source")
-# nrow(info)
-```
+
 
 
 
 - Many functions are included in basic R 
 - Many specific functions are integrated in additional libraries
 - R can be modularly extended by so-called packages or libraries
-- Most important packages hosted on CRAN (`r nrow(info)` at `r format(Sys.time(), "%a %b %d")`)
+- Most important packages hosted on CRAN (0 at Fr Feb 21)
 - Further packages can be found e.g. at [**bioconductor**](www.bioconductor.org)
 
 
@@ -790,7 +1016,8 @@ info <- available.packages(contriburl = cran, type = "source")
 - They are optional for the command `library`.
 - You can also use `require` instead of `library`.
 
-```{r,eval=F}
+
+```r
 install.packages("lme4")
 
 library(lme4)
@@ -856,13 +1083,15 @@ Have a look at the package documentation. What are these packages for?
 
 ### Install packages from CRAN Server
 
-```{r,eval=F}
+
+```r
 install.packages("lme4")
 ```
 
 ### Install packages from Bioconductor Server
 
-```{r,eval=F}
+
+```r
 source("https://bioconductor.org/biocLite.R")
 biocLite(c("GenomicFeatures", "AnnotationDbi"))
 ```
@@ -871,7 +1100,8 @@ biocLite(c("GenomicFeatures", "AnnotationDbi"))
 
 ### Install packages from Github
 
-```{r,eval=F}
+
+```r
 install.packages("devtools")
 library(devtools)
 
@@ -883,7 +1113,8 @@ install_github("hadley/ggplot2")
 
 ## Packages
 
-```{r,eval=F}
+
+```r
 # load the package to use in the current R session
 library(tidyverse)
 
@@ -894,7 +1125,8 @@ stringr::str_replace()
 
 ### Getting help on packages
 
-```{r,eval=F}
+
+```r
 # provides details regarding contents of a package
 help(package = "tidyr")
 # list vignettes available for a specific package
@@ -928,7 +1160,8 @@ vignette("tidy-data")
 - Currently there are 35 task views.
 - All packages of a task view can be installed with the following [**command:**](https://mran.microsoft.com/rpackages/)
 
-```{r,eval=F}
+
+```r
 install.packages("ctv")
 library("ctv")
 install.views("Bayesian")
@@ -944,9 +1177,9 @@ install.views("Bayesian")
 
 ### Go for example to: 
 
-<https://cran.r-project.org/> 
+&lt;https://cran.r-project.org/&gt; 
 
-<https://awesome-r.com/>
+&lt;https://awesome-r.com/&gt;
 
 ### or search for 
 
@@ -995,10 +1228,10 @@ http://www.intro-stats.com/
 - [**Why the R programming language is good for business?**](http://www.fastcolabs.com/3030063/why the r programming language is good for business) 
 
 - [**Have a look at R-bloggers**](http://www.r-bloggers.com/why-use-r/)
-<!--
+&lt;!--
 - [Intro R](http://www.ats.ucla.edu/stat/r/seminars/intro.htm)
 - [Intro R II](http://www.ats.ucla.edu/stat/r/sk/)
--->
+--&gt;
 
 - [**Comparisson between python and R**](http://www.dataschool.io/python-or-r-for-data-science/)
 
@@ -1010,9 +1243,9 @@ http://www.intro-stats.com/
 
 - [**Learn R by watching two‐minute videos**](https://www.youtube.com/playlist?list=PLcgz5kNZFCkzSyBG3H-rUaPHoBXgijHfC)
 
-<!--
+&lt;!--
 ## Further resources
--->
+--&gt;
 
 
 ### R for stata users
@@ -1020,16 +1253,16 @@ http://www.intro-stats.com/
 - Oscar Torres-Reyna - [**Exploring Data and Descriptive Statistics
 (using R)**](https://www.princeton.edu/~otorres/sessions/s2r.pdf)
 
-<!--
+&lt;!--
 https://www.r-bloggers.com/giving-r-the-strengths-of-stata/
--->
+--&gt;
 
 
-<!--
+&lt;!--
 https://craigwang.shinyapps.io/rPackageStats/
--->
+--&gt;
 
-<!--
+&lt;!--
 Cheatsheet:
 
 Intro stats with mosaic
@@ -1045,4 +1278,112 @@ https://www.r-exercises.com/?s=glm
 https://www.r-exercises.com/2018/07/19/basic-generalised-linear-modelling-part-1-exercises/
 
 http://onlinestatbook.com/2/regression/intro.html
--->
+--&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
