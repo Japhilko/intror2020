@@ -1,6 +1,6 @@
 ---
 title: "A5 - Data Processing"
-author: "Kolb / Kariuki"
+author: "Jan-Philipp Kolb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 fontsize: 10pt
 output:
@@ -193,55 +193,6 @@ list$component
 - `list[component]`
 - `list[[component]]`
 - `list$component`
--->
-
-
-<!--
-## Indexing a `data.frame`
-
-### Example dataset:
-
-```{r}
-load(paste0(oldgitpath,"/data/mydata.RData"))
-```
-
-```{r,echo=F}
-load(paste0(oldgitpath,"/data/mydata.RData"))
-```
-
-### Indexing
-
-```{r}
-mydata[1,1] # get the element at the top left
-```
-
-```{r}
-mydata[2,] # see only the second row
-```
-
-```{r}
-mydata[,1] # see only the first column
-```
--->
-
-<!--
-## Indexing a `data.frame` II
-
-
-```{r}
-mydata[1:2,] # get the first two rows
-```
--->
-
-<!--
-## Get a subset of the dataset 
-
-- These operators are good for restricting records
-
-```{r,echo=T,eval=F}
-duration <- as.numeric(gpdat$bazq020a)
-head(gpdat[duration>20,])
-```
 -->
 
 

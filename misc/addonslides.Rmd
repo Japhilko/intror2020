@@ -1,0 +1,140 @@
+---
+title: "Add On slides"
+author: "Jan-Philipp Kolb"
+date: "21 2 2020"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+---
+
+## Data Frames
+
+<!--
+A data frame is more general than a matrix - different columns can have different modes (numeric, character, factor, etc.). This is similar to SAS and SPSS datasets.
+-->
+
+A data frame is a collection of vectors - different columns can have different modes (numeric, character, factor, etc.).
+
+### Three example vectors
+
+```{r}
+d <- c(1,2,3,4)
+e <- c("red", "white", "red", NA)
+f <- c(TRUE,TRUE,TRUE,FALSE)
+```
+
+
+### Bind the example vectors together:
+
+```{r}
+mydata <- data.frame(d,e,f)
+```
+
+### Give the columns some names
+
+```{r}
+names(mydata) <- c("ID","Color","Passed") # variable names
+```
+
+
+
+
+---
+
+## Identify the elements of a data frame
+
+There are a variety of ways to identify the elements of a data frame .
+
+```{r,eval=F}
+myframe[3:5] # columns 3,4,5 of data frame
+myframe[c("ID","Age")] # columns ID and Age from data frame
+myframe$X1 # variable x1 in the data frame 
+```
+
+
+
+
+
+## [Matrices](https://www.statmethods.net/input/datatypes.html)
+
+All columns in a matrix must have the same mode (numeric, character, etc.) and the same length. The general format is:
+
+```{r,eval=F}
+# generates 5 x 4 numeric matrix
+y <- matrix(1:20, nrow=5,ncol=4)
+```
+
+
+- `byrow=TRUE` indicates that the matrix should be filled by rows. 
+- `byrow=FALSE` - matrix should be filled by columns (the default). 
+
+```{r}
+# an example
+cells <- c(1,26,24,68)
+mymatrix <- matrix(cells, nrow=2, ncol=2, byrow=TRUE) 
+```
+
+
+
+---
+
+## Matrix - dimnames
+
+
+- `dimnames` provides optional labels for the columns and rows. 
+
+```{r}
+# another example
+rnames <- c("R1", "R2")
+cnames <- c("C1", "C2")
+mymatrix <- matrix(cells, nrow=2, ncol=2, byrow=TRUE,
+  dimnames=list(rnames, cnames)) 
+```
+
+
+
+
+---
+
+## Matrices and subscripts
+
+Identify rows, columns or elements using subscripts. 
+
+```{r,eval=F}
+x[,4] # 4th column of matrix
+x[3,] # 3rd row of matrix
+x[2:4,1:3] # rows 2,3,4 of columns 1,2,3 
+```
+
+
+
+---
+
+## Lists
+
+An ordered collection of objects (components). A list allows you to gather a variety of (possibly unrelated) objects under one name.
+
+```{r,eval=F}
+# example of a list with 4 components -
+# a string, a numeric vector, a matrix, and a scaler
+w <- list(name="Fred", mynumbers=a, mymatrix=y, age=5.3)
+
+# example of a list containing two lists
+v <- c(list1,list2)
+```
+
+
+Identify elements of a list using the [[ ]] convention.
+
+```{r,eval=F}
+mylist[[2]] # 2nd component of the list
+mylist[["mynumbers"]] # component named mynumbers in list
+```
+
+
+
