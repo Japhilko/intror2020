@@ -632,3 +632,12 @@ save(littlegp,file="../data/littlegp.RData")
 ```{r,echo=T,eval=T}
 load("../data/littlegp.RData")
 ```
+
+## Changing the number of breaks
+
+```{r,echo=T}
+hist(ames_df$Lot_Area,col="blue",
+     main="Lot size in square feet",ylab="Frequency", 
+     xlab="Lot size",breaks=100)
+```
+

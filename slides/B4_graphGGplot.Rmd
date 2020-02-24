@@ -1,0 +1,287 @@
+---
+title: "Graphing Data Using GGPlot"
+author: "Kolb / Kariuki"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+fontsize: 10pt
+output:
+  beamer_presentation: 
+    fig_caption: no
+    fig_height: 3
+    fig_width: 5
+    fonttheme: structuresmallcapsserif
+    highlight: zenburn
+    colortheme: whale
+    theme: Warsaw
+  pdf_document:
+    toc: yes
+  html_document:
+    keep_md: yes
+  slidy_presentation:
+    keep_md: yes
+---
+ 
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE,warning=F)
+```
+ 
+ 
+
+
+## GGplot vs Base
+
+ggplot attempts to create a consistent framework for build graphs "layer by layer" in R. 
+
+You construct a graph by specifying:
+
+1. The data.
+2. An aesthetic (e.g., colors, line styles, the coordinate system, etc). 
+3. A graph "geometry" (e.g., boxplot, scatterplot, etc). This is where you specify the kind of graph you want.
+4. Labels. The plot title, axis labels, etc. 
+
+
+## A scatterplot 
+
+creating the graph object and specifying the dataset.
+
+```{r, echo=T}
+library(ggplot2)
+car.graph <- ggplot(mtcars)
+```
+
+
+- Specifying what aesthetics to use. In this case, the coordinate
+- system to use -- meaning the x-y axis. This is sometimes also
+- referred to as the "mapping" being used.
+
+
+```{r}
+car.graph <- car.graph + aes(wt, mpg)
+```
+
+
+## Specifying the plot
+
+```{r}
+## Specifying the plot "geometry" in this case, a scatter plot.
+car.graph <- car.graph + geom_point()
+
+## Calling the graph object reproduces the plot.
+car.graph
+
+## We can also create the plot without storing all of the intermediate
+## states
+car.graph <- ggplot(mtcars) + aes(wt, mpg) + geom_point()
+
+car.graph
+
+```
+
+
+```{r, echo=T, eval=F}
+
+## We can save the plot using the ggsave function 
+# (more detail on this later).
+ggsave(car.graph, filename="myplot.pdf")
+
+```
+
+
+## Exercise: A scatterplot
+
+Use the code below to generate a random dataset. Then plot the results
+as a scatterplot, using ggplot2. Don't worry if your labels are
+different than mine. I'll cover some of those details after the
+exercise.
+
+```{r, echo=T, eval=T}
+set.seed(42)
+cat.var <- c(rep.int(0, 100), rep.int(1, 100))
+cont.var.x <- rnorm(n=100, mean=2, sd=4)
+cont.var.y <- cont.var.x + cont.var.x*cat.var
+simulated.dataset <- data.frame(cont.var.x, cont.var.y, cat.var)
+```
+
+## What the result should look like
+
+```{r, echo=F}
+ggplot(simulated.dataset) +
+    aes(x=cont.var.x, cont.var.y) +
+    geom_point(aes(col=as.factor(cat.var))) + 
+    labs(title="Simulated scatterplot.", color="Our made up categories") +
+    theme(legend.title=element_text(color="black")) + 
+    theme(legend.text = element_text(size = 8, colour = "red"))
+     
+
+```
+
+
+
+## Specifying different aesthetics
+
+### Themes 
+```{r, echo=T}
+## Minimal theme
+ggplot(mtcars) + aes(wt, mpg) + geom_point() + 
+    theme_minimal()
+```
+
+## Themes
+
+```{r,eval=F}
+ggplot(mtcars) + aes(wt, mpg) + geom_point() + theme_gray() ## the default
+ggplot(mtcars) + aes(wt, mpg) + geom_point() + theme_dark() ## Dark, usually not recommended.
+ggplot(mtcars) + aes(wt, mpg) + geom_point() + theme_classic() ## Very traditional
+ggplot(mtcars) + aes(wt, mpg) + geom_point() + theme_void() ## Use if you don't want an axis.
+```
+
+```{r,eval=F,echo=F}
+ggplot(mtcars) + aes(wt, mpg) + geom_point() + theme_gray() ## the default
+ggplot(mtcars) + aes(wt, mpg) + geom_point() + theme_dark() ## Dark, usually not recommended.
+ggplot(mtcars) + aes(wt, mpg) + geom_point() + theme_classic() ## Very traditional
+ggplot(mtcars) + aes(wt, mpg) + geom_point() + theme_void() ## Use if you don't want an axis.
+```
+
+
+
+There are a number of other built in themes, but you get the idea. You
+can also create your own themes if one of the built in ones doesn't do
+what you want.
+
+### colors
+
+```{r, echo=T}
+car.graph <- ggplot(mtcars) + aes(wt, mpg) + 
+    geom_point(color="red")
+car.graph
+```
+
+
+
+## point/line styles.
+
+```{r, echo=T}
+car.graph <- ggplot(mtcars) + aes(wt, mpg) + 
+    geom_point(shape=21) + geom_line(linetype=2)
+car.graph
+```
+
+ 
+## A boxplot
+```{r, echo=T}
+
+ggplot(mtcars) + aes(as.factor(gear), mpg) +geom_boxplot()
+
+```
+
+## Adding a title/changing labels
+
+- geom_text() adds text to a plot. 
+
+- geom_label() adds stuff to make the text easier to read (e.g., a box around the text).
+
+-  labs() modifies your labels/title.
+
+-  theme() lets us manipulate stuff like the inclusion of a legend, its position, etc.
+
+## Adding a title/changing labels
+
+```{r, echo=T}
+
+ggplot(mtcars) + aes(as.factor(gear), mpg) +
+    geom_boxplot() +
+    geom_text(aes(label=as.factor(gear), col="red")) +
+    geom_label(aes(label=as.factor(gear), col="red"))+
+    labs(x="A different label than earlier.", title="A boxplot, with observations labeled according to their number of gears") +
+    theme(legend.position="none")
+
+```
+
+## Saving a graph
+
+```{r, echo=T, eval=F}
+
+## Saving to pdf
+ggsave(car.graph, file="car_graph.pdf")
+
+## Saving to pdf, while specifying dimensions of plot
+ggsave(car.graph, file="car_graph.pdf", width = 20, 
+       height = 20, units = "cm")
+
+## Saving to png
+ggsave(car.graph, file="car_graph.png")
+
+## Other formats are possible. 
+# See ?ggsave for more information.
+
+```
+
+## A barplot
+```{r, echo=T}
+## Data + aesthetics + geometry.
+ggplot(mtcars)+aes(gear)+geom_bar()
+```
+
+## A histogram
+
+```{r, echo=T}
+
+## Data + aesthetics + geometry.
+ggplot(mtcars)+aes(mpg)+geom_histogram()
+
+```
+
+## A density plot
+
+```{r, echo=T}
+ggplot(mtcars)+aes(mpg)+geom_density()
+```
+
+## Exercise: Histogram and density plot
+
+Using your data from the scatterplot exercise, produce a histogram for
+cont.var.x, and a density plot for cont.var.y.
+
+```{r, echo=FALSE, eval=FALSE}
+ggplot(simulated.dataset) + geom_histogram()+
+    aes(x=cont.var.x)
+
+ggplot(simulated.dataset) + geom_density()+
+    aes(x=cont.var.y)
+
+```
+
+## A network plot
+
+This generally needs an additional library: ggraph.
+
+
+```{r, echo=T, eval=F}
+install.packages("ggraph")
+```
+
+```{r, echo=T}
+library(igraph)
+library(ggraph)
+## Setting a "seed" so that we get the same random graph 
+## each time the code is run.
+set.seed(42)
+## Generating a random graph
+g <- barabasi.game(100, m=5)
+## Plotting the graph, specifying edge color, 
+# specifying node shape.
+ggraph(g)+ geom_edge_link(aes(color="red"))+geom_node_point()
+```
+
+
+##
+
+```{r}
+## Storing the degree of each node so that 
+# we can use it later.
+V(g)$degree <- degree(g)
+## Same plot as above, but with node size 
+# based on degree.
+ggraph(g)+ geom_edge_link(aes(color="red"))+geom_node_point(aes(size=degree))
+
+```
+

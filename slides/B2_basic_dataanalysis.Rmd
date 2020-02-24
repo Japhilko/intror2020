@@ -1,0 +1,380 @@
+---
+title: "C2 Basic Data Analysis"
+author: "Kolb / Kariuki"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+fontsize: 10pt
+output:
+  beamer_presentation: 
+    fig_caption: no
+    fig_height: 3
+    fig_width: 5
+    fonttheme: structuresmallcapsserif
+    highlight: zenburn
+    colortheme: whale
+    theme: Warsaw
+  pdf_document:
+    toc: yes
+  html_document:
+    keep_md: yes
+  slidy_presentation:
+    keep_md: yes
+---
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,warning=F,message=F,eval=T,size="small")
+pres <- F
+```
+
+
+## [FIRST THINGS TO DO](http://uc-r.github.io/data_wrangling/week-3)
+
+<!--
+> Don’t try to kiss your data on the first date; rather, you just want to get to know the data:
+-->
+
+1. Import the data
+2. Review the codebook
+3. Learn about the data
+4. **Quick understanding of the data**
+
+
+
+## Edgar Anderson's Iris dataset
+
+```{r}
+data(iris)
+head(iris)
+```
+
+<!--
+- petal length and width 
+
+- sepal length and width
+-->
+
+- [**Wikipedia Article for the IRIS dataset**](https://en.wikipedia.org/wiki/Iris_flower_data_set)
+
+## basic descriptive statistics
+
+```{r,eval=F}
+install.packages("pastecs")
+```
+
+
+```{r}
+library(pastecs)
+stat.desc(iris)
+```
+
+## Same statistics clearer
+
+<!--
+https://stats.idre.ucla.edu/r/faq/how-can-i-get-a-table-of-basic-descriptive-statistics-for-my-variables/
+-->
+
+```{r}
+options(scipen=100)
+options(digits=2)
+stat.desc(iris)
+```
+
+## [More descriptive statistics](https://rcompanion.org/handbook/C_02.html)
+
+```{r}
+library(psych)              
+describe(iris$Sepal.Length)
+describe(iris)
+```
+
+<!--
+FSA - Summarize
+-->
+
+## Five-number summary, quartiles, percentiles
+
+- The five-number summary is a useful measure of variation for skewed interval/ratio data or for ordinal data.  
+
+```{r}
+summary(iris$Sepal.Length)
+```
+
+## Statistics for grouped interval/ratio data
+
+The Summarize function in the FSA package returns the number of observations, mean, standard deviation, minimum, 1st quartile, median, 3rd quartile, and maximum for grouped data.
+
+```{r,eval=F,echo=F}
+install.packages("FSA")
+```
+
+
+```{r}
+library(FSA)
+Summarize(Sepal.Length ~ Species,data=iris)
+```
+
+
+
+## Relationship between continuous variables
+
+```{r}
+# Pearson correlation coefficient
+cor(iris$Sepal.Length,iris$Petal.Length)
+```
+
+- Correlation between petal length and petal length 0.87
+- The Pearson's correlation coefficient is the default method in `cor()`.
+
+
+## Various correlation coefficients
+
+
+```{r}
+# Pearson correlation coefficient
+cor(iris[,1:4]) 
+```
+
+```{r}
+# Kendall's tau (rank correlation)
+cor(iris[,1:4], method = "kendall") 
+```
+
+## Spearman's rho (rank correlation)
+
+```{r}
+cor(iris[,1:4], method = "spearman") 
+```
+
+
+
+## Tests with R: Correlation
+
+### Why is it used?
+
+- To test the linear relationship of two continuous variables
+
+- The `cor.test()` function computes the correlation between two continuous variables and test if the y is dependent on the x. 
+- The null hypothesis is that the true correlation between x and y is zero.
+
+```{r}
+cor.test(iris$Petal.Length, iris$Sepal.Length) 
+```
+
+## How to interpret the result of `cor.test`?
+
+![](figure/PearsonProductMomentCorrelation.PNG)
+
+- If the p Value is less than 0.05, we reject the null hypothesis that the true correlation is zero (i.e. they are independent). 
+- So in this case, we reject the null hypothesis and conclude that `Petal.Length` is dependent on `Sepal.Length`. 
+
+
+## The GESIS Panel data
+
+- We will need the data for the next exercise.
+
+### Import example data:
+
+```{r}
+library("readstata13")
+gpdat <- read.dta13("../data/ZA5666_v1-0-0_Stata14.dta",
+                    convert.factors = F)
+```
+
+### bazq011a - Yes, I have interrupted participation for ... Minutes.
+
+```{r}
+interruption <- as.numeric(gpdat$bazq011a)
+interruption[interruption < 0] <- NA
+```
+
+
+```{r,eval=F,echo=F}
+att_dat <- attributes(gpdat)
+
+# Häufigkeit Wochenmarkteinkauf - 994
+att_dat$var.labels[994]
+att_dat$names[994]
+table(gpdat$beaq125a)
+# "Wochenmarkt: Lebensmittel zu teuer"
+att_dat$names[998]
+table(gpdat$beaq129a)
+
+# see where the continuous variables are 
+erg <- list()
+for(i in 1:ncol(gpdat)){
+  erg[[i]] <- table(gpdat[,i])
+}
+ergl <- unlist(lapply(erg,length))
+head(order(ergl,decreasing = T),n=20)
+
+att_dat$var.labels[1]
+att_dat$var.labels[346]
+att_dat$var.labels[500]
+att_dat$var.labels[1190]
+att_dat$var.labels[498]
+att_dat$var.labels[492] # Dauer Unterbrechung
+att_dat$names[492]
+
+
+att_dat$var.labels[646]
+att_dat$var.labels[1146] # Persönliches Einkommen, 15 Kategorien
+
+```
+
+
+```{r,eval=F,echo=F}
+cdb_path <- "J:/Work/GESISPanel_DATA/01_post_processing/c01/f_2018/ff/03_codebook/translation/"
+cdbdat <- readxl::read_excel(paste0(cdb_path,"ff_ItemSourcesAndTranslationTemplate_Coded.xls"))
+```
+
+
+```{r,eval=F,echo=F}
+
+```
+
+
+
+## Exercise: Test the correlation
+
+- Import the GESIS Panel data.
+- Get the information how long it took the panelists to answer the questionnaire of wave ba and bb (estimated duration).
+- Recode the missing values in both variables to NA.
+- Compute the correlation between these two variables. 
+- Test the linear relationship of the two variables.
+
+## GP Variables - weekly market
+
+### beaq125a - Frequency shopping at a weekly market
+
+```{r}
+table(gpdat$beaq125a)
+wm_freq <- gpdat$beaq125a
+wm_freq[gpdat$beaq129a<0]<-NA
+```
+
+
+### beaq129a - Weekly market: groceries too expensive
+
+```{r}
+table(gpdat$beaq129a)
+wm_2expansive <- gpdat$beaq129a # the same as above
+wm_2expansive[gpdat$beaq129a<0]<-NA
+```
+
+
+## [Relationship between categorial variables](http://www.r-tutor.com/elementary-statistics/goodness-fit/chi-squared-test-independence)
+
+- `chisq.test()` tests whether two categorial features are stochastically independent.
+- The test is performed against the null hypothesis of equal distribution
+
+```{r}
+(tbl <- table(wm_freq, wm_2expansive) )
+```
+
+### Hypothesis
+
+Test the hypothesis whether the "Frequency shopping at a weekly market" is independent of "groceries too expensive" at .05 significance level.
+
+## Solution
+
+We apply the `chisq.test` function to the contingency table tbl, and found the p-value to be < 2.2e-16. 
+
+```{r}
+chisq.test(tbl) 
+```
+
+### Answer
+
+As the p-value is smaller than the .05 significance level, we do reject the null hypothesis that the frequency is independent of the price perception. 
+<!--
+https://support.minitab.com/de-de/minitab/18/help-and-how-to/modeling-statistics/regression/how-to/fit-binary-logistic-model/methods-and-formulas/diagnostic-measures/
+-->
+
+## The same with one command
+
+```{r,eval=F,echo=F}
+install.packages("gmodels")
+```
+
+```{r,eval=F}
+library(gmodels)
+CrossTable(wm_freq, wm_2expansive, chisq=TRUE)
+```
+
+![](figure/crosstableoutput.PNG){height=90%}
+
+<!--
+## Fitting Generalized Linear Models
+
+
+```{r,eval=F}
+?glm
+```
+-->
+
+
+## Shiny App for quick explorative data analysis
+
+https://pharmacometrics.shinyapps.io/ggplotwithyourdata/
+
+![](figure/ggquickeda.PNG)
+
+
+<!--
+https://www.r-exercises.com/2016/04/20/data-exploration-with-tables-exercises/
+-->
+
+## Links and resources
+
+- The package `lawstat` has a good collection. The outliers package has a number of test for testing for presence of outliers.
+
+- [**UC Business Analytics R Programming Guide**](http://uc-r.github.io/data_wrangling/week-3)
+
+- [**Get descriptive statistics**](https://stats.idre.ucla.edu/r/faq/how-can-i-get-a-table-of-basic-descriptive-statistics-for-my-variables/)
+
+- [**The R compagnion**](https://rcompanion.org/handbook/C_02.html)
+
+<!--
+Choosing tests:
+
+https://www.healthknowledge.org.uk/public-health-textbook/research-methods/1b-statistical-methods/parametric-nonparametric-tests
+
+https://www.researchgate.net/figure/Flowchart-for-selecting-a-statistical-test-for-numerical-outcomes_fig2_281719268
+
+http://abacus.bates.edu/~ganderso/biology/resources/statistics.html
+
+https://www.semanticscholar.org/paper/Choosing-the-correct-statistical-test-made-easy-Senior/ef9b8c39321ebdd82cf779fec4d52e1bc4299d53
+
+https://cyfar.org/choosing-statistical-test
+
+https://www.datasciencecentral.com/profiles/blogs/a-plethora-of-original-underused-statistical-tests
+
+https://www.researchgate.net/figure/Statistical-tests-to-compare-numerical-data-for-difference_fig1_303091683
+
+https://www.researchgate.net/figure/Common-statistical-tests-to-compare-categorical-data-for-difference_fig1_305213637
+
+https://www.researchgate.net/figure/The-classification-tree-of-different-statistical-tests_fig1_258702791
+
+http://bwlewis.github.io/covar/missing.html
+
+https://stackoverflow.com/questions/7445639/dealing-with-missing-values-for-correlations-calculation
+-->
+
+
+
+<!--
+https://arc.lib.montana.edu/book/statistics-with-r-textbook/item/3
+
+
+homogeneity of variance
+http://www.cookbook-r.com/Statistical_analysis/Homogeneity_of_variance/
+
+http://www.sthda.com/english/wiki/compare-multiple-sample-variances-in-r
+
+https://www.biochemia-medica.com/en/journal/20/1/10.11613/BM.2010.004
+
+
+http://rstudio-pubs-static.s3.amazonaws.com/307184_b2b04467ad41490ab0206cf066de46df.html
+
+https://www.analyticsvidhya.com/blog/2016/02/complete-tutorial-learn-data-science-scratch/
+-->
