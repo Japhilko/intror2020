@@ -1,5 +1,5 @@
 ---
-title: "B1 - Graphics intro"
+title: "Basic Graphics"
 author: "Jan-Philipp Kolb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 fontsize: 10pt
@@ -427,14 +427,6 @@ splom(~iris[1:4], groups = Species, data = iris,
 ```
 -->
 
-```{r,eval=F}
-vals <- c("daily","weekly","monthly","seldom")
-n <- 1000
-internet <- sample(vals,n,replace=T)
-smartphone <- sample(vals,n,replace=T)
-littlegp <- data.frame(internet,smartphone)
-```
-
 
 ## Tabulating
 
@@ -575,6 +567,35 @@ library("psych")
 bgcol <- c("red","yellow","blue")[iris$Species]
 pairs.panels(iris[,1:4],bg=bgcol,pch=21,main="")
 
+```
+
+
+## `levelplot`
+
+<!--
+
+-->
+
+
+- `education` in years
+
+```{r,message=F,eval=F}
+library("lattice")
+levelplot(table(ames_df$MS_Zoning,ames_df$Alley),
+          xlab="education",ylab="job")
+```
+
+
+## Color palettes
+
+<!--
+https://www.datanovia.com/en/blog/top-r-color-palettes-to-know-for-great-data-visualization/
+-->
+
+
+```{r,fig.width=12, fig.height=8}
+library(RColorBrewer)
+display.brewer.all()
 ```
 
 

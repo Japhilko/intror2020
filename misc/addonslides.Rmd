@@ -641,3 +641,11 @@ hist(ames_df$Lot_Area,col="blue",
      xlab="Lot size",breaks=100)
 ```
 
+```{r,eval=F}
+vals <- c("daily","weekly","monthly","seldom")
+n <- 1000
+internet <- sample(vals,n,replace=T)
+smartphone <- sample(vals,n,replace=T)
+littlegp <- data.frame(internet,smartphone)
+```
+

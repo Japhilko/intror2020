@@ -1,6 +1,6 @@
 ---
 title: "Creating maps"
-author: "Kolb / Kariuki"
+author: "Jan-Philipp Kolb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 fontsize: 10pt
 output:
