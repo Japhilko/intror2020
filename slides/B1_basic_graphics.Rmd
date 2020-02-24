@@ -556,6 +556,29 @@ a) Create again the plot for the old observations with an x-axis range that incl
 b) Add the two new observations using the points function.
 
 
+## Relationship between variables - `pairs` plot
+
+```{r}
+pairs(iris[,1:4])
+```
+
+
+## Enhanced multivariate plots
+
+```{r,eval=F}
+install.packages("psych")
+```
+
+
+```{r,eval=F}
+library("psych")
+bgcol <- c("red","yellow","blue")[iris$Species]
+pairs.panels(iris[,1:4],bg=bgcol,pch=21,main="")
+
+```
+
+
+
 ## Shiny App - R graphs catalogue
 
 ### R graphs catalogue

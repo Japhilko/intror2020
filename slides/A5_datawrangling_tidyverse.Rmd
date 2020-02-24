@@ -1,6 +1,6 @@
 ---
-title: "C1 - Data wrangling with tidyverse"
-author: "Kolb / Kariuki"
+title: "Data wrangling with tidyverse"
+author: "Jan-Philipp Kolb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 fontsize: 10pt
 output:
