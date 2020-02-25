@@ -706,3 +706,67 @@ cont.var.x <- rnorm(n=100, mean=2, sd=4)
 cont.var.y <- cont.var.x + cont.var.x*cat.var
 simulated.dataset <- data.frame(cont.var.x, cont.var.y, cat.var)
 ```
+
+We can save the plot using the ggsave function 
+
+```{r, echo=T, eval=F}
+ggsave(car.graph, filename="myplot.pdf")
+```
+
+
+
+```{r, echo=F}
+ggplot(ames_df) +
+    aes(x=ames_df$Sale_Price, y=ames_df$Lot_Area) +
+    geom_point(aes(col=as.factor(ames_df$MS_Zoning))) + 
+    labs(title="Scatterplot.", color="MS Zoning") +
+    theme(legend.title=element_text(color="black")) + 
+    theme(legend.text = element_text(size = 8, colour = "red"))
+```
+
+
+
+<!--
+## A dataset about the provinces in the Netherlands (R-package `tmap`)
+
+```{r,echo=F,eval=F}
+data(NLD_prov)
+NLD_df <- NLD_prov@data
+NLD_df[,6] <- round(NLD_df[,6])
+
+datatable(NLD_df[,1:6], class = 'cell-border stripe',rownames = FALSE,
+          options = list(pageLength = 10, autoWidth = TRUE)
+          )
+```
+
+```{r,echo=F,eval=T}
+data(NLD_prov)
+NLD_df <- NLD_prov
+
+kable(head(NLD_df))
+        
+```
+
+-->
+
+<!--
+## Netherlands - Population in the provinces
+
+```{r,eval=F}
+qtm(NLD_prov, fill="population",fill.title="population") 
+```
+-->
+
+<!--
+## Population of municipalities in the Netherlands
+
+
+```{r,eval=T,echo=T}
+data(NLD_muni)
+qtm(NLD_muni, fill="population") 
+```
+-->
+
+<!--
+## Worldwide land use - wooded area
+-->

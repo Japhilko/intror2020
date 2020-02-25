@@ -1,5 +1,5 @@
 ---
-title: "A1 Getting started with R"
+title: "Getting started with R"
 author: "Jan-Philipp Kolb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 fontsize: 10pt
@@ -877,15 +877,17 @@ http://www.intro-stats.com/
 
 - [**Learn R by watching two‐minute videos**](https://www.youtube.com/playlist?list=PLcgz5kNZFCkzSyBG3H-rUaPHoBXgijHfC)
 
+### R for stata users
+
+- Oscar Torres-Reyna - [**Exploring Data and Descriptive Statistics
+(using R)**](https://www.princeton.edu/~otorres/sessions/s2r.pdf)
+
+
 <!--
 ## Further resources
 -->
 
 
-### R for stata users
-
-- Oscar Torres-Reyna - [**Exploring Data and Descriptive Statistics
-(using R)**](https://www.princeton.edu/~otorres/sessions/s2r.pdf)
 
 <!--
 https://www.r-bloggers.com/giving-r-the-strengths-of-stata/

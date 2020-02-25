@@ -205,51 +205,6 @@ tm_shape(World) + tm_fill(c("pop_est", "economy"),
 ```
 
 
-<!--
-## A dataset about the provinces in the Netherlands (R-package `tmap`)
-
-```{r,echo=F,eval=F}
-data(NLD_prov)
-NLD_df <- NLD_prov@data
-NLD_df[,6] <- round(NLD_df[,6])
-
-datatable(NLD_df[,1:6], class = 'cell-border stripe',rownames = FALSE,
-          options = list(pageLength = 10, autoWidth = TRUE)
-          )
-```
-
-```{r,echo=F,eval=T}
-data(NLD_prov)
-NLD_df <- NLD_prov
-
-kable(head(NLD_df))
-        
-```
-
--->
-
-<!--
-## Netherlands - Population in the provinces
-
-```{r,eval=F}
-qtm(NLD_prov, fill="population",fill.title="population") 
-```
--->
-
-<!--
-## Population of municipalities in the Netherlands
-
-
-```{r,eval=T,echo=T}
-data(NLD_muni)
-qtm(NLD_muni, fill="population") 
-```
--->
-
-<!--
-## Worldwide land use - wooded area
--->
-
 
 ```{r dataland,echo=F,eval=F}
 data(land)
@@ -296,8 +251,9 @@ tm_shape(World[World$name=="Austria", ]) +
 - Data about unemployment in Europe
 
 ```{r}
-url <- "https://raw.githubusercontent.com/Japhilko/GeoData/master/2015/data/Unemployment07a13.csv"
-
+url1<-"https://raw.githubusercontent.com/Japhilko/GeoData/"
+url2<-"master/2015/data/Unemployment07a13.csv"
+url <-paste0(url1,url2)
 Unemp <- read.csv(url) 
 ```
 
@@ -439,7 +395,7 @@ plot(Africa,col=Af_color)
 ```
 
 
-## Links
+## Links to read on
 
 - [Raster, CMSAF and solaR](https://procomun.wordpress.com/2011/06/17/raster-cmsaf-and-solar/)
 

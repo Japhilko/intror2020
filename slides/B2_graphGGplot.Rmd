@@ -66,51 +66,41 @@ car.graph + geom_point()
 ```
 
 
-##
+## Without intermediate states
 
-<!--
-## We can also create the plot without storing all of the intermediate
-## states
--->
+We can also create the plot without storing all of the intermediate states
 
 ```{r}
 ggplot(mtcars) + aes(wt, mpg) + geom_point()
 ```
 
+## Exercise: ggplot with the Ames Housing dataset
 
-
-```{r, echo=T, eval=F}
-## We can save the plot using the ggsave function 
-# (more detail on this later).
-ggsave(car.graph, filename="myplot.pdf")
-
-```
-
-
-## Exercise: A scatterplot
+- Load the Ames Housing dataset
 
 ```{r}
 ames_df <- AmesHousing::make_ames()
 ```
 
-
+- Make a scatterplot with the variables sale price and lot area
+- If you have that try to color the points according to MS Zoning
 
 ## What the result should look like
 
-```{r, echo=F}
+```{r, echo=T,fig.width=12, fig.height=4}
 ggplot(ames_df) +
     aes(x=ames_df$Sale_Price, y=ames_df$Lot_Area) +
     geom_point(aes(col=as.factor(ames_df$MS_Zoning))) + 
-    labs(title="Scatterplot.", color="MS Zoning") +
-    theme(legend.title=element_text(color="black")) + 
-    theme(legend.text = element_text(size = 8, colour = "red"))
+    labs(title="Scatterplot", color="MS Zoning") +
+    theme(legend.title=element_text(color="black")) 
 ```
 
 
 
-## Specifying different aesthetics
+## The themes in ggplot 
 
-### Themes 
+
+
 ```{r, echo=T}
 ## Minimal theme
 ggplot(mtcars) + aes(wt, mpg) + geom_point() + 
