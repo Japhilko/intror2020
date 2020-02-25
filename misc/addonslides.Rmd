@@ -649,3 +649,60 @@ smartphone <- sample(vals,n,replace=T)
 littlegp <- data.frame(internet,smartphone)
 ```
 
+
+
+```{r,echo=F,eval=F}
+# https://www.r-bloggers.com/marginal-effects-for-regression-models-in-r-rstats-dataviz/
+p <- ggpredict(m5, c("wt", "cyl"))
+plot(p)
+```
+
+
+## A network plot
+
+This generally needs an additional library: ggraph.
+
+
+```{r, echo=T, eval=F}
+install.packages("ggraph")
+```
+
+```{r, echo=T}
+library(igraph)
+library(ggraph)
+## Setting a "seed" so that we get the same random graph 
+## each time the code is run.
+set.seed(42)
+## Generating a random graph
+g <- barabasi.game(100, m=5)
+## Plotting the graph, specifying edge color, 
+# specifying node shape.
+ggraph(g)+ geom_edge_link(aes(color="red"))+geom_node_point()
+```
+
+
+##
+
+```{r}
+## Storing the degree of each node so that 
+# we can use it later.
+V(g)$degree <- degree(g)
+## Same plot as above, but with node size 
+# based on degree.
+ggraph(g)+ geom_edge_link(aes(color="red"))+geom_node_point(aes(size=degree))
+
+```
+
+
+Use the code below to generate a random dataset. Then plot the results
+as a scatterplot, using ggplot2. Don't worry if your labels are
+different than mine. I'll cover some of those details after the
+exercise.
+
+```{r, echo=T, eval=T}
+set.seed(42)
+cat.var <- c(rep.int(0, 100), rep.int(1, 100))
+cont.var.x <- rnorm(n=100, mean=2, sd=4)
+cont.var.y <- cont.var.x + cont.var.x*cat.var
+simulated.dataset <- data.frame(cont.var.x, cont.var.y, cat.var)
+```

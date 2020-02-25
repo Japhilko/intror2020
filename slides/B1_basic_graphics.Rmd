@@ -598,6 +598,24 @@ library(RColorBrewer)
 display.brewer.all()
 ```
 
+## A correlation plot
+
+<!--
+https://www.r-bloggers.com/variable-importance-plot-and-variable-selection/
+-->
+
+```{r,eval=F,echo=F}
+install.packages("corrplot")
+```
+
+
+```{r}
+library(corrplot)
+corrplot(cor(ames_data[,c("Sale_Price",
+            "Gr_Liv_Area","TotRms_AbvGrd")]))
+```
+
+
 
 
 ## Shiny App - R graphs catalogue

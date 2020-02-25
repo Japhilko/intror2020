@@ -238,7 +238,7 @@ head(dat$bbzc007a)
 ## Get stata attributes
 
 ```{r,eval=T}
-att_dat <- attributes(ames_df)
+att_dat <- attributes(dat)
 head(names(att_dat))
 ```
 
@@ -273,7 +273,7 @@ attributes(gpdat)
 
 
 
-```{r,eval=T}
+```{r,eval=F}
 var.labels <- attr(gpdat,"var.labels")
 ```
 
@@ -307,7 +307,7 @@ summary(duration)
 summary(Ozone)
 ```
 
-```{r}
+```{r,eval=F}
 gpdat$bazq020a[gpdat$bazq020a==-99] <- NA
 summary(as.numeric(gpdat$bazq020a))
 ```
@@ -491,6 +491,46 @@ dat <- read.csv(file.choose())
 
 - If you run the command line above a window is opened and you can browse in the file system.
 - That also works with other import functions
+
+
+
+## Creating an example data record
+
+```{r}
+A <- c(1,2,3,4)
+B <- c("A","B","C","D")
+
+mydata <- data.frame(A,B)
+```
+
+```{r,eval=F}
+mydata
+```
+
+
+```{r,eval=T,echo=F}
+library(knitr)
+kable(mydata)
+```
+
+
+## Overview data import/export
+
+- if you continue working with R, `.RData` or [**`rds`**](https://www.fromthebottomoftheheap.net/2012/04/01/saving-and-loading-r-objects/) format is the best choice:
+
+```{r,eval=F}
+save(mydata, file="mydata.RData")
+saveRDS(mydata, "mydata.rds")
+```
+
+- The data set can be imported with `load`.
+
+```{r,eval=F}
+load("mydata.RData")
+mydata <- readRDS("mydata.rds")
+```
+
+- `saveRDS()` doesn’t save the both the object and its name it just saves a representation of the object
 
 
 ## [Overview import functions](http://uc-r.github.io/data_wrangling/week-2)

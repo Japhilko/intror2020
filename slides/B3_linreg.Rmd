@@ -126,13 +126,20 @@ lm(mpg~wt+disp, data=mtcars, subset=(wt>3))
 
 ## The command `as.formula`
 
+### Creating a formula object
+
 ```{r,eval=F}
 ?as.formula
 ```
 
+```{r}
+fo <- mpg ~ wt + cyl
+```
+
+
 
 ```{r}
-class(fo <- mpg ~ wt + cyl)
+class(fo)
 ```
 
 ```{r}
@@ -184,9 +191,13 @@ https://www.r-bloggers.com/interpreting-interaction-coefficient-in-r-part1-lm/
 
 ## [Further transformations](https://www.schmidheiny.name/teaching/rguide.pdf)
 
+### Further transformations:
+
 Tranformations of variables are directly included with the $I()$ function:
+
 ```{r}
-lm(I(log(mpg))~wt+I(wt^2)+disp, data=mtcars)
+fo2 <- I(log(mpg))~wt+I(wt^2)+disp
+lm(fo2, data=mtcars)
 ```
 
 
@@ -330,6 +341,7 @@ head(mtcars$mpg)
 head(pre)
 ```
 
+
 ## Regression diagnostic with base-R
 
 ### Visualizing residuals
@@ -342,11 +354,42 @@ segments(mtcars$wt, mtcars$mpg, mtcars$wt, pre, col="red")
 
 ![](figure/prediction_mtcars.PNG)
 
-```{r,echo=F,eval=F}
-# https://www.r-bloggers.com/marginal-effects-for-regression-models-in-r-rstats-dataviz/
-p <- ggpredict(m5, c("wt", "cyl"))
-plot(p)
-```
+
+
+## [The bias-variance tradeoff](https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff) (I)
+
+The bias–variance tradeoff is the property of a set of predictive models whereby models with a lower bias in parameter estimation have a higher variance of the parameter estimates across samples, and vice versa. 
+
+### The bias error 
+
+... is an error from erroneous assumptions in the learning algorithm. High bias can cause an algorithm to miss the relevant relations between features and target outputs (underfitting).
+
+### The variance 
+
+... is an error from sensitivity to small fluctuations in the training set. High variance can cause an algorithm to model the random noise in the training data, rather than the intended outputs (overfitting).
+
+
+<!--
+[![](figure/bias_variance_tradeoff2.png)](https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229)
+-->
+
+
+<!--
+https://lbelzile.github.io/lineaRmodels/bias-and-variance-tradeoff.html
+http://www.sthda.com/english/articles/38-regression-model-validation/157-cross-validation-essentials-in-r/
+https://daviddalpiaz.github.io/r4sl/biasvariance-tradeoff.html
+-->
+
+## The bias-variance tradeoff (II)
+
+<!--
+xxxxtodo: the source is missing
+-->
+
+![](figure/bias_variance_tradeoff.PNG){height=80%}
+
+
+
 
 ## The mean squared error (mse)
 
@@ -522,39 +565,6 @@ visreg2d(m6, "wt", "hp", plot.type = "persp")
 -->
 
 
-## [The bias-variance tradeoff](https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff) (I)
-
-The bias–variance tradeoff is the property of a set of predictive models whereby models with a lower bias in parameter estimation have a higher variance of the parameter estimates across samples, and vice versa. 
-
-### The bias error 
-
-... is an error from erroneous assumptions in the learning algorithm. High bias can cause an algorithm to miss the relevant relations between features and target outputs (underfitting).
-
-### The variance 
-
-... is an error from sensitivity to small fluctuations in the training set. High variance can cause an algorithm to model the random noise in the training data, rather than the intended outputs (overfitting).
-
-
-<!--
-[![](figure/bias_variance_tradeoff2.png)](https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229)
--->
-
-
-<!--
-https://lbelzile.github.io/lineaRmodels/bias-and-variance-tradeoff.html
-http://www.sthda.com/english/articles/38-regression-model-validation/157-cross-validation-essentials-in-r/
-https://daviddalpiaz.github.io/r4sl/biasvariance-tradeoff.html
--->
-
-## The bias-variance tradeoff (II)
-
-<!--
-xxxxtodo: the source is missing
--->
-
-![](figure/bias_variance_tradeoff.PNG){height=80%}
-
-
 
 ## Exercise: regression Ames housing data
 
@@ -601,23 +611,6 @@ ames_data <- AmesHousing::make_ames()
 ```{r}
 ames_data <- AmesHousing::make_ames()
 cor(ames_data[,c("Sale_Price","Gr_Liv_Area","TotRms_AbvGrd")])
-```
-
-## A correlation plot
-
-<!--
-https://www.r-bloggers.com/variable-importance-plot-and-variable-selection/
--->
-
-```{r,eval=F,echo=F}
-install.packages("corrplot")
-```
-
-
-```{r}
-library(corrplot)
-corrplot(cor(ames_data[,c("Sale_Price",
-            "Gr_Liv_Area","TotRms_AbvGrd")]))
 ```
 
 

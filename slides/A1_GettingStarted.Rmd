@@ -562,17 +562,28 @@ mean(b1)
 ## Coercion
 
 - All elements in a vector must be of the same type. R coerces the elements to a common type
-- `c(1.2,3,TRUE)` – In this case all elements are coerced to numeric.
+
+- In the following case all elements are coerced to numeric.
 
 ```{r}
 x <- c(TRUE,FALSE,TRUE)
 c(1.2,x)
+```
+
+
+- To character:
+
+```{r}
 y <- c("2","3",".2")
 c(1.2,y, x)
 ```
 
 
+<!--
 - Sometimes this coercion occurs to perform an arithmetic operation:
+-->
+
+- The arithmetic operation works:
 
 ```{r}
 1 + x
@@ -626,6 +637,197 @@ x <- c("1",2,"one","1plus","2_and")
 as.numeric(x)
 ```
 
+
+
+## How to get help?
+
+<!--
+zenburn is a possibility for colour coding
+http://deic.uab.es/~iblanes/beamer_gallery/index_by_color.html
+-->
+
+-  [**To get help in general:**](http://itfeature.com/tag/how-to-get-help-in-r)
+
+
+```{r,eval=F}
+help.start()
+```
+
+-  [**Online documentation for most of the functions:**](https://www.r-project.org/help.html)
+
+```{r,eval=F}
+help(name)
+```
+
+-  Use `?` to get help. 
+
+```{r,eval=F}
+?mean
+```
+
+-  `example(lm)` gives an example for a linear regression 
+
+```{r,eval=F}
+example(lm)
+```
+
+
+## Again, we get help with the question mark
+
+```{r,eval=F}
+?paste
+```
+
+Different sections in the help:
+
+- Description
+- Usage
+- Arguments
+- Value
+- Author(s)
+- See Also
+- Examples
+
+
+## Vignettes
+
+- A vignette is a paper that present the most important functions of a package 
+- You get many reproducible examples
+- Vignettes are a rather new tool, that is why not every package has a vignette
+
+
+```{r,eval=F}
+browseVignettes()
+```
+
+- to get a vignette:
+
+```{r,eval=F}
+vignette("osmdata")
+```
+
+
+## An example for a vignette - package `osmdata`
+
+![](figure/ex_osmdata_vignette.PNG)
+
+## [**Demos**](http://r-pkgs.had.co.nz/demo.html)
+
+- for some packages you have demos:
+
+```{r,eval=F}
+demo() # shows all available demos
+demo(package = "httr") # Show all demos in a package
+
+# Run a specific demo:
+demo("oauth1-twitter", package = "httr") 
+```
+
+- if you run a demo, the code is shown in the console
+
+
+```{r,eval=F}
+demo(nlm)
+```
+
+![](figure/demonlm.PNG)
+
+## The function `apropos`
+
+- searches everything about the given string 
+
+```{r}
+apropos("lm")
+```
+
+
+## `apropos` in combination with regular expression
+
+- you can use that in combination with regular expressions
+
+
+```{r,eval=F}
+?"regular expression"
+```
+
+
+```{r,eval=F}
+help.search("^glm")
+```
+
+- `??` is a synonym for `help.search`
+
+## [**Search engine for the R-Site**](http://search.r-project.org/cgi-bin/namazu.cgi?query=glm&max=20&result=normal&sort=score&idxname=functions&idxname=vignettes&idxname=views)
+
+```{r,eval=F}
+RSiteSearch("glm")
+```
+
+![](figure/rsitesearch.PNG)
+
+## Usage of search engines 
+
+-  I use [**duckduckgo:**]()
+- just add "with R" at the end of any search. Or:
+
+```
+R-project + "what I want to know" 
+```
+-  this works of course for all search engines!
+
+
+![](figure/duckduckgo.PNG){ height=80% }
+
+
+## [**Stackoverflow**](http://stackoverflow.com/)
+
+-  [A searchable Q&A site oriented toward programming issues.](http://uc-r.github.io/data_wrangling/week-1)
+-  Is not focused on R - but [**many discussions on R**](https://stackoverflow.com/tags/r/info)
+-  Very detailed discussions
+
+![Stackoverflow Example](figure/StackoverflowEx.PNG)
+
+
+## A cheatsheet for base R
+
+<https://www.rstudio.com/resources/cheatsheets/>
+
+![**Cheatsheet BaseR**](figure/basercheatsheet.PNG)
+
+## More cheatsheets
+
+![](figure/cheatsheets.PNG)
+
+## [**Quick R**](http://www.statmethods.net/interface/help.html)
+
+- Always a page with examples and help concerning a topic
+- Example: [**Quick R - Getting Help**](http://www.statmethods.net/interface/help.html)
+
+![](figure/quickR.PNG)
+
+
+## Further Links
+
+- [**Overview - how to get help in R**](https://www.r-project.org/help.html)
+
+![](figure/gettingHelp.PNG)
+
+- [**A list with HowTo`s**](http://rprogramming.net/)
+
+- [**A list with the most important R-commands**](https://www.personality-project.org/r/r.commands.html)
+
+- [**R-bloggers**: a central hub of content from over 500 bloggers who provide news and tutorials about R.](https://www.r-bloggers.com/)
+
+## Exercise: [**Getting help**](http://web.math.ku.dk/~helle/R-intro/exercises.pdf)
+
+### [**Exercise on help**](http://web.math.ku.dk/~helle/R-intro/exercises.pdf)
+
+
+- Try the command `?which.min` This opens a help page in the lower right window of
+RStudio. What does the function do?
+
+- You must know the name of the function in order to open the help page as above.
+Sometimes you do not know the name of the R functions; then a [**search engine**](https://duckduckgo.com/) can often help you. Try, for example, to search the text `R minimum vector`.
 
 
 
