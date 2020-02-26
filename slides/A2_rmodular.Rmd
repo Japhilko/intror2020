@@ -1,5 +1,5 @@
 ---
-title: "A2 R is modular"
+title: "R is modular"
 author: "Jan-Philipp Kolb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 fontsize: 10pt
@@ -15,7 +15,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = T,warning=F,message=F)
 ```
 
 
