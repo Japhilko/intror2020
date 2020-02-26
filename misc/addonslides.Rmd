@@ -933,3 +933,71 @@ https://www.r-exercises.com/2017/01/03/working-with-shapefiles-in-r-exercises/
 
 https://www.r-exercises.com/2016/12/26/descriptive-analytics-part-5-data-visualisation-spatial/
 -->
+
+
+<!--
+http://blog.revolutionanalytics.com/popularity/
+-->
+
+<!--
+![[Overview Rstudio](http://www.milanor.net/blog/wp-content/uploads/2013/07/0_overall.jpg)](figure/0_overall.jpg)
+## [Rstudio functionalities](https://rstudio.com/products/rstudio/features/)
+
+-->
+
+
+<!--
+## Download course files
+
+All files (slides, r-code,...) are available on  [gitlab](https://github.com/Japhilko/IntroR/tree/master/2017).
+
+
+[How to use gitlab?](https://guides.github.com/activities/hello-world/)
+-->
+
+
+<!--
+![](figure/RstudioExample.PNG)
+-->
+
+<!--
+## Customizing RStudio
+
+
+![](figure/options_general.png)
+-->
+
+<!--
+- [**Customize Rstudio**](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio)
+
+- Six [**reasons**](http://www.r-bloggers.com/top-6-reasons-you-need-to-be-using-rstudio/) to use Rstudio.
+
+- RStudio Support - [**Using the RStudio IDE**](https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio)
+
+
+http://www.rstudio.com/ide/docs/using/customizing
+-->
+
+
+<!--
+![](figure/find_replace.PNG) find and replace
+-->
+
+<!--
+
+## `apropos` in combination with regular expression
+
+- you can use that in combination with regular expressions
+
+
+```{r,eval=F}
+?"regular expression"
+```
+
+
+```{r,eval=F}
+help.search("^glm")
+```
+
+- `??` is a synonym for `help.search`
+-->

@@ -99,10 +99,6 @@ collaborative work!
 - R is becoming more [**popular**](https://twitter.com/josiahjdavis/status/559778930476220418)
 - [**Good**](http://www.sr.bham.ac.uk/~ajrs/R/r-gallery.html) possibilities for [**visualization**](http://research.stowers.org/mcm/efg/R/) 
 
-<!--
-http://blog.revolutionanalytics.com/popularity/
--->
-
 ---
 
 ## R can be used in combination... 
@@ -209,65 +205,25 @@ For the following reasons:
 - I use [**Rstudio!**](https://www.rstudio.com/)
 
 ![](figure/rstudio_functionalities.PNG){width=130%}
-<!--
-![[Overview Rstudio](http://www.milanor.net/blog/wp-content/uploads/2013/07/0_overall.jpg)](figure/0_overall.jpg)
-## [Rstudio functionalities](https://rstudio.com/products/rstudio/features/)
-
--->
-
-
-<!--
-## Download course files
-
-All files (slides, r-code,...) are available on  [gitlab](https://github.com/Japhilko/IntroR/tree/master/2017).
-
-
-[How to use gitlab?](https://guides.github.com/activities/hello-world/)
--->
 
 ---
-
-
-
-
-
-
 
 ## [RStudio](http://uc-r.github.io/introduction)
 
 ![](figure/rstudio_ide.PNG){width=110%}
 
+---
+
 ## Rstudio - script and console
 
 ![](figure/rstudio_funs1.png)
 
+---
 
 ## Rstudio - Environment and help
 
 ![](figure/rstudiofuns2.PNG)
 
-
-<!--
-![](figure/RstudioExample.PNG)
--->
-
-<!--
-## Customizing RStudio
-
-
-![](figure/options_general.png)
--->
-
-<!--
-- [**Customize Rstudio**](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio)
-
-- Six [**reasons**](http://www.r-bloggers.com/top-6-reasons-you-need-to-be-using-rstudio/) to use Rstudio.
-
-- RStudio Support - [**Using the RStudio IDE**](https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio)
-
-
-http://www.rstudio.com/ide/docs/using/customizing
--->
 
 ---
 
@@ -278,10 +234,6 @@ http://www.rstudio.com/ide/docs/using/customizing
 ![](figure/Skriptoeffnen.PNG) open an existing script
 
 ![](figure/runskript.PNG) run line where cursor is
-
-<!--
-![](figure/find_replace.PNG) find and replace
--->
 
 ---
 
@@ -713,28 +665,6 @@ demo(nlm)
 apropos("lm")
 ```
 
-<<<<<<< HEAD
----
-
-=======
-<!--
->>>>>>> 30a4bbeea6aec0b73a9f96e5d9ff7a271a72df70
-## `apropos` in combination with regular expression
-
-- you can use that in combination with regular expressions
-
-
-```{r,eval=F}
-?"regular expression"
-```
-
-
-```{r,eval=F}
-help.search("^glm")
-```
-
-- `??` is a synonym for `help.search`
--->
 
 ---
 
@@ -822,12 +752,12 @@ Sometimes you do not know the name of the R functions; then a [**search engine**
 
 ### Outline R-code
 
-<!-- -  -->
-
 - Use as many comments as possible
 - Use shortcut "Ctrl + Shift + R" to insert a new section
 
 ![](figure/OutlineRcode.png)
+
+---
 
 ## [Save your Work](https://bouchat.github.io/IntroDataMgmt20Jan.html)
 
