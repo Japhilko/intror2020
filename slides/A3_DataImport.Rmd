@@ -1,5 +1,5 @@
 ---
-title: "A3 - Import Data"
+title: "Import Data"
 author: "Jan-Philipp Kolb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 fontsize: 10pt
@@ -515,6 +515,8 @@ mydata <- readRDS("mydata.rds")
 
 - Introduction to import with R ([**is.R**](http://is-r.tumblr.com/post/37181850668/reading-writing-stata-dta-files-with-foreign))
 
+- [**Youtube video**](https://www.youtube.com/watch?v=WWY8VPh6ryo) on importing data
+
 - Statistical tools for high-throughput data analysis (STHDA) - [**Importing Data Into R**](http://www.sthda.com/english/wiki/importing-data-into-r)
 
 - Karlijn Willems - [**This R Data Import Tutorial Is Everything You Need**](https://www.datacamp.com/community/tutorials/r-data-import-tutorial)
@@ -522,3 +524,5 @@ mydata <- readRDS("mydata.rds")
 - [**R for data science book**](https://r4ds.had.co.nz/data-import.html)
 
 - The [**R-package `labelled`**](https://cran.r-project.org/web/packages/labelled/labelled.pdf) to work with labelled data imported from SPSS or stata
+
+- [Overview - **all import functionalities**](https://cran.r-project.org/doc/manuals/r-release/R-data.html)

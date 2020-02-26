@@ -208,8 +208,12 @@ For the following reasons:
 
 - I use [**Rstudio!**](https://www.rstudio.com/)
 
+![](figure/rstudio_functionalities.PNG){width=130%}
+<!--
 ![[Overview Rstudio](http://www.milanor.net/blog/wp-content/uploads/2013/07/0_overall.jpg)](figure/0_overall.jpg)
+## [Rstudio functionalities](https://rstudio.com/products/rstudio/features/)
 
+-->
 
 
 <!--
@@ -223,9 +227,25 @@ All files (slides, r-code,...) are available on  [gitlab](https://github.com/Jap
 
 ---
 
+
+
+
+
+
+
 ## [RStudio](http://uc-r.github.io/introduction)
 
 ![](figure/rstudio_ide.PNG){width=110%}
+
+## Rstudio - script and console
+
+![](figure/rstudio_funs1.png)
+
+
+## Rstudio - Environment and help
+
+![](figure/rstudiofuns2.PNG)
+
 
 <!--
 ![](figure/RstudioExample.PNG)
@@ -693,8 +713,12 @@ demo(nlm)
 apropos("lm")
 ```
 
+<<<<<<< HEAD
 ---
 
+=======
+<!--
+>>>>>>> 30a4bbeea6aec0b73a9f96e5d9ff7a271a72df70
 ## `apropos` in combination with regular expression
 
 - you can use that in combination with regular expressions
@@ -710,6 +734,7 @@ help.search("^glm")
 ```
 
 - `??` is a synonym for `help.search`
+-->
 
 ---
 
@@ -783,6 +808,36 @@ RStudio. What does the function do?
 - You must know the name of the function in order to open the help page as above.
 Sometimes you do not know the name of the R functions; then a [**search engine**](https://duckduckgo.com/) can often help you. Try, for example, to search the text `R minimum vector`.
 
+---
+
+## Structure your code
+
+
+
+### Work with sections
+
+- In a Rscript you can use  "Ctrl + Shift + R" to include a section
+
+![](figure/Insertsection.png)
+
+### Outline R-code
+
+<!-- -  -->
+
+- Use as many comments as possible
+- Use shortcut "Ctrl + Shift + R" to insert a new section
+
+![](figure/OutlineRcode.png)
+
+## [Save your Work](https://bouchat.github.io/IntroDataMgmt20Jan.html)
+
+- When conducting research, keeping all of your code, data, and files in the same place is useful. 
+- Many journals now require that you make, e.g., your data and code publicly available. 
+- Now is the time to invest in file structures and versioning programs (e.g., Dropbox and Github).
+
+- Save your script file often to prevent loss of your work. 
+- Also save your workspace in R in order to save time. 
+- If you do this, you will be able to load your console in the future as though you had already completed all of the operations that you ran from your script file. 
 
 
 ---

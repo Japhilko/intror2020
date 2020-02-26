@@ -87,8 +87,8 @@ x <- c(0.109, 0.359, 0.63, 0.996, 0.515, 0.142, 0.017,
 x <- runif(8)
 ```
 
-1) Draw 8 random numbers from the uniform distribution and save them in a vector `x`
-2) Compute the logarithm of `x`,  
+1) Draw 8 random numbers from the uniform distribution (`rnorm`) and save them in a vector `x`
+2) Compute the natural logarithm of `x`,  
 3) and round the result
 
 <!--
