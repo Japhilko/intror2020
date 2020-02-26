@@ -14,6 +14,9 @@ output:
     theme: Warsaw
 ---
 
+
+---
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = F,message = F)
 ex_count <- 0
@@ -30,11 +33,13 @@ to get to know the data:
 3. Learn about the data
 4. Quick visual understanding of the data
 
-
+---
 
 ## Data import
 
 ![](figure/Datenimport.PNG)
+
+---
 
 ## Import data with Rstudio
 
@@ -43,6 +48,8 @@ to get to know the data:
 - Environment - Import Dataset - choose file type
 
 ![](figure/rstudio_import.PNG)
+
+---
 
 ## Where to find data
 
@@ -62,10 +69,13 @@ to get to know the data:
 
 ![](figure/codepreview.PNG)
 
+---
+
 ## [Import `.csv` data](http://www.sthda.com/english/wiki/importing-data-into-r)
 
 ![](figure/importing-data-into-r.png)
 
+---
 
 ## Import of csv data
 
@@ -108,6 +118,7 @@ https://www.stats.govt.nz/assets/Uploads/Annual-enterprise-survey/Annual-enterpr
 dat <- read.csv("../data/datahub_refugee.csv")
 ```
 
+---
 
 ## The result - a `data.frame`
 
@@ -118,6 +129,7 @@ head(dat)
 ```
 
 
+---
 
 ## The package `readxl`
 
@@ -134,6 +146,8 @@ ab <- read_excel("../data/datahub_names_sa.xlsx")
 head(ab)
 ```
 
+---
+
 ## Import SPSS files
 
 ### Import GESIS Panel data
@@ -146,8 +160,7 @@ library(haven)
 dataset <- read_sav("../data/datahub_government_africa.sav")
 ```
 
-![](figure/governmentdata_africa.PNG)
-  
+
 <!--
 Data sources:
 
@@ -155,6 +168,11 @@ https://ilostat.ilo.org/data/
 
 http://dataportal.opendataforafrica.org/zjqnio/infrastructure
 -->
+
+
+![](figure/governmentdata_africa.PNG)
+  
+---
 
 ## Import data from the web
 
@@ -171,6 +189,8 @@ mz_2013_sds_-_datensatz_080469.sav"
 ?read.spss
 Dat <- read.spss(link,to.data.frame=T)
 ```
+
+---
 
 ## Import `stata` files
 
@@ -191,10 +211,13 @@ library(foreign)
 dat_stata12 <- read.dta("../data/example_gp_stata12.dta")
 ```
 
+---
 
 ## The library `readstata13`
 
 ![](figure/readstata13.PNG)
+
+---
 
 ## Import - GESIS Panel data
 
@@ -218,6 +241,7 @@ dat <- read.dta13("../data/example_gp.dta")
 head(dat$bbzc007a)
 ```
 
+---
 
 ## The argument `convert.factors = F`
 
@@ -234,6 +258,7 @@ head(dat$bbzc007a)
 
 - The import must be controlled, because otherwise errors can easily happen. 
 
+---
 
 ## Get stata attributes
 
@@ -248,81 +273,9 @@ head(names(att_dat))
 head(att_dat$names)
 ```
 
-<!--
-## Get variable labels
-
-```{r,eval=F}
-ncol(dat)
-length(att_dat$names)
-
-att_dat$var.labels[att_dat$names=="a11d054a"]
-att_dat$label.table[names(att_dat$label.table)=="a11d054a"]
-```
 
 
-## [Variable labels](https://stackoverflow.com/questions/2151147/using-stata-variable-labels-in-r)
-
-```{r,eval=F,echo=F}
-library(foreign)
-dat <- read.dta("../data/ZA5666_v1-0-0_Stata12.dta")
-```
-
-```{r,eval=F}
-attributes(gpdat)
-```
-
-
-
-```{r,eval=F}
-var.labels <- attr(gpdat,"var.labels")
-```
-
-- The same applies to the `haven` package
-
-```{r,eval=F,echo=T}
-library(haven)
-dat_hav <- read_dta("../data/ZA5666_v1-0-0_Stata14.dta")
-var.labels2 <- attr(dat_hav,"var.labels")
-```
-
-
-## GESIS Panel Variable - Estimated duration (bazq020a)
-
-### How long did it take you to fill in the questionnaire?
-
-```{r,eval=F}
-duration <- as.numeric(gpdat$bazq020a)
-```
-
-```{r,eval=F}
-summary(duration)
-```
-
--->
-
-<!--
-## Recode missing values
-
-```{r,eval=F}
-summary(Ozone)
-```
-
-```{r,eval=F}
-gpdat$bazq020a[gpdat$bazq020a==-99] <- NA
-summary(as.numeric(gpdat$bazq020a))
-```
--->
-
-
-<!--
-## [Multiple Logical tests](http://uc-r.github.io/data_wrangling/week-4)
-
-
-![](figure/multiple_logical.PNG)
--->
-
-
-
+---
 
 ## Get an initial overview of the data
 
@@ -334,6 +287,7 @@ View(datf)
 
 - You can get the same in RStudio if you click on the dataset icon in the environment menue
 
+---
 
 ## [**The library `rio`**](https://cran.r-project.org/web/packages/rio/vignettes/rio.html)
 
@@ -349,6 +303,8 @@ z <- import("../data/ZA5666_v1-0-0_Stata14.dta")
 ```
 
 - [**rio: A Swiss-Army Knife for Data I/O**](https://cran.r-project.org/web/packages/rio/README.html)
+
+---
 
 ## [The package `Hmisc`](https://www.statmethods.net/input/importingdata.html)
 
@@ -368,17 +324,17 @@ mydata <- sasxport.get("c:/mydata.xpt")
 ```
 
 
+---
 
 ## The working directory
 
 ![](figure/SetWD.PNG)
 
+---
 
 ## ...
 
 - If the data is on a different drive in Windows
-
-![](figure/ptptpt.PNG)
 
 <!--
 - search directory:
@@ -386,6 +342,10 @@ mydata <- sasxport.get("c:/mydata.xpt")
 ![](figure/OrdnerSuchen.PNG)
 -->
 
+
+![](figure/ptptpt.PNG)
+
+---
 
 ## The working directory II
 
@@ -413,7 +373,7 @@ setwd(main.path)
 
 On Windows it is important to use slashs instead of backslashes.
 
-
+---
 
 ## Change working directory
 
@@ -424,6 +384,8 @@ getwd()
 setwd("..")
 getwd()
 ```
+
+---
 
 ## Built-In datasets
 
@@ -443,6 +405,8 @@ install.packages("datasets.load")
 
 ![](figure/datasetsload.PNG)
 
+---
+
 ## Excursus [RStudio Addins](https://cran.r-project.org/web/packages/addinslist/README.html)
 
 - In the upper right corner there is a button Addins
@@ -455,6 +419,8 @@ install.packages("datasets.load")
 ex_count <- ex_count+1
 exletter <- LETTERS[ex_count]
 ```
+
+---
 
 ## Exercise: load built-in data
 
@@ -470,6 +436,7 @@ and answer the following questions:
 3) Create an interactive data table
 
 
+---
 
 ## [**Inserting data**](https://github.com/lbusett/insert_table)
 
@@ -480,6 +447,8 @@ devtools::install_github("lbusett/insert_table")
 ```
 
 ![](figure/inserttable.PNG)
+
+---
 
 ## [The `file.choose` option](https://www.r-exercises.com/2018/01/27/Groups-Comparison-With-ANOVA-Solutions/)
 
@@ -492,7 +461,7 @@ dat <- read.csv(file.choose())
 - If you run the command line above a window is opened and you can browse in the file system.
 - That also works with other import functions
 
-
+---
 
 ## Creating an example data record
 
@@ -514,6 +483,8 @@ kable(mydata)
 ```
 
 
+---
+
 ## Overview data import/export
 
 - if you continue working with R, `.RData` or [**`rds`**](https://www.fromthebottomoftheheap.net/2012/04/01/saving-and-loading-r-objects/) format is the best choice:
@@ -532,10 +503,13 @@ mydata <- readRDS("mydata.rds")
 
 - `saveRDS()` doesn’t save the both the object and its name it just saves a representation of the object
 
+---
 
 ## [Overview import functions](http://uc-r.github.io/data_wrangling/week-2)
 
 ![](figure/overviewimportfunctions.PNG)
+
+---
 
 ## Links and resources
 

@@ -15,6 +15,9 @@ output:
 ---
 
 
+
+---
+
 ```{r, include=FALSE,purl=F}
 #https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
 knitr::opts_chunk$set(echo = T,warning=F,message=F,size="small",cache=F)
@@ -24,7 +27,6 @@ knitr::opts_chunk$set(echo = T,warning=F,message=F,size="small",cache=F)
 knitr::purl("slides/GettingStarted.Rmd",documentation = 2)
 ```
 
----
 
 ## [COURSE OBJECTIVES](http://uc-r.github.io/data_wrangling/week-1)
 
@@ -37,10 +39,6 @@ knitr::purl("slides/GettingStarted.Rmd",documentation = 2)
 - Write your own functions
 
 ... all with R!
-
-<!--
-- Get an introduction to machine learning  - 
--->
 
 ---
 
@@ -75,57 +73,9 @@ collaborative work!
 - Please ask us, if something is unclear.
 
 
-<!--
-## Outline for this part
--->
-
-
-```{r,echo=F,eval=F}
-
-c("A1 Getting started","A2 How to get help", "A3 Data import","A4 The GESIS panel data data","A5 data export")
-
-c("B1 Basic data analysis","B2 The use of the survey package","B3 Graphics","B4 linear regression","B5 logistic regression")
-
-c("C1 Understanding error messages","C2 Hierarchical/Multilevel models")
-```
-
-```{r,echo=F,eval=F}
-library(knitr)
-sched <- xlsx::read.xlsx2("../orga/schedule.xlsx",1)
-dats <- sched[1:7,c(1,4,5)]
-dats <- dats[-which(dats$Part=="Break"),]
-
-kable(dats,row.names = F)
-```
-
-<!--
-## Overview - advantages of R
-
-![http://bigdatahadooppro.com/tag/advantages-of-using-r/](figure/Importance-of-Learning-R.jpg)
--->
-
-
-<!--
-https://www.quora.com/What-is-R-programming-language
-
-- [**Cross-Platform Compatible**](https://en.wikipedia.org/wiki/Cross-platform)
-- [**Advanced Statistical Language**](http://rstatistics.net/)
-- [**Outstanding graphs**](https://www.r-graph-gallery.com/)
-- Relates to other languages
-- Supports extensions
-- Flexible and fun
-
-
--->
-
 ---
 
 ## Reasons for using R...
-
-
-<!--
-Outstanding Graphs
--->
 
 - ... because it is an [**open source language**](https://stackoverflow.com/questions/1546583/what-is-the-definition-of-an-open-source-programming-language)
 - ... outstanding graphs - [**graphics**](http://matthewlincoln.net/2014/12/20/adjacency-matrix-plots-with-r-and-ggplot2.html), [**graphics**](https://www.r-bloggers.com/3d-plots-with-ggplot2-and-plotly /), [**graphics**](https://procomun.wordpress.com/2011/03/18/splomr/)
@@ -137,10 +87,6 @@ Outstanding Graphs
 ---
 
 ## Advantages of R
-
-<!--
-R is [freely available](http://www.inside-r.org/why-use-r).
--->
 
 - R can be downloaded for [**free**](http://mirrors.softliste.de/cran/).
 
@@ -637,7 +583,7 @@ x <- c("1",2,"one","1plus","2_and")
 as.numeric(x)
 ```
 
-
+---
 
 ## How to get help?
 
@@ -671,6 +617,7 @@ help(name)
 example(lm)
 ```
 
+---
 
 ## Again, we get help with the question mark
 
@@ -688,6 +635,7 @@ Different sections in the help:
 - See Also
 - Examples
 
+---
 
 ## Vignettes
 
@@ -706,10 +654,13 @@ browseVignettes()
 vignette("osmdata")
 ```
 
+---
 
 ## An example for a vignette - package `osmdata`
 
 ![](figure/ex_osmdata_vignette.PNG)
+
+---
 
 ## [**Demos**](http://r-pkgs.had.co.nz/demo.html)
 
@@ -732,6 +683,8 @@ demo(nlm)
 
 ![](figure/demonlm.PNG)
 
+---
+
 ## The function `apropos`
 
 - searches everything about the given string 
@@ -740,6 +693,7 @@ demo(nlm)
 apropos("lm")
 ```
 
+---
 
 ## `apropos` in combination with regular expression
 
@@ -757,6 +711,8 @@ help.search("^glm")
 
 - `??` is a synonym for `help.search`
 
+---
+
 ## [**Search engine for the R-Site**](http://search.r-project.org/cgi-bin/namazu.cgi?query=glm&max=20&result=normal&sort=score&idxname=functions&idxname=vignettes&idxname=views)
 
 ```{r,eval=F}
@@ -764,6 +720,8 @@ RSiteSearch("glm")
 ```
 
 ![](figure/rsitesearch.PNG)
+
+---
 
 ## Usage of search engines 
 
@@ -778,6 +736,7 @@ R-project + "what I want to know"
 
 ![](figure/duckduckgo.PNG){ height=80% }
 
+---
 
 ## [**Stackoverflow**](http://stackoverflow.com/)
 
@@ -787,6 +746,7 @@ R-project + "what I want to know"
 
 ![Stackoverflow Example](figure/StackoverflowEx.PNG)
 
+---
 
 ## A cheatsheet for base R
 
@@ -794,9 +754,14 @@ R-project + "what I want to know"
 
 ![**Cheatsheet BaseR**](figure/basercheatsheet.PNG)
 
+---
+
 ## More cheatsheets
 
 ![](figure/cheatsheets.PNG)
+
+
+---
 
 ## [**Quick R**](http://www.statmethods.net/interface/help.html)
 
@@ -805,18 +770,7 @@ R-project + "what I want to know"
 
 ![](figure/quickR.PNG)
 
-
-## Further Links
-
-- [**Overview - how to get help in R**](https://www.r-project.org/help.html)
-
-![](figure/gettingHelp.PNG)
-
-- [**A list with HowTo`s**](http://rprogramming.net/)
-
-- [**A list with the most important R-commands**](https://www.personality-project.org/r/r.commands.html)
-
-- [**R-bloggers**: a central hub of content from over 500 bloggers who provide news and tutorials about R.](https://www.r-bloggers.com/)
+---
 
 ## Exercise: [**Getting help**](http://web.math.ku.dk/~helle/R-intro/exercises.pdf)
 
@@ -881,6 +835,22 @@ http://www.intro-stats.com/
 
 - Oscar Torres-Reyna - [**Exploring Data and Descriptive Statistics
 (using R)**](https://www.princeton.edu/~otorres/sessions/s2r.pdf)
+
+
+
+---
+
+## Further Links
+
+- [**Overview - how to get help in R**](https://www.r-project.org/help.html)
+
+![](figure/gettingHelp.PNG)
+
+- [**A list with HowTo`s**](http://rprogramming.net/)
+
+- [**A list with the most important R-commands**](https://www.personality-project.org/r/r.commands.html)
+
+- [**R-bloggers**: a central hub of content from over 500 bloggers who provide news and tutorials about R.](https://www.r-bloggers.com/)
 
 
 <!--
