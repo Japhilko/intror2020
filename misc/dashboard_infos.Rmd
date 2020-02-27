@@ -1,0 +1,77 @@
+---
+title: "Creating maps"
+author: "Jan-Philipp Kolb"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+fontsize: 10pt
+output:
+  beamer_presentation: 
+    fig_caption: no
+    fig_height: 3
+    fig_width: 5
+    fonttheme: structuresmallcapsserif
+    highlight: zenburn
+    colortheme: whale
+    theme: Warsaw
+  pdf_document:
+    toc: yes
+  html_document:
+    keep_md: yes
+  slidy_presentation:
+    keep_md: yes
+---
+
+
+## [Getting started with flexdashboards](https://www.statworx.com/de/blog/getting-started-with-flexdashboards-in-r/)
+
+https://rmarkdown.rstudio.com/flexdashboard/using.html#sizing
+
+https://rmarkdown.rstudio.com/flexdashboard/
+
+- [flexdashboard themes]()
+
+https://www.kaggle.com/dhruvesh/beautiful-dashboards-in-r
+
+- [Example](http://grjenkin.com/articles/category/data-visualization/739705/using-flexdashboards-to-monitor-clinical-research)
+
+- [Input buttons](https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/)
+
+
+## Using Shiny
+
+https://shiny.rstudio.com/reference/shiny/latest/actionButton.html
+
+https://shiny.rstudio.com/articles/action-buttons.html
+
+## Using plotly
+
+https://plot.ly/ggplot2/getting-started/
+
+
+### Alternatives 
+
+https://davidgohel.github.io/ggiraph/
+
+## Print dashboard to pdf
+
+- [Printing From Flex Dashboard](https://rviews.rstudio.com/2017/06/28/printing-from-flex-dashboard/)
+
+
+- [Headless Browser](https://en.wikipedia.org/wiki/Headless_browser)
+
+<!--
+Interactive documents
+
+https://davidgohel.github.io/ggiraph/
+
+creating dashboards
+https://www.kaggle.com/dhruvesh/beautiful-dashboards-in-r
+
+-->
+
+## [Problems with the size of a figure](https://github.com/rstudio/flexdashboard/issues/120)
+
+- [automatically resize ggplot in flexdashboard]()
+
+- [Adjust the chart size here as per plot size?](https://community.rstudio.com/t/adjust-the-chart-size-here-as-per-plot-size/41054/6)
+
+https://stackoverflow.com/questions/37868548/automatically-resize-ggplot2-plots-in-flexdashboard

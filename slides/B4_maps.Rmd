@@ -413,3 +413,14 @@ plot(Africa,col=Af_color)
 - [Getting rasters into shape from R](https://johnbaumgartner.wordpress.com/2012/07/26/getting-rasters-into-shape-from-r/)
 
 <https://johnbaumgartner.wordpress.com/2012/07/26/getting-rasters-into-shape-from-r/>
+
+
+<!--
+Interactive documents
+
+https://davidgohel.github.io/ggiraph/
+
+creating dashboards
+https://www.kaggle.com/dhruvesh/beautiful-dashboards-in-r
+
+-->
