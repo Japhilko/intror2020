@@ -776,15 +776,17 @@ Sometimes you do not know the name of the R functions; then a [**search engine**
 
 ![](figure/changing_stuff.PNG)
 
-
-
 ---
 
-## Shiny App - Intro R
+## The tutorial functionality in Rstudio
 
-http://www.intro-stats.com/
+- You need RStudio v1.3.869-1 Preview for this:
+- 
 
-![](figure/intror_shiny.PNG)
+
+```{r,eval=F}
+install.packages("learnr")
+```
 
 
 
@@ -836,6 +838,19 @@ http://www.intro-stats.com/
 - [**A list with the most important R-commands**](https://www.personality-project.org/r/r.commands.html)
 
 - [**R-bloggers**: a central hub of content from over 500 bloggers who provide news and tutorials about R.](https://www.r-bloggers.com/)
+
+
+
+---
+
+## Shiny App - Intro R
+
+### www.intro-stats.com
+
+![](figure/intror_shiny.PNG)
+
+
+
 
 
 <!--

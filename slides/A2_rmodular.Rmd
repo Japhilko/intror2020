@@ -26,7 +26,7 @@ knitr::opts_chunk$set(echo = T,warning=F,message=F)
 
 ```{r,eval=T,echo=F}
 # http://blog.revolutionanalytics.com/2015/06/how-many-packages-are-there-really-on-cran.html
-CRANmirror <- "http://cran.revolutionanalytics.com"
+CRANmirror <- "https://cloud.r-project.org/"
 cran <- contrib.url(repos = CRANmirror, 
                       type = "source")
 info <- available.packages(contriburl = cran, type = "source")
@@ -228,3 +228,19 @@ most interesting r packages
 - to import foreign data (e.g. SPSS data).
 - to handle large amounts of data
 
+---
+
+## The `swirl` package
+
+### Learn R, in R
+
+
+```{r,eval=F}
+install.packages("swirl")
+```
+
+```{r,eval=F}
+library(swirl)
+# type the following into the console:
+swirl()
+```
