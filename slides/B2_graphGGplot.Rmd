@@ -233,6 +233,7 @@ ggplot(simulated.dataset) + geom_density()+
 
 ## Links to read on
 
+- [**Top 50 ggplot2 Visualizations**](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
 - [R cookbook for graphs](http://www.cookbook-r.com/Graphs/)
 
 <!--

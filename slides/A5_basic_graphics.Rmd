@@ -59,21 +59,11 @@ knitr::knit_hooks$set(chunk = function(x, options) {
 })
 ```
 
-
 ---
 
-## Not all plots are the same
+## [Graphic types](https://www.r-graph-gallery.com/)
 
-- The base package already includes a large number of plot functions
-- Other packages like `lattice`, `ggplot2`, etc extend this functionality
-
-### Manuals that go far beyond this introduction:
-
-- Murrell, P (2006): R Graphics.
-- R Development Core Group [**Graphics with R**](https://csg.sph.umich.edu/docs/R/graphics-1.pdf)
-- Wiki on [**R Programming/Graphics**](https://en.wikibooks.org/wiki/R_Programming/Graphics)
-- Martin Meermeyer [**Creating Reproducible Publication Quality Graphics with R: A Tutorial**](http://elpub.bib.uni-wuppertal.de/edocs/dokumente/fbb/wirtschaftswissenschaft/sdp/sdp15/sdp15006.pdf)
-- Institute For Quantitative Social Science at Harvard - [**R graphics tutorial**](https://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html)
+![](figure/graphictypes.PNG)
 
 ---
 
@@ -141,19 +131,13 @@ hist(ames_df$Lot_Area,col="blue",
      xlab="Lot size")
 ```
 
----
-
-## Histogram
-
-```{r,echo=F}
-hist(ames_df$Lot_Area,col="blue",
-     main="Lot size in square feet",ylab="Frequency", 
-     xlab="Lot size")
-```
 
 ---
 
 ## Further arguments:
+
+- Many of the arguments are valid for all base graphics like `main` or `xlab``.
+- You can see many of them if you call help on `?par`.
 
 ```{r,eval=F}
 ?plot
@@ -596,10 +580,9 @@ pairs.panels(iris[,1:4],bg=bgcol,pch=21,main="")
 
 -->
 
+### `education` in years
 
-- `education` in years
-
-```{r,message=F,eval=F}
+```{r,message=F,eval=T}
 library("lattice")
 levelplot(table(ames_df$MS_Zoning,ames_df$Alley),
           xlab="education",ylab="job")
@@ -667,9 +650,25 @@ http://www.michalm.net/shiny/easyPlot/
 
 ---
 
+## Not all plots are the same
+
+- The base package already includes a large number of plot functions
+- Other packages like `lattice`, `ggplot2`, etc extend this functionality
+
+### Manuals that go far beyond this introduction:
+
+- Murrell, P (2006): R Graphics.
+- R Development Core Group [**Graphics with R**](https://csg.sph.umich.edu/docs/R/graphics-1.pdf)
+- Wiki on [**R Programming/Graphics**](https://en.wikibooks.org/wiki/R_Programming/Graphics)
+- Martin Meermeyer [**Creating Reproducible Publication Quality Graphics with R: A Tutorial**](http://elpub.bib.uni-wuppertal.de/edocs/dokumente/fbb/wirtschaftswissenschaft/sdp/sdp15/sdp15006.pdf)
+- Institute For Quantitative Social Science at Harvard - [**R graphics tutorial**](https://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html)
+
+
+---
+
 ## Links 
 
-- [**Top 50 ggplot2 Visualizations**](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
+- [**R graph gallery**](https://www.r-graph-gallery.com/)
 
 - [**Bioconductor R manual**](http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual) with an extensive part on graphics
 
