@@ -1001,3 +1001,13 @@ help.search("^glm")
 
 - `??` is a synonym for `help.search`
 -->
+
+---
+
+## Histogram
+
+```{r,echo=F}
+hist(ames_df$Lot_Area,col="blue",
+     main="Lot size in square feet",ylab="Frequency", 
+     xlab="Lot size")
+```
