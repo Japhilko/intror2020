@@ -1,26 +1,28 @@
----
-title: "Import Data"
-author: "Jan-Philipp Kolb"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
-fontsize: 10pt
-output:
-  beamer_presentation: 
-    fig_caption: no
-    fig_height: 3
-    fig_width: 5
-    fonttheme: structuresmallcapsserif
-    highlight: zenburn
-    colortheme: whale
-    theme: Warsaw
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introduction to R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Jan-Philipp Kolb" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="..\workshop.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introduction to R
+## Import Data
+### Jan-Philipp Kolb
+### 03 März, 2020
+
 ---
 
 
----
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = F,message = F)
-ex_count <- 0
-```
+
+
 
 
 ## [FIRST THINGS TO DO](http://uc-r.github.io/data_wrangling/week-3)
@@ -54,18 +56,18 @@ to get to know the data:
 ## Where to find data
 
 ### Browse Button in RStudio
-<!--
+&lt;!--
 - You have a Browse Button in RStudio
--->
+--&gt;
 
 ![](figure/importBrowse.PNG)
 
 
 ### Code preview in Rstudio
 
-<!--
+&lt;!--
 - Here you can copy the code
--->
+--&gt;
 
 ![](figure/codepreview.PNG)
 
@@ -84,38 +86,39 @@ to get to know the data:
 - Then `read.csv()` can be used to read in the data.
 - For German data, you may need `read.csv2()` because of the comma separation.
 
-<!--
-```{r,eval=F}
+&lt;!--
+
+```r
 ?read.csv
 ?read.csv2
 ```
--->
+--&gt;
 
-```{r,eval=F}
-dat <- read.csv("../data/ZA5666_v1-0-0.csv")
+
+```r
+dat &lt;- read.csv("../data/ZA5666_v1-0-0.csv")
 ```
 
 If it's German data:
 
-```{r,eval=F}
-datd <- read.csv2("../data/ZA5666_v1-0-0.csv")
+
+```r
+datd &lt;- read.csv2("../data/ZA5666_v1-0-0.csv")
 ```
 
 
-```{r,echo=F,eval=F}
-datd <- datd[1:10,1:4]
-save(datd,file="../data/ZA5666_v1-0-0_small.RData")
-```
 
 
-<!--
+
+&lt;!--
 https://www.stats.govt.nz/assets/Uploads/Annual-enterprise-survey/Annual-enterprise-survey-2018-financial-year-provisional/Download-data/annual-enterprise-survey-2018-financial-year-provisional-csv.csv
--->
+--&gt;
 
 
 
-```{r}
-dat <- read.csv("../data/datahub_refugee.csv")
+
+```r
+dat &lt;- read.csv("../data/datahub_refugee.csv")
 ```
 
 ---
@@ -124,8 +127,19 @@ dat <- read.csv("../data/datahub_refugee.csv")
 
 - the following `data.frame` is a small excerpt from the data:
 
-```{r}
+
+```r
 head(dat)
+```
+
+```
+##   Country.Name Country.Code Year   Value
+## 1   Arab World          ARB 1990 4235545
+## 2   Arab World          ARB 1991 3811595
+## 3   Arab World          ARB 1992 4000509
+## 4   Arab World          ARB 1993 4189545
+## 5   Arab World          ARB 1994 4352945
+## 6   Arab World          ARB 1995 4337009
 ```
 
 
@@ -133,17 +147,31 @@ head(dat)
 
 ## The package `readxl`
 
-```{r,eval=F}
+
+```r
 install.packages("readxl")
 ```
 
 - [**`readxl` has no external dependencies**](https://stackoverflow.com/questions/7049272/importing-excel-files-into-r-xlsx-or-xls)
 - `readxl` supports both the legacy `.xls` format and the modern xml-based `.xlsx` format.
 
-```{r,eval=T}
+
+```r
 library(readxl)
-ab <- read_excel("../data/datahub_names_sa.xlsx")
+ab &lt;- read_excel("../data/datahub_names_sa.xlsx")
 head(ab)
+```
+
+```
+## # A tibble: 6 x 3
+##   ...1  X1           X2      
+##   &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;   
+## 1 1     0.0036749995 JOHN    
+## 2 2     0.0036418888 JOHANNES
+## 3 3     0.0031182974 DAVID   
+## 4 4     0.0030492798 MICHAEL 
+## 5 5     0.0029608373 JACOBUS 
+## 6 6     0.0027139047 MARIA
 ```
 
 ---
@@ -155,19 +183,20 @@ head(ab)
 - library `haven` - import and export 'SPSS', 'Stata' and 'SAS' files
 - the result of this import command is a tibble
 
-```{r,eval=F}
+
+```r
 library(haven)
-dataset <- read_sav("../data/datahub_government_africa.sav")
+dataset &lt;- read_sav("../data/datahub_government_africa.sav")
 ```
 
 
-<!--
+&lt;!--
 Data sources:
 
 https://ilostat.ilo.org/data/
 
 http://dataportal.opendataforafrica.org/zjqnio/infrastructure
--->
+--&gt;
 
 
 ![](figure/governmentdata_africa.PNG)
@@ -181,13 +210,14 @@ http://dataportal.opendataforafrica.org/zjqnio/infrastructure
 
 Files can also be imported directly from the Internet:
 
-```{r,eval=F}
+
+```r
 library(foreign)
-link <- "http://www.statistik.at/web_de/static/
+link &lt;- "http://www.statistik.at/web_de/static/
 mz_2013_sds_-_datensatz_080469.sav"
 
 ?read.spss
-Dat <- read.spss(link,to.data.frame=T)
+Dat &lt;- read.spss(link,to.data.frame=T)
 ```
 
 ---
@@ -198,17 +228,19 @@ Dat <- read.spss(link,to.data.frame=T)
 
 - With `read.dta13` stata files from version 13 (and higher) can be imported
 
-```{r,eval=F}
+
+```r
 library(readstata13)
-dat_stata <- read.dta13("../data/example_gp.dta")
+dat_stata &lt;- read.dta13("../data/example_gp.dta")
 ```
 
 
 ### Import `stata` files - older versions
 
-```{r,eval=F}
+
+```r
 library(foreign)
-dat_stata12 <- read.dta("../data/example_gp_stata12.dta")
+dat_stata12 &lt;- read.dta("../data/example_gp_stata12.dta")
 ```
 
 ---
@@ -224,21 +256,32 @@ dat_stata12 <- read.dta("../data/example_gp_stata12.dta")
 
 ### `convert.factors` argument
 
-```{r}
+
+```r
 library(readstata13)
 ```
 
-```{r,eval=T}
-datf <- read.dta13("../data/example_gp.dta",
+
+```r
+datf &lt;- read.dta13("../data/example_gp.dta",
                   convert.factors = F)
 head(datf$bbzc007a)
 ```
 
+```
+## NULL
+```
+
 ### For comparison - import without this argument
 
-```{r,eval=T}
-dat <- read.dta13("../data/example_gp.dta")
+
+```r
+dat &lt;- read.dta13("../data/example_gp.dta")
 head(dat$bbzc007a)
+```
+
+```
+## NULL
 ```
 
 ---
@@ -247,7 +290,8 @@ head(dat$bbzc007a)
 
 ### More information on `.dta` import
 
-```{r,eval=F}
+
+```r
 ?read.dta13
 ```
 
@@ -262,15 +306,25 @@ head(dat$bbzc007a)
 
 ## Get stata attributes
 
-```{r,eval=T}
-att_dat <- attributes(dat)
+
+```r
+att_dat &lt;- attributes(dat)
 head(names(att_dat))
+```
+
+```
+## NULL
 ```
 
 ### Example: the variable names 
 
-```{r}
+
+```r
 head(att_dat$names)
+```
+
+```
+## NULL
 ```
 
 
@@ -279,7 +333,8 @@ head(att_dat$names)
 
 ## Get an initial overview of the data
 
-```{r,eval=F}
+
+```r
 View(datf)
 ```
 
@@ -291,15 +346,17 @@ View(datf)
 
 ## [**The library `rio`**](https://cran.r-project.org/web/packages/rio/vignettes/rio.html)
 
-```{r,eval=F}
+
+```r
 install.packages("rio")
 ```
 
-```{r,eval=F}
+
+```r
 library("rio")
-x <- import("../data/ZA5666_v1-0-0.csv")
-y <- import("../data/ZA5666_v1-0-0_Stata12.dta")
-z <- import("../data/ZA5666_v1-0-0_Stata14.dta")
+x &lt;- import("../data/ZA5666_v1-0-0.csv")
+y &lt;- import("../data/ZA5666_v1-0-0_Stata12.dta")
+z &lt;- import("../data/ZA5666_v1-0-0_Stata14.dta")
 ```
 
 - [**rio: A Swiss-Army Knife for Data I/O**](https://cran.r-project.org/web/packages/rio/README.html)
@@ -308,18 +365,20 @@ z <- import("../data/ZA5666_v1-0-0_Stata14.dta")
 
 ## [The package `Hmisc`](https://www.statmethods.net/input/importingdata.html)
 
-> For SPSS and SAS I would recommend the Hmisc package for ease and functionality.
+&gt; For SPSS and SAS I would recommend the Hmisc package for ease and functionality.
 
-```{r,eval=F}
+
+```r
 library(Hmisc)
-mydata <- spss.get("c:/mydata.por", use.value.labels=TRUE)
+mydata &lt;- spss.get("c:/mydata.por", use.value.labels=TRUE)
 # last option converts value labels to R factors
 ```
 
 ### Import SAS data
 
-```{r,eval=F}
-mydata <- sasxport.get("c:/mydata.xpt")
+
+```r
+mydata &lt;- sasxport.get("c:/mydata.xpt")
 # character variables are converted to R factors
 ```
 
@@ -336,11 +395,11 @@ mydata <- sasxport.get("c:/mydata.xpt")
 
 - If the data is on a different drive in Windows
 
-<!--
+&lt;!--
 - search directory:
 
 ![](figure/OrdnerSuchen.PNG)
--->
+--&gt;
 
 
 ![](figure/ptptpt.PNG)
@@ -351,7 +410,8 @@ mydata <- sasxport.get("c:/mydata.xpt")
 
 This way you can find out which directory you are currently in
 
-```{r,eval=F}
+
+```r
 getwd()
 ```
 
@@ -359,15 +419,17 @@ So you can change the working directory:
 
 You create an object in which you save the path:
 
-```{r,eval=F}
-main.path <- "C:/" # Example for Windows
-main.path <- "/users/Name/" # Example for Mac
-main.path <- "/home/user/" # Example for Linux
+
+```r
+main.path &lt;- "C:/" # Example for Windows
+main.path &lt;- "/users/Name/" # Example for Mac
+main.path &lt;- "/home/user/" # Example for Linux
 ```
 
 And then change the path with `setwd()`
 
-```{r,eval=F}
+
+```r
 setwd(main.path)
 ```
 
@@ -379,10 +441,22 @@ On Windows it is important to use slashs instead of backslashes.
 
 - You can also use the tab key to get the autocompletion.
 
-```{r}
+
+```r
 getwd()
+```
+
+```
+## [1] "D:/github/intror2020/slides"
+```
+
+```r
 setwd("..")
 getwd()
+```
+
+```
+## [1] "D:/github/intror2020"
 ```
 
 ---
@@ -392,14 +466,16 @@ getwd()
 - Often an example dataset is provided to show the functionality of a package
 - These datasets can be loaded with the command `data`
 
-```{r}
+
+```r
 data(iris)
 ```
 
 
 - There is also an [**RStudio add-in**](https://github.com/bquast/datasets.load) that helps to find a dataset
 
-```{r,eval=F}
+
+```r
 install.packages("datasets.load")
 ```
 
@@ -415,19 +491,16 @@ install.packages("datasets.load")
 
 ![](figure/datasetsload.PNG)
 
-```{r,eval=F,echo=F}
-ex_count <- ex_count+1
-exletter <- LETTERS[ex_count]
-```
+
 
 ---
 
 ## Exercise: load built-in data
 
 ### Load the the built-in dataset `mtcars` 
-<!--
+&lt;!--
 and answer the following questions:
--->
+--&gt;
 1) How many observations and variables are available?
 2) What is the object structure of the variables?
 
@@ -442,7 +515,8 @@ and answer the following questions:
 
 - [**RStudio addin for inserting data**](https://github.com/lbusett/insert_table)
 
-```{r,eval=F}
+
+```r
 devtools::install_github("lbusett/insert_table")
 ```
 
@@ -454,8 +528,9 @@ devtools::install_github("lbusett/insert_table")
 
 - You can browse through the directory with `file.choose`:
 
-```{r,eval=F}
-dat <- read.csv(file.choose())
+
+```r
+dat &lt;- read.csv(file.choose())
 ```
 
 - If you run the command line above a window is opened and you can browse in the file system.
@@ -465,22 +540,27 @@ dat <- read.csv(file.choose())
 
 ## Creating an example data record
 
-```{r}
-A <- c(1,2,3,4)
-B <- c("A","B","C","D")
 
-mydata <- data.frame(A,B)
+```r
+A &lt;- c(1,2,3,4)
+B &lt;- c("A","B","C","D")
+
+mydata &lt;- data.frame(A,B)
 ```
 
-```{r,eval=F}
+
+```r
 mydata
 ```
 
 
-```{r,eval=T,echo=F}
-library(knitr)
-kable(mydata)
-```
+
+  A  B  
+---  ---
+  1  A  
+  2  B  
+  3  C  
+  4  D  
 
 
 ---
@@ -489,16 +569,18 @@ kable(mydata)
 
 - if you continue working with R, `.RData` or [**`rds`**](https://www.fromthebottomoftheheap.net/2012/04/01/saving-and-loading-r-objects/) format is the best choice:
 
-```{r,eval=F}
+
+```r
 save(mydata, file="mydata.RData")
 saveRDS(mydata, "mydata.rds")
 ```
 
 - The data set can be imported with `load`.
 
-```{r,eval=F}
+
+```r
 load("mydata.RData")
-mydata <- readRDS("mydata.rds")
+mydata &lt;- readRDS("mydata.rds")
 ```
 
 - `saveRDS()` doesn’t save the both the object and its name it just saves a representation of the object
@@ -526,3 +608,111 @@ mydata <- readRDS("mydata.rds")
 - The [**R-package `labelled`**](https://cran.r-project.org/web/packages/labelled/labelled.pdf) to work with labelled data imported from SPSS or stata
 
 - [Overview - **all import functionalities**](https://cran.r-project.org/doc/manuals/r-release/R-data.html)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

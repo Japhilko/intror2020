@@ -1,23 +1,17 @@
 ---
-title: "Data wrangling with tidyverse"
+title: "Introduction to R"
+subtitle: "Data wrangling with tidyverse"
 author: "Jan-Philipp Kolb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
-fontsize: 10pt
+location: "GESIS, Mannheim, Germany"
 output:
-  beamer_presentation: 
-    fig_caption: no
-    fig_height: 3
-    fig_width: 5
-    fonttheme: structuresmallcapsserif
-    highlight: zenburn
-    colortheme: whale
-    theme: Warsaw
-  pdf_document:
-    toc: yes
-  html_document:
-    keep_md: yes
-  slidy_presentation:
-    keep_md: yes
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "default-fonts", "../workshop.css"]
+    nature:
+      highlightStyle: "github"
+      highlightLines: true
+      countIncrementalSlides: false
 ---
 
 ```{r setup, include=FALSE}
@@ -37,6 +31,7 @@ the blind men and the elephant."
 
 [Jeff Leek](http://uc-r.github.io/data_wrangling/week-3)
 
+---
 
 ## [FIRST THINGS TO DO](http://uc-r.github.io/data_wrangling/week-3)
 
@@ -48,7 +43,7 @@ to get to know the data:
 3. **Learn about the data**
 4. Quick visual understanding of the data
 
-
+---
 
 ## [WHAT IS TIDY DATA?](http://uc-r.github.io/data_wrangling/week-3)
 - One variable per column
@@ -56,6 +51,7 @@ to get to know the data:
 
 ![](figure/tidydata.PNG)
 
+---
 
 ## What is `tidyverse` 
 
@@ -64,6 +60,8 @@ library(tidyverse)
 ```
 
 ![](figure/whatistidyverse.PNG)
+
+---
 
 ## `tidyr`
 
@@ -77,7 +75,7 @@ the vast majority of your data tidying challenges:
 -  `separate`: splits a single column into multiple columns
 -  `unite`: combines multiple columns into a single column
 
-
+---
 
 ## Exercise: [random numbers](https://www.datacamp.com/community/tutorials/pipe-r-tutorial)
 
@@ -108,7 +106,7 @@ y <- c(1,4,5)
 log(exp(5))
 ```
 
-
+---
 
 ## The package `magrittr`
 
@@ -118,7 +116,7 @@ library(magrittr)
 
 ![](figure/magrittr_vignette.jpg)
 
-
+---
 
 ## [The pipe operator](https://www.datacamp.com/community/tutorials/pipe-r-tutorial)
 
@@ -131,11 +129,13 @@ x %>% log() %>%
     round(1)
 ```
 
+---
 
 ## How `gather` function works
 
 ![](figure/gather.PNG)
 
+---
 
 ## The `gather` function
 
@@ -144,6 +144,7 @@ load("../data/tidy_data.RData")
 cases %>% gather(Year,n,2:4)
 ```
 
+---
 
 ## [The gather function](http://uc-r.github.io/data_wrangling/week-3)
 
@@ -159,6 +160,7 @@ cases %>% gather(Year, n, -country)
 
 - Also note that if you do not supply arguments for `na.rm` or convert values then the defaults are used
 
+---
 
 ## The seperate function
 
@@ -177,6 +179,7 @@ storms %>%
 
 ![](figure/seperatefun.PNG)
 
+---
 
 ## The unite function
 
@@ -191,6 +194,7 @@ storms %>% unite(date, year, month, day)
 ![](figure/unitefun.PNG)
 
 
+---
 
 ## The R-package `data.table`
 
@@ -201,6 +205,8 @@ data(airquality)
 head(airquality)
 ```
 
+---
+
 ## Overview with `data.table`
 
 ```{r}
@@ -208,6 +214,7 @@ library(data.table)
 (airq <- data.table(airquality))
 ```
 
+---
 
 ## The `dplyr` package
 
@@ -217,6 +224,7 @@ library(dplyr)
 
 ![](figure/dplyr_vignette.PNG)
 
+---
 
 ## Important functions of `dplyr`
 
@@ -226,6 +234,8 @@ library(dplyr)
 - `mutate`: create new variables
 - `summarize`: summarize data by functions of choice
 - `group_by`: group data by categorical levels
+
+---
 
 ## PACKAGE and data
 
@@ -244,11 +254,15 @@ flights
 
 ![](figure/flights.PNG)
 
+---
+
 ## Exercise: Vignette and additional documentation
 
 - Are there vignettes for the `dplyr` package?
 - Can you find additional documentation explaining the `flights`
 data set?
+
+---
 
 ## the `filter` command
 
@@ -262,6 +276,8 @@ filter(flights,month==1)
 
 ![](figure/filter_example.PNG)
 
+---
+
 ## BASIC FILTERING
 
 ### Filter based on one or more variables
@@ -272,6 +288,8 @@ filter(flights,month==1,day==1)
 
 ![](figure/filterex2.PNG)
 
+---
+
 ## Filter based on one or more variables
 
 ```{r,eval=F}
@@ -279,6 +297,8 @@ filter(flights,month==1,day==1,dep_delay > 0)
 ```
 
 ![](figure/filter_ex3.PNG)
+
+---
 
 ## Comparison
 
@@ -292,6 +312,8 @@ filter(flights,arr_delay <= 120)
 filter(flights,!(arr_delay <= 120))
 filter(flights,is.na(tailnum))
 ```
+
+---
 
 ## [MULTIPLE COMPARISONS](http://uc-r.github.io/data_wrangling/week-4)
 
@@ -310,6 +332,8 @@ filter(flights,month==11 | month==12)
 filter(flights,month %in% c(11,12))
 ```
 
+---
+
 ## Are these the same?
 
 ```{r,eval=F}
@@ -317,6 +341,7 @@ filter(flights, !(arr_delay > 120 | dep_delay > 120))
 filter(flights, arr_delay <= 120,dep_delay <= 120)
 ```
 
+---
 
 ## Exercise: `dplyr` and `flights` dataset
 
@@ -330,6 +355,8 @@ filter(flights, arr_delay <= 120,dep_delay <= 120)
 late
 
 
+---
+
 ## `arrange` - reorder data
 
 ### Order data based on one or more variables
@@ -340,6 +367,7 @@ arrange(flights, dep_delay)
 
 ![](figure/arrange_ex1.PNG)
 
+---
 
 ## ORDERING YOUR DATA
 
@@ -352,6 +380,8 @@ arrange(flights, dep_delay, arr_delay)
 
 ![](figure/arrange_ex2.PNG)
 
+---
+
 ## Reverse ordering
 
 ### Reverse the order by using `desc()`
@@ -362,11 +392,15 @@ arrange(flights, desc(dep_delay))
 
 ![](figure/arrange_ex3.PNG)
 
+---
+
 ## Ordering and missing values
 
 - Note that missing values are always sorted at the end:
 
 ![](figure/order_missing.PNG)
+
+---
 
 ## Exercise: Sorting `flights` data
 
@@ -376,6 +410,8 @@ arrange(flights, desc(dep_delay))
 (b) Find the flights that left earliest based on departure time.
 (c) Which flights traveled the longest distance?
 (d) Which traveled the shortest?
+
+---
 
 ## `select` - select variables of concern
 
@@ -390,6 +426,8 @@ select(flights, year, month, day)
 
 ![](figure/selectvars.PNG)
 
+---
+
 ## Deselect one or more variables
 
 ```{r,eval=F}
@@ -402,17 +440,23 @@ select(flights, -(year:day))
 ![](figure/deselect.PNG)
 -->
 
+---
+
 ## USEFUL `select` FUNCTIONS
 
 ### Blue functions come in `dplyr`
 
 ![](figure/usefulselectfuns.PNG)
 
+---
+
 ## SELECTING VARIABLES
 
 ### Select variables based on name patterns
 
 ![](figure/selectnamepatterns.PNG)
+
+---
 
 ## [RENAMING VARIABLES]()
 
@@ -424,6 +468,8 @@ rename(flights, ANNOYING = dep_delay)
 
 
 ![](figure/renamevars.PNG)
+
+---
 
 ## Exercises: the commands `select` and `one_of()` 
 
@@ -443,15 +489,19 @@ select(flights,contains("TIME"))
 
 ![](figure/select_contains.PNG)
 
+---
+
 ## [REDUCE OUR DATA](http://uc-r.github.io/data_wrangling/week-4)
 
 Lets work with a smaller data set
 
-```{r}
+```{r,eval=F}
 (flights_sml <- select(flights,year:day,
                       ends_with("delay"),
                       distance,air_time))
 ```
+
+---
 
 ## [CREATE NEW VARIABLES](http://uc-r.github.io/data_wrangling/week-4)
 
@@ -463,6 +513,8 @@ mutate(flights_sml,gain=arr_delay - dep_delay,
 ```
 
 ![](figure/mutateflights.PNG)
+
+---
 
 ## CREATE NEW VARIABLES
 
@@ -476,11 +528,15 @@ mutate(flights_sml,gain=arr_delay - dep_delay,
 
 ![](figure/mutate_gainperhour.PNG)
 
+---
+
 ## MANY USEFUL CREATION FUNCTIONS
 
 There are a wide variety of functions you can use with `mutate()`
 
 ![](figure/mutatefuns.PNG){height=80%}
+
+---
 
 ## Exercise: `tidyverse` convert
 
@@ -502,7 +558,7 @@ airq %>%
 ```
 -->
 
-
+---
 
 ## [Convert all columns of a vector to character](https://stackoverflow.com/questions/43789278/convert-all-columns-to-characters-in-a-data-frame)
 
@@ -511,6 +567,7 @@ library(dplyr)
 mtcars %>%  mutate_all(as.character)
 ```
 
+---
 
 ## `summarise` - Collapse many values down to a single summary statistic
 
@@ -518,6 +575,7 @@ We can create summary statistics of one or more variables:
 
 ![](figure/summarize1.PNG)
 
+---
 
 ## [Get summary statistics by group](http://www.sthda.com/english/wiki/one-way-anova-test-in-r)
 
@@ -530,6 +588,8 @@ group_by(iris, Species) %>%
     sd = sd(Sepal.Length, na.rm = TRUE)
   )
 ```
+
+---
 
 ## Links and resources
 

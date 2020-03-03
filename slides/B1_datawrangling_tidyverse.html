@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introduction to R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Jan-Philipp Kolb" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="..\workshop.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introduction to R
+## Data wrangling with tidyverse
+### Jan-Philipp Kolb
+### 03 März, 2020
+
+---
+
+
+
+
+## 
+
+&lt;!--
+https://datacarpentry.org/R-ecology-lesson/03-dplyr.html
+--&gt;
+
+![](figure/blindmanelephant.PNG)
+
+"Unless the data is something I’ve analyzed a lot before, I usually feel like
+the blind men and the elephant."
+
+[Jeff Leek](http://uc-r.github.io/data_wrangling/week-3)
+
+---
+
+## [FIRST THINGS TO DO](http://uc-r.github.io/data_wrangling/week-3)
+
+Don’t try to kiss your data on the first date; rather, you just want
+to get to know the data:
+
+1. Import the data
+2. Review the codebook
+3. **Learn about the data**
+4. Quick visual understanding of the data
+
+---
+
+## [WHAT IS TIDY DATA?](http://uc-r.github.io/data_wrangling/week-3)
+- One variable per column
+- One observation per row
+
+![](figure/tidydata.PNG)
+
+---
+
+## What is `tidyverse` 
+
+
+```r
+library(tidyverse)
+```
+
+![](figure/whatistidyverse.PNG)
+
+---
+
+## `tidyr`
+
+### Four key `tidyr` functions
+
+You'll learn four key `tidyr` functions that allow you to solve
+the vast majority of your data tidying challenges:
+
+-  `gather`: transforms data from wide to long
+-  `spread`: transforms data from long to wide
+-  `separate`: splits a single column into multiple columns
+-  `unite`: combines multiple columns into a single column
+
+---
+
+## Exercise: [random numbers](https://www.datacamp.com/community/tutorials/pipe-r-tutorial)
+
+
+
+1) Draw 8 random numbers from the uniform distribution (`rnorm`) and save them in a vector `x`
+2) Compute the natural logarithm of `x`,  
+3) and round the result
+
+&lt;!--
+https://www.math.ucla.edu/~anderson/rw1001/library/base/html/diff.html
+--&gt;
+
+
+
+
+
+---
+
+## The package `magrittr`
+
+
+```r
+library(magrittr)
+```
+
+![](figure/magrittr_vignette.jpg)
+
+---
+
+## [The pipe operator](https://www.datacamp.com/community/tutorials/pipe-r-tutorial)
+
+
+
+```r
+library(magrittr)
+
+# Perform the same computations on `x` as above
+x %&gt;% log() %&gt;%
+    round(1)
+```
+
+```
+## [1] -0.1 -0.8 -0.8 -0.8 -0.3 -0.1 -2.3 -1.7
+```
+
+---
+
+## How `gather` function works
+
+![](figure/gather.PNG)
+
+---
+
+## The `gather` function
+
+
+```r
+load("../data/tidy_data.RData")
+cases %&gt;% gather(Year,n,2:4)
+```
+
+```
+##   country Year     n
+## 1      FR 2011  7000
+## 2      DE 2011  5800
+## 3      US 2011 15000
+## 4      FR 2012  6900
+## 5      DE 2012  6000
+## 6      US 2012 14000
+## 7      FR 2013  7000
+## 8      DE 2013  6200
+## 9      US 2013 13000
+```
+
+---
+
+## [The gather function](http://uc-r.github.io/data_wrangling/week-3)
+
+### Code alternatives:
+
+
+```r
+# These all produce the same results:
+cases %&gt;% gather(Year, n, "2011":"2013")
+cases %&gt;% gather(Year, n, "2011", "2012", "2013")
+cases %&gt;% gather(Year, n, 2:4)
+cases %&gt;% gather(Year, n, -country)
+```
+
+- Also note that if you do not supply arguments for `na.rm` or convert values then the defaults are used
+
+---
+
+## The seperate function
+
+
+```r
+storms &lt;- storms %&gt;% 
+  separate(date, c("year", "month", "day"))
+```
+
+- By default, if no separator is specified, will separate by any regular expression that matches any sequence of non-alphanumeric values
+
+
+
+```r
+storms %&gt;% 
+  separate(date, c("year", "month", "day"), sep = "-")
+```
+
+![](figure/seperatefun.PNG)
+
+---
+
+## The unite function
+
+
+```r
+# same results:
+storms %&gt;% unite(date, year, month, day, sep = "_")
+storms %&gt;% unite(date, year, month, day)
+# If no separator is identified, 
+# "_" will automatically be used
+```
+
+![](figure/unitefun.PNG)
+
+
+---
+
+## The R-package `data.table`
+
+### Get an overview
+
+
+```r
+data(airquality)
+head(airquality)
+```
+
+```
+##   Ozone Solar.R Wind Temp Month Day
+## 1    41     190  7.4   67     5   1
+## 2    36     118  8.0   72     5   2
+## 3    12     149 12.6   74     5   3
+## 4    18     313 11.5   62     5   4
+## 5    NA      NA 14.3   56     5   5
+## 6    28      NA 14.9   66     5   6
+```
+
+---
+
+## Overview with `data.table`
+
+
+```r
+library(data.table)
+(airq &lt;- data.table(airquality))
+```
+
+```
+##      Ozone Solar.R Wind Temp Month Day
+##   1:    41     190  7.4   67     5   1
+##   2:    36     118  8.0   72     5   2
+##   3:    12     149 12.6   74     5   3
+##   4:    18     313 11.5   62     5   4
+##   5:    NA      NA 14.3   56     5   5
+##  ---                                  
+## 149:    30     193  6.9   70     9  26
+## 150:    NA     145 13.2   77     9  27
+## 151:    14     191 14.3   75     9  28
+## 152:    18     131  8.0   76     9  29
+## 153:    20     223 11.5   68     9  30
+```
+
+---
+
+## The `dplyr` package
+
+
+```r
+library(dplyr)
+```
+
+![](figure/dplyr_vignette.PNG)
+
+---
+
+## Important functions of `dplyr`
+
+- `filter`: pick observations based on values
+- `arrange`: reorder data
+- `select`: pick variables
+- `mutate`: create new variables
+- `summarize`: summarize data by functions of choice
+- `group_by`: group data by categorical levels
+
+---
+
+## PACKAGE and data
+
+
+
+
+
+```r
+library(nycflights13)
+```
+
+
+```r
+flights
+```
+
+![](figure/flights.PNG)
+
+---
+
+## Exercise: Vignette and additional documentation
+
+- Are there vignettes for the `dplyr` package?
+- Can you find additional documentation explaining the `flights`
+data set?
+
+---
+
+## the `filter` command
+
+### Filter values based on defined conditions
+
+Filter based on one or more variables
+
+
+```r
+filter(flights,month==1)
+```
+
+![](figure/filter_example.PNG)
+
+---
+
+## BASIC FILTERING
+
+### Filter based on one or more variables
+
+
+```r
+filter(flights,month==1,day==1)
+```
+
+![](figure/filterex2.PNG)
+
+---
+
+## Filter based on one or more variables
+
+
+```r
+filter(flights,month==1,day==1,dep_delay &gt; 0)
+```
+
+![](figure/filter_ex3.PNG)
+
+---
+
+## Comparison
+
+### What will these operations produce?
+
+
+```r
+filter(flights,month==12)
+filter(flights,month!=12)
+filter(flights,month %in% c(11,12))
+filter(flights,arr_delay &lt;= 120)
+filter(flights,!(arr_delay &lt;= 120))
+filter(flights,is.na(tailnum))
+```
+
+---
+
+## [MULTIPLE COMPARISONS](http://uc-r.github.io/data_wrangling/week-4)
+
+### Using comma is same as using &amp; 
+
+
+```r
+filter(flights,month==12, day==25)
+filter(flights,month==12 &amp; day==25)
+```
+
+
+### Use `%in%` as a shortcut for `|`
+
+
+```r
+filter(flights,month==11 | month==12)
+filter(flights,month %in% c(11,12))
+```
+
+---
+
+## Are these the same?
+
+
+```r
+filter(flights, !(arr_delay &gt; 120 | dep_delay &gt; 120))
+filter(flights, arr_delay &lt;= 120,dep_delay &lt;= 120)
+```
+
+---
+
+## Exercise: `dplyr` and `flights` dataset
+
+### Find the number of flights that:
+
+(a) Had an arrival delay of two or more hours
+
+(b) Flew to Houston (IAH or HOU)
+
+(c) Arrived more than two hours late, but didn’t leave
+late
+
+
+---
+
+## `arrange` - reorder data
+
+### Order data based on one or more variables
+
+
+```r
+arrange(flights, dep_delay)
+```
+
+![](figure/arrange_ex1.PNG)
+
+---
+
+## ORDERING YOUR DATA
+
+### Order data based on one or more variables
+
+
+```r
+arrange(flights, dep_delay, arr_delay)
+```
+
+
+![](figure/arrange_ex2.PNG)
+
+---
+
+## Reverse ordering
+
+### Reverse the order by using `desc()`
+
+
+```r
+arrange(flights, desc(dep_delay))
+```
+
+![](figure/arrange_ex3.PNG)
+
+---
+
+## Ordering and missing values
+
+- Note that missing values are always sorted at the end:
+
+![](figure/order_missing.PNG)
+
+---
+
+## Exercise: Sorting `flights` data
+
+### Sort and find flights
+
+(a) Sort flights to find those with largest departure delays.
+(b) Find the flights that left earliest based on departure time.
+(c) Which flights traveled the longest distance?
+(d) Which traveled the shortest?
+
+---
+
+## `select` - select variables of concern
+
+### SELECTING VARIABLES
+
+Select one or more variables
+
+
+```r
+select(flights, year, month, day)
+```
+
+
+![](figure/selectvars.PNG)
+
+---
+
+## Deselect one or more variables
+
+
+```r
+select(flights, -(year:day))
+```
+
+![](figure/select_flights.PNG)
+
+&lt;!--
+![](figure/deselect.PNG)
+--&gt;
+
+---
+
+## USEFUL `select` FUNCTIONS
+
+### Blue functions come in `dplyr`
+
+![](figure/usefulselectfuns.PNG)
+
+---
+
+## SELECTING VARIABLES
+
+### Select variables based on name patterns
+
+![](figure/selectnamepatterns.PNG)
+
+---
+
+## [RENAMING VARIABLES]()
+
+Other times we just want to rename our variables:
+
+
+```r
+rename(flights, ANNOYING = dep_delay)
+```
+
+
+![](figure/renamevars.PNG)
+
+---
+
+## Exercises: the commands `select` and `one_of()` 
+
+(a) What happens if you include the name of a variable multiple times in a `select` call?
+(b) What does the `one_of()` function do? Why might it be helpful in conjunction with this vector?
+
+
+```r
+vars &lt;- c("MONTH","month","day","dep_delay","arr_delay")
+```
+
+
+(c) Does the result of running the following code surprise you? How do the select helpers deal with case by default? How can you change that default?
+
+
+```r
+select(flights,contains("TIME"))
+```
+
+![](figure/select_contains.PNG)
+
+---
+
+## [REDUCE OUR DATA](http://uc-r.github.io/data_wrangling/week-4)
+
+Lets work with a smaller data set
+
+
+```r
+(flights_sml &lt;- select(flights,year:day,
+                      ends_with("delay"),
+                      distance,air_time))
+```
+
+---
+
+## [CREATE NEW VARIABLES](http://uc-r.github.io/data_wrangling/week-4)
+
+`mutate` creates new variables with functions of existing variables:
+
+
+```r
+mutate(flights_sml,gain=arr_delay - dep_delay,
+       speed = distance/air_time * 60)
+```
+
+![](figure/mutateflights.PNG)
+
+---
+
+## CREATE NEW VARIABLES
+
+Note: you can create variables based on columns that you’ve just created:
+
+
+```r
+mutate(flights_sml,gain=arr_delay - dep_delay,
+       hours = air_time / 60, gain_per_hour = gain / hours)
+```
+
+![](figure/mutate_gainperhour.PNG)
+
+---
+
+## MANY USEFUL CREATION FUNCTIONS
+
+There are a wide variety of functions you can use with `mutate()`
+
+![](figure/mutatefuns.PNG){height=80%}
+
+---
+
+## Exercise: `tidyverse` convert
+
+(a) Create a new variable `distance_km` that converts
+distance in miles to kilometers.
+
+(b) Create a `time_per_km` variable based on `air_time` and `distance_km`.
+
+&lt;!--
+## Command `mutate` - create or transform variables
+
+
+```r
+?dplyr::mutate
+```
+
+
+```r
+airq %&gt;%
+  mutate(Temp / max(Temp, na.rm = TRUE)) 
+```
+
+```
+##     Ozone Solar.R Wind Temp Month Day Temp/max(Temp, na.rm = TRUE)
+## 1      41     190  7.4   67     5   1                    0.6907216
+## 2      36     118  8.0   72     5   2                    0.7422680
+## 3      12     149 12.6   74     5   3                    0.7628866
+## 4      18     313 11.5   62     5   4                    0.6391753
+## 5      NA      NA 14.3   56     5   5                    0.5773196
+## 6      28      NA 14.9   66     5   6                    0.6804124
+## 7      23     299  8.6   65     5   7                    0.6701031
+## 8      19      99 13.8   59     5   8                    0.6082474
+## 9       8      19 20.1   61     5   9                    0.6288660
+## 10     NA     194  8.6   69     5  10                    0.7113402
+## 11      7      NA  6.9   74     5  11                    0.7628866
+## 12     16     256  9.7   69     5  12                    0.7113402
+## 13     11     290  9.2   66     5  13                    0.6804124
+## 14     14     274 10.9   68     5  14                    0.7010309
+## 15     18      65 13.2   58     5  15                    0.5979381
+## 16     14     334 11.5   64     5  16                    0.6597938
+## 17     34     307 12.0   66     5  17                    0.6804124
+## 18      6      78 18.4   57     5  18                    0.5876289
+## 19     30     322 11.5   68     5  19                    0.7010309
+## 20     11      44  9.7   62     5  20                    0.6391753
+## 21      1       8  9.7   59     5  21                    0.6082474
+## 22     11     320 16.6   73     5  22                    0.7525773
+## 23      4      25  9.7   61     5  23                    0.6288660
+## 24     32      92 12.0   61     5  24                    0.6288660
+## 25     NA      66 16.6   57     5  25                    0.5876289
+## 26     NA     266 14.9   58     5  26                    0.5979381
+## 27     NA      NA  8.0   57     5  27                    0.5876289
+## 28     23      13 12.0   67     5  28                    0.6907216
+## 29     45     252 14.9   81     5  29                    0.8350515
+## 30    115     223  5.7   79     5  30                    0.8144330
+## 31     37     279  7.4   76     5  31                    0.7835052
+## 32     NA     286  8.6   78     6   1                    0.8041237
+## 33     NA     287  9.7   74     6   2                    0.7628866
+## 34     NA     242 16.1   67     6   3                    0.6907216
+## 35     NA     186  9.2   84     6   4                    0.8659794
+## 36     NA     220  8.6   85     6   5                    0.8762887
+## 37     NA     264 14.3   79     6   6                    0.8144330
+## 38     29     127  9.7   82     6   7                    0.8453608
+## 39     NA     273  6.9   87     6   8                    0.8969072
+## 40     71     291 13.8   90     6   9                    0.9278351
+## 41     39     323 11.5   87     6  10                    0.8969072
+## 42     NA     259 10.9   93     6  11                    0.9587629
+## 43     NA     250  9.2   92     6  12                    0.9484536
+## 44     23     148  8.0   82     6  13                    0.8453608
+## 45     NA     332 13.8   80     6  14                    0.8247423
+## 46     NA     322 11.5   79     6  15                    0.8144330
+## 47     21     191 14.9   77     6  16                    0.7938144
+## 48     37     284 20.7   72     6  17                    0.7422680
+## 49     20      37  9.2   65     6  18                    0.6701031
+## 50     12     120 11.5   73     6  19                    0.7525773
+## 51     13     137 10.3   76     6  20                    0.7835052
+## 52     NA     150  6.3   77     6  21                    0.7938144
+## 53     NA      59  1.7   76     6  22                    0.7835052
+## 54     NA      91  4.6   76     6  23                    0.7835052
+## 55     NA     250  6.3   76     6  24                    0.7835052
+## 56     NA     135  8.0   75     6  25                    0.7731959
+## 57     NA     127  8.0   78     6  26                    0.8041237
+## 58     NA      47 10.3   73     6  27                    0.7525773
+## 59     NA      98 11.5   80     6  28                    0.8247423
+## 60     NA      31 14.9   77     6  29                    0.7938144
+## 61     NA     138  8.0   83     6  30                    0.8556701
+## 62    135     269  4.1   84     7   1                    0.8659794
+## 63     49     248  9.2   85     7   2                    0.8762887
+## 64     32     236  9.2   81     7   3                    0.8350515
+## 65     NA     101 10.9   84     7   4                    0.8659794
+## 66     64     175  4.6   83     7   5                    0.8556701
+## 67     40     314 10.9   83     7   6                    0.8556701
+## 68     77     276  5.1   88     7   7                    0.9072165
+## 69     97     267  6.3   92     7   8                    0.9484536
+## 70     97     272  5.7   92     7   9                    0.9484536
+## 71     85     175  7.4   89     7  10                    0.9175258
+## 72     NA     139  8.6   82     7  11                    0.8453608
+## 73     10     264 14.3   73     7  12                    0.7525773
+## 74     27     175 14.9   81     7  13                    0.8350515
+## 75     NA     291 14.9   91     7  14                    0.9381443
+## 76      7      48 14.3   80     7  15                    0.8247423
+## 77     48     260  6.9   81     7  16                    0.8350515
+## 78     35     274 10.3   82     7  17                    0.8453608
+## 79     61     285  6.3   84     7  18                    0.8659794
+## 80     79     187  5.1   87     7  19                    0.8969072
+## 81     63     220 11.5   85     7  20                    0.8762887
+## 82     16       7  6.9   74     7  21                    0.7628866
+## 83     NA     258  9.7   81     7  22                    0.8350515
+## 84     NA     295 11.5   82     7  23                    0.8453608
+## 85     80     294  8.6   86     7  24                    0.8865979
+## 86    108     223  8.0   85     7  25                    0.8762887
+## 87     20      81  8.6   82     7  26                    0.8453608
+## 88     52      82 12.0   86     7  27                    0.8865979
+## 89     82     213  7.4   88     7  28                    0.9072165
+## 90     50     275  7.4   86     7  29                    0.8865979
+## 91     64     253  7.4   83     7  30                    0.8556701
+## 92     59     254  9.2   81     7  31                    0.8350515
+## 93     39      83  6.9   81     8   1                    0.8350515
+## 94      9      24 13.8   81     8   2                    0.8350515
+## 95     16      77  7.4   82     8   3                    0.8453608
+## 96     78      NA  6.9   86     8   4                    0.8865979
+## 97     35      NA  7.4   85     8   5                    0.8762887
+## 98     66      NA  4.6   87     8   6                    0.8969072
+## 99    122     255  4.0   89     8   7                    0.9175258
+## 100    89     229 10.3   90     8   8                    0.9278351
+## 101   110     207  8.0   90     8   9                    0.9278351
+## 102    NA     222  8.6   92     8  10                    0.9484536
+## 103    NA     137 11.5   86     8  11                    0.8865979
+## 104    44     192 11.5   86     8  12                    0.8865979
+## 105    28     273 11.5   82     8  13                    0.8453608
+## 106    65     157  9.7   80     8  14                    0.8247423
+## 107    NA      64 11.5   79     8  15                    0.8144330
+## 108    22      71 10.3   77     8  16                    0.7938144
+## 109    59      51  6.3   79     8  17                    0.8144330
+## 110    23     115  7.4   76     8  18                    0.7835052
+## 111    31     244 10.9   78     8  19                    0.8041237
+## 112    44     190 10.3   78     8  20                    0.8041237
+## 113    21     259 15.5   77     8  21                    0.7938144
+## 114     9      36 14.3   72     8  22                    0.7422680
+## 115    NA     255 12.6   75     8  23                    0.7731959
+## 116    45     212  9.7   79     8  24                    0.8144330
+## 117   168     238  3.4   81     8  25                    0.8350515
+## 118    73     215  8.0   86     8  26                    0.8865979
+## 119    NA     153  5.7   88     8  27                    0.9072165
+## 120    76     203  9.7   97     8  28                    1.0000000
+## 121   118     225  2.3   94     8  29                    0.9690722
+## 122    84     237  6.3   96     8  30                    0.9896907
+## 123    85     188  6.3   94     8  31                    0.9690722
+## 124    96     167  6.9   91     9   1                    0.9381443
+## 125    78     197  5.1   92     9   2                    0.9484536
+## 126    73     183  2.8   93     9   3                    0.9587629
+## 127    91     189  4.6   93     9   4                    0.9587629
+## 128    47      95  7.4   87     9   5                    0.8969072
+## 129    32      92 15.5   84     9   6                    0.8659794
+## 130    20     252 10.9   80     9   7                    0.8247423
+## 131    23     220 10.3   78     9   8                    0.8041237
+## 132    21     230 10.9   75     9   9                    0.7731959
+## 133    24     259  9.7   73     9  10                    0.7525773
+## 134    44     236 14.9   81     9  11                    0.8350515
+## 135    21     259 15.5   76     9  12                    0.7835052
+## 136    28     238  6.3   77     9  13                    0.7938144
+## 137     9      24 10.9   71     9  14                    0.7319588
+## 138    13     112 11.5   71     9  15                    0.7319588
+## 139    46     237  6.9   78     9  16                    0.8041237
+## 140    18     224 13.8   67     9  17                    0.6907216
+## 141    13      27 10.3   76     9  18                    0.7835052
+## 142    24     238 10.3   68     9  19                    0.7010309
+## 143    16     201  8.0   82     9  20                    0.8453608
+## 144    13     238 12.6   64     9  21                    0.6597938
+## 145    23      14  9.2   71     9  22                    0.7319588
+## 146    36     139 10.3   81     9  23                    0.8350515
+## 147     7      49 10.3   69     9  24                    0.7113402
+## 148    14      20 16.6   63     9  25                    0.6494845
+## 149    30     193  6.9   70     9  26                    0.7216495
+## 150    NA     145 13.2   77     9  27                    0.7938144
+## 151    14     191 14.3   75     9  28                    0.7731959
+## 152    18     131  8.0   76     9  29                    0.7835052
+## 153    20     223 11.5   68     9  30                    0.7010309
+```
+--&gt;
+
+---
+
+## [Convert all columns of a vector to character](https://stackoverflow.com/questions/43789278/convert-all-columns-to-characters-in-a-data-frame)
+
+
+```r
+library(dplyr)
+mtcars %&gt;%  mutate_all(as.character)
+```
+
+```
+##     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## 1    21   6   160 110  3.9  2.62 16.46  0  1    4    4
+## 2    21   6   160 110  3.9 2.875 17.02  0  1    4    4
+## 3  22.8   4   108  93 3.85  2.32 18.61  1  1    4    1
+## 4  21.4   6   258 110 3.08 3.215 19.44  1  0    3    1
+## 5  18.7   8   360 175 3.15  3.44 17.02  0  0    3    2
+## 6  18.1   6   225 105 2.76  3.46 20.22  1  0    3    1
+## 7  14.3   8   360 245 3.21  3.57 15.84  0  0    3    4
+## 8  24.4   4 146.7  62 3.69  3.19    20  1  0    4    2
+## 9  22.8   4 140.8  95 3.92  3.15  22.9  1  0    4    2
+## 10 19.2   6 167.6 123 3.92  3.44  18.3  1  0    4    4
+## 11 17.8   6 167.6 123 3.92  3.44  18.9  1  0    4    4
+## 12 16.4   8 275.8 180 3.07  4.07  17.4  0  0    3    3
+## 13 17.3   8 275.8 180 3.07  3.73  17.6  0  0    3    3
+## 14 15.2   8 275.8 180 3.07  3.78    18  0  0    3    3
+## 15 10.4   8   472 205 2.93  5.25 17.98  0  0    3    4
+## 16 10.4   8   460 215    3 5.424 17.82  0  0    3    4
+## 17 14.7   8   440 230 3.23 5.345 17.42  0  0    3    4
+## 18 32.4   4  78.7  66 4.08   2.2 19.47  1  1    4    1
+## 19 30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## 20 33.9   4  71.1  65 4.22 1.835  19.9  1  1    4    1
+## 21 21.5   4 120.1  97  3.7 2.465 20.01  1  0    3    1
+## 22 15.5   8   318 150 2.76  3.52 16.87  0  0    3    2
+## 23 15.2   8   304 150 3.15 3.435  17.3  0  0    3    2
+## 24 13.3   8   350 245 3.73  3.84 15.41  0  0    3    4
+## 25 19.2   8   400 175 3.08 3.845 17.05  0  0    3    2
+## 26 27.3   4    79  66 4.08 1.935  18.9  1  1    4    1
+## 27   26   4 120.3  91 4.43  2.14  16.7  0  1    5    2
+## 28 30.4   4  95.1 113 3.77 1.513  16.9  1  1    5    2
+## 29 15.8   8   351 264 4.22  3.17  14.5  0  1    5    4
+## 30 19.7   6   145 175 3.62  2.77  15.5  0  1    5    6
+## 31   15   8   301 335 3.54  3.57  14.6  0  1    5    8
+## 32 21.4   4   121 109 4.11  2.78  18.6  1  1    4    2
+```
+
+---
+
+## `summarise` - Collapse many values down to a single summary statistic
+
+We can create summary statistics of one or more variables:
+
+![](figure/summarize1.PNG)
+
+---
+
+## [Get summary statistics by group](http://www.sthda.com/english/wiki/one-way-anova-test-in-r)
+
+
+```r
+library(dplyr)
+group_by(iris, Species) %&gt;%
+  summarise(
+    count = n(),
+    mean = mean(Sepal.Length, na.rm = TRUE),
+    sd = sd(Sepal.Length, na.rm = TRUE)
+  )
+```
+
+```
+## # A tibble: 3 x 4
+##   Species    count  mean    sd
+##   &lt;fct&gt;      &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 setosa        50  5.01 0.352
+## 2 versicolor    50  5.94 0.516
+## 3 virginica     50  6.59 0.636
+```
+
+---
+
+## Links and resources
+
+- UC Business Analytics R Programming Guide  - [**Course: Data Wrangling with R**](http://uc-r.github.io/data_wrangling/week-3)
+- [**Manipulating, analyzing and exporting data with tidyverse**](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html)
+[**Pipes in R Tutorial For Beginners**](https://www.datacamp.com/community/tutorials/pipe-r-tutorial)
+- [**Convert all columns** to characters in a data.frame](https://stackoverflow.com/questions/43789278/convert-all-columns-to-characters-in-a-data-frame)
+
+&lt;!--
+http://people.duke.edu/~ccc14/duke-hts-2018/cliburn/R_tidyyverse_Exercise_Solutions.html
+http://cbdm-01.zdv.uni-mainz.de/~galanisl/danalysis/import-and-the-tibble.html#the-tibble
+https://b-rodrigues.github.io/modern_R/getting-to-know-rstudio.html#panes
+
+--&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

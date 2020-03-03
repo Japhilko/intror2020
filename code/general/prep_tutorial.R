@@ -2,7 +2,7 @@
 # Jan-Philipp Kolb
 # Fri Feb 28 11:26:04 2020
 
-
+git_path <- getwd()
 sysInfo <- Sys.info()
 
 if (sysInfo["nodename"]=="MAC14026"){
@@ -33,3 +33,25 @@ txt[ind_ex[2]:ind_ex[2]+grep("## ",txt[ind_ex[2]:length(txt)])[2]]
 
 myfiles2 <- gsub(".Rmd","",myfiles)
 myfiles3 <- strsplit(myfiles2,"_")
+
+#######################################
+# 
+
+#install.packages("webshot")
+
+
+
+git_path <- getwd()
+slides_path <- paste0(git_path,"/slides/")
+
+lof <- list.files(slides_path)
+lof <- grep(".Rmd",lof,value=T)
+
+
+for (i in lof){
+  pagedown::chrome_print(paste0(slides_path,i))  
+}
+
+
+
+

@@ -1,26 +1,19 @@
 ---
-title: "Creating maps"
+title: "Introduction to R"
+subtitle: "Creating maps"
 author: "Jan-Philipp Kolb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
-fontsize: 10pt
+location: "GESIS, Mannheim, Germany"
 output:
-  beamer_presentation: 
-    fig_caption: no
-    fig_height: 3
-    fig_width: 5
-    fonttheme: structuresmallcapsserif
-    highlight: zenburn
-    colortheme: whale
-    theme: Warsaw
-  pdf_document:
-    toc: yes
-  html_document:
-    keep_md: yes
-  slidy_presentation:
-    keep_md: yes
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "default-fonts", "../workshop.css"]
+    nature:
+      highlightStyle: "github"
+      highlightLines: true
+      countIncrementalSlides: false
 ---
 
----
 
 ## The package `tmap`
 
@@ -194,7 +187,6 @@ tm_shape(World) + tm_fill(c("pop_est", "economy"),
 
 ```{r dataland,echo=F,eval=F}
 data(land)
-info_df <- land@data[1:100,]
 datatable(info_df)
 ```
 

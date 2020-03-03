@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introduction to R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Jan-Philipp Kolb" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="..\workshop.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introduction to R
+## Data Processing
+### Jan-Philipp Kolb
+### 03 März, 2020
+
+---
+
+
+
+
+
+## [FIRST THINGS TO DO](http://uc-r.github.io/data_wrangling/week-3)
+
+&gt; Don’t try to kiss your data on the first date; rather, you just want to get to know the data:
+
+1. Import the data
+2. Review the codebook
+3. **Learn about the data**
+4. Quick (visual) understanding of the data
+
+
+## [LEARN ABOUT THE DATA](http://uc-r.github.io/data_wrangling/week-3)
+
+### So what are the first things we want to know about our data?
+
+-  dimensions
+-  data types (i.e. character, integer, factor, etc.)
+-  missing values
+-  summary statistics
+
+
+What are some functions to extract this information?
+
+## LEARN ABOUT THE DATA
+-  So what are the first things we want to know about our data?
+-  dimensions: `dim()`, `ncol()`, `nrow()`, `names()`
+-  data types: `str()`, `class()`, `is.`, `as.`
+-  missing values: `is.na()`, `sum(is.na())`, `colSums(is.na())`
+-  summary statistics: `summary()`, `quantile()`, `var()`, `sd()`,
+`table()`
+
+## Data Frames
+
+
+
+
+
+
+&lt;!--
+## Outline for today
+
+
+--&gt;
+
+
+
+
+
+
+### Example data:
+
+
+
+
+
+
+
+```r
+install.packages("AmesHousing")
+```
+
+
+
+```r
+ames_data &lt;- AmesHousing::make_ames()
+```
+
+
+
+```r
+typeof(ames_data)
+```
+
+```
+## [1] "list"
+```
+
+
+
+```r
+head(names(ames_data))
+```
+
+
+```
+## [1] "Lot_Area"     "Street"       "Alley"        "Lot_Shape"    "Land_Contour"
+```
+
+### Transfer to `data.frame` 
+
+- Transfer data to a `data.frame`:
+
+
+```r
+ames_df &lt;- data.frame(ames_data)
+```
+
+## Number of rows/columns
+
+- Find out the number of rows/columns
+
+
+```r
+nrow(ames_df) # rows
+```
+
+```
+## [1] 2930
+```
+
+```r
+ncol(ames_df) # columns
+```
+
+```
+## [1] 81
+```
+
+## View the data
+
+- See some lines:
+
+
+```r
+head(ames_df) # first lines
+tail(ames_df) # last lines
+```
+
+- Overview with Rstudio:
+
+![](figure/DatenAnschauen.PNG)
+
+
+
+## Indexing
+
+### Accessing Columns with the dollar sign
+
+- The dollar sign can also be used to address individual columns
+
+
+```r
+head(ames_df$Lot_Area)
+```
+
+```
+## [1] 31770 11622 14267 11160 13830  9978
+```
+
+```r
+ames_df$Lot_Area[1:6]
+```
+
+```
+## [1] 31770 11622 14267 11160 13830  9978
+```
+
+
+### Accessing Columns with the number or the name
+
+
+```r
+head(ames_df[,5])
+head(ames_df[,"Street"]) # the same result
+```
+
+## Subsetting dataset
+
+&lt;!--
+--&gt;
+
+
+```r
+Street &lt;- ames_df$Street
+table(Street)
+```
+
+```
+## Street
+## Grvl Pave 
+##   12 2918
+```
+
+
+```r
+ames_df[Street=="Grvl",]
+# same result:
+ames_df[Street!="Pave",]
+```
+
+
+
+
+## Logical operations in indexing
+
+
+```r
+head(ames_df[ames_df$Lot_Area&gt;9000,1:4])
+```
+
+```
+##                           MS_SubClass                MS_Zoning Lot_Frontage Lot_Area
+## 1 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density          141    31770
+## 2 One_Story_1946_and_Newer_All_Styles Residential_High_Density           80    11622
+## 3 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density           81    14267
+## 4 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density           93    11160
+## 5            Two_Story_1946_and_Newer  Residential_Low_Density           74    13830
+## 6            Two_Story_1946_and_Newer  Residential_Low_Density           78     9978
+```
+
+
+
+## Exercise: [Vectors and Indexing](http://web.math.ku.dk/~helle/R-intro/exercises.pdf)
+
+Assume that we have registered the height and weight for four people: Heights in cm
+are 180, 165, 160, 193; weights in kg are 87, 58, 65, 100. Make two vectors, height
+and weight, with the data. The bodymass index (BMI) is defined as
+
+$$
+\dfrac{\text{weight in kg}}{\text{(height in m)}^2}
+$$
+
+Make a vector with the BMI values for the four people, and a vector with the natural
+logarithm to the BMI values. Finally make a vector with the weights for those people
+who have a BMI larger than 25.
+
+
+
+
+## The `airquality` data
+
+
+```r
+data(airquality)
+Ozone &lt;- airquality$Ozone
+```
+
+
+
+![](figure/airqualitydata.PNG)
+
+## Other important options
+
+- save result to an object
+
+
+
+```r
+subDat &lt;- airquality[Ozone&gt;30,]
+```
+
+- multiple conditions can be linked with &amp;
+
+
+
+```r
+airquality[Ozone&gt;18 &amp; airquality$Month==5,]
+```
+
+
+
+- the or argument - one of the two conditions must be fullfilled
+
+
+```r
+airquality[Ozone&gt;18 | airquality$Month==5,]
+```
+
+
+
+## [Missing values](http://faculty.nps.edu/sebuttre/home/R/missings.html)
+
+- Missing values are defined as `NA` in R
+- Math functions usually have a way to exclude missing values in their calculations.
+- `mean(), median(), colSums(), var(), sd(), min()` and `max()` all take the `na.rm` argument.
+
+
+```r
+mean(Ozone)
+```
+
+```
+## [1] NA
+```
+
+
+```r
+mean(Ozone,na.rm=T)
+```
+
+```
+## [1] 42.12931
+```
+
+## Find the missing values:
+
+
+```r
+head(is.na(Ozone))
+```
+
+```
+## [1] FALSE FALSE FALSE FALSE  TRUE FALSE
+```
+
+
+```r
+which(is.na(Ozone))
+```
+
+```
+##  [1]   5  10  25  26  27  32  33  34  35  36  37  39  42  43  45  46  52  53  54  55  56
+## [22]  57  58  59  60  61  65  72  75  83  84 102 103 107 115 119 150
+```
+
+
+```r
+table(is.na(Ozone))
+```
+
+```
+## 
+## FALSE  TRUE 
+##   116    37
+```
+
+
+## [Missing Data Visualisations](https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html)
+
+
+
+
+
+```r
+# Data Structures, Summaries, and Visualisations 
+# for Missing Data
+library(naniar) 
+vis_miss(airquality)
+```
+
+![](A3_DataProcessing_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
+
+
+## The command `complete.cases()`
+
+### The command `complete.cases()` 
+
+- returns a logical vector indicating which cases are complete.
+
+
+```r
+nrow(airquality)
+# list rows of data without missing values 
+airq_comp &lt;- gpdat[complete.cases(airquality),]
+nrow(airq_comp)
+```
+
+## [A shorthand alternative ](http://uc-r.github.io/missing_values)
+
+- An shorthand alternative is to simply use `na.omit()` to omit all rows containing missing values.
+
+
+```r
+airq_comp &lt;- na.omit(airquality)
+nrow(airq_comp)
+```
+
+```
+## [1] 111
+```
+
+
+## Very simple imputation 
+
+
+```r
+airq &lt;- airquality 
+airq$Ozone[is.na(airq$Ozone)] &lt;-mean(airq$Ozone, 
+                                     na.rm = T)
+```
+
+
+### Comparing mean and variance
+
+
+```r
+mean(airquality$Ozone, na.rm = T)
+```
+
+```
+## [1] 42.12931
+```
+
+```r
+mean(airq$Ozone)
+```
+
+```
+## [1] 42.12931
+```
+
+```r
+var(airquality$Ozone, na.rm = T)
+```
+
+```
+## [1] 1088.201
+```
+
+```r
+var(airq$Ozone)
+```
+
+```
+## [1] 823.3096
+```
+
+
+
+## [NAs per column](http://uc-r.github.io/missing_values)
+
+- For data frames, a convenient shortcut to compute the total missing values in each column is to use `colSums()`:
+
+
+```r
+colSums(is.na(airquality))
+```
+
+```
+##   Ozone Solar.R    Wind    Temp   Month     Day 
+##      37       7       0       0       0       0
+```
+
+```r
+colSums(is.na(airq))
+```
+
+```
+##   Ozone Solar.R    Wind    Temp   Month     Day 
+##       0       7       0       0       0       0
+```
+
+
+
+
+## CRAN Task View: Missing Data
+
+![](figure/cran_missings.PNG)
+
+## Exercise: Missing values
+
+
+1. How many missing values are in the built-in data set airquality?
+2. Which variables are the missing values concentrated in?
+3. How would you impute the mean or median for these values?
+4. How would you omit all rows containing missing values?
+
+
+&lt;!--
+## [Specify different types of missing value](https://stackoverflow.com/questions/16074384/specify-different-types-of-missing-values-nas)
+
+
+
+- Specify different types of missings with the package `memisc` 
+- Use the command `include.missings()` to do so
+
+
+```r
+library(memisc)
+```
+
+
+
+```r
+?include.missings
+```
+
+
+```r
+x &lt;- rep(c(1:4,8,9),2,length=60)
+labels(x) &lt;- c(a=1,b=2,c=3,d=4,dk=8,refused=9)
+```
+--&gt;
+
+
+## Rename the column names
+
+- With the command `colnames` you get the column names
+
+
+```r
+colnames(airquality)
+```
+
+- We can rename the column names:
+
+
+```r
+colnames(airquality)[1] &lt;- "var1"
+```
+
+- The same applies to the row names
+
+
+```r
+rownames(airquality)
+```
+
+&lt;!--
+
+## Exercise: recode value labels
+
+- Translate the German value labels of the variable `bbzc022a` to english (You can use https://www.deepl.com/ for that)
+- Recode that GESIS Panel variable that you end up with the English value lasbels.
+
+--&gt;
+
+
+## The `apply` family
+
+
+```r
+apply(airq,2,mean)
+```
+
+```
+##     Ozone   Solar.R      Wind      Temp     Month       Day 
+## 42.129310        NA  9.957516 77.882353  6.993464 15.803922
+```
+
+
+```r
+# the following is possible but doesn`t make sense
+# for this case:
+apply(airq,1,mean)
+```
+
+
+## The command `apply()`
+
+
+```r
+apply(airq,2,var)
+```
+
+```
+##      Ozone    Solar.R       Wind       Temp      Month        Day 
+## 823.309608         NA  12.411539  89.591331   2.006536  78.579721
+```
+
+```r
+apply(airq,2,sd)
+```
+
+```
+##     Ozone   Solar.R      Wind      Temp     Month       Day 
+## 28.693372        NA  3.523001  9.465270  1.416522  8.864520
+```
+
+```r
+apply(X = airq,MARGIN = 2,FUN = range)
+```
+
+```
+##      Ozone Solar.R Wind Temp Month Day
+## [1,]     1      NA  1.7   56     5   1
+## [2,]   168      NA 20.7   97     9  31
+```
+
+## The arguments of the command `apply()`
+
+- If `MARGIN=1` the function `mean` is applied for rows,
+
+- If `MARGIN=2` the function `mean` is applied for columns,
+
+- Instead of `mean` you could also use `var`, `sd` or `length`.
+
+
+## Example command `tapply()`
+
+
+```r
+tapply(airq$Wind, airq$Month,mean)
+```
+
+```
+##         5         6         7         8         9 
+## 11.622581 10.266667  8.941935  8.793548 10.180000
+```
+
+- Other commands can also be used..... also self-scripted commands
+
+
+## Exercise: using the `tapply()` command
+
+
+- Calculate the average ozone value by month using the airquality dataset and the tapply command.
+
+## Links and resources
+
+- [**Tidy data**](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) - the package `tidyr`
+
+- Homepage for [**the `tidyverse` collection**](http://tidyverse.org/)
+
+- [**Data wrangling with R and RStudio**](https://www.rstudio.com/resources/webinars/data-wrangling-with-r-and-rstudio/)
+
+
+
+
+- Hadley Wickham - [**Tidy Data**](http://vita.had.co.nz/papers/tidy-data.pdf)
+- Hadley Wickham - [**Advanced R**](http://adv-r.had.co.nz/)
+- Colin Gillespie and Robin Lovelace [**Efficient R programming**](https://csgillespie.github.io/efficientR/)
+
+- [**Quick-R about missing values**](http://www.statmethods.net/input/missingdata.html)
+
+- [**Recode missing values**](http://uc-r.github.io/na_recode)
+
+&lt;!--
+http://biostat.mc.vanderbilt.edu/wiki/pub/Main/Hmisc/Hmisc-refcard.pdf
+
+https://www.r-exercises.com/product/dealing-with-missing-data/
+
+https://www.r-exercises.com/2016/04/14/merging-dataframes-exercises/
+--&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

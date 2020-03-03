@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>A1 Getting started with R</title>
+    <title>Introduction to R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Jan-Philipp Kolb" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
@@ -12,9 +12,10 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# A1 Getting started with R
+# Introduction to R
+## Getting started with R
 ### Jan-Philipp Kolb
-### 21 Februar, 2020
+### 03 März, 2020
 
 ---
 
@@ -24,7 +25,7 @@ class: center, middle, inverse, title-slide
 
 
 
----
+
 
 ## [COURSE OBJECTIVES](http://uc-r.github.io/data_wrangling/week-1)
 
@@ -37,10 +38,6 @@ class: center, middle, inverse, title-slide
 - Write your own functions
 
 ... all with R!
-
-&lt;!--
-- Get an introduction to machine learning  - 
---&gt;
 
 ---
 
@@ -58,9 +55,9 @@ class: center, middle, inverse, title-slide
 ## Preliminaries
 
 - Usually we have big differences in knowledge and abilities of the participants - please tell, if it is too fast or slow.
-- We have lots of hands-on coding [**exercises**](http://web.math.ku.dk/~helle/R-intro/exercises.pdf) - later you can only learn on your own
-- We have many [**examples**](https://www.showmeshiny.com/) - try them
-- If there are questions - always ask
+- We have lots of hands-on coding [**exercises**](http://web.math.ku.dk/~helle/R-intro/exercises.pdf) - at the end you can only learn on your own.
+- We have many [**examples**](https://www.showmeshiny.com/) - try them.
+- If there are questions - always ask.
 - R is more fun together - ask your neighbor - strong proponent of
 collaborative work!
 
@@ -70,50 +67,20 @@ collaborative work!
 
 ### Sources for figures, text, exercises etc:
 
-- If the source is a website, the links are often in the header or in bold somewhere on the slide.
-- At the end of a chapter, we often have additional links to read on. 
-- Please ask us, if something is unclear.
+- If the source is a website, the links are often in the header or in [pink]() somewhere on the slide.
+- At the end of a chapter, you`ll find additional links to read on. 
+- Please ask, if something is unclear.
 
-
-&lt;!--
-## Outline for this part
---&gt;
-
-
-
-
-
-
-&lt;!--
-## Overview - advantages of R
-
-![http://bigdatahadooppro.com/tag/advantages-of-using-r/](figure/Importance-of-Learning-R.jpg)
---&gt;
-
-
-&lt;!--
-https://www.quora.com/What-is-R-programming-language
-
-- [**Cross-Platform Compatible**](https://en.wikipedia.org/wiki/Cross-platform)
-- [**Advanced Statistical Language**](http://rstatistics.net/)
-- [**Outstanding graphs**](https://www.r-graph-gallery.com/)
-- Relates to other languages
-- Supports extensions
-- Flexible and fun
-
-
---&gt;
 
 ---
 
 ## Reasons for using R...
 
-
 &lt;!--
-Outstanding Graphs
+https://stackoverflow.com/questions/1546583/what-is-the-definition-of-an-open-source-programming-language
 --&gt;
 
-- ... because it is an [**open source language**](https://stackoverflow.com/questions/1546583/what-is-the-definition-of-an-open-source-programming-language)
+- ... because it is an [**open source language**](http://uc-r.github.io/introduction)
 - ... outstanding graphs - [**graphics**](http://matthewlincoln.net/2014/12/20/adjacency-matrix-plots-with-r-and-ggplot2.html), [**graphics**](https://www.r-bloggers.com/3d-plots-with-ggplot2-and-plotly /), [**graphics**](https://procomun.wordpress.com/2011/03/18/splomr/)
 - ... relates to other languages - [**R can be used in combination with other programs**](https://github.com/Japhilko/RInterfaces) - e.g. [**data linking**](https://github.com/Japhilko/RInterfaces/blob/master/slides/Datenimport.md)
 - ...R can be used [**for automation**](https://cran.r-project.org/web/packages/MplusAutomation/index.html)
@@ -123,10 +90,6 @@ Outstanding Graphs
 ---
 
 ## Advantages of R
-
-&lt;!--
-R is [freely available](http://www.inside-r.org/why-use-r).
---&gt;
 
 - R can be downloaded for [**free**](http://mirrors.softliste.de/cran/).
 
@@ -138,10 +101,6 @@ R is [freely available](http://www.inside-r.org/why-use-r).
 
 - R is becoming more [**popular**](https://twitter.com/josiahjdavis/status/559778930476220418)
 - [**Good**](http://www.sr.bham.ac.uk/~ajrs/R/r-gallery.html) possibilities for [**visualization**](http://research.stowers.org/mcm/efg/R/) 
-
-&lt;!--
-http://blog.revolutionanalytics.com/popularity/
---&gt;
 
 ---
 
@@ -248,46 +207,28 @@ For the following reasons:
 
 - I use [**Rstudio!**](https://www.rstudio.com/)
 
-![[Overview Rstudio](http://www.milanor.net/blog/wp-content/uploads/2013/07/0_overall.jpg)](figure/0_overall.jpg)
-
-
-
-&lt;!--
-## Download course files
-
-All files (slides, r-code,...) are available on  [gitlab](https://github.com/Japhilko/IntroR/tree/master/2017).
-
-
-[How to use gitlab?](https://guides.github.com/activities/hello-world/)
---&gt;
+![](figure/rstudio_functionalities.PNG)
 
 ---
 
 ## [RStudio](http://uc-r.github.io/introduction)
 
-![](figure/rstudio_ide.PNG){width=110%}
+### The functionality of the panes in Rstudio
 
-&lt;!--
-![](figure/RstudioExample.PNG)
---&gt;
+![](figure/rstudio_ide.PNG)
 
-&lt;!--
-## Customizing RStudio
+---
 
+## Rstudio - script and console
 
-![](figure/options_general.png)
---&gt;
+![](figure/rstudio_funs1.png)
 
-&lt;!--
-- [**Customize Rstudio**](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio)
+---
 
-- Six [**reasons**](http://www.r-bloggers.com/top-6-reasons-you-need-to-be-using-rstudio/) to use Rstudio.
+## Rstudio - Environment and help
 
-- RStudio Support - [**Using the RStudio IDE**](https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio)
+![](figure/rstudiofuns2.PNG)
 
-
-http://www.rstudio.com/ide/docs/using/customizing
---&gt;
 
 ---
 
@@ -298,10 +239,6 @@ http://www.rstudio.com/ide/docs/using/customizing
 ![](figure/Skriptoeffnen.PNG) open an existing script
 
 ![](figure/runskript.PNG) run line where cursor is
-
-&lt;!--
-![](figure/find_replace.PNG) find and replace
---&gt;
 
 ---
 
@@ -489,7 +426,7 @@ sample(b,1)
 ```
 
 ```
-## [1] 1
+## [1] 2
 ```
 
 ---
@@ -525,15 +462,11 @@ sd(b); var(b)
 
 
 ```r
-mean(b)
+mean(b);median(b)
 ```
 
 ```
 ## [1] 1.5
-```
-
-```r
-median(b)
 ```
 
 ```
@@ -566,6 +499,8 @@ Create a vector `b` with the numbers from 1 to 5 and calculate ...
 ---
 
 ## Exercise: Economic Order Quantity Model
+
+![](figure/economic_order_quantity.PNG){width=110%}
 
 ### Economic Order Quantity Model
 
@@ -616,13 +551,6 @@ x == 2
 ## [1]  TRUE  TRUE FALSE FALSE
 ```
 
-```r
-which(x &gt; 2)
-```
-
-```
-## [1] 1 2
-```
 
 
 ---
@@ -702,7 +630,7 @@ str(a)
 ```
 
 ```
-##  chr [1:26] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" ...
+##  chr [1:26] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" ...
 ```
 
 
@@ -748,7 +676,8 @@ mean(b1)
 ## Coercion
 
 - All elements in a vector must be of the same type. R coerces the elements to a common type
-- `c(1.2,3,TRUE)` – In this case all elements are coerced to numeric.
+
+- In the following case all elements are coerced to numeric.
 
 
 ```r
@@ -760,6 +689,10 @@ c(1.2,x)
 ## [1] 1.2 1.0 0.0 1.0
 ```
 
+
+- To character:
+
+
 ```r
 y &lt;- c("2","3",".2")
 c(1.2,y, x)
@@ -770,7 +703,11 @@ c(1.2,y, x)
 ```
 
 
+&lt;!--
 - Sometimes this coercion occurs to perform an arithmetic operation:
+--&gt;
+
+- The following arithmetic operation works:
 
 
 ```r
@@ -818,10 +755,10 @@ c(1.2,as.numeric(y))
 
 - `class(x)` – returns the type of an object.
 
-- `is.logical(x)` –  tells us whether the object is a  logical type.   There is also `is.numeric`, `is.character`, `is.integer` 
+- `is.logical(x)` –  tells us whether the object is a  logical type.   There is also `is.numeric`, `is.character` and `is.integer` 
 
-- `is.null` – determines whether an object is empty, i.e. has no content.
-’NULL’ is used mainly to represent the lists with zero length, and
+- `is.null` – determines whether an object is empty.
+- `NULL` is used mainly to represent the lists with zero length, and
 is often returned by expressions and functions whose value is undefined.
 
 
@@ -846,145 +783,278 @@ as.numeric(x)
 ## [1]  1  2 NA NA NA
 ```
 
-
-
-
 ---
 
-## Data Frames
+## How to get help?
 
 &lt;!--
-A data frame is more general than a matrix - different columns can have different modes (numeric, character, factor, etc.). This is similar to SAS and SPSS datasets.
+zenburn is a possibility for colour coding
+http://deic.uab.es/~iblanes/beamer_gallery/index_by_color.html
 --&gt;
 
-A data frame is a collection of vectors - different columns can have different modes (numeric, character, factor, etc.).
+-  [**To get help in general:**](http://itfeature.com/tag/how-to-get-help-in-r)
 
-### Three example vectors
-
-
-```r
-d &lt;- c(1,2,3,4)
-e &lt;- c("red", "white", "red", NA)
-f &lt;- c(TRUE,TRUE,TRUE,FALSE)
-```
-
-
-### Bind the example vectors together:
 
 
 ```r
-mydata &lt;- data.frame(d,e,f)
+help.start()
 ```
 
-### Give the columns some names
+-  Use `?` to get help. 
 
 
 ```r
-names(mydata) &lt;- c("ID","Color","Passed") # variable names
+?mean
 ```
 
+-  `example(lm)` gives an example for a linear regression 
 
+
+```r
+example(lm)
+```
+
+-  [**Online documentation for most of the functions:**](https://www.r-project.org/help.html)
 
 
 ---
 
-## Identify the elements of a data frame
-
-There are a variety of ways to identify the elements of a data frame .
+## Again, we get help with the question mark
 
 
 ```r
-myframe[3:5] # columns 3,4,5 of data frame
-myframe[c("ID","Age")] # columns ID and Age from data frame
-myframe$X1 # variable x1 in the data frame 
+?paste
 ```
 
+Different sections in the help:
 
+- Description
+- Usage
+- Arguments
+- Value
+- Author(s)
+- See Also
+- Examples
+
+---
+
+## Vignettes
+
+- A vignette is a paper that present the most important functions of a package 
+- You get many reproducible examples
+- Vignettes are a rather new tool, that is why not every package has a vignette
+
+
+
+```r
+browseVignettes()
+```
+
+- to get a vignette:
+
+
+```r
+vignette("osmdata")
+```
+
+---
+
+## An example for a vignette - package `osmdata`
+
+![](figure/ex_osmdata_vignette.PNG)
+
+---
+
+## [**Demos**](http://r-pkgs.had.co.nz/demo.html)
+
+- for some packages you have demos:
+
+
+```r
+demo() # shows all available demos
+demo(package = "httr") # Show all demos in a package
+
+# Run a specific demo:
+demo("oauth1-twitter", package = "httr") 
+```
+
+- if you run a demo, the code is shown in the console
+
+
+
+```r
+demo(nlm)
+```
+
+![](figure/demonlm.PNG)
+
+---
+
+## The function `apropos`
+
+- searches everything about the given string 
+
+
+```r
+apropos("lm")
+```
+
+```
+##  [1] ".colMeans"                         ".lm.fit"                          
+##  [3] "anova.sarlm"                       "as.data.frame.localmoranex"       
+##  [5] "as.data.frame.localmoransad"       "bptest.sarlm"                     
+##  [7] "coef.sarlm"                        "coef.spautolm"                    
+##  [9] "colMeans"                          "confint.lm"                       
+## [11] "contr.helmert"                     "deviance.sarlm"                   
+## [13] "deviance.spautolm"                 "dummy.coef.lm"                    
+## [15] "errorsarlm"                        "fitted.sarlm"                     
+## [17] "fitted.spautolm"                   "frollmean"                        
+## [19] "getAllMethods"                     "getSummary.clm"                   
+## [21] "getSummary.glm"                    "getSummary.lm"                    
+## [23] "getSummary_expcoef.glm"            "glm"                              
+## [25] "glm.control"                       "glm.convert"                      
+## [27] "glm.fit"                           "glm.nb"                           
+## [29] "glmmPQL"                           "KalmanForecast"                   
+## [31] "KalmanLike"                        "KalmanRun"                        
+## [33] "KalmanSmooth"                      "kappa.lm"                         
+## [35] "lagsarlm"                          "lm"                               
+## [37] "lm.fit"                            "lm.gls"                           
+## [39] "lm.influence"                      "lm.LMtests"                       
+## [41] "lm.morantest"                      "lm.morantest.exact"               
+## [43] "lm.morantest.sad"                  "lm.ridge"                         
+## [45] "lm.wfit"                           "lmap"                             
+## [47] "lmap_at"                           "lmap_if"                          
+## [49] "lmSLX"                             "lmsreg"                           
+## [51] "lmwork"                            "localmoran"                       
+## [53] "localmoran.exact"                  "localmoran.exact.alt"             
+## [55] "localmoran.sad"                    "logLik.sarlm"                     
+## [57] "logLik.spautolm"                   "loglm"                            
+## [59] "loglm1"                            "LR.sarlm"                         
+## [61] "LR1.sarlm"                         "LR1.spautolm"                     
+## [63] "model.matrix.lm"                   "nlm"                              
+## [65] "nlminb"                            "panel.lmline"                     
+## [67] "predict.glm"                       "predict.lm"                       
+## [69] "predict.sarlm"                     "prepanel.lmline"                  
+## [71] "print.LMtestlist"                  "print.localmoranex"               
+## [73] "print.localmoransad"               "print.sarlm"                      
+## [75] "print.sarlm.pred"                  "print.spautolm"                   
+## [77] "print.summary.localmoransad"       "print.summary.sarlm"              
+## [79] "print.summary.spautolm"            "rbind.SpatialMultiPoints"         
+## [81] "rbind.SpatialMultiPointsDataFrame" "residuals.glm"                    
+## [83] "residuals.lm"                      "residuals.sarlm"                  
+## [85] "residuals.spautolm"                "rlm"                              
+## [87] "sacsarlm"                          "SpatialMultiPoints"               
+## [89] "SpatialMultiPointsDataFrame"       "spautolm"                         
+## [91] "summary.glm"                       "summary.lm"                       
+## [93] "summary.localmoransad"             "summary.sarlm"                    
+## [95] "summary.spautolm"                  "USRegionalMortality"              
+## [97] "vcov.sarlm"                        "Wald1.sarlm"
+```
 
 
 ---
 
-## [Matrices](https://www.statmethods.net/input/datatypes.html)
-
-All columns in a matrix must have the same mode (numeric, character, etc.) and the same length. The general format is:
+## [**Search engine for the R-Site**](http://search.r-project.org/cgi-bin/namazu.cgi?query=glm&amp;max=20&amp;result=normal&amp;sort=score&amp;idxname=functions&amp;idxname=vignettes&amp;idxname=views)
 
 
 ```r
-# generates 5 x 4 numeric matrix
-y &lt;- matrix(1:20, nrow=5,ncol=4)
+RSiteSearch("glm")
 ```
 
+![](figure/rsitesearch.PNG)
 
-- `byrow=TRUE` indicates that the matrix should be filled by rows. 
-- `byrow=FALSE` - matrix should be filled by columns (the default). 
+---
 
+## Usage of search engines 
 
-```r
-# an example
-cells &lt;- c(1,26,24,68)
-mymatrix &lt;- matrix(cells, nrow=2, ncol=2, byrow=TRUE) 
+-  I use [**duckduckgo:**]()
+- just add "with R" at the end of any search. Or:
+
 ```
+R-project + "what I want to know" 
+```
+-  this works of course for all search engines!
 
+
+![](figure/duckduckgo.PNG){ height=80% }
+
+---
+
+## [**Stackoverflow**](http://stackoverflow.com/)
+
+-  [A searchable Q&amp;A site oriented toward programming issues.](http://uc-r.github.io/data_wrangling/week-1)
+-  Is not focused on R - but [**many discussions on R**](https://stackoverflow.com/tags/r/info)
+-  Very detailed discussions
+
+![Stackoverflow Example](figure/StackoverflowEx.PNG)
+
+---
+
+## A cheatsheet for base R
+
+&lt;https://www.rstudio.com/resources/cheatsheets/&gt;
+
+![**Cheatsheet BaseR**](figure/basercheatsheet.PNG)
+
+---
+
+## More cheatsheets
+
+![](figure/cheatsheets.PNG)
 
 
 ---
 
-## Matrix - dimnames
+## [**Quick R**](http://www.statmethods.net/interface/help.html)
 
+- Always a page with examples and help concerning a topic
+- Example: [**Quick R - Getting Help**](http://www.statmethods.net/interface/help.html)
 
-- `dimnames` provides optional labels for the columns and rows. 
-
-
-```r
-# another example
-rnames &lt;- c("R1", "R2")
-cnames &lt;- c("C1", "C2")
-mymatrix &lt;- matrix(cells, nrow=2, ncol=2, byrow=TRUE,
-  dimnames=list(rnames, cnames)) 
-```
-
-
-
+![](figure/quickR.PNG)
 
 ---
 
-## Matrices and subscripts
+## Exercise: [**Getting help**](http://web.math.ku.dk/~helle/R-intro/exercises.pdf)
 
-Identify rows, columns or elements using subscripts. 
-
-
-```r
-x[,4] # 4th column of matrix
-x[3,] # 3rd row of matrix
-x[2:4,1:3] # rows 2,3,4 of columns 1,2,3 
-```
+### [**Exercise on help**](http://web.math.ku.dk/~helle/R-intro/exercises.pdf)
 
 
+- Try the command `?which.min` This opens a help page in the lower right window of
+RStudio. What does the function do?
+
+- You must know the name of the function in order to open the help page as above.
+Sometimes you do not know the name of the R functions; then a [**search engine**](https://duckduckgo.com/) can often help you. Try, for example, to search the text `R minimum vector`.
 
 ---
 
-## Lists
-
-An ordered collection of objects (components). A list allows you to gather a variety of (possibly unrelated) objects under one name.
+## Structure your code
 
 
-```r
-# example of a list with 4 components -
-# a string, a numeric vector, a matrix, and a scaler
-w &lt;- list(name="Fred", mynumbers=a, mymatrix=y, age=5.3)
 
-# example of a list containing two lists
-v &lt;- c(list1,list2)
-```
+### Work with sections
 
+- In a Rscript you can use  "Ctrl + Shift + R" to include a section
 
-Identify elements of a list using the [[ ]] convention.
+![](figure/Insertsection.png)
 
+### Outline R-code
 
-```r
-mylist[[2]] # 2nd component of the list
-mylist[["mynumbers"]] # component named mynumbers in list
-```
+- Use as many comments as possible
+- Use shortcut "Ctrl + Shift + R" to insert a new section
+
+![](figure/OutlineRcode.png)
+
+---
+
+## [Save your Work](https://bouchat.github.io/IntroDataMgmt20Jan.html)
+
+- When conducting research, keeping all of your code, data, and files in the same place is useful. 
+- Many journals now require that you make, e.g., your data and code publicly available. 
+- Now is the time to invest in file structures and versioning programs (e.g., Dropbox and Github).
+
+- Save your script file often to prevent loss of your work. 
+- Also save your workspace in R in order to save time. 
+- If you do this, you will be able to load your console in the future as though you had already completed all of the operations that you ran from your script file. 
 
 
 
@@ -999,7 +1069,7 @@ mylist[["mynumbers"]] # component named mynumbers in list
 - Many functions are included in basic R 
 - Many specific functions are integrated in additional libraries
 - R can be modularly extended by so-called packages or libraries
-- Most important packages hosted on CRAN (0 at Fr Feb 21)
+- Most important packages hosted on CRAN (15367 at Di Mrz 03)
 - Further packages can be found e.g. at [**bioconductor**](www.bioconductor.org)
 
 
@@ -1008,13 +1078,19 @@ mylist[["mynumbers"]] # component named mynumbers in list
 ![Overview R-packages](figure/Packages.PNG){ height=60% }
 
 
+
 ---
 
 ## Installation of packages
 
+### Install and load a package
+
 - The quotes around the package name are necessary for the command `install.packages`.
 - They are optional for the command `library`.
+
+&lt;!--
 - You can also use `require` instead of `library`.
+--&gt;
 
 
 ```r
@@ -1196,7 +1272,6 @@ most interesting r packages
 - to handle large amounts of data
 
 
-
 ---
 
 ## [How to learn after this workshop](https://lgatto.github.io/2017_11_09_Rcourse_Jena/before-we-start.html#knowing-your-way-around-rstudio)
@@ -1204,14 +1279,37 @@ most interesting r packages
 ![](figure/changing_stuff.PNG)
 
 
+---
+
+## The `swirl` package
+
+### Learn R, in R
+
+
+
+```r
+install.packages("swirl")
+```
+
+
+```r
+library(swirl)
+# type the following into the console:
+swirl()
+```
 
 ---
 
-## Shiny App - Intro R
+## The tutorial functionality in Rstudio
 
-http://www.intro-stats.com/
+- You need RStudio v1.3.869-1 Preview for this:
+- 
 
-![](figure/intror_shiny.PNG)
+
+
+```r
+install.packages("learnr")
+```
 
 
 
@@ -1243,15 +1341,46 @@ http://www.intro-stats.com/
 
 - [**Learn R by watching two‐minute videos**](https://www.youtube.com/playlist?list=PLcgz5kNZFCkzSyBG3H-rUaPHoBXgijHfC)
 
+### R for stata users
+
+- Oscar Torres-Reyna - [**Exploring Data and Descriptive Statistics
+(using R)**](https://www.princeton.edu/~otorres/sessions/s2r.pdf)
+
+
+
+---
+
+## Further Links
+
+- [**Overview - how to get help in R**](https://www.r-project.org/help.html)
+
+![](figure/gettingHelp.PNG)
+
+- [**A list with HowTo`s**](http://rprogramming.net/)
+
+- [**A list with the most important R-commands**](https://www.personality-project.org/r/r.commands.html)
+
+- [**R-bloggers**: a central hub of content from over 500 bloggers who provide news and tutorials about R.](https://www.r-bloggers.com/)
+
+
+
+---
+
+## Shiny App - Intro R
+
+### www.intro-stats.com
+
+![](figure/intror_shiny.PNG)
+
+
+
+
+
 &lt;!--
 ## Further resources
 --&gt;
 
 
-### R for stata users
-
-- Oscar Torres-Reyna - [**Exploring Data and Descriptive Statistics
-(using R)**](https://www.princeton.edu/~otorres/sessions/s2r.pdf)
 
 &lt;!--
 https://www.r-bloggers.com/giving-r-the-strengths-of-stata/
