@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # Introduction to R
 ## Getting started with R
 ### Jan-Philipp Kolb
-### 03 März, 2020
+### 04 März, 2020
 
 ---
 
@@ -75,10 +75,6 @@ collaborative work!
 ---
 
 ## Reasons for using R...
-
-&lt;!--
-https://stackoverflow.com/questions/1546583/what-is-the-definition-of-an-open-source-programming-language
---&gt;
 
 - ... because it is an [**open source language**](http://uc-r.github.io/introduction)
 - ... outstanding graphs - [**graphics**](http://matthewlincoln.net/2014/12/20/adjacency-matrix-plots-with-r-and-ggplot2.html), [**graphics**](https://www.r-bloggers.com/3d-plots-with-ggplot2-and-plotly /), [**graphics**](https://procomun.wordpress.com/2011/03/18/splomr/)
@@ -426,7 +422,7 @@ sample(b,1)
 ```
 
 ```
-## [1] 2
+## [1] 1
 ```
 
 ---
@@ -630,7 +626,7 @@ str(a)
 ```
 
 ```
-##  chr [1:26] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" ...
+##  chr [1:26] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" ...
 ```
 
 
@@ -900,55 +896,13 @@ apropos("lm")
 ```
 
 ```
-##  [1] ".colMeans"                         ".lm.fit"                          
-##  [3] "anova.sarlm"                       "as.data.frame.localmoranex"       
-##  [5] "as.data.frame.localmoransad"       "bptest.sarlm"                     
-##  [7] "coef.sarlm"                        "coef.spautolm"                    
-##  [9] "colMeans"                          "confint.lm"                       
-## [11] "contr.helmert"                     "deviance.sarlm"                   
-## [13] "deviance.spautolm"                 "dummy.coef.lm"                    
-## [15] "errorsarlm"                        "fitted.sarlm"                     
-## [17] "fitted.spautolm"                   "frollmean"                        
-## [19] "getAllMethods"                     "getSummary.clm"                   
-## [21] "getSummary.glm"                    "getSummary.lm"                    
-## [23] "getSummary_expcoef.glm"            "glm"                              
-## [25] "glm.control"                       "glm.convert"                      
-## [27] "glm.fit"                           "glm.nb"                           
-## [29] "glmmPQL"                           "KalmanForecast"                   
-## [31] "KalmanLike"                        "KalmanRun"                        
-## [33] "KalmanSmooth"                      "kappa.lm"                         
-## [35] "lagsarlm"                          "lm"                               
-## [37] "lm.fit"                            "lm.gls"                           
-## [39] "lm.influence"                      "lm.LMtests"                       
-## [41] "lm.morantest"                      "lm.morantest.exact"               
-## [43] "lm.morantest.sad"                  "lm.ridge"                         
-## [45] "lm.wfit"                           "lmap"                             
-## [47] "lmap_at"                           "lmap_if"                          
-## [49] "lmSLX"                             "lmsreg"                           
-## [51] "lmwork"                            "localmoran"                       
-## [53] "localmoran.exact"                  "localmoran.exact.alt"             
-## [55] "localmoran.sad"                    "logLik.sarlm"                     
-## [57] "logLik.spautolm"                   "loglm"                            
-## [59] "loglm1"                            "LR.sarlm"                         
-## [61] "LR1.sarlm"                         "LR1.spautolm"                     
-## [63] "model.matrix.lm"                   "nlm"                              
-## [65] "nlminb"                            "panel.lmline"                     
-## [67] "predict.glm"                       "predict.lm"                       
-## [69] "predict.sarlm"                     "prepanel.lmline"                  
-## [71] "print.LMtestlist"                  "print.localmoranex"               
-## [73] "print.localmoransad"               "print.sarlm"                      
-## [75] "print.sarlm.pred"                  "print.spautolm"                   
-## [77] "print.summary.localmoransad"       "print.summary.sarlm"              
-## [79] "print.summary.spautolm"            "rbind.SpatialMultiPoints"         
-## [81] "rbind.SpatialMultiPointsDataFrame" "residuals.glm"                    
-## [83] "residuals.lm"                      "residuals.sarlm"                  
-## [85] "residuals.spautolm"                "rlm"                              
-## [87] "sacsarlm"                          "SpatialMultiPoints"               
-## [89] "SpatialMultiPointsDataFrame"       "spautolm"                         
-## [91] "summary.glm"                       "summary.lm"                       
-## [93] "summary.localmoransad"             "summary.sarlm"                    
-## [95] "summary.spautolm"                  "USRegionalMortality"              
-## [97] "vcov.sarlm"                        "Wald1.sarlm"
+##  [1] ".colMeans"       ".lm.fit"         "colMeans"        "confint.lm"     
+##  [5] "contr.helmert"   "dummy.coef.lm"   "getAllMethods"   "glm"            
+##  [9] "glm.control"     "glm.fit"         "KalmanForecast"  "KalmanLike"     
+## [13] "KalmanRun"       "KalmanSmooth"    "kappa.lm"        "lm"             
+## [17] "lm.fit"          "lm.influence"    "lm.wfit"         "model.matrix.lm"
+## [21] "nlm"             "nlminb"          "predict.glm"     "predict.lm"     
+## [25] "residuals.glm"   "residuals.lm"    "summary.glm"     "summary.lm"
 ```
 
 
@@ -1069,7 +1023,7 @@ Sometimes you do not know the name of the R functions; then a [**search engine**
 - Many functions are included in basic R 
 - Many specific functions are integrated in additional libraries
 - R can be modularly extended by so-called packages or libraries
-- Most important packages hosted on CRAN (15367 at Di Mrz 03)
+- Most important packages hosted on CRAN (15341 at Mi Mrz 04)
 - Further packages can be found e.g. at [**bioconductor**](www.bioconductor.org)
 
 

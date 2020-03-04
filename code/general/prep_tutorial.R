@@ -54,4 +54,12 @@ for (i in lof){
 
 
 
+# Alle Pakete installieren ------------------------------------------------
+
+myfiles <- dir(slides_path) %>% grep(pattern = ".Rmd",value=T)
+
+for(i in 1:length(myfiles)){
+  txt <- readLines(paste0(slides_path,myfiles[i]))
+  grep("library",txt,value=T)
+}
 

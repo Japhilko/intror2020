@@ -75,10 +75,6 @@ collaborative work!
 
 ## Reasons for using R...
 
-<!--
-https://stackoverflow.com/questions/1546583/what-is-the-definition-of-an-open-source-programming-language
--->
-
 - ... because it is an [**open source language**](http://uc-r.github.io/introduction)
 - ... outstanding graphs - [**graphics**](http://matthewlincoln.net/2014/12/20/adjacency-matrix-plots-with-r-and-ggplot2.html), [**graphics**](https://www.r-bloggers.com/3d-plots-with-ggplot2-and-plotly /), [**graphics**](https://procomun.wordpress.com/2011/03/18/splomr/)
 - ... relates to other languages - [**R can be used in combination with other programs**](https://github.com/Japhilko/RInterfaces) - e.g. [**data linking**](https://github.com/Japhilko/RInterfaces/blob/master/slides/Datenimport.md)

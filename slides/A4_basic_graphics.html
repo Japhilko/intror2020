@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # Introduction to R
 ## Basic Graphics
 ### Jan-Philipp Kolb
-### 03 März, 2020
+### 04 März, 2020
 
 ---
 
@@ -50,21 +50,11 @@ class: center, middle, inverse, title-slide
 
 
 
-
 ---
 
-## Not all plots are the same
+## [Graphic types](https://www.r-graph-gallery.com/)
 
-- The base package already includes a large number of plot functions
-- Other packages like `lattice`, `ggplot2`, etc extend this functionality
-
-### Manuals that go far beyond this introduction:
-
-- Murrell, P (2006): R Graphics.
-- R Development Core Group [**Graphics with R**](https://csg.sph.umich.edu/docs/R/graphics-1.pdf)
-- Wiki on [**R Programming/Graphics**](https://en.wikibooks.org/wiki/R_Programming/Graphics)
-- Martin Meermeyer [**Creating Reproducible Publication Quality Graphics with R: A Tutorial**](http://elpub.bib.uni-wuppertal.de/edocs/dokumente/fbb/wirtschaftswissenschaft/sdp/sdp15/sdp15006.pdf)
-- Institute For Quantitative Social Science at Harvard - [**R graphics tutorial**](https://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html)
+![](figure/graphictypes.PNG)
 
 ---
 
@@ -141,15 +131,13 @@ hist(ames_df$Lot_Area,col="blue",
 
 ![](A4_basic_graphics_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
 
----
-
-## Histogram
-
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
 
 ---
 
 ## Further arguments:
+
+- Many of the arguments are valid for all base graphics like `main` or `xlab``.
+- You can see many of them if you call help on `?par`.
 
 
 ```r
@@ -211,7 +199,7 @@ tab_alley &lt;- table(ames_df$Alley)
 barplot(tab_alley)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -222,7 +210,7 @@ barplot(tab_alley)
 barplot(tab_alley,col=rgb(0,0,1))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -233,7 +221,7 @@ barplot(tab_alley,col=rgb(0,0,1))
 barplot(tab_alley,col=rgb(0,1,0))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -244,7 +232,7 @@ barplot(tab_alley,col=rgb(0,1,0))
 barplot(tab_alley,col=rgb(1,0,0))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -255,7 +243,7 @@ barplot(tab_alley,col=rgb(1,0,0))
 barplot(tab_alley,col=rgb(1,0,0,.3))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -277,7 +265,7 @@ install.packages("colourpicker")
 barplot(tab_alley,col=c(20,"#62D6C8", "darkorange"))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -304,7 +292,7 @@ tab2dim &lt;- table(ames_df$Alley,ames_df$Street)
 barplot(tab2dim,col=1:2)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
 
 
 
@@ -313,7 +301,7 @@ barplot(tab2dim,col=1:2)
 barplot(tab2dim,col=3:4,beside=T)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -322,7 +310,7 @@ barplot(tab2dim,col=3:4,beside=T)
 
 - Load the dataset `VADeaths` and create the following plot:
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -343,7 +331,7 @@ barplot(tab2dim,col=3:4,beside=T)
 boxplot(ames_df$Sale_Price,horizontal=TRUE)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -358,7 +346,7 @@ boxplot(ames_df$Sale_Price,horizontal=TRUE)
 boxplot(ames_df$Sale_Price~ames_df$Alley,horizontal=TRUE)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-26-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -402,7 +390,7 @@ boxplot(Sale_Price~Alley,data=ames_df,col="blue")
 beanplot(Sale_Price~Alley,data=ames_df,col="orange")
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-31-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-30-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -421,7 +409,7 @@ beanplot(Sale_Price~Alley,data=ames_df,col="orange")
 plot(ames_df$Sale_Price,ames_df$Lot_Area)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-32-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -432,7 +420,7 @@ plot(ames_df$Sale_Price,ames_df$Lot_Area)
 plot(ames_df$Sale_Price,ames_df$Lot_Area,pch="*",col=rgb(0,0,1,.2))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -443,7 +431,7 @@ plot(ames_df$Sale_Price,ames_df$Lot_Area,pch="*",col=rgb(0,0,1,.2))
 pairs(iris[,1:4])
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -490,7 +478,7 @@ pairs.panels(iris[,1:4],
 mosaicplot(tab2, color = TRUE,main="")
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-38-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-37-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -502,7 +490,7 @@ mosaicplot(tab2, color = TRUE,main="")
 mosaicplot(tab2, main=F,shade = TRUE)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-38-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -513,7 +501,7 @@ mosaicplot(tab2, main=F,shade = TRUE)
 plot(density(ames_df$Sale_Price))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-40-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -648,7 +636,7 @@ b) Add the two new observations using the points function.
 pairs(iris[,1:4])
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-45-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-44-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -675,8 +663,7 @@ pairs.panels(iris[,1:4],bg=bgcol,pch=21,main="")
 
 --&gt;
 
-
-- `education` in years
+### `education` in years
 
 
 ```r
@@ -684,6 +671,8 @@ library("lattice")
 levelplot(table(ames_df$MS_Zoning,ames_df$Alley),
           xlab="education",ylab="job")
 ```
+
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-47-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -700,7 +689,7 @@ library(RColorBrewer)
 display.brewer.all()
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-49-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -720,7 +709,7 @@ corrplot(cor(ames_df[,c("Sale_Price",
             "Gr_Liv_Area","TotRms_AbvGrd")]))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-51-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
 
 
 
@@ -751,9 +740,25 @@ http://www.michalm.net/shiny/easyPlot/
 
 ---
 
+## Not all plots are the same
+
+- The base package already includes a large number of plot functions
+- Other packages like `lattice`, `ggplot2`, etc extend this functionality
+
+### Manuals that go far beyond this introduction:
+
+- Murrell, P (2006): R Graphics.
+- R Development Core Group [**Graphics with R**](https://csg.sph.umich.edu/docs/R/graphics-1.pdf)
+- Wiki on [**R Programming/Graphics**](https://en.wikibooks.org/wiki/R_Programming/Graphics)
+- Martin Meermeyer [**Creating Reproducible Publication Quality Graphics with R: A Tutorial**](http://elpub.bib.uni-wuppertal.de/edocs/dokumente/fbb/wirtschaftswissenschaft/sdp/sdp15/sdp15006.pdf)
+- Institute For Quantitative Social Science at Harvard - [**R graphics tutorial**](https://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html)
+
+
+---
+
 ## Links 
 
-- [**Top 50 ggplot2 Visualizations**](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
+- [**R graph gallery**](https://www.r-graph-gallery.com/)
 
 - [**Bioconductor R manual**](http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual) with an extensive part on graphics
 
