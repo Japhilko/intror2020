@@ -1009,3 +1009,9 @@ hist(ames_df$Lot_Area,col="blue",
      main="Lot size in square feet",ylab="Frequency", 
      xlab="Lot size")
 ```
+
+
+
+<!--
+https://stackoverflow.com/questions/1546583/what-is-the-definition-of-an-open-source-programming-language
+-->
