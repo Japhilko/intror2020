@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = T, message = FALSE,warning=F)
 
 ## GGplot vs Base
 
-`ggplot` attempts to create a consistent framework for build graphs "layer by layer" in R. 
+`ggplot` attempts to create a consistent framework for build graphs 'layer by layer' in R. 
 
 ### You construct a graph by specifying:
 
@@ -31,6 +31,7 @@ knitr::opts_chunk$set(echo = T, message = FALSE,warning=F)
 3. A graph "geometry" (e.g., boxplot, scatterplot, etc). This is where you specify the kind of graph you want.
 4. Labels. The plot title, axis labels, etc. 
 
+---
 
 ## A scatterplot 
 
@@ -51,6 +52,7 @@ car.graph <- ggplot(mtcars)
 car.graph <- car.graph + aes(wt, mpg)
 ```
 
+---
 
 ## Specifying the plot
 
@@ -59,6 +61,7 @@ car.graph <- car.graph + aes(wt, mpg)
 car.graph + geom_point()
 ```
 
+---
 
 ## Without intermediate states
 
@@ -67,6 +70,8 @@ We can also create the plot without storing all of the intermediate states
 ```{r}
 ggplot(mtcars) + aes(wt, mpg) + geom_point()
 ```
+
+---
 
 ## Exercise: ggplot with the Ames Housing dataset
 
@@ -79,6 +84,8 @@ ames_df <- AmesHousing::make_ames()
 - Make a scatterplot with the variables sale price and lot area
 - If you have that try to color the points according to MS Zoning
 
+---
+
 ## What the result should look like
 
 ```{r, echo=T,fig.width=12, fig.height=4}
@@ -89,7 +96,7 @@ ggplot(ames_df) +
     theme(legend.title=element_text(color="black")) 
 ```
 
-
+---
 
 ## The themes in ggplot 
 
@@ -100,6 +107,8 @@ ggplot(ames_df) +
 ggplot(mtcars) + aes(wt, mpg) + geom_point() + 
     theme_minimal()
 ```
+
+---
 
 ## Themes
 
@@ -121,6 +130,8 @@ ggplot(mtcars) + aes(wt, mpg) + geom_point() + theme_void()
 - You can also create your own themes if one of the built in ones doesn't do
 what you want.
 
+---
+
 ## Colors
 
 ```{r, echo=T}
@@ -129,7 +140,7 @@ car.graph <- ggplot(mtcars) + aes(wt, mpg) +
 car.graph
 ```
 
-
+---
 
 ## point/line styles.
 
@@ -139,6 +150,7 @@ car.graph <- ggplot(mtcars) + aes(wt, mpg) +
 car.graph
 ```
 
+---
  
 ## A boxplot
 ```{r, echo=T}
@@ -146,6 +158,8 @@ car.graph
 ggplot(mtcars) + aes(as.factor(gear), mpg) +geom_boxplot()
 
 ```
+
+---
 
 ## Adding a title/changing labels
 
@@ -156,6 +170,8 @@ ggplot(mtcars) + aes(as.factor(gear), mpg) +geom_boxplot()
 -  labs() modifies your labels/title.
 
 -  theme() lets us manipulate stuff like the inclusion of a legend, its position, etc.
+
+---
 
 ## Adding a title/changing labels
 
@@ -169,6 +185,8 @@ ggplot(mtcars) + aes(as.factor(gear), mpg) +
     theme(legend.position="none")
 
 ```
+
+---
 
 ## Saving a graph
 
@@ -189,12 +207,16 @@ ggsave(car.graph, file="car_graph.png")
 
 ```
 
+---
+
 ## A barplot
 
 ```{r, echo=T}
 ## Data + aesthetics + geometry.
 ggplot(mtcars)+aes(gear)+geom_bar()
 ```
+
+---
 
 ## A histogram
 
@@ -205,11 +227,15 @@ ggplot(mtcars)+aes(mpg)+geom_histogram()
 
 ```
 
+---
+
 ## A density plot
 
 ```{r, echo=T}
 ggplot(mtcars)+aes(mpg)+geom_density()
 ```
+
+---
 
 ## Exercise: Histogram and density plot
 
@@ -224,6 +250,8 @@ ggplot(simulated.dataset) + geom_density()+
     aes(x=cont.var.y)
 
 ```
+
+---
 
 ## Links to read on
 

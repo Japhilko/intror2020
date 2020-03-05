@@ -29,6 +29,7 @@ showSolution=F
 3. **Learn about the data**
 4. Quick (visual) understanding of the data
 
+---
 
 ## [LEARN ABOUT THE DATA](http://uc-r.github.io/data_wrangling/week-3)
 
@@ -42,6 +43,8 @@ showSolution=F
 
 What are some functions to extract this information?
 
+---
+
 ## LEARN ABOUT THE DATA
 -  So what are the first things we want to know about our data?
 -  dimensions: `dim()`, `ncol()`, `nrow()`, `names()`
@@ -49,6 +52,8 @@ What are some functions to extract this information?
 -  missing values: `is.na()`, `sum(is.na())`, `colSums(is.na())`
 -  summary statistics: `summary()`, `quantile()`, `var()`, `sd()`,
 `table()`
+
+---
 
 ## Data Frames
 
@@ -145,6 +150,8 @@ head(names(ames_data[4:8]))
 ames_df <- data.frame(ames_data)
 ```
 
+---
+
 ## Number of rows/columns
 
 - Find out the number of rows/columns
@@ -153,6 +160,8 @@ ames_df <- data.frame(ames_data)
 nrow(ames_df) # rows
 ncol(ames_df) # columns
 ```
+
+---
 
 ## View the data
 
@@ -167,7 +176,7 @@ tail(ames_df) # last lines
 
 ![](figure/DatenAnschauen.PNG)
 
-
+---
 
 ## Indexing
 
@@ -188,6 +197,8 @@ ames_df$Lot_Area[1:6]
 head(ames_df[,5])
 head(ames_df[,"Street"]) # the same result
 ```
+
+---
 
 ## Subsetting dataset
 
@@ -212,13 +223,15 @@ ames_df[Street=="Grvl",]
 ames_df[Street!="Pave",]
 ```
 
+---
+
 ## Logical operations in indexing
 
 ```{r}
 head(ames_df[ames_df$Lot_Area>9000,1:4])
 ```
 
-
+---
 
 ## Exercise: [Vectors and Indexing](http://web.math.ku.dk/~helle/R-intro/exercises.pdf)
 
@@ -235,7 +248,7 @@ logarithm to the BMI values. Finally make a vector with the weights for those pe
 who have a BMI larger than 25.
 
 
-
+---
 
 ## The `airquality` data
 
@@ -247,6 +260,8 @@ Ozone <- airquality$Ozone
 
 
 ![](figure/airqualitydata.PNG)
+
+---
 
 ## Other important options
 
@@ -274,7 +289,7 @@ airquality[Ozone>18 & airquality$Month==5,1:4]
 airquality[Ozone>18 | airquality$Month==5,]
 ```
 
-
+---
 
 ## [Missing values](http://faculty.nps.edu/sebuttre/home/R/missings.html)
 
@@ -290,6 +305,8 @@ mean(Ozone)
 mean(Ozone,na.rm=T)
 ```
 
+---
+
 ## Find the missing values:
 
 ```{r}
@@ -304,6 +321,7 @@ which(is.na(Ozone))
 table(is.na(Ozone))
 ```
 
+---
 
 ## [Missing Data Visualisations](https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html)
 
@@ -319,6 +337,7 @@ library(naniar)
 vis_miss(airquality)
 ```
 
+---
 
 ## The command `complete.cases()`
 
@@ -333,6 +352,8 @@ airq_comp <- gpdat[complete.cases(airquality),]
 nrow(airq_comp)
 ```
 
+---
+
 ## [A shorthand alternative ](http://uc-r.github.io/missing_values)
 
 - An shorthand alternative is to simply use `na.omit()` to omit all rows containing missing values.
@@ -342,6 +363,7 @@ airq_comp <- na.omit(airquality)
 nrow(airq_comp)
 ```
 
+---
 
 ## Very simple imputation 
 
@@ -361,7 +383,7 @@ var(airquality$Ozone, na.rm = T)
 var(airq$Ozone)
 ```
 
-
+---
 
 ## [NAs per column](http://uc-r.github.io/missing_values)
 
@@ -373,7 +395,7 @@ colSums(is.na(airq))
 ```
 
 
-
+---
 
 ## CRAN Task View: Missing Data
 
@@ -387,32 +409,7 @@ colSums(is.na(airq))
 3. How would you impute the mean or median for these values?
 4. How would you omit all rows containing missing values?
 
-
-<!--
-## [Specify different types of missing value](https://stackoverflow.com/questions/16074384/specify-different-types-of-missing-values-nas)
-
-```{r,eval=F,echo=F}
-install.packages("memisc")
-```
-
-- Specify different types of missings with the package `memisc` 
-- Use the command `include.missings()` to do so
-
-```{r}
-library(memisc)
-```
-
-
-```{r,eval=F}
-?include.missings
-```
-
-```{r}
-x <- rep(c(1:4,8,9),2,length=60)
-labels(x) <- c(a=1,b=2,c=3,d=4,dk=8,refused=9)
-```
--->
-
+---
 
 ## Rename the column names
 
@@ -434,15 +431,8 @@ colnames(airquality)[1] <- "var1"
 rownames(airquality)
 ```
 
-<!--
 
-## Exercise: recode value labels
-
-- Translate the German value labels of the variable `bbzc022a` to english (You can use https://www.deepl.com/ for that)
-- Recode that GESIS Panel variable that you end up with the English value lasbels.
-
--->
-
+---
 
 ## The `apply` family
 
@@ -456,6 +446,7 @@ apply(airq,2,mean)
 apply(airq,1,mean)
 ```
 
+---
 
 ## The command `apply()`
 
@@ -465,6 +456,8 @@ apply(airq,2,sd)
 apply(X = airq,MARGIN = 2,FUN = range)
 ```
 
+---
+
 ## The arguments of the command `apply()`
 
 - If `MARGIN=1` the function `mean` is applied for rows,
@@ -473,6 +466,7 @@ apply(X = airq,MARGIN = 2,FUN = range)
 
 - Instead of `mean` you could also use `var`, `sd` or `length`.
 
+---
 
 ## Example command `tapply()`
 
@@ -482,11 +476,14 @@ tapply(airq$Wind, airq$Month,mean)
 
 - Other commands can also be used..... also self-scripted commands
 
+---
 
 ## Exercise: using the `tapply()` command
 
 
 - Calculate the average ozone value by month using the airquality dataset and the tapply command.
+
+---
 
 ## Links and resources
 

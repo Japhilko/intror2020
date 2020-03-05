@@ -54,13 +54,13 @@ data(World)
 
 ## The `qtm` command from the `tmap` package
 
-### Fast thematic map
+### Quick thematic map
 
 - With the command [**qtm**](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-nutshell.html) you can create a fast thematic map
 
 - Example from the [**Vignette**](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-nutshell.html) for the `tmap` package
 
-```{r}
+```{r,fig.width=12, fig.height=4}
 qtm(World)
 ```
 
@@ -114,9 +114,11 @@ qtm(World, fill="pop_est", text="iso_a3")
 
 ## This Scheme is better:
 
+<!--
 ### [**GDP**](https://en.wikipedia.org/wiki/Population_density)
+-->
 
-```{r}
+```{r,fig.width=12, fig.height=4}
 qtm(World, fill="gdp_cap_est", text="iso_a3", 
     text.size="AREA", root=5, fill.title="GDP per capita", 
     fill.textNA="Non-European countries", theme="Europe")

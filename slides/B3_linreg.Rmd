@@ -42,22 +42,9 @@ displacement - Hubraum
 -	 carb -	 Number of carburetors
 
 
-<!--
-## Why a part on simple regression
-
-- OLS can be seen as a simple machine learning technique
-- Some other machine learning concepts are based on regression (e.g. regularization).
-- We would like to remind you how simple regression works in R. 
-- We also want to show the constraints
-- In a next step we will learn, how to coop with these constraints
--->
-
-<!--
-http://enhancedatascience.com/2017/06/29/machine-learning-explained-overfitting/
--->
 
 
-
+---
 
 ## Dataset `mtcars`
 
@@ -67,6 +54,8 @@ kable(mtcars)
 ```
 
 
+---
+
 ## Distributions of two variables of `mtcars`
 
 ```{r}
@@ -74,7 +63,7 @@ par(mfrow=c(1,2))
 plot(density(mtcars$wt)); plot(density(mtcars$mpg))
 ```
 
-
+---
 
 ## A simple regression model
 
@@ -87,11 +76,15 @@ m1 <- lm(mpg ~ wt,data=mtcars)
 m1
 ```
 
+---
+
 ## Get the model summary 
 
 ```{r}
 summary(m1) 
 ```
+
+---
 
 ## The model formula
 
@@ -109,6 +102,7 @@ m3 <- lm(mpg ~ wt + cyl,data=mtcars)
 summary(m3)$coefficients
 ```
 
+---
 
 ## [Estimation based on a subsample ](https://www.schmidheiny.name/teaching/rguide.pdf)
 
@@ -117,6 +111,8 @@ lm(mpg~wt+disp, data=mtcars, subset=(wt>3))
 ```
 
 - where only cars heavier than 3000 lb are considered.
+
+---
 
 ## The command `as.formula`
 
@@ -141,6 +137,7 @@ class(fo)
 m3 <- lm(fo,data=mtcars)
 ```
 
+---
 
 ## [Further possibilities to specify the formula](https://cran.r-project.org/web/packages/Formula/vignettes/Formula.pdf)
 
@@ -183,6 +180,8 @@ https://www.r-bloggers.com/r-tutorial-series-regression-with-interaction-variabl
 https://www.r-bloggers.com/interpreting-interaction-coefficient-in-r-part1-lm/
 -->
 
+---
+
 ## [Further transformations](https://www.schmidheiny.name/teaching/rguide.pdf)
 
 ### Further transformations:
@@ -194,6 +193,7 @@ fo2 <- I(log(mpg))~wt+I(wt^2)+disp
 lm(fo2, data=mtcars)
 ```
 
+---
 
 ## The command `setdiff`
 
@@ -209,7 +209,7 @@ features
 featdat <- mtcars[,features]
 ```
 
-
+---
 
 ## The command `model.matrix`
 
@@ -230,6 +230,7 @@ https://genomicsclass.github.io/book/pages/expressing_design_formula.html
 model.matrix(m3d)
 ```
 
+---
 
 ## Model matrix (II)
 
@@ -246,12 +247,7 @@ m <- model.frame(ff, mtcars)
 ```
 
 
-<!--
-m3c <- lm(y = mtcars$mpg,x=mat[,-1])
--->
-
- 
-
+---
 
 ## A model with interaction effect
 
@@ -267,29 +263,7 @@ m3dsum <- summary(m3d)
 m3dsum$coefficients
 ```
 
-
-<!--
-## [Exploring interactions](https://cran.r-project.org/web/packages/jtools/vignettes/interactions.html)
-
-```{r,eval=F}
-install.packages("jtools")
-```
-
-```{r,eval=F,echo=T}
-library(jtools)
-interact_plot(m3d, pred = "wt", modx = "disp")
-```
-
-- With a continuous moderator (in our case `disp`) you get three lines — 1 standard deviation above and below the mean and the mean itself. 
-
-![](figure/mtcars_model_interact.PNG)
-
-```{r,eval=F,echo=F}
-library(jtools)
-fitiris <- lm(Petal.Length ~ Petal.Width * Species, data = iris)
-interact_plot(fitiris, pred = "Petal.Width", modx = "Species")
-```
--->
+---
 
 ## Residual plot - model assumptions violated? 
 
@@ -302,6 +276,8 @@ plot(m3,1)
 
 ![](figure/resid_fitted.PNG)
 
+---
+
 ## Residual plot
 
 ```{r}
@@ -310,6 +286,7 @@ plot(m3,2)
 
 - If the residuals are normally distributed, they should be on the same line.
 
+---
 
 ## Another example for object orientation
 
@@ -326,6 +303,7 @@ head(predict(m3)) # Prediction
 head(resid(m3)) # Residuals
 ```
 
+---
 
 ## Make model prediction
 
@@ -335,6 +313,7 @@ head(mtcars$mpg)
 head(pre)
 ```
 
+---
 
 ## Regression diagnostic with base-R
 
@@ -349,6 +328,7 @@ segments(mtcars$wt, mtcars$mpg, mtcars$wt, pre, col="red")
 ![](figure/prediction_mtcars.PNG)
 
 
+---
 
 ## [The bias-variance tradeoff](https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff) (I)
 
@@ -363,16 +343,7 @@ The bias–variance tradeoff is the property of a set of predictive models where
 ... is an error from sensitivity to small fluctuations in the training set. High variance can cause an algorithm to model the random noise in the training data, rather than the intended outputs (overfitting).
 
 
-<!--
-[![](figure/bias_variance_tradeoff2.png)](https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229)
--->
-
-
-<!--
-https://lbelzile.github.io/lineaRmodels/bias-and-variance-tradeoff.html
-http://www.sthda.com/english/articles/38-regression-model-validation/157-cross-validation-essentials-in-r/
-https://daviddalpiaz.github.io/r4sl/biasvariance-tradeoff.html
--->
+---
 
 ## The bias-variance tradeoff (II)
 
@@ -383,7 +354,7 @@ xxxxtodo: the source is missing
 ![](figure/bias_variance_tradeoff.PNG){height=80%}
 
 
-
+---
 
 ## The mean squared error (mse)
 
@@ -410,6 +381,7 @@ library(Metrics)
 mse(mtcars$mpg,predict(m3))
 ```
 
+---
 
 ## The `visreg`-package
 
@@ -423,6 +395,8 @@ library(visreg)
 ```
 
 ![](figure/visreg.PNG)
+
+---
 
 ## The `visreg`-package
 
@@ -442,26 +416,7 @@ visreg(m1, "wt", type = "conditional",
 ![](figure/visregplot1.PNG)
 
 
-<!--
-## [Visualisation with `visreg` ](http://myweb.uiowa.edu/pbreheny/publications/visreg.pdf)
-
-- [Second argument](http://pbreheny.github.io/visreg) -  Specification covariate for visualisation
-- plot shows the effect on the expected value of the response by moving the x variable away from a reference point on the x-axis (for numeric variables, the mean).
-
-```{r,eval=F}
-visreg(m1, "wt", type = "contrast")
-```
-
-
-```{r,echo=F,eval=F}
-visreg(m1, "wt", type = "contrast",alpha=.01,
-       line=list(col="red"),
-       fill=list(col="#473C8B"),points=list(cex=1.5,col=rgb(.4,.4,0,.5)))
-```
-
-![](figure/visreg2.PNG)
--->
-
+---
 
 ## Regression with factors
 
@@ -478,6 +433,7 @@ sum_m4 <- summary(m4)
 sum_m4$coefficients
 ```
 
+---
 
 ## Effects of factors
 
@@ -496,14 +452,8 @@ visreg(m4, "cyl", type = "conditional",fill=list(col=c("#00FFFF")),points=list(c
 
 ![](figure/visregcat.PNG)
 
-<!--
-## The command `model.matrix`
 
-```{r,eval=F}
-?model.matrix
-```
--->
-
+---
 
 ## The package `visreg` - Interactions
 
@@ -517,6 +467,7 @@ sum_m5 <- summary(m5)
 sum_m5$coefficients
 ```
 
+---
 
 ## Control of the graphic output with `layout`.
 
@@ -531,6 +482,8 @@ visreg(m5, "wt", by = "cyl",layout=c(3,1),fill=list(col=c("#00FFFF")),points=lis
 
 ![](figure/factor3vars_visreg.PNG)
 
+---
+
 ## The package `visreg` - Interactions overlay
 
 ```{r}
@@ -544,30 +497,24 @@ visreg(m6, "wt", by="cyl", overlay=TRUE, partial=FALSE)
 
 ![](figure/visreg_m6.PNG)
 
+---
+
 ## The package `visreg` - `visreg2d`
 
 ```{r}
 visreg2d(m6, "wt", "hp", plot.type = "image")
 ```
 
-<!--
-## The package `visreg` - `surface`
 
-```{r}
-visreg2d(m6, "wt", "hp", plot.type = "persp")
-```
--->
-
-
+---
 
 ## Exercise: regression Ames housing data
 
 1) Install the package `AmesHousing` and create a [**processed version**](https://cran.r-project.org/web/packages/AmesHousing/AmesHousing.pdf) of the Ames housing data with (at least) the variables `Sale_Price`, `Gr_Liv_Area` and `TotRms_AbvGrd`
 2) Create a regression model with `Sale_Price` as dependent and `Gr_Liv_Area` and `TotRms_AbvGrd` as independent variables. Then create seperated models for the two independent variables. Compare the results. What do you think?
 
-<!--
-lm(Sale_Price ~ Gr_Liv_Area + TotRms_AbvGrd, data = ames_data)
--->
+
+---
 
 ## [The Ames Iowa Housing Data](http://ww2.amstat.org/publications/jse)
 
@@ -588,6 +535,7 @@ ames_data <- AmesHousing::make_ames()
 - `Lot_Shape`: General shape of property
 - `Land_Contour`: Flatness of the propert
 
+---
 
 ## Multicollinearity
 
@@ -608,7 +556,7 @@ cor(ames_data[,c("Sale_Price","Gr_Liv_Area","TotRms_AbvGrd")])
 ```
 
 
-
+---
 
 ## Multicollinearity
 
@@ -617,6 +565,8 @@ lm(Sale_Price ~ Gr_Liv_Area + TotRms_AbvGrd, data = ames_data)
 ```
 
 - When we fit a model with both these variables we get a positive coefficient for `Gr_Liv_Area` but a negative coefficient for `TotRms_AbvGrd`, suggesting one has a positive impact to Sale_Price and the other a negative impact.
+
+---
 
 ## Seperated models
 
@@ -635,30 +585,17 @@ lm(Sale_Price ~ TotRms_AbvGrd, data = ames_data)$coefficients
 - Coefficients for correlated features become over-inflated and can fluctuate significantly. 
 
 
+---
+
 ## Consequences
 
 - One consequence of these large fluctuations in the coefficient terms is [**overfitting**](https://en.wikipedia.org/wiki/Overfitting), which means we have high variance in the bias-variance tradeoff space. 
 - We can use tools such as [**variance inflaction factors**](https://en.wikipedia.org/wiki/Variance_inflation_factor) (Myers, 1994) to identify and remove those strongly correlated variables, but it is not always clear which variable(s) to remove. 
 - Nor do we always wish to remove variables as this may be removing signal in our data.
 
-
+---
 
 ## Links - linear regression
-
--  Regression - [**r-bloggers**](http://www.r-bloggers.com/r-tutorial-series-simple-linear-regression/)
-
--  The complete book of [**Faraway**](http://cran.r-project.org/doc/contrib/Faraway-PRA.pdf)- very intuitive
-
--  Good introduction on [**Quick-R**](http://www.statmethods.net/stats/regression.html)
-
-- [**Multiple regression**](https://www.r-bloggers.com/multiple-regression-part-1/)
-
-- [**15 Types of Regression you should know**](https://www.r-bloggers.com/15-types-of-regression-you-should-know/)
-
-- [**`ggeffects` - Create Tidy Data Frames of Marginal Effects for ‘ggplot’ from Model Outputs**](https://strengejacke.github.io/ggeffects/)
-
-
-- [**Machine learning iteration**](https://elitedatascience.com/machine-learning-iteration)
 
 
 <!--
@@ -679,6 +616,26 @@ https://www.analyticsvidhya.com/blog/2016/12/practical-guide-to-implement-machin
 https://statisticsbyjim.com/regression/overfitting-regression-models/
 -->
 
+
+-  Regression - [**r-bloggers**](http://www.r-bloggers.com/r-tutorial-series-simple-linear-regression/)
+
+-  The complete book of [**Faraway**](http://cran.r-project.org/doc/contrib/Faraway-PRA.pdf)- very intuitive
+
+-  Good introduction on [**Quick-R**](http://www.statmethods.net/stats/regression.html)
+
+- [**Multiple regression**](https://www.r-bloggers.com/multiple-regression-part-1/)
+
+- [**15 Types of Regression you should know**](https://www.r-bloggers.com/15-types-of-regression-you-should-know/)
+
+- [**`ggeffects` - Create Tidy Data Frames of Marginal Effects for ‘ggplot’ from Model Outputs**](https://strengejacke.github.io/ggeffects/)
+
+
+- [**Machine learning iteration**](https://elitedatascience.com/machine-learning-iteration)
+
+
+
+---
+
 ## Nice table output with [`stargazer`](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf)
 
 
@@ -696,7 +653,7 @@ stargazer(m3, type="html")
 ![](figure/stargazertabex.PNG)
 
 
-
+---
 
 ## Shiny App - Diagnostics for linear regression
 

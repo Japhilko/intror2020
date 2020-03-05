@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # Introduction to R
 ## Graphing Data Using GGPlot
 ### Jan-Philipp Kolb
-### 04 März, 2020
+### 05 März, 2020
 
 ---
 
@@ -26,7 +26,7 @@ class: center, middle, inverse, title-slide
 
 ## GGplot vs Base
 
-`ggplot` attempts to create a consistent framework for build graphs "layer by layer" in R. 
+`ggplot` attempts to create a consistent framework for build graphs 'layer by layer' in R. 
 
 ### You construct a graph by specifying:
 
@@ -35,6 +35,7 @@ class: center, middle, inverse, title-slide
 3. A graph "geometry" (e.g., boxplot, scatterplot, etc). This is where you specify the kind of graph you want.
 4. Labels. The plot title, axis labels, etc. 
 
+---
 
 ## A scatterplot 
 
@@ -57,6 +58,7 @@ car.graph &lt;- ggplot(mtcars)
 car.graph &lt;- car.graph + aes(wt, mpg)
 ```
 
+---
 
 ## Specifying the plot
 
@@ -68,6 +70,7 @@ car.graph + geom_point()
 
 ![](B2_graphGGplot_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
 
+---
 
 ## Without intermediate states
 
@@ -80,6 +83,8 @@ ggplot(mtcars) + aes(wt, mpg) + geom_point()
 
 ![](B2_graphGGplot_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
 
+---
+
 ## Exercise: ggplot with the Ames Housing dataset
 
 - Load the Ames Housing dataset
@@ -91,6 +96,8 @@ ames_df &lt;- AmesHousing::make_ames()
 
 - Make a scatterplot with the variables sale price and lot area
 - If you have that try to color the points according to MS Zoning
+
+---
 
 ## What the result should look like
 
@@ -105,7 +112,7 @@ ggplot(ames_df) +
 
 ![](B2_graphGGplot_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
 
-
+---
 
 ## The themes in ggplot 
 
@@ -119,6 +126,8 @@ ggplot(mtcars) + aes(wt, mpg) + geom_point() +
 ```
 
 ![](B2_graphGGplot_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+
+---
 
 ## Themes
 
@@ -141,6 +150,8 @@ ggplot(mtcars) + aes(wt, mpg) + geom_point() + theme_void()
 - You can also create your own themes if one of the built in ones doesn't do
 what you want.
 
+---
+
 ## Colors
 
 
@@ -152,7 +163,7 @@ car.graph
 
 ![](B2_graphGGplot_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
 
-
+---
 
 ## point/line styles.
 
@@ -165,6 +176,7 @@ car.graph
 
 ![](B2_graphGGplot_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
 
+---
  
 ## A boxplot
 
@@ -173,6 +185,8 @@ ggplot(mtcars) + aes(as.factor(gear), mpg) +geom_boxplot()
 ```
 
 ![](B2_graphGGplot_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+
+---
 
 ## Adding a title/changing labels
 
@@ -183,6 +197,8 @@ ggplot(mtcars) + aes(as.factor(gear), mpg) +geom_boxplot()
 -  labs() modifies your labels/title.
 
 -  theme() lets us manipulate stuff like the inclusion of a legend, its position, etc.
+
+---
 
 ## Adding a title/changing labels
 
@@ -197,6 +213,8 @@ ggplot(mtcars) + aes(as.factor(gear), mpg) +
 ```
 
 ![](B2_graphGGplot_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+
+---
 
 ## Saving a graph
 
@@ -216,6 +234,8 @@ ggsave(car.graph, file="car_graph.png")
 # See ?ggsave for more information.
 ```
 
+---
+
 ## A barplot
 
 
@@ -225,6 +245,8 @@ ggplot(mtcars)+aes(gear)+geom_bar()
 ```
 
 ![](B2_graphGGplot_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+
+---
 
 ## A histogram
 
@@ -236,6 +258,8 @@ ggplot(mtcars)+aes(mpg)+geom_histogram()
 
 ![](B2_graphGGplot_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
 
+---
+
 ## A density plot
 
 
@@ -245,12 +269,16 @@ ggplot(mtcars)+aes(mpg)+geom_density()
 
 ![](B2_graphGGplot_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
 
+---
+
 ## Exercise: Histogram and density plot
 
 Using your data from the scatterplot exercise, produce a histogram for
 cont.var.x, and a density plot for cont.var.y.
 
 
+
+---
 
 ## Links to read on
 
