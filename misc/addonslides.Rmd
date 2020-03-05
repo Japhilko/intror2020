@@ -1095,3 +1095,136 @@ https://www.r-exercises.com/2018/07/19/basic-generalised-linear-modelling-part-1
 
 http://onlinestatbook.com/2/regression/intro.html
 -->
+
+<!--
+## [Specify different types of missing value](https://stackoverflow.com/questions/16074384/specify-different-types-of-missing-values-nas)
+
+```{r,eval=F,echo=F}
+install.packages("memisc")
+```
+
+- Specify different types of missings with the package `memisc` 
+- Use the command `include.missings()` to do so
+
+```{r}
+library(memisc)
+```
+
+
+```{r,eval=F}
+?include.missings
+```
+
+```{r}
+x <- rep(c(1:4,8,9),2,length=60)
+labels(x) <- c(a=1,b=2,c=3,d=4,dk=8,refused=9)
+```
+-->
+
+
+<!--
+
+## Exercise: recode value labels
+
+- Translate the German value labels of the variable `bbzc022a` to english (You can use https://www.deepl.com/ for that)
+- Recode that GESIS Panel variable that you end up with the English value lasbels.
+
+-->
+
+<!--
+## Why a part on simple regression
+
+- OLS can be seen as a simple machine learning technique
+- Some other machine learning concepts are based on regression (e.g. regularization).
+- We would like to remind you how simple regression works in R. 
+- We also want to show the constraints
+- In a next step we will learn, how to coop with these constraints
+-->
+
+<!--
+http://enhancedatascience.com/2017/06/29/machine-learning-explained-overfitting/
+-->
+
+
+
+<!--
+m3c <- lm(y = mtcars$mpg,x=mat[,-1])
+-->
+
+
+
+<!--
+## [Exploring interactions](https://cran.r-project.org/web/packages/jtools/vignettes/interactions.html)
+
+```{r,eval=F}
+install.packages("jtools")
+```
+
+```{r,eval=F,echo=T}
+library(jtools)
+interact_plot(m3d, pred = "wt", modx = "disp")
+```
+
+- With a continuous moderator (in our case `disp`) you get three lines — 1 standard deviation above and below the mean and the mean itself. 
+
+![](figure/mtcars_model_interact.PNG)
+
+```{r,eval=F,echo=F}
+library(jtools)
+fitiris <- lm(Petal.Length ~ Petal.Width * Species, data = iris)
+interact_plot(fitiris, pred = "Petal.Width", modx = "Species")
+```
+-->
+
+
+<!--
+[![](figure/bias_variance_tradeoff2.png)](https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229)
+-->
+
+
+<!--
+https://lbelzile.github.io/lineaRmodels/bias-and-variance-tradeoff.html
+http://www.sthda.com/english/articles/38-regression-model-validation/157-cross-validation-essentials-in-r/
+https://daviddalpiaz.github.io/r4sl/biasvariance-tradeoff.html
+-->
+
+
+<!--
+## [Visualisation with `visreg` ](http://myweb.uiowa.edu/pbreheny/publications/visreg.pdf)
+
+- [Second argument](http://pbreheny.github.io/visreg) -  Specification covariate for visualisation
+- plot shows the effect on the expected value of the response by moving the x variable away from a reference point on the x-axis (for numeric variables, the mean).
+
+```{r,eval=F}
+visreg(m1, "wt", type = "contrast")
+```
+
+
+```{r,echo=F,eval=F}
+visreg(m1, "wt", type = "contrast",alpha=.01,
+       line=list(col="red"),
+       fill=list(col="#473C8B"),points=list(cex=1.5,col=rgb(.4,.4,0,.5)))
+```
+
+![](figure/visreg2.PNG)
+-->
+
+<!--
+## The command `model.matrix`
+
+```{r,eval=F}
+?model.matrix
+```
+-->
+
+<!--
+## The package `visreg` - `surface`
+
+```{r}
+visreg2d(m6, "wt", "hp", plot.type = "persp")
+```
+-->
+
+<!--
+lm(Sale_Price ~ Gr_Liv_Area + TotRms_AbvGrd, data = ames_data)
+-->
