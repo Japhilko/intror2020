@@ -50,6 +50,7 @@ data(World)
 
 ![](figure/NaturalEarthData.PNG)
 
+
 ---
 
 ## The `qtm` command from the `tmap` package
@@ -89,13 +90,10 @@ kable(Europe@data[1:10,1:4])
 
 ---
 
-## To get more color in the map
+## Get more color in the map
 
 ### economic development status
 
-<!--
-<http://www.naturalearthdata.com/>
--->
 ```{r}
 qtm(World, fill="economy")
 ```
@@ -240,6 +238,7 @@ Unemp <- read.csv(url)
 ```
 
 ---
+
 
 ## An overview of the data
 
@@ -402,19 +401,5 @@ plot(Africa,col=Af_color)
 
 - [Raster, CMSAF and solaR](https://procomun.wordpress.com/2011/06/17/raster-cmsaf-and-solar/)
 
-<https://procomun.wordpress.com/2011/06/17/raster-cmsaf-and-solar/>
+- John Baumgartner - [Getting rasters into shape from R](https://johnbaumgartner.wordpress.com/2012/07/26/getting-rasters-into-shape-from-r/) 
 
-- [Getting rasters into shape from R](https://johnbaumgartner.wordpress.com/2012/07/26/getting-rasters-into-shape-from-r/)
-
-<https://johnbaumgartner.wordpress.com/2012/07/26/getting-rasters-into-shape-from-r/>
-
-
-<!--
-Interactive documents
-
-https://davidgohel.github.io/ggiraph/
-
-creating dashboards
-https://www.kaggle.com/dhruvesh/beautiful-dashboards-in-r
-
--->

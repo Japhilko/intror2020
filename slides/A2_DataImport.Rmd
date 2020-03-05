@@ -68,11 +68,9 @@ to get to know the data:
 
 ![](figure/codepreview.PNG)
 
----
+- You can change the object name under Import Options
+- Use short object names like e.g. `dat`
 
-## [Import `.csv` data](http://www.sthda.com/english/wiki/importing-data-into-r)
-
-![](figure/importing-data-into-r.png)
 
 ---
 
@@ -141,7 +139,7 @@ install.packages("readxl")
 
 ```{r,eval=T}
 library(readxl)
-ab <- read_excel("../data/datahub_names_sa.xlsx")
+ab <- read_excel("../data/ma_stadtteile.xlsx")
 head(ab)
 ```
 
@@ -180,13 +178,12 @@ http://dataportal.opendataforafrica.org/zjqnio/infrastructure
 
 Files can also be imported directly from the Internet:
 
-```{r,eval=F}
-library(foreign)
-link <- "http://www.statistik.at/web_de/static/
-mz_2013_sds_-_datensatz_080469.sav"
 
+
+
+```{r,eval=F}
 ?read.spss
-Dat <- read.spss(link,to.data.frame=T)
+Dat <- rio::import(link_c)
 ```
 
 ---
@@ -525,3 +522,10 @@ mydata <- readRDS("mydata.rds")
 - The [**R-package `labelled`**](https://cran.r-project.org/web/packages/labelled/labelled.pdf) to work with labelled data imported from SPSS or stata
 
 - [Overview - **all import functionalities**](https://cran.r-project.org/doc/manuals/r-release/R-data.html)
+
+<!--
+https://github.com/Perishleaf/data-visualisation-scripts/blob/master/dash-2019-coronavirus/AU_cases.xlsx
+
+https://towardsdatascience.com/build-a-dashboard-to-track-the-spread-of-coronavirus-using-dash-90364f016764
+
+-->

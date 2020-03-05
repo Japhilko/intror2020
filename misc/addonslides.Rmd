@@ -1228,3 +1228,26 @@ visreg2d(m6, "wt", "hp", plot.type = "persp")
 <!--
 lm(Sale_Price ~ Gr_Liv_Area + TotRms_AbvGrd, data = ames_data)
 -->
+
+
+
+<!--
+Interactive documents
+
+https://davidgohel.github.io/ggiraph/
+
+creating dashboards
+https://www.kaggle.com/dhruvesh/beautiful-dashboards-in-r
+
+-->
+
+
+---
+
+## [Import `.csv` data](http://www.sthda.com/english/wiki/importing-data-into-r)
+
+![](figure/importing-data-into-r.png)
+
+<!--
+<http://www.naturalearthdata.com/>
+-->

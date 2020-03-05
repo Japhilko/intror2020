@@ -515,4 +515,16 @@ http://biostat.mc.vanderbilt.edu/wiki/pub/Main/Hmisc/Hmisc-refcard.pdf
 https://www.r-exercises.com/product/dealing-with-missing-data/
 
 https://www.r-exercises.com/2016/04/14/merging-dataframes-exercises/
+
+https://cran.r-project.org/web/packages/naniar/vignettes/replace-with-na.html
+
+https://stackoverflow.com/questions/8161836/how-do-i-replace-na-values-with-zeros-in-an-r-dataframe
+
+https://stackoverflow.com/questions/18562680/replacing-nas-with-0s-in-r-dataframe
+
+https://statisticsglobe.com/r-replace-na-with-0/
+
+http://www.datasciencemadesimple.com/join-in-r-merge-in-r/
+
+https://cran.r-project.org/web/packages/sjlabelled/vignettes/intro_sjlabelled.html
 -->

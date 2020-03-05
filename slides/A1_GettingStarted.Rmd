@@ -861,11 +861,11 @@ install_github("hadley/ggplot2")
 
 ```{r,eval=F}
 # load the package to use in the current R session
-library(tidyverse)
+library(stringr)
 
 # use a particular function within a package 
 # without loading the package
-stringr::str_replace()
+?stringr::str_replace
 ```
 
 ### Getting help on packages

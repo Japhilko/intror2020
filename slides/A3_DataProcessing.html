@@ -236,20 +236,13 @@ head(ames_df[ames_df$Lot_Area&gt;9000,1:4])
 ```
 
 ```
-##                           MS_SubClass                MS_Zoning Lot_Frontage
-## 1 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density          141
-## 2 One_Story_1946_and_Newer_All_Styles Residential_High_Density           80
-## 3 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density           81
-## 4 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density           93
-## 5            Two_Story_1946_and_Newer  Residential_Low_Density           74
-## 6            Two_Story_1946_and_Newer  Residential_Low_Density           78
-##   Lot_Area
-## 1    31770
-## 2    11622
-## 3    14267
-## 4    11160
-## 5    13830
-## 6     9978
+##                           MS_SubClass                MS_Zoning Lot_Frontage Lot_Area
+## 1 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density          141    31770
+## 2 One_Story_1946_and_Newer_All_Styles Residential_High_Density           80    11622
+## 3 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density           81    14267
+## 4 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density           93    11160
+## 5            Two_Story_1946_and_Newer  Residential_Low_Density           74    13830
+## 6            Two_Story_1946_and_Newer  Residential_Low_Density           78     9978
 ```
 
 ---
@@ -357,8 +350,8 @@ which(is.na(Ozone))
 ```
 
 ```
-##  [1]   5  10  25  26  27  32  33  34  35  36  37  39  42  43  45  46  52  53  54
-## [20]  55  56  57  58  59  60  61  65  72  75  83  84 102 103 107 115 119 150
+##  [1]   5  10  25  26  27  32  33  34  35  36  37  39  42  43  45  46  52  53  54  55  56
+## [22]  57  58  59  60  61  65  72  75  83  84 102 103 107 115 119 150
 ```
 
 
