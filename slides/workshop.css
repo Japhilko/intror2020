@@ -59,3 +59,9 @@ div.my-footer span {
   margin-bottom: 625px;
   margin-right: 10px;
 }
+
+.inverse {
+  background-color: #272822;
+  color: #d6d6d6;
+  text-shadow: 0 0 20px #333;
+}

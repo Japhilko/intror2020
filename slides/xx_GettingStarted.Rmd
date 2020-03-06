@@ -1,5 +1,6 @@
 ---
-title: "japhilko.github.io/intror2020/"
+title: "Introduction to R"
+subtitle: "Getting started with R"
 author: "Jan-Philipp Kolb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 location: "GESIS, Mannheim, Germany"
@@ -25,24 +26,15 @@ knitr::purl("slides/GettingStarted.Rmd",documentation = 2)
 ```
 
 
-class: center, inverse
-
-
 ## [COURSE OBJECTIVES](http://uc-r.github.io/data_wrangling/week-1)
 
-Perform your data analysis in a literate programming environment
-
-Import and manage structured and unstructured data
-
-Manipulate, transform, and summarize your data
-
-Join disparate data sources
-
-Methodically explore and visualize your data
-
-Perform iterative functions
-
-Write your own functions
+- Perform your data analysis in a literate programming environment
+- Import and manage structured and unstructured data
+- Manipulate, transform, and summarize your data
+- Join disparate data sources
+- Methodically explore and visualize your data
+- Perform iterative functions
+- Write your own functions
 
 ... all with R!
 
@@ -54,13 +46,13 @@ Write your own functions
 path <- "figure/rlogo.png"
 # https://bookdown.org/yihui/rmarkdown/xaringan-format.html
 #getwd()
-
-
-
 ```
+
+
 
 class: center, inverse
 background-image: url(`r path`)
+
 
 ## Introduction round
 
@@ -76,8 +68,8 @@ background-image: url(`r path`)
 ## Preliminaries
 
 - Usually we have big differences in knowledge and abilities of the participants - please tell, if it is too fast or slow.
-- We'll have lots of hands-on coding **exercises** - at the end you can only learn on your own.
-- We have many [**examples**](https://shiny.rstudio.com/gallery/) - try them.
+- We have lots of hands-on coding [**exercises**](http://web.math.ku.dk/~helle/R-intro/exercises.pdf) - at the end you can only learn on your own.
+- We have many [**examples**](https://www.showmeshiny.com/) - try them.
 - If there are questions - always ask.
 - R is more fun together - ask your neighbor - strong proponent of
 collaborative work!
@@ -89,7 +81,7 @@ collaborative work!
 
 ### Sources for figures, text, exercises etc:
 
-- If the source is a website, the links are often in the header or in [pink](https://japhilko.github.io/intror2020/) somewhere on the slide.
+- If the source is a website, the links are often in the header or in [pink]() somewhere on the slide.
 
 -  At the end of a chapter, you'll find additional links to read on. 
 
@@ -103,14 +95,14 @@ collaborative work!
 
 
 
-```{r,echo=F, out.width = "20%",eval=T}
+```{r,echo=F, out.width = "20%"}
 img1_path <- "figure/opensource1.PNG"
 knitr::include_graphics(img1_path)
 # https://d-64.org/fuenf-gruende-fuer-open-source-software/
 knitr::include_graphics(img1_path)
 ```
 
-- ... outstanding graphs - [**graphics**](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html), [**graphics**](https://www.r-graph-gallery.com/), [**graphics**](https://www.r-graph-gallery.com/all-graphs.html)
+- ... outstanding graphs - [**graphics**](http://matthewlincoln.net/2014/12/20/adjacency-matrix-plots-with-r-and-ggplot2.html), [**graphics**](https://www.r-bloggers.com/3d-plots-with-ggplot2-and-plotly /), [**graphics**](https://procomun.wordpress.com/2011/03/18/splomr/)
 - ... relates to other languages - [**R can be used in combination with other programs**](https://github.com/Japhilko/RInterfaces) - e.g. [**data linking**](https://github.com/Japhilko/RInterfaces/blob/master/slides/Datenimport.md)
 - ...R can be used [**for automation**](https://cran.r-project.org/web/packages/MplusAutomation/index.html)
  - ... Vast Community - [**you can use the intelligence of other people ;-)**](https://www.r-bloggers.com/)
@@ -146,7 +138,9 @@ knitr::include_graphics(img1_path)
 
 ---
 
-## Download R: http://www.r-project.org/
+## Download R:
+
+<http://www.r-project.org/>
 
 ![The CRAN website](figure/CRAN1picture.PNG)
 
@@ -371,6 +365,7 @@ Create a vector `b` with the numbers from 1 to 5 and calculate ...
 
 ## [**Overview commands**](http://cran.r-project.org/doc/manuals/R-intro.html)
 
+<http://cran.r-project.org/doc/manuals/R-intro.html>
 
 ![Overview commands](figure/UebersichtBefehle.PNG)
 
@@ -378,12 +373,7 @@ Create a vector `b` with the numbers from 1 to 5 and calculate ...
 
 ## Exercise: Economic Order Quantity Model
 
-
-```{r,echo=F, out.width = "120%",eval=T}
-img1_path <- "figure/economic_order_quantity.PNG"
-knitr::include_graphics(img1_path)
-```
-
+![](figure/economic_order_quantity.PNG){width=110%}
 
 ### Economic Order Quantity Model
 
@@ -579,7 +569,7 @@ example(lm)
 
 ---
 
-## We get help with the question mark
+## Again, we get help with the question mark
 
 ```{r,eval=F}
 ?paste
@@ -677,7 +667,7 @@ R-project + "what I want to know"
 -  this works of course for all search engines!
 
 
-![](figure/duckduckgo.PNG)
+![](figure/duckduckgo.PNG){ height=80% }
 
 ---
 
@@ -691,7 +681,7 @@ R-project + "what I want to know"
 
 ---
 
-## [**A cheatsheet for base R**](https://www.rstudio.com/resources/cheatsheets/)
+## A cheatsheet for base R
 
 <https://www.rstudio.com/resources/cheatsheets/>
 
@@ -783,7 +773,7 @@ info <- available.packages(contriburl = cran, type = "source")
 
 ### Overview R packages
 
-![Overview R-packages](figure/Packages.PNG)
+![Overview R-packages](figure/Packages.PNG){ height=60% }
 
 
 

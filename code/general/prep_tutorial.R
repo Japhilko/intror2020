@@ -48,8 +48,8 @@ lof <- list.files(slides_path)
 lof <- grep(".Rmd",lof,value=T)
 
 
-for (i in lof){
-  pagedown::chrome_print(paste0(slides_path,i))  
+for (i in 1:length(lof)){
+  pagedown::chrome_print(paste0(slides_path,lof[i]))  
 }
 
 
