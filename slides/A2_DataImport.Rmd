@@ -98,6 +98,20 @@ to get to know the data:
 
 - Remember the directory, we'll need it... 
 
+---
+
+## Exercise - change the working directory
+
+- Use the Button ... on the right side to browse your computer
+
+- Click on the More button
+
+- Choose Set as working directory
+
+```{r,echo=F,out.width="60%"}
+knitr::include_graphics("figure/More_commands.png")
+```
+
 
 ---
 
@@ -116,13 +130,18 @@ to get to know the data:
 -->
 
 ```{r,eval=F}
-dat <- read.csv("../data/ZA5666_v1-0-0.csv")
+dat <- read.csv("2020-01-21-00-00.csv")
 ```
+
+```{r,echo=F}
+dat <- read.csv("https://raw.githubusercontent.com/Perishleaf/data-visualisation-scripts/master/dash-2019-coronavirus/2020-01-21-00-00.csv")
+```
+
 
 If it's German data:
 
 ```{r,eval=F}
-datd <- read.csv2("../data/ZA5666_v1-0-0.csv")
+datd <- read.csv2("ZA5666_v1-0-0.csv")
 ```
 
 
@@ -132,13 +151,22 @@ save(datd,file="../data/ZA5666_v1-0-0_small.RData")
 ```
 
 
+- you can use the [Tab key ](https://github.com/carpentries/lesson-example/issues/246)
+
+```{r,echo=F,out.height="15%"}
+knitr::include_graphics("figure/tab_key.png")
+```
+
+
 <!--
 https://www.stats.govt.nz/assets/Uploads/Annual-enterprise-survey/Annual-enterprise-survey-2018-financial-year-provisional/Download-data/annual-enterprise-survey-2018-financial-year-provisional-csv.csv
+
+https://datahub.io/collections/healthcare-data
 -->
 
 
 
-```{r}
+```{r,echo=F,eval=F}
 dat <- read.csv("../data/datahub_refugee.csv")
 ```
 
@@ -148,10 +176,13 @@ dat <- read.csv("../data/datahub_refugee.csv")
 
 - the following `data.frame` is a small excerpt from the data:
 
-```{r}
+```{r,eval=F}
 head(dat)
 ```
 
+```{r,echo=F}
+knitr::kable(head(dat),"html")
+```
 
 ---
 
@@ -174,7 +205,7 @@ head(ab)
 
 ## Import SPSS files
 
-### Import GESIS Panel data
+### Import SPSS data 
 
 - library `haven` - import and export 'SPSS', 'Stata' and 'SAS' files
 - the result of this import command is a tibble
@@ -206,11 +237,9 @@ http://dataportal.opendataforafrica.org/zjqnio/infrastructure
 Files can also be imported directly from the Internet:
 
 
-
-
 ```{r,eval=F}
-?read.spss
-Dat <- rio::import(link_c)
+link <- "http://www.statistik.at/web_de/static/mz_2013_sds_-_datensatz_080469.sav"
+Dat <- rio::import(link)
 ```
 
 ---
@@ -452,6 +481,7 @@ exletter <- LETTERS[ex_count]
 and answer the following questions:
 -->
 1) How many observations and variables are available?
+
 2) What is the object structure of the variables?
 
 ### Interactive data table 
@@ -489,10 +519,12 @@ dat <- read.csv(file.choose())
 ## Creating an example data record
 
 ```{r}
-A <- c(1,2,3,4)
-B <- c("A","B","C","D")
+A <- 1:4
+B <- LETTERS[1:4]
+C <- letters[1:4]
+D <- runif(4)
 
-mydata <- data.frame(A,B)
+mydata <- data.frame(A,B,C,D)
 ```
 
 ```{r,eval=F}

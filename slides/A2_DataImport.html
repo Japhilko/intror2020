@@ -101,6 +101,18 @@ to get to know the data:
 
 - Remember the directory, we'll need it... 
 
+---
+
+## Exercise - change the working directory
+
+- Use the Button ... on the right side to browse your computer
+
+- Click on the More button
+
+- Choose Set as working directory
+
+&lt;img src="figure/More_commands.png" width="60%" /&gt;
+
 
 ---
 
@@ -121,18 +133,26 @@ to get to know the data:
 
 
 ```r
-dat &lt;- read.csv("../data/ZA5666_v1-0-0.csv")
+dat &lt;- read.csv("2020-01-21-00-00.csv")
 ```
+
+
+
 
 If it's German data:
 
 
 ```r
-datd &lt;- read.csv2("../data/ZA5666_v1-0-0.csv")
+datd &lt;- read.csv2("ZA5666_v1-0-0.csv")
 ```
 
 
 
+
+
+- you can use the [Tab key ](https://github.com/carpentries/lesson-example/issues/246)
+
+&lt;img src="figure/tab_key.png" width="400" height="15%" /&gt;
 
 
 &lt;!--
@@ -142,9 +162,6 @@ https://www.stats.govt.nz/assets/Uploads/Annual-enterprise-survey/Annual-enterpr
 
 
 
-```r
-dat &lt;- read.csv("../data/datahub_refugee.csv")
-```
 
 ---
 
@@ -157,16 +174,75 @@ dat &lt;- read.csv("../data/datahub_refugee.csv")
 head(dat)
 ```
 
-```
-##   Country.Name Country.Code Year   Value
-## 1   Arab World          ARB 1990 4235545
-## 2   Arab World          ARB 1991 3811595
-## 3   Arab World          ARB 1992 4000509
-## 4   Arab World          ARB 1993 4189545
-## 5   Arab World          ARB 1994 4352945
-## 6   Arab World          ARB 1995 4337009
-```
-
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Province.State &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Country.Region &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Last.Update &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Confirmed &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Deaths &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Recovered &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Suspected &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Hubei &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Mainland China &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1/21/2020 00:00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 270 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Guangdong &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Mainland China &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1/21/2020 00:00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Beijing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Mainland China &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1/21/2020 00:00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Shanghai &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Mainland China &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1/21/2020 00:00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Zhejiang &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Mainland China &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1/21/2020 00:00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Chongqing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Mainland China &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1/21/2020 00:00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
 
@@ -205,7 +281,7 @@ head(ab)
 
 ## Import SPSS files
 
-### Import GESIS Panel data
+### Import SPSS data 
 
 - library `haven` - import and export 'SPSS', 'Stata' and 'SAS' files
 - the result of this import command is a tibble
@@ -239,11 +315,9 @@ Files can also be imported directly from the Internet:
 
 
 
-
-
 ```r
-?read.spss
-Dat &lt;- rio::import(link_c)
+link &lt;- "http://www.statistik.at/web_de/static/mz_2013_sds_-_datensatz_080469.sav"
+Dat &lt;- rio::import(link)
 ```
 
 ---
@@ -295,7 +369,7 @@ head(datf$bbzc007a)
 ```
 
 ```
-## NULL
+## [1] 7 7 5 7 7 7
 ```
 
 ### For comparison - import without this argument
@@ -307,7 +381,9 @@ head(dat$bbzc007a)
 ```
 
 ```
-## NULL
+## [1] Nein             Nein             Unit nonresponse Nein            
+## [5] Nein             Nein            
+## 10 Levels: Ambiguous answer Item nonresponse Missing by filter ... Ja, oft
 ```
 
 ---
@@ -339,7 +415,8 @@ head(names(att_dat))
 ```
 
 ```
-## NULL
+## [1] "row.names"  "names"      "datalabel"  "time.stamp" "formats"   
+## [6] "types"
 ```
 
 ### Example: the variable names 
@@ -350,7 +427,7 @@ head(att_dat$names)
 ```
 
 ```
-## NULL
+## [1] "z000001z" "z000002z" "z000003z" "z000005z" "a11c019a" "a11c020a"
 ```
 
 
@@ -528,6 +605,7 @@ install.packages("datasets.load")
 and answer the following questions:
 --&gt;
 1) How many observations and variables are available?
+
 2) What is the object structure of the variables?
 
 ### Interactive data table 
@@ -568,10 +646,12 @@ dat &lt;- read.csv(file.choose())
 
 
 ```r
-A &lt;- c(1,2,3,4)
-B &lt;- c("A","B","C","D")
+A &lt;- 1:4
+B &lt;- LETTERS[1:4]
+C &lt;- letters[1:4]
+D &lt;- runif(4)
 
-mydata &lt;- data.frame(A,B)
+mydata &lt;- data.frame(A,B,C,D)
 ```
 
 
@@ -585,24 +665,34 @@ mydata
   &lt;tr&gt;
    &lt;th style="text-align:right;"&gt; A &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; B &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; C &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; D &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; A &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; a &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4871568 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; B &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; b &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9189463 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; C &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; c &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4399285 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; D &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; d &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5718406 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

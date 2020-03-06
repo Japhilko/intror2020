@@ -107,6 +107,7 @@ collaborative work!
 img1_path <- "figure/opensource1.PNG"
 knitr::include_graphics(img1_path)
 # https://d-64.org/fuenf-gruende-fuer-open-source-software/
+# http://matthewlincoln.net/2014/12/20/adjacency-matrix-plots-with-r-and-ggplot2.html
 knitr::include_graphics(img1_path)
 ```
 
@@ -247,6 +248,7 @@ For the following reasons:
 ```{r,echo=F, out.width = "100%"}
 knitr::include_graphics("figure/customizeRstduio.png")
 #https://www.garrickadenbuie.com/blog/decouple-code-and-output-in-xaringan-slides/
+# https://towardsdatascience.com/customize-your-rstudio-theme-914cca8b04b1
 ```
 ]
 

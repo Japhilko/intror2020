@@ -69,3 +69,19 @@ for(i in 1:length(myfiles)){
 
 #####
 
+
+# xaringan links ----------------------------------------------------------
+
+# https://slides.yihui.org/xaringan/#15
+# https://remarkjs.com/#2
+# https://github.com/yihui/xaringan/issues/71
+# https://bookdown.org/yihui/rmarkdown/xaringan-format.html
+# https://bookdown.org/yihui/rmarkdown/xaringan.html
+# https://github.com/yihui/xaringan/issues/50
+# https://bookdown.org/yihui/rmarkdown/xaringan-format.html
+# https://community.rstudio.com/t/figure-caption-in-r-markdown/6951/3
+
+# https://stackoverflow.com/questions/31926623/figures-captions-and-labels-in-knitr
+# https://www.r-bloggers.com/wrapper-of-knitrinclude_graphics-to-handle-urls-pdf-outputs/
+# https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references
+# https://stackoverflow.com/questions/51181684/figure-captions-for-knitr-blocks-that-include-links-in-pdf-documents
