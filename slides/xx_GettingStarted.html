@@ -1,66 +1,53 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introduction to R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Jan-Philipp Kolb" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="..\workshop.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introduction to R
+## Getting started with R
+### Jan-Philipp Kolb
+### 06 März, 2020
+
 ---
-title: "japhilko.github.io/intror2020/"
-author: "Jan-Philipp Kolb"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
-location: "GESIS, Mannheim, Germany"
-output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    css: ["default", "default-fonts", "../workshop.css"]
-    nature:
-      highlightStyle: "github"
-      highlightLines: true
-      countIncrementalSlides: false
----
 
 
 
-```{r, include=FALSE,purl=F}
-#https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
-knitr::opts_chunk$set(echo = T,warning=F,message=F,size="small",cache=F)
-```
-
-```{r,eval=F,echo=F}
-knitr::purl("slides/GettingStarted.Rmd",documentation = 2)
-```
 
 
-class: center, inverse
+
+
 
 
 ## [COURSE OBJECTIVES](http://uc-r.github.io/data_wrangling/week-1)
 
-Perform your data analysis in a literate programming environment
-
-Import and manage structured and unstructured data
-
-Manipulate, transform, and summarize your data
-
-Join disparate data sources
-
-Methodically explore and visualize your data
-
-Perform iterative functions
-
-Write your own functions
+- Perform your data analysis in a literate programming environment
+- Import and manage structured and unstructured data
+- Manipulate, transform, and summarize your data
+- Join disparate data sources
+- Methodically explore and visualize your data
+- Perform iterative functions
+- Write your own functions
 
 ... all with R!
 
 ---
 
-```{r,echo=F}
-#git_path <- getwd()
-#path <- paste0(git_path,"/figure/rlogo.png")
-path <- "figure/rlogo.png"
-# https://bookdown.org/yihui/rmarkdown/xaringan-format.html
-#getwd()
 
 
 
-```
 
 class: center, inverse
-background-image: url(`r path`)
+background-image: url(figure/rlogo.png)
+
 
 ## Introduction round
 
@@ -76,8 +63,8 @@ background-image: url(`r path`)
 ## Preliminaries
 
 - Usually we have big differences in knowledge and abilities of the participants - please tell, if it is too fast or slow.
-- We'll have lots of hands-on coding [**exercises**](https://www.w3resource.com/r-programming-exercises/) - at the end you can only learn on your own.
-- We have many [**examples**](https://shiny.rstudio.com/gallery/) - try them.
+- We have lots of hands-on coding [**exercises**](http://web.math.ku.dk/~helle/R-intro/exercises.pdf) - at the end you can only learn on your own.
+- We have many [**examples**](https://www.showmeshiny.com/) - try them.
 - If there are questions - always ask.
 - R is more fun together - ask your neighbor - strong proponent of
 collaborative work!
@@ -89,7 +76,7 @@ collaborative work!
 
 ### Sources for figures, text, exercises etc:
 
-- If the source is a website, the links are often in the header or in [pink](https://japhilko.github.io/intror2020/) somewhere on the slide.
+- If the source is a website, the links are often in the header or in [pink]() somewhere on the slide.
 
 -  At the end of a chapter, you'll find additional links to read on. 
 
@@ -103,14 +90,9 @@ collaborative work!
 
 
 
-```{r,echo=F, out.width = "20%",eval=T}
-img1_path <- "figure/opensource1.PNG"
-knitr::include_graphics(img1_path)
-# https://d-64.org/fuenf-gruende-fuer-open-source-software/
-knitr::include_graphics(img1_path)
-```
+&lt;img src="figure/opensource1.PNG" width="20%" /&gt;
 
-- ... outstanding graphs - [**graphics**](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html), [**graphics**](https://www.r-graph-gallery.com/), [**graphics**](https://www.r-graph-gallery.com/all-graphs.html)
+- ... outstanding graphs - [**graphics**](http://matthewlincoln.net/2014/12/20/adjacency-matrix-plots-with-r-and-ggplot2.html), [**graphics**](https://www.r-bloggers.com/3d-plots-with-ggplot2-and-plotly /), [**graphics**](https://procomun.wordpress.com/2011/03/18/splomr/)
 - ... relates to other languages - [**R can be used in combination with other programs**](https://github.com/Japhilko/RInterfaces) - e.g. [**data linking**](https://github.com/Japhilko/RInterfaces/blob/master/slides/Datenimport.md)
 - ...R can be used [**for automation**](https://cran.r-project.org/web/packages/MplusAutomation/index.html)
  - ... Vast Community - [**you can use the intelligence of other people ;-)**](https://www.r-bloggers.com/)
@@ -124,14 +106,8 @@ knitr::include_graphics(img1_path)
 
 ![](figure/forfree.PNG)
 
-<!--
-popularity of R
-https://twitter.com/josiahjdavis/status/559778930476220418
--->
-
-
 - R is a [**scripting language**](https://en.wikipedia.org/wiki/Scripting_language)
-- R is becoming more and more  [**popular**](https://blog.revolutionanalytics.com/2018/06/pypl-programming-language-trends.html)
+- R is becoming more [**popular**](https://twitter.com/josiahjdavis/status/559778930476220418)
 - [**Good**](http://www.sr.bham.ac.uk/~ajrs/R/r-gallery.html) possibilities for [**visualization**](http://research.stowers.org/mcm/efg/R/) 
 
 ---
@@ -140,27 +116,7 @@ https://twitter.com/josiahjdavis/status/559778930476220418
 
 ![Interfaces to R**](figure/Rinterfaces.PNG)
 
-- Interface to: [**Python**](https://cran.r-project.org/web/packages/reticulate/vignettes/calling_python.html), [**Excel**](https://www.r-project.org/conferences/DSC-2003/Drafts/BaierNeuwirth.pdf), [**Javascript**](https://hackernoon.com/r-and-javascript-execution-libraries-integration-40a30726f295), [**SQL**](http://dept.stat.lsa.umich.edu/~jerrick/courses/stat701/notes/sql.html), [**Stata**](https://cran.r-project.org/web/packages/RStata/index.html)  
-
-<!--
-https://cran.r-project.org/web/packages/js/vignettes/intro.html
-
-
-python
-https://cran.r-project.org/web/packages/reticulate/vignettes/calling_python.html
-https://www.datanami.com/2019/08/15/is-python-strangling-r-to-death/
-
-Javascript
-https://www.r-bloggers.com/introducing-js-tools-for-working-with-javascript-in-r/
-https://blog.semicolonsoftware.de/programming-r-like-its-javascript-python/
-https://shiny.rstudio.com/articles/packaging-javascript.html
-https://cran.r-project.org/web/packages/js/vignettes/intro.html
-
-SPSS
-https://www.ibm.com/support/knowledgecenter/en/SSFUEU_7.2.0/com.ibm.swg.ba.cognos.op_capmod_ig.7.2.0.doc/t_essentials_for_r_statistics.html
-
-https://cran.r-project.org/web/packages/SASmixed/index.html
--->
+- Interface to: [**Python**](https://cran.r-project.org/web/packages/reticulate/vignettes/calling_python.html), [**Excel**](https://www.springer.com/de/book/9781441900517), [**SPSS**](https://www.ibm.com/support/knowledgecenter/en/SSFUEU_7.2.0/com.ibm.swg.ba.cognos.op_capmod_ig.7.2.0.doc/t_essentials_for_r_statistics.html), [**SAS**](https://cran.r-project.org/web/packages/SASmixed/index.html), [**Stata**](https://cran.r-project.org/web/packages/RStata/index.html)  
 
 
 ---
@@ -172,7 +128,9 @@ https://cran.r-project.org/web/packages/SASmixed/index.html
 
 ---
 
-## Download R: http://www.r-project.org/
+## Download R:
+
+&lt;http://www.r-project.org/&gt;
 
 ![The CRAN website](figure/CRAN1picture.PNG)
 
@@ -180,12 +138,12 @@ https://cran.r-project.org/web/packages/SASmixed/index.html
 
 ## Open Source Programm R
 
-- R is a free, non-commercial implementation of the S programming language (by AT&T Bell Laboratories)
+- R is a free, non-commercial implementation of the S programming language (by AT&amp;T Bell Laboratories)
 - Free participation - modular structure 
 
-<!--
+&lt;!--
 (growing number of packages)
--->
+--&gt;
 
 
 ### This is base R:
@@ -196,12 +154,12 @@ https://cran.r-project.org/web/packages/SASmixed/index.html
 
 ## Graphical user interface
 
-But many people use a [graphical user interface](https://en.wikipedia.org/wiki/Graphical_user_interface) (GUI) or a integrated development interface (IDE).
+But many people use a graphical user interface (GUI) or a integrated development interface (IDE).
 
 For the following reasons:
 
-- [Syntax highlighting](https://en.wikipedia.org/wiki/Syntax_highlighting)
-- [Auto-completion](https://en.wikipedia.org/wiki/Autocomplete)
+- Syntax highlighting
+- Auto-completion
 - Better overview on graphics, libraries, files, ...
 
 ---
@@ -209,8 +167,6 @@ For the following reasons:
 ## Various text editors / IDEs
 
 - [**Gedit**](https://projects.gnome.org/gedit/) with R-specific Add-ons for Linux
-
-- [**Atom**](https://atom.io/) a hackable text editor - [Rbox](https://atom.io/packages/rbox)
 
 - [**Emacs**](http://www.gnu.org/software/emacs/) and ESS (Emacs speaks statistics)- An extensible, customizable, free/libre text editor — and more.
 
@@ -228,54 +184,80 @@ For the following reasons:
 
 ---
 
-## [Rstudio - script and console](http://uc-r.github.io/introduction)
+## Rstudio - script and console
 
 ![](figure/rstudio_funs1.png)
 
 ---
 
-## [Rstudio - Environment and help](http://uc-r.github.io/introduction)
+## Rstudio - Environment and help
 
 ![](figure/rstudiofuns2.PNG)
 
 
 ---
 
-.pull-left[
-### [Customize Rstudio](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio)
-
-```{r,echo=F, out.width = "100%"}
-knitr::include_graphics("figure/customizeRstduio.png")
-#https://www.garrickadenbuie.com/blog/decouple-code-and-output-in-xaringan-slides/
-```
-]
-
-.pull-right[
-### Important Rstudio Buttons
-
+## Important Rstudio Buttons
 
 ![](figure/new_script.PNG)  create a new script
 
 ![](figure/Skriptoeffnen.PNG) open an existing script
 
 ![](figure/runskript.PNG) run line where cursor is
-]
 
 ---
 
 ## R as a calculator
 
-```{r}
+
+```r
 3 + 2 / 10^2 # Uses PEMDAS convention (order of operations)
+```
+
+```
+## [1] 3.02
+```
+
+```r
 3 + (2 / 10^2)
+```
+
+```
+## [1] 3.02
+```
+
+```r
 (3 + 2) / 10^2
 ```
 
+```
+## [1] 0.05
+```
 
-```{r}
+
+
+```r
 1 /19^4 # scientific notation is used for large numbers
+```
+
+```
+## [1] 7.67336e-06
+```
+
+```r
 1/0 # Undefined calculations
+```
+
+```
+## [1] Inf
+```
+
+```r
 Inf - Inf
+```
+
+```
+## [1] NaN
 ```
 
 ---
@@ -288,17 +270,20 @@ Inf - Inf
 - If not - [**install**](http://www.rstudio.com/) Rstudio.
 - Start RStudio. Go to the console (lower left window) and write
 
-```{r,eval=F}
-3*2
+
+```r
+3+2
 ```
 
 - If there is not already an editor open in the upper left window, then go to the file menu and open a new script. Check the date with `date()` and the R version with `sessionInfo()`.
 
-```{R,eval=F}
+
+```r
 date()
 ```
 
-```{R,eval=F}
+
+```r
 sessionInfo()
 ```
 
@@ -310,11 +295,12 @@ sessionInfo()
 - Write and execute the following code in the `.R` script and identify
 where in Rstudio the outputs can be found.
 
-```{r,eval=F}
+
+```r
 mtcars
 ?sum
 hist(mtcars$mpg)
-random_numbers <- runif(40)
+random_numbers &lt;- runif(40)
 history()
 ```
 
@@ -325,22 +311,40 @@ history()
 ### Vectors and assignments
 
 -  R is a object-orientiented language
--  `<-` is the assignment operator
+-  `&lt;-` is the assignment operator
 
-```{r}
-b <- c(1,2) # create an object with the numbers 1 and 2
+
+```r
+b &lt;- c(1,2) # create an object with the numbers 1 and 2
 ```
 -  A function can be applied to this object:
 
-```{r}
+
+```r
 mean(b) # computes the mean
+```
+
+```
+## [1] 1.5
 ```
 
 We can learn something about the properties of the object:
 
-```{r}
+
+```r
 length(b) # b has the length 2
+```
+
+```
+## [1] 2
+```
+
+```r
 sqrt(b) # the square root of b
+```
+
+```
+## [1] 1.000000 1.414214
 ```
 
 ---
@@ -372,24 +376,66 @@ These functions only need one argument.
 
  
 
-```{r}
+
+```r
 quantile(b,.9)
+```
+
+```
+## 90% 
+## 1.9
+```
+
+```r
 sample(b,1) 
+```
+
+```
+## [1] 2
 ```
 
 ---
 
 ## Examples - Functions with more than one argument
 
-```{r}
+
+```r
 max(b); min(b)
+```
+
+```
+## [1] 2
+```
+
+```
+## [1] 1
+```
+
+```r
 sd(b); var(b)
+```
+
+```
+## [1] 0.7071068
+```
+
+```
+## [1] 0.5
 ```
 
 ### Functions with one argument
 
-```{r}
+
+```r
 mean(b);median(b)
+```
+
+```
+## [1] 1.5
+```
+
+```
+## [1] 1.5
 ```
 
 ---
@@ -411,25 +457,23 @@ Create a vector `b` with the numbers from 1 to 5 and calculate ...
 
 ## [**Overview commands**](http://cran.r-project.org/doc/manuals/R-intro.html)
 
+&lt;http://cran.r-project.org/doc/manuals/R-intro.html&gt;
 
 ![Overview commands](figure/UebersichtBefehle.PNG)
 
 ---
 
-## Exercise: [Economic Order Quantity Model](https://en.wikipedia.org/wiki/Economic_order_quantity)
+## Exercise: Economic Order Quantity Model
 
+![](figure/economic_order_quantity.PNG){width=110%}
 
-```{r,echo=F, out.width = "120%",eval=T}
-img1_path <- "figure/Economic_order_quant.PNG"
-knitr::include_graphics(img1_path)
-```
-
+### Economic Order Quantity Model
 
 $$
 Q = \sqrt{\dfrac{2DK}{h}}
 $$
 
-### Calculate $Q$ where:
+### Calculate `\(Q\)` where:
 
 - D = 1000
 - K = 5
@@ -446,27 +490,70 @@ $$
 
 – binary, two possible values represented by `TRUE` and `FALSE`
 
-```{r}
-x <- c(3,7, 1, 2)
-x > 2
-x == 2
-!(x < 3)
+
+```r
+x &lt;- c(3,7, 1, 2)
+x &gt; 2
 ```
 
-```{r,echo=F,eval=F}
-which(x > 2)
 ```
+## [1]  TRUE  TRUE FALSE FALSE
+```
+
+```r
+x == 2
+```
+
+```
+## [1] FALSE FALSE FALSE  TRUE
+```
+
+```r
+!(x &lt; 3)
+```
+
+```
+## [1]  TRUE  TRUE FALSE FALSE
+```
+
+
 
 ---
 
 ## [Character vectors](https://www.stat.berkeley.edu/~nolan/stat133/Fall05/lectures/DataTypes4.pdf)
 
-```{r}
-y <- c("a","bc","def")
+
+```r
+y &lt;- c("a","bc","def")
 length(y)
+```
+
+```
+## [1] 3
+```
+
+```r
 nchar(y)
+```
+
+```
+## [1] 1 2 3
+```
+
+```r
 y == "a"
+```
+
+```
+## [1]  TRUE FALSE FALSE
+```
+
+```r
 y == "b"
+```
+
+```
+## [1] FALSE FALSE FALSE
 ```
 
 
@@ -474,17 +561,41 @@ y == "b"
 
 ## Object structure
 
-```{r}
+
+```r
 str(b) # b is a numeric vector
+```
+
+```
+##  num [1:2] 1 2
 ```
 
 ### Variable type `character` 
 
-```{r}
-a <- letters
+
+```r
+a &lt;- letters
 length(letters)
+```
+
+```
+## [1] 26
+```
+
+```r
 a[1:4]
+```
+
+```
+## [1] "a" "b" "c" "d"
+```
+
+```r
 str(a)
+```
+
+```
+##  chr [1:26] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" ...
 ```
 
 
@@ -492,13 +603,34 @@ str(a)
 
 ## Problems with character vector
 
-```{r}
+
+```r
 mean(b)
 ```
 
-```{r,warning=T}
-(b1 <- c(b,"a"))
+```
+## [1] 1.5
+```
+
+
+```r
+(b1 &lt;- c(b,"a"))
+```
+
+```
+## [1] "1" "2" "a"
+```
+
+```r
 mean(b1)
+```
+
+```
+## Warning in mean.default(b1): argument is not numeric or logical: returning NA
+```
+
+```
+## [1] NA
 ```
 
 
@@ -512,28 +644,43 @@ mean(b1)
 
 - In the following case all elements are coerced to numeric.
 
-```{r}
-x <- c(TRUE,FALSE,TRUE)
+
+```r
+x &lt;- c(TRUE,FALSE,TRUE)
 c(1.2,x)
+```
+
+```
+## [1] 1.2 1.0 0.0 1.0
 ```
 
 
 - To character:
 
-```{r}
-y <- c("2","3",".2")
+
+```r
+y &lt;- c("2","3",".2")
 c(1.2,y, x)
 ```
 
+```
+## [1] "1.2"   "2"     "3"     ".2"    "TRUE"  "FALSE" "TRUE"
+```
 
-<!--
+
+&lt;!--
 - Sometimes this coercion occurs to perform an arithmetic operation:
--->
+--&gt;
 
 - The following arithmetic operation works:
 
-```{r}
+
+```r
 1 + x
+```
+
+```
+## [1] 2 1 2
 ```
 
 
@@ -543,9 +690,21 @@ c(1.2,y, x)
 
 - Other times we need to perform the coercion
 
-```{r}
+
+```r
 c(1.2,y)
+```
+
+```
+## [1] "1.2" "2"   "3"   ".2"
+```
+
+```r
 c(1.2,as.numeric(y))
+```
+
+```
+## [1] 1.2 2.0 3.0 0.2
 ```
 
 
@@ -553,9 +712,9 @@ c(1.2,as.numeric(y))
 
 ## Information about Vectors 
 
-<!--
+&lt;!--
 - `length(x)`- number of elements in a vector
--->
+--&gt;
 
 - Aggregator functions - `sum`, `mean`, `range`, `min`, `max`, `summary`, `table`, `cut`, ...
 
@@ -575,56 +734,62 @@ is often returned by expressions and functions whose value is undefined.
 
 - `as.numeric(x)` – we use the as-type functions to coerce objects from one type (e.g. logical) to another, in this case numeric. 
 - There are several of these functions, including `as.integer`, `as.character`, `as.logical`
-<!--
+&lt;!--
 , `as.POSIXct`.
--->
+--&gt;
 
-```{r}
-x <- c("1",2,"one","1plus","2_and")
+
+```r
+x &lt;- c("1",2,"one","1plus","2_and")
 as.numeric(x)
+```
+
+```
+## [1]  1  2 NA NA NA
 ```
 
 ---
 
 ## How to get help?
 
-<!--
+&lt;!--
 zenburn is a possibility for colour coding
 http://deic.uab.es/~iblanes/beamer_gallery/index_by_color.html
--->
+--&gt;
 
 -  [**To get help in general:**](http://itfeature.com/tag/how-to-get-help-in-r)
 
 
-```{r,eval=F}
+
+```r
 help.start()
 ```
 
 -  Use `?` to get help. 
 
-```{r,eval=F}
+
+```r
 ?mean
 ```
 
 -  `example(lm)` gives an example for a linear regression 
 
-```{r,eval=F}
+
+```r
 example(lm)
 ```
 
--  [**Online documentation for most help functions**](https://www.r-project.org/help.html)
+-  [**Online documentation for most of the functions:**](https://www.r-project.org/help.html)
 
 
 ---
 
-## We get help with the question mark
+## Again, we get help with the question mark
 
-```{r,eval=F}
+
+```r
 ?paste
 ```
-
---
-.pull-left[
 
 Different sections in the help:
 
@@ -636,17 +801,6 @@ Different sections in the help:
 - See Also
 - Examples
 
-]
-
-.pull-right[
-![](figure/help_paste3.PNG)
-]
-
-???
-
-_Hier hätte ich gerne zwei Spalten_.
-
-
 ---
 
 ## Vignettes
@@ -656,13 +810,15 @@ _Hier hätte ich gerne zwei Spalten_.
 - Vignettes are a rather new tool, that is why not every package has a vignette
 
 
-```{r,eval=F}
+
+```r
 browseVignettes()
 ```
 
 - to get a vignette:
 
-```{r,eval=F}
+
+```r
 vignette("osmdata")
 ```
 
@@ -678,7 +834,8 @@ vignette("osmdata")
 
 - for some packages you have demos:
 
-```{r,eval=F}
+
+```r
 demo() # shows all available demos
 demo(package = "httr") # Show all demos in a package
 
@@ -689,18 +846,12 @@ demo("oauth1-twitter", package = "httr")
 - if you run a demo, the code is shown in the console
 
 
-```{r,eval=F}
+
+```r
 demo(nlm)
 ```
 
 ![](figure/demonlm.PNG)
-
-???
-
-httr: Tools for Working with URLs and HTTP
-
-https://cran.r-project.org/web/packages/httr/index.html
-
 
 ---
 
@@ -708,16 +859,28 @@ https://cran.r-project.org/web/packages/httr/index.html
 
 - searches everything about the given string 
 
-```{r}
+
+```r
 apropos("lm")
+```
+
+```
+##  [1] ".colMeans"       ".lm.fit"         "colMeans"        "confint.lm"     
+##  [5] "contr.helmert"   "dummy.coef.lm"   "getAllMethods"   "glm"            
+##  [9] "glm.control"     "glm.fit"         "KalmanForecast"  "KalmanLike"     
+## [13] "KalmanRun"       "KalmanSmooth"    "kappa.lm"        "lm"             
+## [17] "lm.fit"          "lm.influence"    "lm.wfit"         "model.matrix.lm"
+## [21] "nlm"             "nlminb"          "predict.glm"     "predict.lm"     
+## [25] "residuals.glm"   "residuals.lm"    "summary.glm"     "summary.lm"
 ```
 
 
 ---
 
-## [**Search engine for the R-Site**](http://search.r-project.org/cgi-bin/namazu.cgi?query=glm&max=20&result=normal&sort=score&idxname=functions&idxname=vignettes&idxname=views)
+## [**Search engine for the R-Site**](http://search.r-project.org/cgi-bin/namazu.cgi?query=glm&amp;max=20&amp;result=normal&amp;sort=score&amp;idxname=functions&amp;idxname=vignettes&amp;idxname=views)
 
-```{r,eval=F}
+
+```r
 RSiteSearch("glm")
 ```
 
@@ -736,13 +899,13 @@ R-project + "what I want to know"
 -  this works of course for all search engines!
 
 
-![](figure/duckduckgo.PNG)
+![](figure/duckduckgo.PNG){ height=80% }
 
 ---
 
 ## [**Stackoverflow**](http://stackoverflow.com/)
 
--  [A searchable Q&A site oriented toward programming issues.](http://uc-r.github.io/data_wrangling/week-1)
+-  [A searchable Q&amp;A site oriented toward programming issues.](http://uc-r.github.io/data_wrangling/week-1)
 -  Is not focused on R - but [**many discussions on R**](https://stackoverflow.com/tags/r/info)
 -  Very detailed discussions
 
@@ -750,15 +913,11 @@ R-project + "what I want to know"
 
 ---
 
-background-image: url("figure/basercheatsheet.PNG")
+## A cheatsheet for base R
 
+&lt;https://www.rstudio.com/resources/cheatsheets/&gt;
 
-## [**A cheatsheet for base R**](https://www.rstudio.com/resources/cheatsheets/)
-
-<!--
 ![**Cheatsheet BaseR**](figure/basercheatsheet.PNG)
--->
-
 
 ---
 
@@ -813,15 +972,11 @@ Sometimes you do not know the name of the R functions; then a [**search engine**
 ## [Save your Work](https://bouchat.github.io/IntroDataMgmt20Jan.html)
 
 - When conducting research, keeping all of your code, data, and files in the same place is useful. 
-
 - Many journals now require that you make, e.g., your data and code publicly available. 
-
 - Now is the time to invest in file structures and versioning programs (e.g., Dropbox and Github).
 
 - Save your script file often to prevent loss of your work. 
-
 - Also save your workspace in R in order to save time. 
-
 - If you do this, you will be able to load your console in the future as though you had already completed all of the operations that you ran from your script file. 
 
 
@@ -830,30 +985,21 @@ Sometimes you do not know the name of the R functions; then a [**search engine**
 
 ## [**Where to find routines**](https://stats.idre.ucla.edu/r/seminars/intro/)
 
-```{r,eval=T,echo=F}
-# http://blog.revolutionanalytics.com/2015/06/how-many-packages-are-there-really-on-cran.html
-CRANmirror <- "https://cloud.r-project.org/"
-cran <- contrib.url(repos = CRANmirror, 
-                      type = "source")
-info <- available.packages(contriburl = cran, type = "source")
-# nrow(info)
-```
+
 
 
 
 - Many functions are included in basic R 
 - Many specific functions are integrated in additional libraries
 - R can be modularly extended by so-called packages or libraries
-- Most important packages hosted on CRAN (`r nrow(info)` at `r format(Sys.time(), "%a %B %d")`)
+- Most important packages hosted on CRAN (15367 at Fr Mrz 06)
 - Further packages can be found e.g. at [**bioconductor**](www.bioconductor.org)
 
 
 ### Overview R packages
 
+![Overview R-packages](figure/Packages.PNG){ height=60% }
 
-```{r,echo=F, out.width = "50%"}
-knitr::include_graphics("figure/Packages.PNG")
-```
 
 
 ---
@@ -865,11 +1011,12 @@ knitr::include_graphics("figure/Packages.PNG")
 - The quotes around the package name are necessary for the command `install.packages`.
 - They are optional for the command `library`.
 
-<!--
+&lt;!--
 - You can also use `require` instead of `library`.
--->
+--&gt;
 
-```{r,eval=F}
+
+```r
 install.packages("lme4")
 
 library(lme4)
@@ -935,13 +1082,15 @@ Have a look at the package documentation. What are these packages for?
 
 ### Install packages from CRAN Server
 
-```{r,eval=F}
+
+```r
 install.packages("lme4")
 ```
 
 ### Install packages from Bioconductor Server
 
-```{r,eval=F}
+
+```r
 source("https://bioconductor.org/biocLite.R")
 biocLite(c("GenomicFeatures", "AnnotationDbi"))
 ```
@@ -950,7 +1099,8 @@ biocLite(c("GenomicFeatures", "AnnotationDbi"))
 
 ### Install packages from Github
 
-```{r,eval=F}
+
+```r
 install.packages("devtools")
 library(devtools)
 
@@ -962,7 +1112,8 @@ install_github("hadley/ggplot2")
 
 ## Packages
 
-```{r,eval=F}
+
+```r
 # load the package to use in the current R session
 library(stringr)
 
@@ -973,7 +1124,8 @@ library(stringr)
 
 ### Getting help on packages
 
-```{r,eval=F}
+
+```r
 # provides details regarding contents of a package
 help(package = "tidyr")
 # list vignettes available for a specific package
@@ -1007,7 +1159,8 @@ vignette("tidy-data")
 - Currently there are 35 task views.
 - All packages of a task view can be installed with the following [**command:**](https://mran.microsoft.com/rpackages/)
 
-```{r,eval=F}
+
+```r
 install.packages("ctv")
 library("ctv")
 install.views("Bayesian")
@@ -1023,9 +1176,9 @@ install.views("Bayesian")
 
 ### Go for example to: 
 
-<https://cran.r-project.org/> 
+&lt;https://cran.r-project.org/&gt; 
 
-<https://awesome-r.com/>
+&lt;https://awesome-r.com/&gt;
 
 ### or search for 
 
@@ -1046,10 +1199,8 @@ most interesting r packages
 
 ## [How to learn after this workshop](https://lgatto.github.io/2017_11_09_Rcourse_Jena/before-we-start.html#knowing-your-way-around-rstudio)
 
+![](figure/changing_stuff.PNG)
 
-```{r, out.width="70%",echo=F}
-knitr::include_graphics("figure/changing_stuff.PNG")
-```
 
 ---
 
@@ -1058,11 +1209,13 @@ knitr::include_graphics("figure/changing_stuff.PNG")
 ### Learn R, in R
 
 
-```{r,eval=F}
+
+```r
 install.packages("swirl")
 ```
 
-```{r,eval=F}
+
+```r
 library(swirl)
 # type the following into the console:
 swirl()
@@ -1076,7 +1229,8 @@ swirl()
 - 
 
 
-```{r,eval=F}
+
+```r
 install.packages("learnr")
 ```
 
@@ -1095,11 +1249,10 @@ install.packages("learnr")
 - [**Why the R programming language is good for business?**](http://www.fastcolabs.com/3030063/why the r programming language is good for business) 
 
 - [**Have a look at R-bloggers**](http://www.r-bloggers.com/why-use-r/)
-
-<!--
+&lt;!--
 - [Intro R](http://www.ats.ucla.edu/stat/r/seminars/intro.htm)
 - [Intro R II](http://www.ats.ucla.edu/stat/r/sk/)
--->
+--&gt;
 
 - [**Comparisson between python and R**](http://www.dataschool.io/python-or-r-for-data-science/)
 
@@ -1113,7 +1266,8 @@ install.packages("learnr")
 
 ### R for stata users
 
-- Oscar Torres-Reyna - [Exploring Data and Descriptive Statistics](https://www.princeton.edu/~otorres/sessions/s2r.pdf)
+- Oscar Torres-Reyna - [**Exploring Data and Descriptive Statistics
+(using R)**](https://www.princeton.edu/~otorres/sessions/s2r.pdf)
 
 
 
@@ -1135,10 +1289,116 @@ install.packages("learnr")
 
 ---
 
-## [Shiny App - Intro R](www.intro-stats.com)
+## Shiny App - Intro R
 
 ### www.intro-stats.com
 
 ![](figure/intror_shiny.PNG)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
 
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
 
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

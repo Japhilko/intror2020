@@ -20,6 +20,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = T,warning=F,message=F)
+interactive = F
 ```
 
 
@@ -394,6 +395,19 @@ Af_color <- Af_color/max(Af_color)
 Af_color <- rgb(Af_color,0,0)
 plot(Africa,col=Af_color)
 ```
+
+---
+
+```{r,eval=T,echo=F}
+if (interactive){
+  library(leaflet)
+  leaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 17)
+}else{
+  knitr::include_graphics("figure/leafletex.PNG")
+}
+```
+
+
 
 ---
 

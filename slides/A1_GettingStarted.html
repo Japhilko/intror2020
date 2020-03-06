@@ -68,7 +68,7 @@ background-image: url(figure/rlogo.png)
 ## Preliminaries
 
 - Usually we have big differences in knowledge and abilities of the participants - please tell, if it is too fast or slow.
-- We'll have lots of hands-on coding **exercises** - at the end you can only learn on your own.
+- We'll have lots of hands-on coding [**exercises**](https://www.w3resource.com/r-programming-exercises/) - at the end you can only learn on your own.
 - We have many [**examples**](https://shiny.rstudio.com/gallery/) - try them.
 - If there are questions - always ask.
 - R is more fun together - ask your neighbor - strong proponent of
@@ -111,8 +111,14 @@ collaborative work!
 
 ![](figure/forfree.PNG)
 
+&lt;!--
+popularity of R
+https://twitter.com/josiahjdavis/status/559778930476220418
+--&gt;
+
+
 - R is a [**scripting language**](https://en.wikipedia.org/wiki/Scripting_language)
-- R is becoming more [**popular**](https://twitter.com/josiahjdavis/status/559778930476220418)
+- R is becoming more and more  [**popular**](https://blog.revolutionanalytics.com/2018/06/pypl-programming-language-trends.html)
 - [**Good**](http://www.sr.bham.ac.uk/~ajrs/R/r-gallery.html) possibilities for [**visualization**](http://research.stowers.org/mcm/efg/R/) 
 
 ---
@@ -121,7 +127,27 @@ collaborative work!
 
 ![Interfaces to R**](figure/Rinterfaces.PNG)
 
-- Interface to: [**Python**](https://cran.r-project.org/web/packages/reticulate/vignettes/calling_python.html), [**Excel**](https://www.springer.com/de/book/9781441900517), [**SPSS**](https://www.ibm.com/support/knowledgecenter/en/SSFUEU_7.2.0/com.ibm.swg.ba.cognos.op_capmod_ig.7.2.0.doc/t_essentials_for_r_statistics.html), [**SAS**](https://cran.r-project.org/web/packages/SASmixed/index.html), [**Stata**](https://cran.r-project.org/web/packages/RStata/index.html)  
+- Interface to: [**Python**](https://cran.r-project.org/web/packages/reticulate/vignettes/calling_python.html), [**Excel**](https://www.r-project.org/conferences/DSC-2003/Drafts/BaierNeuwirth.pdf), [**Javascript**](https://hackernoon.com/r-and-javascript-execution-libraries-integration-40a30726f295), [**SQL**](http://dept.stat.lsa.umich.edu/~jerrick/courses/stat701/notes/sql.html), [**Stata**](https://cran.r-project.org/web/packages/RStata/index.html)  
+
+&lt;!--
+https://cran.r-project.org/web/packages/js/vignettes/intro.html
+
+
+python
+https://cran.r-project.org/web/packages/reticulate/vignettes/calling_python.html
+https://www.datanami.com/2019/08/15/is-python-strangling-r-to-death/
+
+Javascript
+https://www.r-bloggers.com/introducing-js-tools-for-working-with-javascript-in-r/
+https://blog.semicolonsoftware.de/programming-r-like-its-javascript-python/
+https://shiny.rstudio.com/articles/packaging-javascript.html
+https://cran.r-project.org/web/packages/js/vignettes/intro.html
+
+SPSS
+https://www.ibm.com/support/knowledgecenter/en/SSFUEU_7.2.0/com.ibm.swg.ba.cognos.op_capmod_ig.7.2.0.doc/t_essentials_for_r_statistics.html
+
+https://cran.r-project.org/web/packages/SASmixed/index.html
+--&gt;
 
 
 ---
@@ -157,12 +183,12 @@ collaborative work!
 
 ## Graphical user interface
 
-But many people use a graphical user interface (GUI) or a integrated development interface (IDE).
+But many people use a [graphical user interface](https://en.wikipedia.org/wiki/Graphical_user_interface) (GUI) or a integrated development interface (IDE).
 
 For the following reasons:
 
-- Syntax highlighting
-- Auto-completion
+- [Syntax highlighting](https://en.wikipedia.org/wiki/Syntax_highlighting)
+- [Auto-completion](https://en.wikipedia.org/wiki/Autocomplete)
 - Better overview on graphics, libraries, files, ...
 
 ---
@@ -170,6 +196,8 @@ For the following reasons:
 ## Various text editors / IDEs
 
 - [**Gedit**](https://projects.gnome.org/gedit/) with R-specific Add-ons for Linux
+
+- [**Atom**](https://atom.io/) a hackable text editor - [Rbox](https://atom.io/packages/rbox)
 
 - [**Emacs**](http://www.gnu.org/software/emacs/) and ESS (Emacs speaks statistics)- An extensible, customizable, free/libre text editor — and more.
 
@@ -187,26 +215,35 @@ For the following reasons:
 
 ---
 
-## Rstudio - script and console
+## [Rstudio - script and console](http://uc-r.github.io/introduction)
 
 ![](figure/rstudio_funs1.png)
 
 ---
 
-## Rstudio - Environment and help
+## [Rstudio - Environment and help](http://uc-r.github.io/introduction)
 
 ![](figure/rstudiofuns2.PNG)
 
 
 ---
 
-## Important Rstudio Buttons
+.pull-left[
+### [Customize Rstudio](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio)
+
+&lt;img src="figure/customizeRstduio.png" width="100%" /&gt;
+]
+
+.pull-right[
+### Important Rstudio Buttons
+
 
 ![](figure/new_script.PNG)  create a new script
 
 ![](figure/Skriptoeffnen.PNG) open an existing script
 
 ![](figure/runskript.PNG) run line where cursor is
+]
 
 ---
 
@@ -275,7 +312,7 @@ Inf - Inf
 
 
 ```r
-3+2
+3*2
 ```
 
 - If there is not already an editor open in the upper left window, then go to the file menu and open a new script. Check the date with `date()` and the R version with `sessionInfo()`.
@@ -394,7 +431,7 @@ sample(b,1)
 ```
 
 ```
-## [1] 2
+## [1] 1
 ```
 
 ---
@@ -465,13 +502,11 @@ Create a vector `b` with the numbers from 1 to 5 and calculate ...
 
 ---
 
-## Exercise: Economic Order Quantity Model
+## Exercise: [Economic Order Quantity Model](https://en.wikipedia.org/wiki/Economic_order_quantity)
 
 
-&lt;img src="figure/economic_order_quantity.PNG" width="120%" /&gt;
+&lt;img src="figure/Economic_order_quant.PNG" width="120%" /&gt;
 
-
-### Economic Order Quantity Model
 
 $$
 Q = \sqrt{\dfrac{2DK}{h}}
@@ -783,7 +818,7 @@ help.start()
 example(lm)
 ```
 
--  [**Online documentation for most of the functions:**](https://www.r-project.org/help.html)
+-  [**Online documentation for most help functions**](https://www.r-project.org/help.html)
 
 
 ---
@@ -795,6 +830,9 @@ example(lm)
 ?paste
 ```
 
+--
+.pull-left[
+
 Different sections in the help:
 
 - Description
@@ -804,6 +842,17 @@ Different sections in the help:
 - Author(s)
 - See Also
 - Examples
+
+]
+
+.pull-right[
+![](figure/help_paste3.PNG)
+]
+
+???
+
+_Hier hätte ich gerne zwei Spalten_.
+
 
 ---
 
@@ -856,6 +905,13 @@ demo(nlm)
 ```
 
 ![](figure/demonlm.PNG)
+
+???
+
+httr: Tools for Working with URLs and HTTP
+
+https://cran.r-project.org/web/packages/httr/index.html
+
 
 ---
 
@@ -917,11 +973,15 @@ R-project + "what I want to know"
 
 ---
 
+background-image: url("figure/basercheatsheet.PNG")
+
+
 ## [**A cheatsheet for base R**](https://www.rstudio.com/resources/cheatsheets/)
 
-&lt;https://www.rstudio.com/resources/cheatsheets/&gt;
-
+&lt;!--
 ![**Cheatsheet BaseR**](figure/basercheatsheet.PNG)
+--&gt;
+
 
 ---
 
@@ -976,11 +1036,15 @@ Sometimes you do not know the name of the R functions; then a [**search engine**
 ## [Save your Work](https://bouchat.github.io/IntroDataMgmt20Jan.html)
 
 - When conducting research, keeping all of your code, data, and files in the same place is useful. 
+
 - Many journals now require that you make, e.g., your data and code publicly available. 
+
 - Now is the time to invest in file structures and versioning programs (e.g., Dropbox and Github).
 
 - Save your script file often to prevent loss of your work. 
+
 - Also save your workspace in R in order to save time. 
+
 - If you do this, you will be able to load your console in the future as though you had already completed all of the operations that you ran from your script file. 
 
 
@@ -996,14 +1060,14 @@ Sometimes you do not know the name of the R functions; then a [**search engine**
 - Many functions are included in basic R 
 - Many specific functions are integrated in additional libraries
 - R can be modularly extended by so-called packages or libraries
-- Most important packages hosted on CRAN (15364 at Fr Mrz 06)
+- Most important packages hosted on CRAN (15367 at Fr März 06)
 - Further packages can be found e.g. at [**bioconductor**](www.bioconductor.org)
 
 
 ### Overview R packages
 
-![Overview R-packages](figure/Packages.PNG)
 
+&lt;img src="figure/Packages.PNG" width="50%" /&gt;
 
 
 ---
@@ -1203,8 +1267,8 @@ most interesting r packages
 
 ## [How to learn after this workshop](https://lgatto.github.io/2017_11_09_Rcourse_Jena/before-we-start.html#knowing-your-way-around-rstudio)
 
-![](figure/changing_stuff.PNG)
 
+&lt;img src="figure/changing_stuff.PNG" width="70%" /&gt;
 
 ---
 
@@ -1253,6 +1317,7 @@ install.packages("learnr")
 - [**Why the R programming language is good for business?**](http://www.fastcolabs.com/3030063/why the r programming language is good for business) 
 
 - [**Have a look at R-bloggers**](http://www.r-bloggers.com/why-use-r/)
+
 &lt;!--
 - [Intro R](http://www.ats.ucla.edu/stat/r/seminars/intro.htm)
 - [Intro R II](http://www.ats.ucla.edu/stat/r/sk/)

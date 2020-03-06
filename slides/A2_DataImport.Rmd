@@ -74,6 +74,33 @@ to get to know the data:
 
 ---
 
+## Exercise - download Corona data from github
+
+- Go to the [github repo of Perishleaf](https://github.com/Perishleaf/data-visualisation-scripts/blob/master/dash-2019-coronavirus/)
+
+![](figure/perishleaf.PNG)
+
+--
+
+- Click on the link for the data of 2020-01-21
+
+--
+
+- Click on the Raw button, you should see something like the following:
+
+![](figure/csvdata.PNG)
+
+--
+
+- Right click with the mouse and _Save page as..._
+
+--
+
+- Remember the directory, we'll need it... 
+
+
+---
+
 ## Import of csv data
 
 - `read.csv` is a command available in base package

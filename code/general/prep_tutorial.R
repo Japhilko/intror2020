@@ -53,6 +53,9 @@ for (i in 1:length(lof)){
 }
 
 
+# pagedown::chrome_print(input="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/paste",
+#                        output="D:/github/intror2020/slides/figure/paste_help.png")
+
 
 # Alle Pakete installieren ------------------------------------------------
 
