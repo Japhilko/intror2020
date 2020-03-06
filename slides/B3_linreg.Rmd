@@ -50,7 +50,7 @@ displacement - Hubraum
 
 ```{r,echo=F}
 library(knitr)
-kable(mtcars)
+kable(mtcars,"html")
 ```
 
 

@@ -145,7 +145,7 @@ library(XML)
 info <- colnames(World)
 
 info_df <- data.frame(World)
-kable(info_df[1:8,1:5])
+kable(info_df[1:8,1:5],"html")
 ```
 
 ---
@@ -199,7 +199,7 @@ data(World)
 ```{r,echo=F,eval=T}
 data(land)
 info_df <- land[sample(1:length(land),10,replace=T),]
-kable(info_df[,c(2,3)])
+kable(info_df[,c(2,3)],"html")
 ```
 
 ```{r,eval=F,echo=F}
@@ -243,7 +243,7 @@ Unemp <- read.csv(url)
 ## An overview of the data
 
 ```{r,warning=F,echo=F}
-kable(Unemp[1:10,])
+kable(Unemp[1:10,],"html")
 ```
 
 ---

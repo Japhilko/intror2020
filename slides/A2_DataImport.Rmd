@@ -475,7 +475,7 @@ mydata
 
 ```{r,eval=T,echo=F}
 library(knitr)
-kable(mydata)
+kable(mydata,"html")
 ```
 
 
