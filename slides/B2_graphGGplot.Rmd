@@ -257,7 +257,6 @@ ggplot(simulated.dataset) + geom_density()+
 
 - [**Top 50 ggplot2 Visualizations**](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
 - [R cookbook for graphs](http://www.cookbook-r.com/Graphs/)
-
-<!--
-https://github.com/aosmith16/ggplot2-graphics-workshop/blob/master/graphics_with_ggplot2_script.r
--->
+- [ggplot2 as part of the tidyverse](https://ggplot2.tidyverse.org/)
+- [ggplot2-graphics-workshop](https://github.com/aosmith16/ggplot2-graphics-workshop/)
+- [ggplot2 command references](https://ggplot2.tidyverse.org/reference/)

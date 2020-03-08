@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # Introduction to R
 ## Data Processing
 ### Jan-Philipp Kolb
-### 05 März, 2020
+### 08 März, 2020
 
 ---
 
@@ -49,7 +49,7 @@ What are some functions to extract this information?
 ---
 
 ## LEARN ABOUT THE DATA
--  So what are the first things we want to know about our data?
+
 -  dimensions: `dim()`, `ncol()`, `nrow()`, `names()`
 -  data types: `str()`, `class()`, `is.`, `as.`
 -  missing values: `is.na()`, `sum(is.na())`, `colSums(is.na())`
@@ -236,13 +236,20 @@ head(ames_df[ames_df$Lot_Area&gt;9000,1:4])
 ```
 
 ```
-##                           MS_SubClass                MS_Zoning Lot_Frontage Lot_Area
-## 1 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density          141    31770
-## 2 One_Story_1946_and_Newer_All_Styles Residential_High_Density           80    11622
-## 3 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density           81    14267
-## 4 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density           93    11160
-## 5            Two_Story_1946_and_Newer  Residential_Low_Density           74    13830
-## 6            Two_Story_1946_and_Newer  Residential_Low_Density           78     9978
+##                           MS_SubClass                MS_Zoning Lot_Frontage
+## 1 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density          141
+## 2 One_Story_1946_and_Newer_All_Styles Residential_High_Density           80
+## 3 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density           81
+## 4 One_Story_1946_and_Newer_All_Styles  Residential_Low_Density           93
+## 5            Two_Story_1946_and_Newer  Residential_Low_Density           74
+## 6            Two_Story_1946_and_Newer  Residential_Low_Density           78
+##   Lot_Area
+## 1    31770
+## 2    11622
+## 3    14267
+## 4    11160
+## 5    13830
+## 6     9978
 ```
 
 ---
@@ -350,8 +357,8 @@ which(is.na(Ozone))
 ```
 
 ```
-##  [1]   5  10  25  26  27  32  33  34  35  36  37  39  42  43  45  46  52  53  54  55  56
-## [22]  57  58  59  60  61  65  72  75  83  84 102 103 107 115 119 150
+##  [1]   5  10  25  26  27  32  33  34  35  36  37  39  42  43  45  46  52  53  54
+## [20]  55  56  57  58  59  60  61  65  72  75  83  84 102 103 107 115 119 150
 ```
 
 
@@ -386,16 +393,25 @@ vis_miss(airquality)
 
 ## The command `complete.cases()`
 
-### The command `complete.cases()` 
-
 - returns a logical vector indicating which cases are complete.
 
 
 ```r
 nrow(airquality)
+```
+
+```
+## [1] 153
+```
+
+```r
 # list rows of data without missing values 
-airq_comp &lt;- gpdat[complete.cases(airquality),]
+airq_comp &lt;- airquality[complete.cases(airquality),]
 nrow(airq_comp)
+```
+
+```
+## [1] 111
 ```
 
 ---
@@ -641,6 +657,18 @@ http://biostat.mc.vanderbilt.edu/wiki/pub/Main/Hmisc/Hmisc-refcard.pdf
 https://www.r-exercises.com/product/dealing-with-missing-data/
 
 https://www.r-exercises.com/2016/04/14/merging-dataframes-exercises/
+
+https://cran.r-project.org/web/packages/naniar/vignettes/replace-with-na.html
+
+https://stackoverflow.com/questions/8161836/how-do-i-replace-na-values-with-zeros-in-an-r-dataframe
+
+https://stackoverflow.com/questions/18562680/replacing-nas-with-0s-in-r-dataframe
+
+https://statisticsglobe.com/r-replace-na-with-0/
+
+http://www.datasciencemadesimple.com/join-in-r-merge-in-r/
+
+https://cran.r-project.org/web/packages/sjlabelled/vignettes/intro_sjlabelled.html
 --&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

@@ -46,7 +46,7 @@ What are some functions to extract this information?
 ---
 
 ## LEARN ABOUT THE DATA
--  So what are the first things we want to know about our data?
+
 -  dimensions: `dim()`, `ncol()`, `nrow()`, `names()`
 -  data types: `str()`, `class()`, `is.`, `as.`
 -  missing values: `is.na()`, `sum(is.na())`, `colSums(is.na())`
@@ -341,14 +341,12 @@ vis_miss(airquality)
 
 ## The command `complete.cases()`
 
-### The command `complete.cases()` 
-
 - returns a logical vector indicating which cases are complete.
 
-```{r,eval=F}
+```{r,eval=T}
 nrow(airquality)
 # list rows of data without missing values 
-airq_comp <- gpdat[complete.cases(airquality),]
+airq_comp <- airquality[complete.cases(airquality),]
 nrow(airq_comp)
 ```
 
