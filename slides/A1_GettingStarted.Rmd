@@ -1,12 +1,13 @@
 ---
-title: "japhilko.github.io/intror2020/"
+title: "Introduction to R"
+subtitle: "Getting started"
 author: "Jan-Philipp Kolb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 location: "GESIS, Mannheim, Germany"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["default", "default-fonts", "../workshop.css"]
+    css: ["default", "default-fonts", "workshop.css"]
     nature:
       highlightStyle: "github"
       highlightLines: true
@@ -25,10 +26,17 @@ knitr::purl("slides/GettingStarted.Rmd",documentation = 2)
 ```
 
 
+class: inverse,center
+
+.center2[
+.huge[ [japhilko.github.io/intror2020/](https://japhilko.github.io/intror2020/) ]
+]
+---
+
 class: center, inverse
 
 
-## [COURSE OBJECTIVES](http://uc-r.github.io/data_wrangling/week-1)
+# [COURSE OBJECTIVES](http://uc-r.github.io/data_wrangling/week-1)
 
 Perform your data analysis in a literate programming environment
 
@@ -54,26 +62,28 @@ Write your own functions
 path <- "figure/rlogo.png"
 # https://bookdown.org/yihui/rmarkdown/xaringan-format.html
 #getwd()
-
-
-
 ```
 
 class: center, inverse
 background-image: url(`r path`)
 
-## Introduction round
+# Introduction round
 
-### Please tell me shortly...
+## Please tell me shortly...
 
-- Where are you from? What are you studying/working?
-- What is your experience level in R/other programming languages?
-- What are your expectations of this course?
-- Where do you think you can use R in the future?
+.font160[
+**Where are you from? What are you studying/working?**
+
+**What is your experience level in R/other programming languages?**
+
+**What are your expectations of this course?**
+
+**Where do you think you can use R in the future?**
+]
 
 ---
 
-## Preliminaries
+# Preliminaries
 
 - Usually we have big differences in knowledge and abilities of the participants - please tell, if it is too fast or slow.
 - We'll have lots of hands-on coding [**exercises**](https://www.w3resource.com/r-programming-exercises/) - at the end you can only learn on your own.
@@ -85,9 +95,9 @@ collaborative work!
 
 ---
 
-## Sources of this course
+# Sources of this course
 
-### Sources for figures, text, exercises etc:
+## Sources for figures, text, exercises etc:
 
 - If the source is a website, the links are often in the header or in [pink](https://japhilko.github.io/intror2020/) somewhere on the slide.
 
@@ -97,13 +107,13 @@ collaborative work!
 
 ---
 
-## Reasons for using R
+# Reasons for using R
 
 - ... because it is an [**open source language**](http://uc-r.github.io/introduction)
 
 
 
-```{r,echo=F, out.width = "20%",eval=T}
+```{r,echo=F, out.width = "20%",eval=F}
 img1_path <- "figure/opensource1.PNG"
 knitr::include_graphics(img1_path)
 # https://d-64.org/fuenf-gruende-fuer-open-source-software/
@@ -112,14 +122,18 @@ knitr::include_graphics(img1_path)
 ```
 
 - ... outstanding graphs - [**graphics**](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html), [**graphics**](https://www.r-graph-gallery.com/), [**graphics**](https://www.r-graph-gallery.com/all-graphs.html)
+
+![](figure/graphic_exs.PNG)
+
+
 - ... relates to other languages - [**R can be used in combination with other programs**](https://github.com/Japhilko/RInterfaces) - e.g. [**data linking**](https://github.com/Japhilko/RInterfaces/blob/master/slides/Datenimport.md)
-- ...R can be used [**for automation**](https://cran.r-project.org/web/packages/MplusAutomation/index.html)
- - ... Vast Community - [**you can use the intelligence of other people ;-)**](https://www.r-bloggers.com/)
+- ... R can be used [**for automation**](https://cran.r-project.org/web/packages/MplusAutomation/index.html)
+- ... Vast Community - [**you can use the intelligence of other people ;-)**](https://www.r-bloggers.com/)
 - ...
 
 ---
 
-## Advantages of R 
+# Advantages of R 
 
 - R can be downloaded for [**free**](http://mirrors.softliste.de/cran/).
 
@@ -137,7 +151,7 @@ https://twitter.com/josiahjdavis/status/559778930476220418
 
 ---
 
-## R can be used in combination... 
+# R can be used in combination... 
 
 ![Interfaces to R**](figure/Rinterfaces.PNG)
 
@@ -166,20 +180,20 @@ https://cran.r-project.org/web/packages/SASmixed/index.html
 
 ---
 
-## [**The popularity of R-packages**](https://gallery.shinyapps.io/cran-gauge/)
+# [The popularity of R-packages](https://gallery.shinyapps.io/cran-gauge/)
 
 ![Downloads from CRAN](figure/CRANdownloads.PNG)
 
 
 ---
 
-## Download R: http://www.r-project.org/
+# Download R: http://www.r-project.org/
 
 ![The CRAN website](figure/CRAN1picture.PNG)
 
 ---
 
-## Open Source Programm R
+# Open Source Programm R
 
 - R is a free, non-commercial implementation of the S programming language (by AT&T Bell Laboratories)
 - Free participation - modular structure 
@@ -189,13 +203,13 @@ https://cran.r-project.org/web/packages/SASmixed/index.html
 -->
 
 
-### This is base R:
+## This is base R:
 
 ![](figure/BasisR.PNG)
 
 ---
 
-## Graphical user interface
+# Graphical user interface
 
 But many people use a [graphical user interface](https://en.wikipedia.org/wiki/Graphical_user_interface) (GUI) or a integrated development interface (IDE).
 
@@ -207,7 +221,7 @@ For the following reasons:
 
 ---
 
-## Various text editors / IDEs
+# Various text editors / IDEs
 
 - [**Gedit**](https://projects.gnome.org/gedit/) with R-specific Add-ons for Linux
 
@@ -221,21 +235,20 @@ For the following reasons:
 
 ---
 
-## [RStudio](http://uc-r.github.io/introduction)
+# [The functionality of the panes in Rstudio](http://uc-r.github.io/introduction)
 
-### The functionality of the panes in Rstudio
 
 ![](figure/rstudio_ide.PNG)
 
 ---
 
-## [Rstudio - script and console](http://uc-r.github.io/introduction)
+# [Rstudio - script and console](http://uc-r.github.io/introduction)
 
 ![](figure/rstudio_funs1.png)
 
 ---
 
-## [Rstudio - Environment and help](http://uc-r.github.io/introduction)
+# [Rstudio - Environment and help](http://uc-r.github.io/introduction)
 
 ![](figure/rstudiofuns2.PNG)
 
@@ -243,7 +256,7 @@ For the following reasons:
 ---
 
 .pull-left[
-### [Customize Rstudio](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio)
+## [Customize Rstudio](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio)
 
 ```{r,echo=F, out.width = "100%"}
 knitr::include_graphics("figure/customizeRstduio.png")
@@ -253,7 +266,7 @@ knitr::include_graphics("figure/customizeRstduio.png")
 ]
 
 .pull-right[
-### Important Rstudio Buttons
+## Important Rstudio Buttons
 
 
 ![](figure/new_script.PNG)  create a new script
@@ -265,7 +278,7 @@ knitr::include_graphics("figure/customizeRstduio.png")
 
 ---
 
-## R as a calculator
+# R as a calculator
 
 ```{r}
 3 + 2 / 10^2 # Uses PEMDAS convention (order of operations)
@@ -282,7 +295,7 @@ Inf - Inf
 
 ---
 
-## Exercise: Preparation
+# Exercise: Preparation
 
 - Check if R is installed on your computer.
 - If not, download [**R**](r-project.org) and install it.
@@ -306,7 +319,7 @@ sessionInfo()
 
 ---
 
-## Exercise: See where things happen
+# Exercise: See where things happen
 
 - Create a new `.R` script named `my_first_script.R`
 - Write and execute the following code in the `.R` script and identify
@@ -322,9 +335,9 @@ history()
 
 ---
 
-## R is a object-orientiented language
+# R is a object-orientiented language
 
-### Vectors and assignments
+## Vectors and assignments
 
 -  R is a object-orientiented language
 -  `<-` is the assignment operator
@@ -347,7 +360,7 @@ sqrt(b) # the square root of b
 
 ---
 
-## Functions in base-package
+# Functions in base-package
 
 |Function |Meaning            |Example   |
 |:--------|:------------------|:---------|
@@ -363,9 +376,11 @@ These functions only need one argument.
 
 ---
 
-## Functions with more arguments
+# Functions with more arguments
 
-### Other functions need more arguments:
+<!--
+## Other functions need more arguments:
+-->
 
 |Argument   |Meaning           |Example        |
 |:----------|:-----------------|:--------------|
@@ -381,22 +396,31 @@ sample(b,1)
 
 ---
 
-## Examples - Functions with more than one argument
+# Examples - Functions with one argument
 
+.pull-left[
 ```{r}
-max(b); min(b)
-sd(b); var(b)
+max(b)
+min(b)
 ```
+]
 
-### Functions with one argument
+.pull-right[
 
 ```{r}
-mean(b);median(b)
+sd(b)
+var(b)
+```
+]
+
+```{r}
+mean(b)
+median(b)
 ```
 
 ---
 
-## Exercise: Assignments and functions
+# Exercise: Assignments and functions
 
 Create a vector `b` with the numbers from 1 to 5 and calculate ...
 
@@ -411,14 +435,14 @@ Create a vector `b` with the numbers from 1 to 5 and calculate ...
 
 ---
 
-## [**Overview commands**](http://cran.r-project.org/doc/manuals/R-intro.html)
+# [Overview commands](http://cran.r-project.org/doc/manuals/R-intro.html)
 
 
 ![Overview commands](figure/UebersichtBefehle.PNG)
 
 ---
 
-## Exercise: [Economic Order Quantity Model](https://en.wikipedia.org/wiki/Economic_order_quantity)
+# Exercise: [Economic Order Quantity Model](https://en.wikipedia.org/wiki/Economic_order_quantity)
 
 
 ```{r,echo=F, out.width = "120%",eval=T}
@@ -431,7 +455,7 @@ $$
 Q = \sqrt{\dfrac{2DK}{h}}
 $$
 
-### Calculate $Q$ where:
+## Calculate $Q$ where:
 
 - D = 1000
 - K = 5
@@ -440,11 +464,11 @@ $$
 
 ---
 
-## [R Data Types](https://www.stat.berkeley.edu/~nolan/stat133/Fall05/lectures/DataTypes4.pdf)
+# [R Data Types](https://www.stat.berkeley.edu/~nolan/stat133/Fall05/lectures/DataTypes4.pdf)
 
 - R supports a  few basic data types: integer,  numeric,  logical, character/string, factor,  and complex
 
-### Logical
+## Logical
 
 – binary, two possible values represented by `TRUE` and `FALSE`
 
@@ -461,7 +485,7 @@ which(x > 2)
 
 ---
 
-## [Character vectors](https://www.stat.berkeley.edu/~nolan/stat133/Fall05/lectures/DataTypes4.pdf)
+# [Character vectors](https://www.stat.berkeley.edu/~nolan/stat133/Fall05/lectures/DataTypes4.pdf)
 
 ```{r}
 y <- c("a","bc","def")
@@ -474,13 +498,13 @@ y == "b"
 
 ---
 
-## Object structure
+# Object structure
 
 ```{r}
 str(b) # b is a numeric vector
 ```
 
-### Variable type `character` 
+## Variable type `character` 
 
 ```{r}
 a <- letters
@@ -492,7 +516,7 @@ str(a)
 
 ---
 
-## Problems with character vector
+# Problems with character vector
 
 ```{r}
 mean(b)
@@ -508,7 +532,7 @@ mean(b1)
 
 ---
 
-## Coercion
+# Coercion
 
 - All elements in a vector must be of the same type. R coerces the elements to a common type
 
@@ -541,7 +565,7 @@ c(1.2,y, x)
 
 ---
 
-## Perform the coercion
+# Perform the coercion
 
 - Other times we need to perform the coercion
 
@@ -553,7 +577,7 @@ c(1.2,as.numeric(y))
 
 ---
 
-## Information about Vectors 
+# Information about Vectors 
 
 <!--
 - `length(x)`- number of elements in a vector
@@ -573,7 +597,7 @@ is often returned by expressions and functions whose value is undefined.
 
 ---
 
-## Coerce objects from one to another
+# Coerce objects from one to another
 
 - `as.numeric(x)` – we use the as-type functions to coerce objects from one type (e.g. logical) to another, in this case numeric. 
 - There are several of these functions, including `as.integer`, `as.character`, `as.logical`
@@ -588,7 +612,7 @@ as.numeric(x)
 
 ---
 
-## How to get help?
+# How to get help?
 
 <!--
 zenburn is a possibility for colour coding
@@ -619,7 +643,7 @@ example(lm)
 
 ---
 
-## We get help with the question mark
+# We get help with the question mark
 
 ```{r,eval=F}
 ?paste
@@ -651,7 +675,7 @@ _Hier hätte ich gerne zwei Spalten_.
 
 ---
 
-## Vignettes
+# Vignettes
 
 - A vignette is a paper that present the most important functions of a package 
 - You get many reproducible examples
@@ -670,13 +694,13 @@ vignette("osmdata")
 
 ---
 
-## An example for a vignette - package `osmdata`
+# An example vignette - package `osmdata`
 
 ![](figure/ex_osmdata_vignette.PNG)
 
 ---
 
-## [**Demos**](http://r-pkgs.had.co.nz/demo.html)
+# [Demos](http://r-pkgs.had.co.nz/demo.html)
 
 - for some packages you have demos:
 
@@ -706,7 +730,7 @@ https://cran.r-project.org/web/packages/httr/index.html
 
 ---
 
-## The function `apropos`
+# The function `apropos`
 
 - searches everything about the given string 
 
@@ -717,7 +741,7 @@ apropos("lm")
 
 ---
 
-## [**Search engine for the R-Site**](http://search.r-project.org/cgi-bin/namazu.cgi?query=glm&max=20&result=normal&sort=score&idxname=functions&idxname=vignettes&idxname=views)
+# [Search engine for the R-Site](http://search.r-project.org/cgi-bin/namazu.cgi?query=glm&max=20&result=normal&sort=score&idxname=functions&idxname=vignettes&idxname=views)
 
 ```{r,eval=F}
 RSiteSearch("glm")
@@ -727,7 +751,7 @@ RSiteSearch("glm")
 
 ---
 
-## Usage of search engines 
+# Usage of search engines 
 
 -  I use [**duckduckgo:**]()
 - just add "with R" at the end of any search. Or:
@@ -742,7 +766,7 @@ R-project + "what I want to know"
 
 ---
 
-## [**Stackoverflow**](http://stackoverflow.com/)
+# [Stackoverflow](http://stackoverflow.com/)
 
 -  [A searchable Q&A site oriented toward programming issues.](http://uc-r.github.io/data_wrangling/week-1)
 -  Is not focused on R - but [**many discussions on R**](https://stackoverflow.com/tags/r/info)
@@ -755,7 +779,7 @@ R-project + "what I want to know"
 background-image: url("figure/basercheatsheet.PNG")
 
 
-## [**A cheatsheet for base R**](https://www.rstudio.com/resources/cheatsheets/)
+# [**A cheatsheet for base R**](https://www.rstudio.com/resources/cheatsheets/)
 
 <!--
 ![**Cheatsheet BaseR**](figure/basercheatsheet.PNG)
@@ -764,14 +788,14 @@ background-image: url("figure/basercheatsheet.PNG")
 
 ---
 
-## More cheatsheets
+# More cheatsheets
 
 ![](figure/cheatsheets.PNG)
 
 
 ---
 
-## [**Quick R**](http://www.statmethods.net/interface/help.html)
+# [**Quick R**](http://www.statmethods.net/interface/help.html)
 
 - Always a page with examples and help concerning a topic
 - Example: [**Quick R - Getting Help**](http://www.statmethods.net/interface/help.html)
@@ -780,10 +804,12 @@ background-image: url("figure/basercheatsheet.PNG")
 
 ---
 
-## Exercise: [**Getting help**](http://web.math.ku.dk/~helle/R-intro/exercises.pdf)
+# Exercise: [**Getting help**](http://web.math.ku.dk/~helle/R-intro/exercises.pdf)
 
-### [**Exercise on help**](http://web.math.ku.dk/~helle/R-intro/exercises.pdf)
 
+<!--
+## [**Exercise on help**](http://web.math.ku.dk/~helle/R-intro/exercises.pdf)
+-->
 
 - Try the command `?which.min` This opens a help page in the lower right window of
 RStudio. What does the function do?
@@ -793,17 +819,17 @@ Sometimes you do not know the name of the R functions; then a [**search engine**
 
 ---
 
-## Structure your code
+# Structure your code
 
 
 
-### Work with sections
+## Work with sections
 
 - In a Rscript you can use  "Ctrl + Shift + R" to include a section
 
 ![](figure/Insertsection.png)
 
-### Outline R-code
+## Outline R-code
 
 - Use as many comments as possible
 - Use shortcut "Ctrl + Shift + R" to insert a new section
@@ -812,7 +838,7 @@ Sometimes you do not know the name of the R functions; then a [**search engine**
 
 ---
 
-## [Save your Work](https://bouchat.github.io/IntroDataMgmt20Jan.html)
+# [Save your Work](https://bouchat.github.io/IntroDataMgmt20Jan.html)
 
 - When conducting research, keeping all of your code, data, and files in the same place is useful. 
 
@@ -830,7 +856,7 @@ Sometimes you do not know the name of the R functions; then a [**search engine**
 
 ---
 
-## [**Where to find routines**](https://stats.idre.ucla.edu/r/seminars/intro/)
+# [Where to find routines](https://stats.idre.ucla.edu/r/seminars/intro/)
 
 ```{r,eval=T,echo=F}
 # http://blog.revolutionanalytics.com/2015/06/how-many-packages-are-there-really-on-cran.html
@@ -850,7 +876,7 @@ info <- available.packages(contriburl = cran, type = "source")
 - Further packages can be found e.g. at [**bioconductor**](www.bioconductor.org)
 
 
-### Overview R packages
+## Overview R packages
 
 
 ```{r,echo=F, out.width = "50%"}
@@ -860,9 +886,9 @@ knitr::include_graphics("figure/Packages.PNG")
 
 ---
 
-## Installation of packages
+# Installation of packages
 
-### Install and load a package
+## Install and load a package
 
 - The quotes around the package name are necessary for the command `install.packages`.
 - They are optional for the command `library`.
@@ -880,7 +906,7 @@ library(lme4)
 
 ---
 
-## Installation of packages with RStudio
+# Installation of packages with RStudio
 
 ![Package installation with Rstudio](figure/PaketeRstudio.PNG)
 
@@ -888,7 +914,7 @@ library(lme4)
 
 ---
 
-## Existing packages and installation
+# Existing packages and installation
 
 ![Existing packages](figure/packages3.PNG)
 
@@ -896,7 +922,7 @@ library(lme4)
 
 ---
 
-## Exercise: Download packages
+# Exercise: Download packages
 
 Download and install the following packages from CRAN:
 
@@ -911,11 +937,11 @@ Have a look at the package documentation. What are these packages for?
 
 ---
 
-## Overview of many useful packages:
+# Overview of many useful packages:
 
 - Luhmann - [**Table with many useful packages**](http://www.beltz.de/fileadmin/beltz/downloads/OnlinematerialienPVU/28090_Luhmann/Verwendete%20Pakete.pdf)
 
-### Other interesting packages:
+## Other interesting packages:
 
 - Package for Import/Export - [**`foreign`**](http://cran.r-project.org/web/packages/foreign/foreign.pdf)
 
@@ -933,15 +959,15 @@ Have a look at the package documentation. What are these packages for?
 
 ---
 
-## Install packages from various sources
+# Install packages from various sources
 
-### Install packages from CRAN Server
+## Install packages from CRAN Server
 
 ```{r,eval=F}
 install.packages("lme4")
 ```
 
-### Install packages from Bioconductor Server
+## Install packages from Bioconductor Server
 
 ```{r,eval=F}
 source("https://bioconductor.org/biocLite.R")
@@ -950,7 +976,7 @@ biocLite(c("GenomicFeatures", "AnnotationDbi"))
 
 
 
-### Install packages from Github
+## Install packages from Github
 
 ```{r,eval=F}
 install.packages("devtools")
@@ -962,7 +988,7 @@ install_github("hadley/ggplot2")
 
 ---
 
-## Packages
+# Packages
 
 ```{r,eval=F}
 # load the package to use in the current R session
@@ -973,7 +999,7 @@ library(stringr)
 ?stringr::str_replace
 ```
 
-### Getting help on packages
+## Getting help on packages
 
 ```{r,eval=F}
 # provides details regarding contents of a package
@@ -988,7 +1014,7 @@ vignette("tidy-data")
 
 ---
 
-## How do I get an overview
+# How do I get an overview
 
 - [**Discover packages recently uploaded to CRAN**](https://mran.microsoft.com/packages/)
 
@@ -1003,7 +1029,7 @@ vignette("tidy-data")
 
 ---
 
-## CRAN Task Views		
+# CRAN Task Views		
 		
 - For some topics all possibilities are arranged in R. ([**Overview of Task Views**](https://cran.r-project.org/web/views/))
 - Currently there are 35 task views.
@@ -1021,21 +1047,21 @@ install.views("Bayesian")
 
 ---
 
-## Exercise:  additional packages 
+# Exercise:  additional packages 
 
-### Go for example to: 
+## Go for example to: 
 
 <https://cran.r-project.org/> 
 
 <https://awesome-r.com/>
 
-### or search for 
+## or search for 
 
 ```
 most interesting r packages
 ```
 
-### and search for packages ...
+## and search for packages ...
 
 - for descriptive data analysis.
 - with functions to work with date-times and time-spans.
@@ -1046,7 +1072,7 @@ most interesting r packages
 
 ---
 
-## [How to learn after this workshop](https://lgatto.github.io/2017_11_09_Rcourse_Jena/before-we-start.html#knowing-your-way-around-rstudio)
+# [How to learn after this workshop](https://lgatto.github.io/2017_11_09_Rcourse_Jena/before-we-start.html#knowing-your-way-around-rstudio)
 
 
 ```{r, out.width="70%",echo=F}
@@ -1055,9 +1081,9 @@ knitr::include_graphics("figure/changing_stuff.PNG")
 
 ---
 
-## The `swirl` package
+# The `swirl` package
 
-### Learn R, in R
+## Learn R, in R
 
 
 ```{r,eval=F}
@@ -1072,56 +1098,41 @@ swirl()
 
 ---
 
-## The tutorial functionality in Rstudio
+# The tutorial functionality in Rstudio
 
 - You need RStudio v1.3.869-1 Preview for this:
-- 
+- You have to install the `learnr` package
 
 
 ```{r,eval=F}
 install.packages("learnr")
 ```
 
-
+![](figure/learnr.PNG)
 
 ---
 
-## Some links to read on
+# Some links to read on
 
 - Six [**reasons**](http://www.r-bloggers.com/top-6-reasons-you-need-to-be-using-rstudio/) to use [**Rstudio**](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio).
-
 - [**Why you should learn R first for data science**](http://www.r-bloggers.com/why-you-should-learn-r-first-for-data-science/)
-
 - [**RStudio – Infoworld 2015 Technology of the Year Award Recipient!**](http://www.r-bloggers.com/rstudio-infoworld-2015-technology-of-the-year-award-recipient/)
-
 - [**Why the R programming language is good for business?**](http://www.fastcolabs.com/3030063/why the r programming language is good for business) 
-
 - [**Have a look at R-bloggers**](http://www.r-bloggers.com/why-use-r/)
-
-<!--
-- [Intro R](http://www.ats.ucla.edu/stat/r/seminars/intro.htm)
-- [Intro R II](http://www.ats.ucla.edu/stat/r/sk/)
--->
-
 - [**Comparisson between python and R**](http://www.dataschool.io/python-or-r-for-data-science/)
-
 - [**R and Stata Side-by-side**](http://economistry.com/2013/11/r-impact-evaluation-r-stata-side-side/)
-
 - [**AWESOME R**](https://awesome-r.com/)
-
 - [**1000 R tutorials/Links**](https://support.bioconductor.org/p/33781/)
-
 - [**Learn R by watching two‐minute videos**](https://www.youtube.com/playlist?list=PLcgz5kNZFCkzSyBG3H-rUaPHoBXgijHfC)
 
-### R for stata users
+## R for stata users
 
 - Oscar Torres-Reyna - [Exploring Data and Descriptive Statistics](https://www.princeton.edu/~otorres/sessions/s2r.pdf)
 
 
-
 ---
 
-## Further Links
+# Further Links
 
 - [**Overview - how to get help in R**](https://www.r-project.org/help.html)
 
@@ -1137,9 +1148,9 @@ install.packages("learnr")
 
 ---
 
-## [Shiny App - Intro R](www.intro-stats.com)
+# [Shiny App - Intro R](www.intro-stats.com)
 
-### www.intro-stats.com
+## www.intro-stats.com
 
 ![](figure/intror_shiny.PNG)
 

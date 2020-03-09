@@ -66,6 +66,30 @@ div.my-footer span {
   text-shadow: 0 0 20px #333;
 }
 
+
+
+
+
 .remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;
                                     font-size: 90%;
+                                    background: #e7e8e2;
+                                    border-radius: 3px;
                                   }
+
+.large { font-size: 230% }
+
+.huge { font-size: 240% }
+
+
+.my-one-page-font {
+  font-size: 80px;
+}
+
+.center2 {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

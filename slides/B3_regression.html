@@ -13,9 +13,9 @@
 class: center, middle, inverse, title-slide
 
 # Introduction to R
-## Linear Regression in R
+## Regression in R
 ### Jan-Philipp Kolb
-### 06 März, 2020
+### 09 März, 2020
 
 ---
 
@@ -532,7 +532,7 @@ par(mfrow=c(1,2))
 plot(density(mtcars$wt)); plot(density(mtcars$mpg))
 ```
 
-![](B3_linreg_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+![](B3_regression_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -922,7 +922,7 @@ m3dsum$coefficients
 plot(m3,1)
 ```
 
-![](B3_linreg_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+![](B3_regression_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
 
 ![](figure/resid_fitted.PNG)
 
@@ -935,7 +935,7 @@ plot(m3,1)
 plot(m3,2)
 ```
 
-![](B3_linreg_files/figure-html/unnamed-chunk-26-1.png)&lt;!-- --&gt;
+![](B3_regression_files/figure-html/unnamed-chunk-26-1.png)&lt;!-- --&gt;
 
 - If the residuals are normally distributed, they should be on the same line.
 
@@ -1025,13 +1025,14 @@ The bias–variance tradeoff is the property of a set of predictive models where
 
 ---
 
-## The bias-variance tradeoff (II)
+## [The bias-variance tradeoff (II)](https://elitedatascience.com/bias-variance-tradeoff)
 
 &lt;!--
 xxxxtodo: the source is missing
 --&gt;
 
-![](figure/bias_variance_tradeoff.PNG){height=80%}
+
+&lt;img src="figure/bias_variance_tradeoff.PNG" width="70%" /&gt;
 
 
 ---
@@ -1062,7 +1063,7 @@ xxxxtodo: the source is missing
 https://stats.stackexchange.com/questions/107643/how-to-get-the-value-of-mean-squared-error-in-a-linear-regression-in-r
 --&gt;
 
-### Package `Metrics` to compute mse
+### Package Metrics to compute mse
 
 
 
@@ -1081,10 +1082,6 @@ mse(mtcars$mpg,predict(m3))
 ## The `visreg`-package
 
 
-```r
-install.packages("visreg")
-install.packages("Metrics")
-```
 
 
 ```r
@@ -1179,10 +1176,10 @@ m5 &lt;- lm(mpg ~ cyl*wt, data = mtcars)
 visreg(m5, "wt", by = "cyl",layout=c(3,1))
 ```
 
-![](B3_linreg_files/figure-html/unnamed-chunk-44-1.png)&lt;!-- --&gt;
+![](B3_regression_files/figure-html/unnamed-chunk-45-1.png)&lt;!-- --&gt;
 
 
-![](B3_linreg_files/figure-html/unnamed-chunk-45-1.png)&lt;!-- --&gt;
+![](B3_regression_files/figure-html/unnamed-chunk-46-1.png)&lt;!-- --&gt;
 
 ![](figure/factor3vars_visreg.PNG)
 
@@ -1201,7 +1198,7 @@ m6 &lt;- lm(mpg ~ hp + wt * cyl, data = mtcars)
 visreg(m6, "wt", by="cyl", overlay=TRUE, partial=FALSE)
 ```
 
-![](B3_linreg_files/figure-html/unnamed-chunk-47-1.png)&lt;!-- --&gt;
+![](B3_regression_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
 
 ![](figure/visreg_m6.PNG)
 
@@ -1214,7 +1211,7 @@ visreg(m6, "wt", by="cyl", overlay=TRUE, partial=FALSE)
 visreg2d(m6, "wt", "hp", plot.type = "image")
 ```
 
-![](B3_linreg_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
+![](B3_regression_files/figure-html/unnamed-chunk-49-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -1222,6 +1219,7 @@ visreg2d(m6, "wt", "hp", plot.type = "image")
 ## Exercise: regression Ames housing data
 
 1) Install the package `AmesHousing` and create a [**processed version**](https://cran.r-project.org/web/packages/AmesHousing/AmesHousing.pdf) of the Ames housing data with (at least) the variables `Sale_Price`, `Gr_Liv_Area` and `TotRms_AbvGrd`
+
 2) Create a regression model with `Sale_Price` as dependent and `Gr_Liv_Area` and `TotRms_AbvGrd` as independent variables. Then create seperated models for the two independent variables. Compare the results. What do you think?
 
 
@@ -1335,7 +1333,640 @@ lm(Sale_Price ~ TotRms_AbvGrd, data = ames_data)$coefficients
 
 ---
 
-## Links - linear regression
+
+
+
+
+class: center, inverse
+background-image: url(figure/logReg2.PNG)
+
+---
+
+
+
+
+
+## Agresti - [Categorical Data Analysis (2002)](https://mathdept.iut.ac.ir/sites/mathdept.iut.ac.ir/files/AGRESTI.PDF)
+
+![](figure/CDAagresti.PNG)
+
+- Very intuitively written book
+- Very detailed accompanying script by [**Laura A. Thompson**](http://statweb.stanford.edu/~owen/courses/306a/Splusdiscrete2.pdf)
+- The paper deals with categorical data analysis in general.
+
+---
+
+## Faraway books on regression with R
+
+![](figure/extendinglinearmodel.PNG)
+
+-  Logistic regression intuitively explained
+-  Examples with R-code
+    - Faraway - [**Extending the linear model with R**](http://www.maths.bath.ac.uk/~jjf23/ELM/scripts2/index.html)
+    - Faraway - [**Practical Regression and Anova using R**](https://cran.r-project.org/doc/contrib/Faraway-PRA.pdf)
+    
+---
+    
+## Import the GESIS Panel dataset again
+
+
+```r
+library(readstata13)
+datf &lt;- read.dta13("../data/ZA5666_v1-0-0_Stata14.dta",
+                  convert.factors = F)
+```
+
+The argument `convert.factors`:
+
+- logical. If TRUE, factors from Stata value labels are created.
+
+---
+
+## A function to recode the missing values
+
+
+```r
+transform_missings &lt;- function(var){
+  misvals &lt;- c(-11,-22,-33,-44,-55,-66,-77,-88,-99,-111)
+  var[var %in% misvals] &lt;- NA
+  return(var)
+}
+```
+
+---
+
+## Variables for `glm`'s
+
+- a11d056z: age group 
+
+
+```r
+table(datf$a11d056z)
+```
+
+```
+## 
+## -99   1   2   3   4   5   6   7   8   9  10  11  12  13 
+##   5  31  87 101  91  83 100 163 159 133  64  56 105  44
+```
+
+
+
+```r
+age &lt;- transform_missings(datf$a11d056z)
+```
+
+
+
+```r
+table(age)
+```
+
+```
+## age
+##   1   2   3   4   5   6   7   8   9  10  11  12  13 
+##  31  87 101  91  83 100 163 159 133  64  56 105  44
+```
+
+---
+
+## GP variable a11d094a: Children under 16 years
+
+Does your household include children under 16?
+
+- 1 Yes
+- 2 No
+
+
+```r
+children &lt;- as.factor(transform_missings(datf$a11d094a))
+table(children)
+```
+
+```
+## children
+##   1   2 
+## 325 681
+```
+
+---
+
+## Conditional Density Plot (GESIS Panel)
+
+
+```r
+cdplot(children ~ age, data = dat)
+```
+
+![](B3_regression_files/figure-html/unnamed-chunk-64-1.png)&lt;!-- --&gt;
+
+---
+
+## Binary independent variables with `glm`
+
+-  The [logistic regression](http://data.princeton.edu/R/glms.html) belongs to the class of generalized linear models (GLM)
+-  The function for estimating a model of this class in is called `glm()`
+-  `glm()` 
+
+### Specifying a `glm`
+
+- formula object 
+- the class (binomial, gaussian, gamma) 
+- including link function (logit, probit, cauchit, log, cloglog)
+
+must be specified 
+
+---
+
+## [Logistic regression](http://ww2.coastal.edu/kingw/statistics/R-tutorials/logistic.html) with R
+
+
+```r
+glm_1 &lt;- glm(children ~ age, 
+                    family = binomial())
+```
+
+
+```r
+sum_glm1 &lt;- summary(glm_1)
+sum_glm1$coefficients
+```
+
+```
+##               Estimate Std. Error   z value     Pr(&gt;|z|)
+## (Intercept) -0.7194058 0.16384386 -4.390801 1.129338e-05
+## age          0.2225862 0.02376266  9.367056 7.458415e-21
+```
+
+
+---
+
+## [Interpreting the coefficients](https://www.sfu.ca/~jackd/Stat302/Wk12-2_Full.pdf)
+
+Consider the logistic model of children in household as a function of age.
+
+
+```r
+sum_glm1$coefficients
+```
+
+```
+##               Estimate Std. Error   z value     Pr(&gt;|z|)
+## (Intercept) -0.7194058 0.16384386 -4.390801 1.129338e-05
+## age          0.2225862 0.02376266  9.367056 7.458415e-21
+```
+
+- The estimates and standard errors are given in terms of log 
+odds, not in terms of probability.
+
+- The p-values mean the same thing they always have.
+
+---
+
+## The inverse logit
+
+
+```r
+sum_glm1$coefficients
+```
+
+```
+##               Estimate Std. Error   z value     Pr(&gt;|z|)
+## (Intercept) -0.7194058 0.16384386 -4.390801 1.129338e-05
+## age          0.2225862 0.02376266  9.367056 7.458415e-21
+```
+
+
+
+
+- The coefficients can’t be interpreted as simply as ‘the children in household at age group 0’. 
+We have to use the inverse logit in order to find that.
+
+Log-odds of -0.7194058  is the same as probability 
+0.3275238.
+
+
+```r
+library(faraway)
+ilogit(sum_glm1$coefficients[1,1])
+```
+
+```
+## [1] 0.3275238
+```
+
+---
+
+## About the intercept in a logistic model
+
+- It is possible to get an intercept of less than 0.
+- This means that the log-odds are negative, NOT the probability.
+- E.g. a log-odds of 0 translates to a probability of 
+0.5.
+
+---
+
+## Log-odds and the probability
+
+- Log-odds always increases as probability increases. 
+
+Therefore...
+
+- A positive slope coefficient means that the response increases 
+with the associated explanatory variable.
+
+- In this case, the probability of children in the household increases with age.
+
+---
+
+## Plotting the result
+
+
+
+
+
+but it increases by the sigmoid curve, not at a constant rate.
+
+![](figure/sigmoid.PNG)
+
+&lt;!--
+http://www.shizukalab.com/toolkits/plotting-logistic-regression-in-r
+--&gt;
+
+---
+
+## Logistic regression model formula
+
+Logistic models have regression formulas. This model’s formula is:
+
+Log-Odds( Children) =  -0.7194058 + 0.2225862(Age) + error
+
+We can plug age values into this formula to get predicted log-odds at different ages.
+
+Log-odds for age group 5
+
+
+
+
+-0.7194058 + 0.2225862*(5) =  0.3935251
+
+
+Children probability in age group 5
+
+
+```r
+ilogit(0.3935251)
+```
+
+```
+## [1] 0.597131
+```
+
+---
+
+
+## [Interpreting the results](https://www.r-bloggers.com/how-to-perform-a-logistic-regression-in-r/)
+
+- The difference between the null deviance and the residual deviance shows how our model is doing against the null model (a model with only the intercept). The wider this gap, the better.
+
+
+```r
+anova(glm_1, test="Chisq")
+```
+
+```
+## Analysis of Deviance Table
+## 
+## Model: binomial, link: logit
+## 
+## Response: children
+## 
+## Terms added sequentially (first to last)
+## 
+## 
+##      Df Deviance Resid. Df Resid. Dev  Pr(&gt;Chi)    
+## NULL                  1000       1259              
+## age   1   98.956       999       1160 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+---
+
+## [Mc Fadden’s `\(R^2\)`](https://www.r-bloggers.com/evaluating-logistic-regression-models/)
+
+
+```r
+library(pscl)
+pR2(glm_1) 
+```
+
+```
+##           llh       llhNull            G2      McFadden          r2ML 
+## -580.02210772 -632.93066002  105.81710461    0.08359297    0.10031573 
+##          r2CU 
+##    0.13978426
+```
+
+![](figure/pseudor2.PNG)
+
+&lt;!--
+- llh	
+The log-likelihood from the fitted model
+- llhNull	
+The log-likelihood from the intercept-only restricted model
+- G2	
+Minus two times the difference in the log-likelihoods
+- McFadden	
+McFadden's pseudo r-squared
+- r2ML	
+Maximum likelihood pseudo r-squared
+- r2CU	
+Cragg and Uhler's pseudo r-squared
+--&gt;
+
+&lt;!--
+## Deviance residuals
+
+- [Pearson VS Deviance Residuals in logistic regression](https://stats.stackexchange.com/questions/166585/pearson-vs-deviance-residuals-in-logistic-regression)
+
+
+```r
+summary(sum_glm1$deviance.resid)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.0418 -1.2508  0.6328  0.1070  0.8477  1.3943
+```
+--&gt;
+
+&lt;!--
+https://www.stat.ubc.ca/~rollin/teach/536w10/lec16.pdf
+--&gt;
+&lt;!--
+## Place of living and satisfaction
+--&gt;
+
+---
+
+## Distance between residential area and large city
+
+### How far is it from where you live to the center of the nearest large city?
+
+- 1 - In the center of a big city
+- 6 - 60 km and more
+
+
+```r
+region &lt;- transform_missings(datf$bczd001a)
+table(region)
+```
+
+```
+## region
+##   1   2   3   4   5   6 
+##  87 191 279 157 126 165
+```
+
+---
+
+## Satisfaction life in place of residence
+
+### How satisfied are you - all in all - with your life in [place of residence] at the moment?
+
+- 1 - Very satisfied
+- 5 - Very dissatisfied
+
+
+```r
+satisfactionplace &lt;- datf$a11c019a
+table(satisfactionplace)
+```
+
+```
+## satisfactionplace
+##   1   2   3   4   5 
+## 553 534  99  30   6
+```
+
+---
+
+## Another model
+
+
+```r
+glm_2 &lt;- glm(children ~ age + satisfactionplace*region, 
+                    family = binomial())
+```
+
+
+
+
+```r
+pseudor2 &lt;- pR2(glm_2) 
+pseudor2["McFadden"]
+```
+
+```
+## McFadden 
+## 0.258121
+```
+
+---
+
+## Exercise: logistic regression with `Smarket` data
+
+- load the `Smarket` data from the `ISLR` package
+- create a `pairs` plot of the data
+- check if there are missing values in the data
+- have a look at the correltations between variables
+- create a `corrplot`   
+- run a logistic model and look at the deviance
+
+---
+
+## Another variable in the Gesis Panel data
+
+- Number of tattoos:
+
+
+```r
+Tatoos &lt;- transform_missings(datf$bdao067a)
+Tatoos[Tatoos==97]&lt;-0
+```
+
+
+```r
+table(Tatoos)
+```
+
+```
+## Tatoos
+##   0   1   2   3   4   5   6 
+## 871  56  28  13   7   4   8
+```
+
+
+
+
+---
+
+
+## Generalized regression with R - more functions
+
+- Logistic model with Probit link:
+
+
+```r
+probitmod &lt;- glm(children ~ age, 
+	family=binomial(link=probit))
+```
+
+- Regression with count data:
+
+
+```r
+modp &lt;- glm(Tatoos ~ age,family=poisson)
+```
+
+- Proportional odds logistic regression in library `MASS`:
+
+
+```r
+library("MASS")
+mod_plr&lt;-polr(a11c020a ~ a11d096b ,data=dat)
+```
+
+&lt;!--
+## [B4A Exercise logistic regression](https://www.r-exercises.com/2017/10/30/logistic-regression-in-r/)
+
+- Load the `MASS` package and combine `Pima.tr` and `Pima.tr2` to a data.frame called train and save Pima.te as test. Change the coding of our variable of interest to (type) to 0 (non-diabetic) and 1 (diabetic). Check for and take note of any missing values.
+
+--&gt;
+
+---
+
+## Exercise: [logistic regression](https://www.r-exercises.com/2017/10/30/logistic-regression-in-r/)
+
+We will use a data on containing health-related measurements on women and whether they can be (or will be at a future point?) classified as diabetic. The data was collected by the US National Institute of Diabetes and is contained in the MASS package.
+
+&lt;!--
+Exercise 1
+--&gt;
+
+### Load dataset and create test and train dataset
+
+Load the `MASS` package and combine `Pima.tr` and `Pima.tr2` to a `data.frame` called train and save Pima.te as test. Change the coding of our variable of interest to (type) to 0 (non-diabetic) and 1 (diabetic). Check for and take note of any missing values.
+
+
+&lt;!--
+Exercise 2
+--&gt;
+ 
+### Plotting using `pairs()` and `jitter`
+Take a look at the data. Plot a scatterplot matrix between all the explanatory variables using `pairs()`, and color code the dots according to diabetic classification. Furthermore, try to plot type as a function of age. Use `jitter` to make your graph more informative. Bonus: Can you add a logistic fit based on age on top of your plot?
+
+&lt;!--
+Exercise 3
+--&gt;
+
+---
+
+
+## Exercise: [logistic regression](https://www.r-exercises.com/2017/10/30/logistic-regression-in-r/) II
+
+### Coefficients and p-values
+
+Using the `glm()` and the train data fit a logistic model of type on `age` and `bmi`. Print out the coefficients and their p-value.
+
+&lt;!--
+Exercise 4
+--&gt;
+
+### Prediction
+
+What does the model fitted in exercise 3 predict in terms of probability for someone age 35 with bmi of 32, what about bmi of 22?
+
+&lt;!--
+Exercise 5
+--&gt;
+
+### Odds ratios
+According to our model what are the odds that a woman in our sample is diabetic given age 55 and a bmi 37? Remember that odds in this context have a very precise definition which is different from probability.
+
+&lt;!--
+Exercise 6
+--&gt;
+
+### confusion matrix
+
+Build the confusion matrix, a table of actual diabetic classification against model prediction. Use a cutoff value of 0.5, meaning that women who the model estimates to have at least 0.5 chance of being diabetic are predicted to be diabetic. What is the prediction accuracy?
+
+&lt;!--
+Exercise 7
+--&gt;
+&lt;!--
+## Exercise: [logistic regression](https://www.r-exercises.com/2017/10/30/logistic-regression-in-r/) III
+
+
+###
+Apply the fitted model to the test set. Print the confusion matrix and prediction accuracy.
+--&gt;
+&lt;!--
+Exercise 8
+--&gt;
+&lt;!--
+###
+Draw up the ROC curve and calculate the AUC.
+--&gt;
+&lt;!--
+Exercise 9
+--&gt;
+
+&lt;!--
+###
+Add number of pregnancies and age squared as an explanatory variables and redraw the ROC curve on the test set and calculate its AUC.
+
+--&gt;
+&lt;!-- 
+Exercise 10
+--&gt;
+&lt;!--
+###
+For a woman aged 35 and mother of 2 children, by how much does the probability of diabetes increase, if her bmi was 35 instead of 25 according to the model? What about the marginal effect at bmi = 25?
+--&gt;
+
+---
+
+## Linklist - logistic regression
+
+-  Introduction to [**logistic regression**](http://ww2.coastal.edu/kingw/statistics/R-tutorials/logistic.html)
+
+![](figure/Rtutorials.PNG)
+
+-  [**Code for the book of Faraway**](http://www.maths.bath.ac.uk/~jjf23/ELM/scripts/binary.R)
+
+![](figure/orings.PNG)
+
+- [**Categorical data:**](http://homepage.univie.ac.at/herbert.nagel/KategorialeDaten.pdf) - [**How to perform a Logistic Regression in R**](https://www.r-bloggers.com/how-to-perform-a-logistic-regression-in-r/)
+
+- [Logistic Regression in R Tutorial](https://www.datacamp.com/community/tutorials/logistic-regression-R)
+
+
+&lt;!--
+https://www.r-bloggers.com/how-to-perform-a-logistic-regression-in-r/
+
+
+
+
+https://www.datacamp.com/community/tutorials/logistic-regression-R
+--&gt;
+
+
+---
+
+## Links - regression
 
 
 &lt;!--
@@ -1389,28 +2020,38 @@ stargazer(m3, type="html")
 
 ### Example HTML output:
 
-![](figure/stargazertabex.PNG)
+
+&lt;img src="figure/stargazertabex.PNG" width="40%" /&gt;
+
+
 
 
 ---
 
-## Shiny App - Diagnostics for linear regression
+## Links and resources
 
-&lt;!--
-https://gallery.shinyapps.io/slr_diag/
---&gt;
+### Shiny Apps - Diagnostics for linear regression
 
-- Shiny App - [**Simple Linear Regression**](https://gallery.shinyapps.io/simple_regression/)
 
-- Shiny App - [**Multicollinearity in multiple regression**](figure/https://gallery.shinyapps.io/collinearity/)
+- [**Simple Linear Regression**](https://gallery.shinyapps.io/simple_regression/)
+
+- [**Multicollinearity in multiple regression**](figure/https://gallery.shinyapps.io/collinearity/)
+
+- [Diagnostics for simple linear regression](https://gallery.shinyapps.io/slr_diag/)
 
 &lt;!--
 [![](figure/Diagslr.PNG)](https://gallery.shinyapps.io/slr_diag/)
 --&gt;
 
+### Further resources
+
+- [Elegant regression results](https://www.r-bloggers.com/elegant-regression-results-tables-and-plots-in-r-the-finalfit-package/)
+
+- [Regression analysis essentials](https://www.r-bloggers.com/regression-analysis-essentials-for-machine-learning/)
+
 &lt;!--
-https://www.r-bloggers.com/elegant-regression-results-tables-and-plots-in-r-the-finalfit-package/
-https://www.r-bloggers.com/regression-analysis-essentials-for-machine-learning/
+
+
 https://www.r-bloggers.com/15-types-of-regression-you-should-know/
 https://www.r-bloggers.com/marginal-effects-for-regression-models-in-r-rstats-dataviz/
 http://pbreheny.github.io/visreg/contrast.html

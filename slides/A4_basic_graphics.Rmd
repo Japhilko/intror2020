@@ -403,7 +403,9 @@ plot(ames_df$Sale_Price,ames_df$Lot_Area)
 ## Changing the ploting character
 
 ```{r,eval=T}
-plot(ames_df$Sale_Price,ames_df$Lot_Area,pch="*",col=rgb(0,0,1,.2))
+plot(ames_df$Sale_Price,ames_df$Lot_Area,
+     pch="*", # changing the plotting symbol
+     col=rgb(0,0,1,.2)) # make the points transparent
 ```
 
 ---
@@ -528,7 +530,7 @@ Exercise 2
 
 The previous plot didn’t showed all the numbers associated to the new thickmarks, so we are going to fix them. Recreate the same plot from the previous question and using the argument `cex.axis` control the size of the numbers associated to the axes thickmarks so they can be small enough to be visible.
 
-### Change orientation
+### Exercise: Change orientation
 
 <!--
 Exercise 3
@@ -592,8 +594,6 @@ pairs.panels(iris[,1:4],bg=bgcol,pch=21,main="")
 
 -->
 
-### `education` in years
-
 ```{r,message=F,eval=T}
 library("lattice")
 levelplot(table(ames_df$MS_Zoning,ames_df$Alley),
@@ -633,6 +633,22 @@ corrplot(cor(ames_df[,c("Sale_Price",
             "Gr_Liv_Area","TotRms_AbvGrd")]))
 ```
 
+---
+
+## A wordcloud
+
+The necessary data is on [my github repo ](https://github.com/Japhilko/intror2020/blob/master/data/gp_studytab.RData)
+
+```{r,eval=F,echo=F}
+install.packages("wordcloud")
+install.packages("tm")
+```
+
+```{r}
+load("../data/gp_studytab.RData") # load the data 
+library(wordcloud) # load the package
+wordcloud(studytab$Title) # create the wordcloud
+```
 
 
 ---
@@ -685,6 +701,9 @@ http://www.michalm.net/shiny/easyPlot/
 - [**Bioconductor R manual**](http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual) with an extensive part on graphics
 
 - [**Shiny app**](https://www.showmeshiny.com/ggedit/) for [**interactive plot editing**](https://metrumrg.shinyapps.io/ggedit/)
+
+- [Producing Simple Graphs with R](https://sites.harding.edu/fmccown/r/)
+
 
 <!--
 https://www.ae.be/blog-en/combining-the-power-of-r-and-d3-js/

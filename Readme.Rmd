@@ -1,7 +1,7 @@
 ---
 title: "Organisation"
 author: "Jan-Philipp Kolb"
-date: "6 3 2020"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: html_document
 ---
 
@@ -13,10 +13,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-Material for my "Introduction to R workshop 2020" 
+## Material for my "Introduction to R workshop 2020" 
 
 
-[First part](https://raw.githubusercontent.com/Japhilko/intror2020/master/slides/A1_GettingStarted.html)
+- [Getting started](https://raw.githubusercontent.com/Japhilko/intror2020/master/slides/A1_GettingStarted.html)
+
 
 
 

@@ -33,27 +33,31 @@ the blind men and the elephant."
 
 ---
 
-## [FIRST THINGS TO DO](http://uc-r.github.io/data_wrangling/week-3)
+## [WE WANT TIDY DATA?](http://uc-r.github.io/data_wrangling/week-3)
 
-Don’t try to kiss your data on the first date; rather, you just want
-to get to know the data:
+### What is tidy data?
 
-1. Import the data
-2. Review the codebook
-3. **Learn about the data**
-4. Quick visual understanding of the data
-
----
-
-## [WHAT IS TIDY DATA?](http://uc-r.github.io/data_wrangling/week-3)
 - One variable per column
 - One observation per row
 
-![](figure/tidydata.PNG)
+```{r,echo=F,out.height="40%"}
+knitr::include_graphics("figure/tidydata.PNG")
+```
 
 ---
 
-## What is `tidyverse` 
+## The tidyverse
+
+The tidyverse is a coherent system of packages for data manipulation, exploration and visualization that share a common design philosophy.
+
+[Joseph Rickert](https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/)
+
+![](figure/tidyverse1.png)
+
+
+---
+
+## What is [tidyverse](https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/)
 
 ```{r}
 library(tidyverse)
@@ -61,19 +65,21 @@ library(tidyverse)
 
 ![](figure/whatistidyverse.PNG)
 
+
 ---
 
-## `tidyr`
+## Basics: the pipe
 
-### Four key `tidyr` functions
 
-You'll learn four key `tidyr` functions that allow you to solve
-the vast majority of your data tidying challenges:
+### The package `magrittr`
 
--  `gather`: transforms data from wide to long
--  `spread`: transforms data from long to wide
--  `separate`: splits a single column into multiple columns
--  `unite`: combines multiple columns into a single column
+```{r}
+library(magrittr)
+```
+
+![](figure/magrittr_vignette.jpg)
+
+The pipe is used in many tidyverse packages
 
 ---
 
@@ -86,7 +92,9 @@ x <- runif(8)
 ```
 
 1) Draw 8 random numbers from the uniform distribution (`rnorm`) and save them in a vector `x`
+
 2) Compute the natural logarithm of `x`,  
+
 3) and round the result
 
 <!--
@@ -106,15 +114,6 @@ y <- c(1,4,5)
 log(exp(5))
 ```
 
----
-
-## The package `magrittr`
-
-```{r}
-library(magrittr)
-```
-
-![](figure/magrittr_vignette.jpg)
 
 ---
 
@@ -128,6 +127,19 @@ library(magrittr)
 x %>% log() %>%
     round(1)
 ```
+
+---
+
+## Four key tidyr functions
+
+You'll learn four key `tidyr` functions that allow you to solve
+the vast majority of your data tidying challenges:
+
+-  `gather`: transforms data from wide to long
+-  `spread`: transforms data from long to wide
+-  `separate`: splits a single column into multiple columns
+-  `unite`: combines multiple columns into a single column
+
 
 ---
 
@@ -407,8 +419,11 @@ arrange(flights, desc(dep_delay))
 ### Sort and find flights
 
 (a) Sort flights to find those with largest departure delays.
+
 (b) Find the flights that left earliest based on departure time.
+
 (c) Which flights traveled the longest distance?
+
 (d) Which traveled the shortest?
 
 ---

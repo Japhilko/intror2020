@@ -70,6 +70,35 @@ for(i in 1:length(myfiles)){
 #####
 
 
+(load("D:/gitlab/presentations/ps20_gor_automated_reporting/data/studytab.RData"))
+
+studytab <- studytab[,c("Study","Waves","Title")]
+
+save(studytab,file="data/gp_studytab.RData")
+
+### 
+# Final steps
+
+
+
+git_path <- getwd()
+slides_path <- paste0(git_path,"/slides/")
+
+lof <- list.files(slides_path)
+lof <- grep(".Rmd",lof,value=T)
+lof2 <- gsub(".Rmd","",lof)
+
+for (i in 1:length(lof)){
+  pagedown::chrome_print(paste0(slides_path,lof[i]))  
+  knitr::purl(paste0(slides_path,lof[i]),
+              output=paste0(git_path,"code",lof2[i]))
+}
+
+
+
+
+
+
 # xaringan links ----------------------------------------------------------
 
 # https://slides.yihui.org/xaringan/#15
