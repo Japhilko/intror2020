@@ -7,7 +7,7 @@ location: "GESIS, Mannheim, Germany"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["default", "default-fonts", "../workshop.css"]
+    css: ["default", "default-fonts", "workshop.css"]
     nature:
       highlightStyle: "github"
       highlightLines: true
@@ -142,20 +142,10 @@ head(names(ames_data))
 head(names(ames_data[4:8]))
 ```
 
----
-
-## Transfer to `data.frame` 
-
-- Transfer data to a `data.frame`:
-
 ```{r}
+# Transfer data to a `data.frame`:
 ames_df <- data.frame(ames_data)
 ```
-
-```{r}
-typeof(ames_df)
-```
-
 
 ---
 
@@ -164,8 +154,8 @@ typeof(ames_df)
 - Find out the number of rows/columns
 
 ```{r}
-nrow(ames_df) # rows
-ncol(ames_df) # columns
+nrow(ames_data) # rows
+ncol(ames_data) # columns
 ```
 
 ---
@@ -447,6 +437,39 @@ colnames(airquality)
 ```{r,eval=T}
 rownames(airquality)
 ```
+
+
+---
+
+## Excursus: loops
+
+
+```{r}
+airq2 <- airquality # create a dublette
+for (i in 1:ncol(airq)){
+  airq2[,i] <- as.character(airq2[,i])
+}
+```
+
+
+.pull-left[
+
+```{r,eval=F}
+str(airquality)
+```
+
+```{r,echo=F}
+knitr::include_graphics("figure/str_output_airq.PNG")
+```
+
+
+]
+
+.pull-right[
+```{r,eval=T}
+str(airq2)
+```
+]
 
 
 ---

@@ -7,7 +7,7 @@ location: "GESIS, Mannheim, Germany"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["default", "default-fonts", "../workshop.css"]
+    css: ["default", "default-fonts", "workshop.css"]
     nature:
       highlightStyle: "github"
       highlightLines: true
@@ -186,6 +186,17 @@ hist(ames_df$Lot_Area,col="red",
 
 ---
 
+## A vector for the breaks
+
+```{r,eval=T,out.height="40%"}
+hist(ames_df$Lot_Area,col="purple",
+     main="Size of Lot", xlab="Lot Area",breaks=c(0,5000,10000,22000,215245))
+```
+
+
+
+---
+
 ## Tabulate and `barplot`
 
 
@@ -342,7 +353,7 @@ boxplot(ames_df$Sale_Price~ames_df$Alley,horizontal=TRUE)
 install.packages("vioplot")
 ```
 
-```{r,eval=F}
+```{r,eval=T}
 library(vioplot)
 vioplot(na.omit(ames_df$Sale_Price),col="royalblue")
 ```
@@ -470,6 +481,7 @@ plot(density(ames_df$Sale_Price))
 ## Stem and leaf plot
 
 ```{r}
+data(airquality)
 stem(airquality$Ozone)
 ```
 
@@ -520,7 +532,7 @@ https://www.r-exercises.com/2016/09/23/advanced-base-graphics/
 
 a) Load the cars dataset and create a scatterplot of the data.
 
-b) Using the argument lab of the function plot create a new scatterplot where the thickmarks of the x and y axis specify every integer.
+b) Use the argument lab to create a new scatterplot where more tickmarks are visible on the x and y axis.
 
 ### Adjust Scatterplot
 
@@ -528,7 +540,7 @@ b) Using the argument lab of the function plot create a new scatterplot where th
 Exercise 2
 -->
 
-The previous plot didn’t showed all the numbers associated to the new thickmarks, so we are going to fix them. Recreate the same plot from the previous question and using the argument `cex.axis` control the size of the numbers associated to the axes thickmarks so they can be small enough to be visible.
+The previous plot didn’t show all numbers associated to the new tickmarks. Use the argument `cex.axis` to control the size of the numbers. Make them smaller.
 
 ### Exercise: Change orientation
 
@@ -536,7 +548,7 @@ The previous plot didn’t showed all the numbers associated to the new thickmar
 Exercise 3
 -->
 
-On the previous plot the numbers associated to the y-axis thickmarks aren’t easy to read. Recreate the plot from the last exercise and use the argument `las` to change the orientation of the labels from vertical to horizontal.
+Use the argument `las` to change the orientation of the labels from vertical to horizontal.
 
 ---
 
@@ -548,7 +560,7 @@ On the previous plot the numbers associated to the y-axis thickmarks aren’t ea
 Exercise 4
 -->
 
-Suppose you want to add two new observations to the previous plot, but you want to identify them on the graph. Using the points function add the new observations to the last plot using red to identify them. The values of the new observation are speed = 23, 26 and dist = 60, 61.
+Suppose you want to add two new observations to the previous plot, and you want to be able to differentiate them. Use the `points` function to add new observations using red to identify them. The values of the new observation are speed = 23, 26 and dist = 60, 61.
 
 ### Adjust x-axis range
 
@@ -560,7 +572,7 @@ As you could see the previous plot doesn’t show one of the new observations be
 
 a) Create again the plot for the old observations with an x-axis range that includes all the values from 4 to 26.
 
-b) Add the two new observations using the points function.
+b) Add the two new observations using the `points` function.
 
 ---
 
@@ -579,7 +591,7 @@ install.packages("psych")
 ```
 
 
-```{r,eval=F}
+```{r,eval=T}
 library("psych")
 bgcol <- c("red","yellow","blue")[iris$Species]
 pairs.panels(iris[,1:4],bg=bgcol,pch=21,main="")

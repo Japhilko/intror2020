@@ -9,16 +9,22 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<!--
 # Introduction to R 2020
+-->
 
 
+# Material for my "Introduction to R workshop 2020" 
 
-## Material for my "Introduction to R workshop 2020" 
+## First Day
 
+- A1 - Getting started ([pdf](https://github.com/Japhilko/intror2020/blob/master/slides/A1_GettingStarted.pdf) | [rcode](https://github.com/Japhilko/intror2020/blob/master/code/A1_GettingStarted.R) )
 
-- [Getting started](https://raw.githubusercontent.com/Japhilko/intror2020/master/slides/A1_GettingStarted.html)
+- A2 - Import and export data ([pdf](https://github.com/Japhilko/intror2020/blob/master/slides/A2_DataImport.pdf) | [rcode](https://github.com/Japhilko/intror2020/blob/master/code/A2_DataImport.R) )
 
+- A3 - Data Processing ([pdf](https://github.com/Japhilko/intror2020/blob/master/slides/A3_DataProcessing.Rmd) | [rcode](https://github.com/Japhilko/intror2020/blob/master/code/A3_DataProcessing.R) )
 
+- A4 - Import Data ([pdf]() | [rcode]() )
 
+- A3 - Import Data ([pdf]() | [rcode]() )
 
-<https://github.com/Perishleaf/data-visualisation-scripts/raw/master/dash-2019-coronavirus/AU_cases.xlsx>

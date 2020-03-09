@@ -1,6 +1,6 @@
 ---
 title: "Introduction to R"
-subtitle: "Import Data"
+subtitle: "Import and export data"
 author: "Jan-Philipp Kolb"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 location: "GESIS, Mannheim, Germany"
@@ -252,7 +252,7 @@ Dat <- rio::import(link)
 
 ```{r,eval=F}
 library(readstata13)
-dat_stata <- read.dta13("../data/example_gp.dta")
+dat_stata <- read.dta13("../data/ZA5666_v1-0-0_Stata14.dta")
 ```
 
 
@@ -281,7 +281,7 @@ library(readstata13)
 ```
 
 ```{r,eval=T}
-datf <- read.dta13("../data/example_gp.dta",
+datf <- read.dta13("../data/ZA5666_v1-0-0_Stata14.dta",
                   convert.factors = F)
 head(datf$bbzc007a)
 ```
@@ -289,7 +289,7 @@ head(datf$bbzc007a)
 ### For comparison - import without this argument
 
 ```{r,eval=T}
-dat <- read.dta13("../data/example_gp.dta")
+dat <- read.dta13("../data/ZA5666_v1-0-0_Stata14.dta")
 head(dat$bbzc007a)
 ```
 
@@ -316,7 +316,7 @@ head(dat$bbzc007a)
 
 ```{r,eval=T}
 att_dat <- attributes(dat)
-head(names(att_dat))
+names(att_dat)
 ```
 
 ### Example: the variable names 
@@ -566,6 +566,125 @@ mydata <- readRDS("mydata.rds")
 
 ---
 
+## Export as Excel
+
+```{r,eval=F,echo=F}
+install.packages("tibble")
+```
+
+- Create an example [**tibble**](https://r4ds.had.co.nz/tibbles.html):
+
+```{r}
+library(tibble)
+ab <- tibble(a=1:4,b=4:1)
+```
+
+
+```{r,eval=F}
+library(xlsx)
+setwd("D:/Daten/GitLab/IntroDataAnalysis/data")
+write.xlsx(ab,file="ab.xlsx")
+```
+
+---
+
+## [Addin to open dataset in Excel](https://github.com/dreamRs/viewxl)
+
+```{r,eval=F}
+devtools::install_github("dreamRs/viewxl")
+```
+
+- select a `data.frame` in script -> it is opened in Excel. 
+
+```{r,eval=F,echo=F}
+iris
+```
+
+![](figure/viewinexcel.png)
+
+---
+
+## Save data in `.csv` format
+
+```{r,eval=F}
+write.csv(mydata,file="mydata.csv") 
+```
+
+- If you want to continue working with German Excel, it is better to use `write.csv2` 
+
+```{r,eval=F}
+write.csv2(mydata,file="mydata.csv") 
+```
+
+- Otherwise, the result looks like this:
+
+![](figure/csvDeutsch.PNG)
+
+---
+
+## Argument `row.names`
+
+### [**Prevent row names to be written to file when using write.csv**](https://stackoverflow.com/questions/7484325/prevent-row-names-to-be-written-to-file-when-using-write-csv)
+
+```{r,eval=F}
+write.csv(mydata,file="mydata.csv", row.names=FALSE)
+```
+
+- or for German data:
+
+```{r,eval=F}
+write.csv2(mydata,file="mydata.csv", row.names=FALSE)
+```
+
+
+<!--
+## Export as `.csv`-file
+
+```{r,eval=F}
+write.csv(mydata,file="mydata.csv")
+```
+
+- or for German data:
+
+```{r,eval=F}
+write.csv2(mydata,file="mydata.csv")
+```
+
+
+-->
+
+---
+
+## The package `rio`
+
+```{r,eval=F}
+install.packages("rio")
+```
+
+![](figure/ImportExport.PNG)
+
+---
+
+## [Save data as `.sav` (SPSS)](https://cran.r-project.org/web/packages/rio/vignettes/rio.html)
+
+```{r,eval=F}
+library("rio")
+# create file to convert
+
+export(mtcars, "data/mtcars.sav")
+```
+
+---
+
+## Exercise: Export dataset
+
+- Please load the `iris` built-in dataset
+- Export the `iris` dataset to Excel
+
+
+
+---
+
 ## Links and resources
 
 - Introduction to import with R ([**is.R**](http://is-r.tumblr.com/post/37181850668/reading-writing-stata-dta-files-with-foreign))
@@ -587,4 +706,28 @@ https://github.com/Perishleaf/data-visualisation-scripts/blob/master/dash-2019-c
 
 https://towardsdatascience.com/build-a-dashboard-to-track-the-spread-of-coronavirus-using-dash-90364f016764
 
+-->
+
+
+---
+
+## Links Export
+
+- [**Quick R**](http://www.statmethods.net/input/exportingdata.html) for the export of data
+
+![](figure/quickr_export.PNG)
+
+- Help for exporting on the [**CRAN Server**](http://cran.r-project.org/doc/manuals/r-release/R-data.pdf)
+
+- [**Export data from R**](https://www.stat.ubc.ca/~jenny/STAT545A/block05_getNumbersOut.html)
+
+- Youtube video - [**Export data from R**](https://www.youtube.com/watch?v=WjpcbmcJjjM)
+- Quick R - [**Exporting data**](https://www.statmethods.net/input/exportingdata.html)
+- dummies - [**How to Get Your Data Out of R**](https://www.dummies.com/programming/r/how-to-get-your-data-out-of-r/)
+- R Core Team - [**R Data Import/Export**](https://colinfay.me/r-data-import-export/index.html)
+
+<!--
+deutscher Link
+
+https://databraineo.de/ki-training-resources/r-programmierung/daten-export-aus-r/
 -->

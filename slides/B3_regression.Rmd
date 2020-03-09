@@ -1256,4 +1256,9 @@ https://cran.r-project.org/web/packages/Metrics/Metrics.pdf
 ToDo Liste
 
 Den Effekt von cross validation zeigen
+
+https://stats.stackexchange.com/questions/140447/why-logistic-regression-cannot-be-solved-by-ols
+https://dzone.com/articles/machinex-simplifying-logistic-regression
+
+https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html
 -->

@@ -91,7 +91,7 @@ lof2 <- gsub(".Rmd","",lof)
 for (i in 1:length(lof)){
   pagedown::chrome_print(paste0(slides_path,lof[i]))  
   knitr::purl(paste0(slides_path,lof[i]),
-              output=paste0(git_path,"code",lof2[i]))
+              output=paste0(git_path,"/code/",lof2[i],".R"))
 }
 
 
@@ -114,3 +114,11 @@ for (i in 1:length(lof)){
 # https://www.r-bloggers.com/wrapper-of-knitrinclude_graphics-to-handle-urls-pdf-outputs/
 # https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references
 # https://stackoverflow.com/questions/51181684/figure-captions-for-knitr-blocks-that-include-links-in-pdf-documents
+# https://danilofreire.github.io/xaringan-metropolis/xaringan-metropolis.html#2
+
+# Themes in xaringan
+# https://github.com/yihui/xaringan/wiki/Themes
+# https://community.rstudio.com/t/using-multiple-font-sizes-for-code-chunks/26405/5
+# https://yongfu.name/2019/04/29/xaringan_tips.html
+
+# https://stackoverflow.com/questions/52656548/xaringan-changing-code-background-for-specific-chunks/52663290#52663290

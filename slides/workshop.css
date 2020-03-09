@@ -93,3 +93,6 @@ div.my-footer span {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+.code-bg-red .remark-code, .code-bg-red .remark-code * {
+ background-color:red!important;

@@ -618,4 +618,8 @@ http://people.duke.edu/~ccc14/duke-hts-2018/cliburn/R_tidyyverse_Exercise_Soluti
 http://cbdm-01.zdv.uni-mainz.de/~galanisl/danalysis/import-and-the-tibble.html#the-tibble
 https://b-rodrigues.github.io/modern_R/getting-to-know-rstudio.html#panes
 
+https://www.tiq-solutions.de/tidyverse-ein-moderner-ansatz-fuer-datenanalysen-in-r/
+
+http://uc-r.github.io/data_wrangling/week-3
+
 -->

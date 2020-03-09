@@ -6,7 +6,7 @@
     <meta name="author" content="Jan-Philipp Kolb" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
-    <link rel="stylesheet" href="..\workshop.css" type="text/css" />
+    <link rel="stylesheet" href="workshop.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -196,6 +196,20 @@ hist(ames_df$Lot_Area,col="red",
 
 ---
 
+## A vector for the breaks
+
+
+```r
+hist(ames_df$Lot_Area,col="purple",
+     main="Size of Lot", xlab="Lot Area",breaks=c(0,5000,10000,22000,215245))
+```
+
+&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-12-1.png" height="40%" /&gt;
+
+
+
+---
+
 ## Tabulate and `barplot`
 
 
@@ -213,7 +227,7 @@ tab_alley &lt;- table(ames_df$Alley)
 barplot(tab_alley)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -224,7 +238,7 @@ barplot(tab_alley)
 barplot(tab_alley,col=rgb(0,0,1))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -235,7 +249,7 @@ barplot(tab_alley,col=rgb(0,0,1))
 barplot(tab_alley,col=rgb(0,1,0))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -246,7 +260,7 @@ barplot(tab_alley,col=rgb(0,1,0))
 barplot(tab_alley,col=rgb(1,0,0))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -257,7 +271,7 @@ barplot(tab_alley,col=rgb(1,0,0))
 barplot(tab_alley,col=rgb(1,0,0,.3))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -279,7 +293,7 @@ install.packages("colourpicker")
 barplot(tab_alley,col=c(20,"#62D6C8", "darkorange"))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -319,7 +333,7 @@ tab2dim
 barplot(tab2dim,col=1:3)
 ```
 
-&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-22-1.png" height="20%" /&gt;
+&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-23-1.png" height="20%" /&gt;
 
 ---
 
@@ -330,7 +344,7 @@ barplot(tab2dim,col=1:3)
 barplot(tab2dim,col=1:3,beside=T)
 ```
 
-&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-23-1.png" height="20%" /&gt;
+&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-24-1.png" height="20%" /&gt;
 
 
 ---
@@ -339,7 +353,7 @@ barplot(tab2dim,col=1:3,beside=T)
 
 - Load the dataset `VADeaths` and create the following plot:
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -360,7 +374,7 @@ barplot(tab2dim,col=1:3,beside=T)
 boxplot(ames_df$Sale_Price,horizontal=TRUE)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-26-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -375,7 +389,7 @@ boxplot(ames_df$Sale_Price,horizontal=TRUE)
 boxplot(ames_df$Sale_Price~ames_df$Alley,horizontal=TRUE)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-28-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -393,6 +407,8 @@ boxplot(ames_df$Sale_Price~ames_df$Alley,horizontal=TRUE)
 library(vioplot)
 vioplot(na.omit(ames_df$Sale_Price),col="royalblue")
 ```
+
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-30-1.png)&lt;!-- --&gt;
 
 
 
@@ -419,7 +435,7 @@ boxplot(Sale_Price~Alley,data=ames_df,col="blue")
 beanplot(Sale_Price~Alley,data=ames_df,col="orange")
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-32-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -438,7 +454,7 @@ beanplot(Sale_Price~Alley,data=ames_df,col="orange")
 plot(ames_df$Sale_Price,ames_df$Lot_Area)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -451,7 +467,7 @@ plot(ames_df$Sale_Price,ames_df$Lot_Area,
      col=rgb(0,0,1,.2)) # make the points transparent
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-36-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -462,7 +478,7 @@ plot(ames_df$Sale_Price,ames_df$Lot_Area,
 pairs(iris[,1:4])
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-36-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-37-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -509,7 +525,7 @@ pairs.panels(iris[,1:4],
 mosaicplot(tab2, color = TRUE,main="")
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-40-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -521,7 +537,7 @@ mosaicplot(tab2, color = TRUE,main="")
 mosaicplot(tab2, main=F,shade = TRUE)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-40-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-41-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -532,7 +548,7 @@ mosaicplot(tab2, main=F,shade = TRUE)
 plot(density(ames_df$Sale_Price))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-41-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-42-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -540,6 +556,7 @@ plot(density(ames_df$Sale_Price))
 
 
 ```r
+data(airquality)
 stem(airquality$Ozone)
 ```
 
@@ -616,7 +633,7 @@ https://www.r-exercises.com/2016/09/23/advanced-base-graphics/
 
 a) Load the cars dataset and create a scatterplot of the data.
 
-b) Using the argument lab of the function plot create a new scatterplot where the thickmarks of the x and y axis specify every integer.
+b) Use the argument lab to create a new scatterplot where more tickmarks are visible on the x and y axis.
 
 ### Adjust Scatterplot
 
@@ -624,15 +641,15 @@ b) Using the argument lab of the function plot create a new scatterplot where th
 Exercise 2
 --&gt;
 
-The previous plot didn’t showed all the numbers associated to the new thickmarks, so we are going to fix them. Recreate the same plot from the previous question and using the argument `cex.axis` control the size of the numbers associated to the axes thickmarks so they can be small enough to be visible.
+The previous plot didn’t show all numbers associated to the new tickmarks. Use the argument `cex.axis` to control the size of the numbers. Make them smaller.
 
-### Change orientation
+### Exercise: Change orientation
 
 &lt;!--
 Exercise 3
 --&gt;
 
-On the previous plot the numbers associated to the y-axis thickmarks aren’t easy to read. Recreate the plot from the last exercise and use the argument `las` to change the orientation of the labels from vertical to horizontal.
+Use the argument `las` to change the orientation of the labels from vertical to horizontal.
 
 ---
 
@@ -644,7 +661,7 @@ On the previous plot the numbers associated to the y-axis thickmarks aren’t ea
 Exercise 4
 --&gt;
 
-Suppose you want to add two new observations to the previous plot, but you want to identify them on the graph. Using the points function add the new observations to the last plot using red to identify them. The values of the new observation are speed = 23, 26 and dist = 60, 61.
+Suppose you want to add two new observations to the previous plot, and you want to be able to differentiate them. Use the `points` function to add new observations using red to identify them. The values of the new observation are speed = 23, 26 and dist = 60, 61.
 
 ### Adjust x-axis range
 
@@ -656,7 +673,7 @@ As you could see the previous plot doesn’t show one of the new observations be
 
 a) Create again the plot for the old observations with an x-axis range that includes all the values from 4 to 26.
 
-b) Add the two new observations using the points function.
+b) Add the two new observations using the `points` function.
 
 ---
 
@@ -667,7 +684,7 @@ b) Add the two new observations using the points function.
 pairs(iris[,1:4])
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-46-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-47-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -686,6 +703,8 @@ bgcol &lt;- c("red","yellow","blue")[iris$Species]
 pairs.panels(iris[,1:4],bg=bgcol,pch=21,main="")
 ```
 
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-49-1.png)&lt;!-- --&gt;
+
 ---
 
 ## `levelplot`
@@ -694,8 +713,6 @@ pairs.panels(iris[,1:4],bg=bgcol,pch=21,main="")
 
 --&gt;
 
-### `education` in years
-
 
 ```r
 library("lattice")
@@ -703,7 +720,7 @@ levelplot(table(ames_df$MS_Zoning,ames_df$Alley),
           xlab="education",ylab="job")
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-49-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -720,7 +737,7 @@ library(RColorBrewer)
 display.brewer.all()
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-51-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -740,7 +757,7 @@ corrplot(cor(ames_df[,c("Sale_Price",
             "Gr_Liv_Area","TotRms_AbvGrd")]))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-52-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-53-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -754,10 +771,10 @@ The necessary data is on [my github repo ](https://github.com/Japhilko/intror202
 ```r
 load("../data/gp_studytab.RData") # load the data 
 library(wordcloud) # load the package
-wordcloud(studytab$Title, random.color=T) # create the wordcloud
+wordcloud(studytab$Title) # create the wordcloud
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-55-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -810,6 +827,9 @@ http://www.michalm.net/shiny/easyPlot/
 - [**Bioconductor R manual**](http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual) with an extensive part on graphics
 
 - [**Shiny app**](https://www.showmeshiny.com/ggedit/) for [**interactive plot editing**](https://metrumrg.shinyapps.io/ggedit/)
+
+- [Producing Simple Graphs with R](https://sites.harding.edu/fmccown/r/)
+
 
 &lt;!--
 https://www.ae.be/blog-en/combining-the-power-of-r-and-d3-js/

@@ -38,3 +38,18 @@ height <- c(1.80, 1.65, 1.60, 1.93)
 weight <- c(87, 58, 65, 100)
 
 weight/height^2
+
+
+
+
+# Exercise: Advanced Base Graphics ----------------------------------------
+
+data(cars)
+plot(cars)
+plot(cars,lab=c(25,25,25))
+
+plot(cars,lab=c(25,25,25), cex.axis=.6)
+
+plot(cars, lab=c(20,10,6), cex.axis=.6, las=1)
+
+points(x=c(23,26), y=c(60,61), col="red")

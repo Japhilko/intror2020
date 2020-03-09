@@ -261,3 +261,11 @@ ggplot(simulated.dataset) + geom_density()+
 - [ggplot2-graphics-workshop](https://github.com/aosmith16/ggplot2-graphics-workshop/)
 - [ggplot2 command references](https://ggplot2.tidyverse.org/reference/)
 - [Lollipop graphs with ggplot2](https://uc-r.github.io/lollipop)
+
+
+<!--
+https://www.r-graph-gallery.com/295-basic-circular-barplot.html
+
+lollipop graphic
+https://www.r-graph-gallery.com/301-custom-lollipop-chart.html
+-->
