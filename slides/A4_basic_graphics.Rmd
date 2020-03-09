@@ -124,12 +124,11 @@ hist(ames_df$Lot_Area,col="blue",
      xlab="Lot size")
 ```
 
-
 ---
 
 ## Further arguments:
 
-- Many of the arguments are valid for all base graphics like `main` or `xlab``.
+- Many of the arguments are valid for all base graphics like `main` or `xlab`.
 - You can see many of them if you call help on `?par`.
 
 ```{r,eval=F}
@@ -138,20 +137,33 @@ hist(ames_df$Lot_Area,col="blue",
 ?par
 ```
 
-![](figure/helppagepar.PNG)
+```{r,echo=F}
+knitr::include_graphics("figure/helppagepar.PNG")
+```
+
+
+
+---
+
+## [Some graphic parameters](https://rpubs.com/SusanEJohnston/7953)
+
+![](figure/params_baseplot.PNG)
+
 
 ---
 
 ## The `xlim` argument
 
-```{r,eval=F}
+```{r,eval=T,out.height="40%"}
 hist(ames_df$Lot_Area,col="blue",
      main="Lot size",ylab="Freq", xlab="Lot size",
-     xlim=c(0,90))
+     xlim=c(0,50000))
 
 ```
 
+<!--
 ![](figure/xlimargument.PNG)
+-->
 
 ---
 
@@ -159,16 +171,17 @@ hist(ames_df$Lot_Area,col="blue",
 
 - While the previous arguments are valid for many graphics functions, the following apply mainly to histogrames:
 
-```{r,eval=F}
+```{r,eval=T,out.height="40%"}
 hist(ames_df$Lot_Area,col="red",
-     main="Duration of interview", xlab="Duration",
-     xlim=c(0,90),breaks=60)
+     main="Size of Lot", xlab="Lot Area",
+     xlim=c(0,50000),breaks=60)
 ```
 
 - with `breaks` you can control the number of bars...
 
+<!--
 ![](figure/breaksargument.PNG)
-
+-->
 
 
 ---
@@ -252,19 +265,25 @@ tab2dim <- table(ames_df$Alley,ames_df$Street)
 
 - If the passed table object is two-dimensional, a conditional barplot is created
 
+```{r}
+tab2dim
+```
+
 
 ---
 
 ## Conditional `barplot`
 
-```{r,eval=T}
-barplot(tab2dim,col=1:2)
+```{r,eval=T,out.height="20%"}
+barplot(tab2dim,col=1:3)
 ```
 
+---
 
+## Conditional `barplot` beside
 
-```{r,eval=T}
-barplot(tab2dim,col=3:4,beside=T)
+```{r,eval=T,out.height="20%"}
+barplot(tab2dim,col=1:3,beside=T)
 ```
 
 

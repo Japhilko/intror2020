@@ -65,3 +65,7 @@ div.my-footer span {
   color: #d6d6d6;
   text-shadow: 0 0 20px #333;
 }
+
+.remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;
+                                    font-size: 90%;
+                                  }

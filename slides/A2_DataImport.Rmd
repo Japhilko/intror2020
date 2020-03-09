@@ -133,7 +133,7 @@ knitr::include_graphics("figure/More_commands.png")
 dat <- read.csv("2020-01-21-00-00.csv")
 ```
 
-```{r,echo=F}
+```{r,echo=F,eval=F}
 dat <- read.csv("https://raw.githubusercontent.com/Perishleaf/data-visualisation-scripts/master/dash-2019-coronavirus/2020-01-21-00-00.csv")
 ```
 
@@ -166,7 +166,7 @@ https://datahub.io/collections/healthcare-data
 
 
 
-```{r,echo=F,eval=F}
+```{r,echo=F,eval=T}
 dat <- read.csv("../data/datahub_refugee.csv")
 ```
 

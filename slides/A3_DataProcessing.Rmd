@@ -142,13 +142,20 @@ head(names(ames_data))
 head(names(ames_data[4:8]))
 ```
 
-### Transfer to `data.frame` 
+---
+
+## Transfer to `data.frame` 
 
 - Transfer data to a `data.frame`:
 
 ```{r}
 ames_df <- data.frame(ames_data)
 ```
+
+```{r}
+typeof(ames_df)
+```
+
 
 ---
 
@@ -227,9 +234,16 @@ ames_df[Street!="Pave",]
 
 ## Logical operations in indexing
 
-```{r}
-head(ames_df[ames_df$Lot_Area>9000,1:4])
+### Select only homes with a area size bigger than 9000
+
+```{r,eval=F}
+ames_df[ames_df$Lot_Area>9000,]
 ```
+
+```{r,echo=F}
+knitr::kable(ames_df[ames_df$Lot_Area>9000,4:6],"html")
+```
+
 
 ---
 
@@ -367,16 +381,14 @@ nrow(airq_comp)
 
 ```{r}
 airq <- airquality 
-airq$Ozone[is.na(airq$Ozone)] <-mean(airq$Ozone, 
-                                     na.rm = T)
+airq$Ozone[is.na(airq$Ozone)] <-mean(airq$Ozone,na.rm = T)
 ```
 
 
 ### Comparing mean and variance
 
 ```{r}
-mean(airquality$Ozone, na.rm = T)
-mean(airq$Ozone)
+mean(airquality$Ozone, na.rm = T) ; mean(airq$Ozone)
 var(airquality$Ozone, na.rm = T)
 var(airq$Ozone)
 ```
@@ -399,6 +411,8 @@ colSums(is.na(airq))
 
 ![](figure/cran_missings.PNG)
 
+---
+
 ## Exercise: Missing values
 
 
@@ -413,19 +427,24 @@ colSums(is.na(airq))
 
 - With the command `colnames` you get the column names
 
-```{r,eval=F}
+```{r,eval=T}
 colnames(airquality)
 ```
 
 - We can rename the column names:
 
-```{r,eval=F}
+```{r,eval=T}
 colnames(airquality)[1] <- "var1"
 ```
 
+```{r,echo=F}
+colnames(airquality)
+```
+
+
 - The same applies to the row names
 
-```{r,eval=F}
+```{r,eval=T}
 rownames(airquality)
 ```
 
@@ -436,6 +455,7 @@ rownames(airquality)
 
 ```{r}
 apply(airq,2,mean)
+apply(airq,2,mean,na.rm=T)
 ```
 
 ```{r,eval=F}

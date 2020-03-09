@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # Introduction to R
 ## Import Data
 ### Jan-Philipp Kolb
-### 06 März, 2020
+### 09 März, 2020
 
 ---
 
@@ -157,6 +157,8 @@ datd &lt;- read.csv2("ZA5666_v1-0-0.csv")
 
 &lt;!--
 https://www.stats.govt.nz/assets/Uploads/Annual-enterprise-survey/Annual-enterprise-survey-2018-financial-year-provisional/Download-data/annual-enterprise-survey-2018-financial-year-provisional-csv.csv
+
+https://datahub.io/collections/healthcare-data
 --&gt;
 
 
@@ -177,69 +179,48 @@ head(dat)
 &lt;table&gt;
  &lt;thead&gt;
   &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; Province.State &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Country.Region &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Last.Update &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Confirmed &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Deaths &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Recovered &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Suspected &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Country.Name &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Country.Code &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Year &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Value &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Hubei &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Mainland China &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 1/21/2020 00:00 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 270 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Arab World &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ARB &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1990 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4235545 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Guangdong &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Mainland China &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 1/21/2020 00:00 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 17 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Arab World &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ARB &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1991 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3811595 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Beijing &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Mainland China &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 1/21/2020 00:00 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Arab World &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ARB &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1992 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4000509 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Shanghai &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Mainland China &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 1/21/2020 00:00 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Arab World &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ARB &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1993 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4189545 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Zhejiang &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Mainland China &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 1/21/2020 00:00 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Arab World &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ARB &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1994 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4352945 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Chongqing &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Mainland China &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 1/21/2020 00:00 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Arab World &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ARB &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1995 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4337009 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -267,13 +248,13 @@ head(ab)
 ## # A tibble: 6 x 16
 ##   query   lat   lon lat_min lat_max lon_min lon_max place_id osm_type osm_id
 ##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
-## 1 Inne~  49.5  8.45    49.5    49.5    8.44    8.48   2.36e8 relation 3.29e6
-## 2 Neck~  49.5  8.47    49.5    49.5    8.42    8.48   2.36e8 relation 5.19e6
-## 3 Neck~  49.5  8.48    49.5    49.5    8.47    8.51   2.36e8 relation 5.19e6
-## 4 Osts~  49.5  8.48    49.5    49.5    8.46    8.50   1.69e7 node     1.64e9
-## 5 Schw~  49.5  8.48    49.5    49.5    8.47    8.50   2.36e8 relation 3.29e6
-## 6 Lind~  49.5  8.47    49.5    49.5    8.46    8.48   2.36e8 relation 3.29e6
-## # ... with 6 more variables: place_rank &lt;dbl&gt;, display_name &lt;chr&gt;, class &lt;chr&gt;,
+## 1 Inne…  49.5  8.45    49.5    49.5    8.44    8.48   2.36e8 relation 3.29e6
+## 2 Neck…  49.5  8.47    49.5    49.5    8.42    8.48   2.36e8 relation 5.19e6
+## 3 Neck…  49.5  8.48    49.5    49.5    8.47    8.51   2.36e8 relation 5.19e6
+## 4 Osts…  49.5  8.48    49.5    49.5    8.46    8.50   1.69e7 node     1.64e9
+## 5 Schw…  49.5  8.48    49.5    49.5    8.47    8.50   2.36e8 relation 3.29e6
+## 6 Lind…  49.5  8.47    49.5    49.5    8.46    8.48   2.36e8 relation 3.29e6
+## # … with 6 more variables: place_rank &lt;dbl&gt;, display_name &lt;chr&gt;, class &lt;chr&gt;,
 ## #   type &lt;chr&gt;, importance &lt;chr&gt;, icon &lt;chr&gt;
 ```
 
@@ -550,7 +531,7 @@ getwd()
 ```
 
 ```
-## [1] "D:/github/intror2020/slides"
+## [1] "E:/github/intror2020/slides"
 ```
 
 ```r
@@ -559,7 +540,7 @@ getwd()
 ```
 
 ```
-## [1] "D:/github/intror2020"
+## [1] "E:/github/intror2020"
 ```
 
 ---
@@ -674,25 +655,25 @@ mydata
    &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; A &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4871568 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9554733 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; B &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.9189463 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3593921 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; C &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.4399285 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2069028 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; D &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.5718406 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6494957 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
