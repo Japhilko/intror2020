@@ -31,21 +31,21 @@ showSolution=F
 
 ---
 
-## [LEARN ABOUT THE DATA](http://uc-r.github.io/data_wrangling/week-3)
+# [LEARN ABOUT THE DATA](http://uc-r.github.io/data_wrangling/week-3)
 
-### So what are the first things we want to know about our data?
+## First things we want to know:
 
--  dimensions
--  data types (i.e. character, integer, factor, etc.)
--  missing values
--  summary statistics
+### Dimensions
+### Data types (i.e. character, integer, factor, etc.)
+### Missing values
+### Summary statistics
 
 
 What are some functions to extract this information?
 
 ---
 
-## LEARN ABOUT THE DATA
+## What we want to learn
 
 -  dimensions: `dim()`, `ncol()`, `nrow()`, `names()`
 -  data types: `str()`, `class()`, `is.`, `as.`
@@ -55,69 +55,19 @@ What are some functions to extract this information?
 
 ---
 
-## Data Frames
 
-```{r,echo=F}
-
-sysinf <- Sys.info()
-
-if (sysinf["nodename"]=="MAC14077"){
-  oldgitpath <- "D:/Daten/GitLab/IntroDataAnalysis/"  
-}else{
-  oldgitpath <- "D:/gitlab/IntroDataAnalysis/"
-}
-
-```
+background-image: url("figure/ames_data.PNG")
 
 
-```{r,echo=F,eval=F}
-library("readstata13")
-dat <- read.dta13("../data/ZA5666_v1-0-0_Stata14.dta")
-dat <- dat[1:100,]
-save(dat,file="../data/ZA5666_v1-0-0_medium.RData")
+# [**Example data - The Ames Housing data**](https://www.kaggle.com/prevek18/ames-housing-dataset)
 
-datf <- read.dta13("../data/ZA5666_v1-0-0_Stata14.dta",
-                   convert.factors = F)
+## [**Also available on kaggle:**](https://www.kaggle.com/prevek18/ames-housing-dataset)
 
-datf <- datf[1:100,]
-save(datf,file="../data/ZA5666_v1-0-0_medium_fac.RData")
-```
+![](figure/ames_housing_data.PNG)
 
-<!--
-## Outline for today
+---
 
-```{r,echo=F,eval=F}
-library(knitr)
-sched <- xlsx::read.xlsx2("../orga/schedule.xlsx",1)
-dats <- sched[9:15,c(1,4,5)]
-dats <- dats[-which(dats$Part=="Break"),]
-
-kable(dats,row.names = F)
-```
--->
-
-
-```{r,echo=F,eval=F}
-load(paste0(oldgitpath,"/data/ZA5666_v1-0-0_medium.RData"))
-load(paste0(oldgitpath,"/data/ZA5666_v1-0-0_medium_fac.RData"))
-```
-
-
-
-### Example data:
-
-```{r,echo=F,eval=F}
-library("readstata13")
-gpdat <- read.dta13("../data/ZA5666_v1-0-0_Stata14.dta",
-                    convert.factors = F)
-```
-
-```{r,eval=F,echo=F}
-library(foreign)
-gpdat<-read.dta("https://github.com/Japhilko/RSocialScience/
-              raw/master/data/GPanel.dta",convert.factors = F)
-```
-
+## Ames housing data
 
 ```{r,eval=F}
 install.packages("AmesHousing")
@@ -125,79 +75,73 @@ install.packages("AmesHousing")
 
 
 ```{r}
-ames_data <- AmesHousing::make_ames()
+ames_df <- AmesHousing::make_ames()
 ```
-
-
-```{r}
-typeof(ames_data)
-```
-
 
 ```{r,eval=F}
-head(names(ames_data))
+names(ames_df)
 ```
 
 ```{r,echo=F}
-head(names(ames_data[4:8]))
+head(names(ames_df[1:4]))
 ```
 
-```{r}
-# Transfer data to a `data.frame`:
-ames_df <- data.frame(ames_data)
+```{r,eval=F,echo=F}
+DT::datatable(ames_df)
 ```
 
----
 
 ## Number of rows/columns
 
-- Find out the number of rows/columns
 
 ```{r}
-nrow(ames_data) # rows
-ncol(ames_data) # columns
+nrow(ames_df) # rows
+ncol(ames_df) # columns
 ```
 
 ---
 
-## View the data
+# View the data
 
-- See some lines:
+## See some lines:
 
 ```{r,eval=F}
 head(ames_df) # first lines
 tail(ames_df) # last lines
 ```
 
-- Overview with Rstudio:
+## Overview with Rstudio:
 
 ![](figure/DatenAnschauen.PNG)
 
 ---
 
-## Indexing
+# Indexing
 
-### Accessing Columns with the dollar sign
+## Accessing Columns with the dollar sign
 
 - The dollar sign can also be used to address individual columns
 
 ```{r}
 head(ames_df$Lot_Area)
 
-ames_df$Lot_Area[1:6]
+ames_df$Lot_Area[1:8]
 ```
 
 
-### Accessing Columns with the number or the name
+## Accessing Columns with the number or the name
 
 ```{r,eval=F}
 head(ames_df[,5])
+```
+
+```{r}
 head(ames_df[,"Street"]) # the same result
 ```
 
 ---
 
-## Subsetting dataset
+# Subsetting dataset
 
 <!--
 -->
@@ -207,6 +151,8 @@ Street <- ames_df$Street
 table(Street)
 ```
 
+## Logical operations and indexing
+
 ```{r,eval=F}
 ames_df[Street=="Grvl",]
 # same result:
@@ -222,9 +168,11 @@ ames_df[Street!="Pave",]
 
 ---
 
-## Logical operations in indexing
+# Logical operations in indexing
 
-### Select only homes with a area size bigger than 9000
+### Selecting a subset due to criteria 
+
+Select only homes with a area size bigger than 9000
 
 ```{r,eval=F}
 ames_df[ames_df$Lot_Area>9000,]
@@ -237,7 +185,23 @@ knitr::kable(ames_df[ames_df$Lot_Area>9000,4:6],"html")
 
 ---
 
-## Exercise: [Vectors and Indexing](http://web.math.ku.dk/~helle/R-intro/exercises.pdf)
+# Exercise: Compute the price per area
+
+- Compute the  Price (`Sale_Price`) per Area (`Lot_Area` - Lot size in square feet)
+- Find the maximum of Price per Area
+
+```{r,echo=F,eval=F}
+price_area <- ames_df$Lot_Area/ames_df$Sale_Price
+max(price_area)
+```
+
+
+
+<!--
+
+---
+
+# Exercise: [Vectors and Indexing](http://web.math.ku.dk/~helle/R-intro/exercises.pdf)
 
 Assume that we have registered the height and weight for four people: Heights in cm
 are 180, 165, 160, 193; weights in kg are 87, 58, 65, 100. Make two vectors, height
@@ -251,10 +215,11 @@ Make a vector with the BMI values for the four people, and a vector with the nat
 logarithm to the BMI values. Finally make a vector with the weights for those people
 who have a BMI larger than 25.
 
+-->
 
 ---
 
-## The `airquality` data
+# The `airquality` data
 
 ```{r}
 data(airquality)
@@ -267,7 +232,7 @@ Ozone <- airquality$Ozone
 
 ---
 
-## Other important options
+# Other important options
 
 - save result to an object
 
@@ -295,7 +260,7 @@ airquality[Ozone>18 | airquality$Month==5,]
 
 ---
 
-## [Missing values](http://faculty.nps.edu/sebuttre/home/R/missings.html)
+# [Missing values](http://faculty.nps.edu/sebuttre/home/R/missings.html)
 
 - Missing values are defined as `NA` in R
 - Math functions usually have a way to exclude missing values in their calculations.
@@ -311,7 +276,7 @@ mean(Ozone,na.rm=T)
 
 ---
 
-## Find the missing values:
+# Find the missing values:
 
 ```{r}
 head(is.na(Ozone))
@@ -327,7 +292,7 @@ table(is.na(Ozone))
 
 ---
 
-## [Missing Data Visualisations](https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html)
+# [Missing Data Visualisations](https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html)
 
 ```{r,eval=F,echo=F}
 install.packages("naniar")
@@ -343,7 +308,7 @@ vis_miss(airquality)
 
 ---
 
-## The command `complete.cases()`
+# The command `complete.cases()`
 
 - returns a logical vector indicating which cases are complete.
 
@@ -356,7 +321,7 @@ nrow(airq_comp)
 
 ---
 
-## [A shorthand alternative ](http://uc-r.github.io/missing_values)
+# [A shorthand alternative ](http://uc-r.github.io/missing_values)
 
 - An shorthand alternative is to simply use `na.omit()` to omit all rows containing missing values.
 
@@ -367,7 +332,7 @@ nrow(airq_comp)
 
 ---
 
-## Very simple imputation 
+# Very simple imputation 
 
 ```{r}
 airq <- airquality 
@@ -375,7 +340,7 @@ airq$Ozone[is.na(airq$Ozone)] <-mean(airq$Ozone,na.rm = T)
 ```
 
 
-### Comparing mean and variance
+## Comparing mean and variance
 
 ```{r}
 mean(airquality$Ozone, na.rm = T) ; mean(airq$Ozone)
@@ -385,7 +350,7 @@ var(airq$Ozone)
 
 ---
 
-## [NAs per column](http://uc-r.github.io/missing_values)
+# [NAs per column](http://uc-r.github.io/missing_values)
 
 - For data frames, a convenient shortcut to compute the total missing values in each column is to use `colSums()`:
 
@@ -397,13 +362,13 @@ colSums(is.na(airq))
 
 ---
 
-## CRAN Task View: Missing Data
+# CRAN Task View: Missing Data
 
 ![](figure/cran_missings.PNG)
 
 ---
 
-## Exercise: Missing values
+# Exercise: Missing values
 
 
 1. How many missing values are in the built-in data set airquality?
@@ -413,7 +378,7 @@ colSums(is.na(airq))
 
 ---
 
-## Rename the column names
+# Rename the column names
 
 - With the command `colnames` you get the column names
 
@@ -441,16 +406,27 @@ rownames(airquality)
 
 ---
 
-## Excursus: loops
+# Excursus: loops
 
+## create a dublette
 
 ```{r}
-airq2 <- airquality # create a dublette
+airq2 <- airquality 
+```
+
+
+## The `for` loop
+
+```{r}
 for (i in 1:ncol(airq)){
   airq2[,i] <- as.character(airq2[,i])
 }
 ```
 
+
+---
+
+## The result of the for loop
 
 .pull-left[
 
@@ -474,7 +450,7 @@ str(airq2)
 
 ---
 
-## The `apply` family
+# The `apply` family
 
 ```{r}
 apply(airq,2,mean)
@@ -489,7 +465,7 @@ apply(airq,1,mean)
 
 ---
 
-## The command `apply()`
+# The command `apply()`
 
 ```{r}
 apply(airq,2,var)
@@ -499,7 +475,7 @@ apply(X = airq,MARGIN = 2,FUN = range)
 
 ---
 
-## The arguments of the command `apply()`
+## The arguments of `apply()`
 
 - If `MARGIN=1` the function `mean` is applied for rows,
 
@@ -509,7 +485,7 @@ apply(X = airq,MARGIN = 2,FUN = range)
 
 ---
 
-## Example command `tapply()`
+# Example command `tapply()`
 
 ```{r}
 tapply(airq$Wind, airq$Month,mean)
@@ -519,14 +495,14 @@ tapply(airq$Wind, airq$Month,mean)
 
 ---
 
-## Exercise: using the `tapply()` command
+# Exercise: using the `tapply()` command
 
 
 - Calculate the average ozone value by month using the airquality dataset and the tapply command.
 
 ---
 
-## Links and resources
+# Links and resources
 
 - [**Tidy data**](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) - the package `tidyr`
 

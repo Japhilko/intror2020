@@ -1251,3 +1251,63 @@ https://www.kaggle.com/dhruvesh/beautiful-dashboards-in-r
 <!--
 <http://www.naturalearthdata.com/>
 -->
+
+```{r,echo=F}
+
+sysinf <- Sys.info()
+
+if (sysinf["nodename"]=="MAC14077"){
+  oldgitpath <- "D:/Daten/GitLab/IntroDataAnalysis/"  
+}else{
+  oldgitpath <- "D:/gitlab/IntroDataAnalysis/"
+}
+
+```
+
+
+```{r,echo=F,eval=F}
+library("readstata13")
+dat <- read.dta13("../data/ZA5666_v1-0-0_Stata14.dta")
+dat <- dat[1:100,]
+save(dat,file="../data/ZA5666_v1-0-0_medium.RData")
+
+datf <- read.dta13("../data/ZA5666_v1-0-0_Stata14.dta",
+                   convert.factors = F)
+
+datf <- datf[1:100,]
+save(datf,file="../data/ZA5666_v1-0-0_medium_fac.RData")
+```
+
+```{r,echo=F,eval=F}
+load(paste0(oldgitpath,"/data/ZA5666_v1-0-0_medium.RData"))
+load(paste0(oldgitpath,"/data/ZA5666_v1-0-0_medium_fac.RData"))
+```
+
+
+
+
+
+```{r,echo=F,eval=F}
+library("readstata13")
+gpdat <- read.dta13("../data/ZA5666_v1-0-0_Stata14.dta",
+                    convert.factors = F)
+```
+
+```{r,eval=F,echo=F}
+library(foreign)
+gpdat<-read.dta("https://github.com/Japhilko/RSocialScience/
+              raw/master/data/GPanel.dta",convert.factors = F)
+```
+
+
+```{r}
+# Exercise: Vectors and Indexing ------------------------------------------
+
+height <- c(1.80, 1.65, 1.60, 1.93)
+weight <- c(87, 58, 65, 100)
+
+weight/height^2
+
+
+```
+
