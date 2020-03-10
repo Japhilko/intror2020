@@ -22,9 +22,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - A2 - Import and export data ([pdf](https://github.com/Japhilko/intror2020/blob/master/slides/A2_DataImport.pdf) | [rcode](https://github.com/Japhilko/intror2020/blob/master/code/A2_DataImport.R) )
 
-- A3 - Data Processing ([pdf](https://github.com/Japhilko/intror2020/blob/master/slides/A3_DataProcessing.Rmd) | [rcode](https://github.com/Japhilko/intror2020/blob/master/code/A3_DataProcessing.R) )
+- A3 - Data processing ([pdf](https://github.com/Japhilko/intror2020/blob/master/slides/A3_DataProcessing.Rmd) | [rcode](https://github.com/Japhilko/intror2020/blob/master/code/A3_DataProcessing.R) )
 
-- A4 - Import Data ([pdf]() | [rcode]() )
+- A4 - Basic graphics ([pdf](https://github.com/Japhilko/intror2020/blob/master/slides/A4_basic_graphics.Rmd) | [rcode](https://github.com/Japhilko/intror2020/blob/master/code/A4_basic_graphics.R) )
+
+## Second Day
+
+- B1 - Import Data ([pdf]() | [rcode]() )
 
 - A3 - Import Data ([pdf]() | [rcode]() )
-

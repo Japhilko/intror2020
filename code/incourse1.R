@@ -100,6 +100,20 @@ plot(cars, lab=c(20,10,6), cex.axis=.6, las=1)
 points(x=c(23,26), y=c(60,61), col="red")
 
 
+# ch: basic graphics ------------------------------------------------------
+
+
+# Exercise: simple graphics -----------------------------------------------
+
+
+
+# Load the dataset `VADeaths` and create the following plot:
+  
+library(datasets)
+data(VADeaths)
+barplot(VADeaths, border = "dark blue",beside=T,
+        col=c(1,2,3,4,5)) 
+
 
 
 # Add on ------------------------------------------------------------------
