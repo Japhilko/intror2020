@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # Introduction to R
 ## Regression in R
 ### Jan-Philipp Kolb
-### 09 März, 2020
+### 10 März, 2020
 
 ---
 
@@ -749,8 +749,8 @@ names(mtcars)
 ```
 
 ```
-##  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
-## [11] "carb"
+##  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"  
+##  [9] "am"   "gear" "carb"
 ```
 
 ```r
@@ -759,7 +759,8 @@ features
 ```
 
 ```
-##  [1] "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear" "carb"
+##  [1] "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"  
+##  [9] "gear" "carb"
 ```
 
 
@@ -954,17 +955,17 @@ resid(m3) # Residuals
 
 
 ```
-##         Mazda RX4     Mazda RX4 Wag        Datsun 710    Hornet 4 Drive 
-##          22.27914          21.46545          26.25203          20.38052 
-## Hornet Sportabout           Valiant 
-##          16.64696          19.59873
+##         Mazda RX4     Mazda RX4 Wag        Datsun 710 
+##          22.27914          21.46545          26.25203 
+##    Hornet 4 Drive Hornet Sportabout           Valiant 
+##          20.38052          16.64696          19.59873
 ```
 
 ```
-##         Mazda RX4     Mazda RX4 Wag        Datsun 710    Hornet 4 Drive 
-##        -1.2791447        -0.4654468        -3.4520262         1.0194838 
-## Hornet Sportabout           Valiant 
-##         2.0530424        -1.4987281
+##         Mazda RX4     Mazda RX4 Wag        Datsun 710 
+##        -1.2791447        -0.4654468        -3.4520262 
+##    Hornet 4 Drive Hornet Sportabout           Valiant 
+##         1.0194838         2.0530424        -1.4987281
 ```
 
 ---
@@ -986,10 +987,10 @@ head(pre)
 ```
 
 ```
-##         Mazda RX4     Mazda RX4 Wag        Datsun 710    Hornet 4 Drive 
-##          23.28261          21.91977          24.88595          20.10265 
-## Hornet Sportabout           Valiant 
-##          18.90014          18.79325
+##         Mazda RX4     Mazda RX4 Wag        Datsun 710 
+##          23.28261          21.91977          24.88595 
+##    Hornet 4 Drive Hornet Sportabout           Valiant 
+##          20.10265          18.90014          18.79325
 ```
 
 ---
@@ -1662,10 +1663,10 @@ pR2(glm_1)
 ```
 
 ```
-##           llh       llhNull            G2      McFadden          r2ML 
-## -580.02210772 -632.93066002  105.81710461    0.08359297    0.10031573 
-##          r2CU 
-##    0.13978426
+##           llh       llhNull            G2      McFadden 
+## -580.02210772 -632.93066002  105.81710461    0.08359297 
+##          r2ML          r2CU 
+##    0.10031573    0.13978426
 ```
 
 ![](figure/pseudor2.PNG)
@@ -1899,7 +1900,9 @@ According to our model what are the odds that a woman in our sample is diabetic 
 Exercise 6
 --&gt;
 
-### confusion matrix
+---
+
+## Exercise: Confusion matrix
 
 Build the confusion matrix, a table of actual diabetic classification against model prediction. Use a cutoff value of 0.5, meaning that women who the model estimates to have at least 0.5 chance of being diabetic are predicted to be diabetic. What is the prediction accuracy?
 
@@ -1938,30 +1941,6 @@ For a woman aged 35 and mother of 2 children, by how much does the probability o
 --&gt;
 
 ---
-
-## Linklist - logistic regression
-
--  Introduction to [**logistic regression**](http://ww2.coastal.edu/kingw/statistics/R-tutorials/logistic.html)
-
-![](figure/Rtutorials.PNG)
-
--  [**Code for the book of Faraway**](http://www.maths.bath.ac.uk/~jjf23/ELM/scripts/binary.R)
-
-![](figure/orings.PNG)
-
-- [**Categorical data:**](http://homepage.univie.ac.at/herbert.nagel/KategorialeDaten.pdf) - [**How to perform a Logistic Regression in R**](https://www.r-bloggers.com/how-to-perform-a-logistic-regression-in-r/)
-
-- [Logistic Regression in R Tutorial](https://www.datacamp.com/community/tutorials/logistic-regression-R)
-
-
-&lt;!--
-https://www.r-bloggers.com/how-to-perform-a-logistic-regression-in-r/
-
-
-
-
-https://www.datacamp.com/community/tutorials/logistic-regression-R
---&gt;
 
 
 ---
@@ -2023,7 +2002,31 @@ stargazer(m3, type="html")
 
 &lt;img src="figure/stargazertabex.PNG" width="40%" /&gt;
 
+---
 
+## Links - logistic regression
+
+-  Introduction to [**logistic regression**](http://ww2.coastal.edu/kingw/statistics/R-tutorials/logistic.html)
+
+![](figure/Rtutorials.PNG)
+
+-  [**Code for the book of Faraway**](http://www.maths.bath.ac.uk/~jjf23/ELM/scripts/binary.R)
+
+![](figure/orings.PNG)
+
+- [**Categorical data:**](http://homepage.univie.ac.at/herbert.nagel/KategorialeDaten.pdf) - [**How to perform a Logistic Regression in R**](https://www.r-bloggers.com/how-to-perform-a-logistic-regression-in-r/)
+
+- [Logistic Regression in R Tutorial](https://www.datacamp.com/community/tutorials/logistic-regression-R)
+
+
+&lt;!--
+https://www.r-bloggers.com/how-to-perform-a-logistic-regression-in-r/
+
+
+
+
+https://www.datacamp.com/community/tutorials/logistic-regression-R
+--&gt;
 
 
 ---
@@ -2081,6 +2084,11 @@ https://cran.r-project.org/web/packages/Metrics/Metrics.pdf
 ToDo Liste
 
 Den Effekt von cross validation zeigen
+
+https://stats.stackexchange.com/questions/140447/why-logistic-regression-cannot-be-solved-by-ols
+https://dzone.com/articles/machinex-simplifying-logistic-regression
+
+https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html
 --&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

@@ -1,0 +1,3 @@
+# Bibliotheken laden
+
+library("osmdata")

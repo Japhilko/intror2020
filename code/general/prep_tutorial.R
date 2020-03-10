@@ -50,7 +50,7 @@ lof3 <- gsub(".Rmd",".html",lof)
 lof2 <-gsub("md","",lof)
 
 for (i in 7:length(lof)){
-  pagedown::chrome_print(paste0(slides_path,lof3[i]))  
+  pagedown::chrome_print(paste0(slides_path,lof[i]))  
   knitr::purl(paste0(slides_path,lof[i]),output=paste0(git_path,"/code/",lof2[i]))  
 }
 
