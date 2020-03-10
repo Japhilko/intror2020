@@ -7,7 +7,7 @@ location: "GESIS, Mannheim, Germany"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["default", "default-fonts", "workshop.css"]
+    css: ["default", "default-fonts", "../workshop.css"]
     nature:
       highlightStyle: "github"
       highlightLines: true
@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = T,warning=F,message=F,size="small",cache=F)
 knitr::purl("slides/GettingStarted.Rmd",documentation = 2)
 ```
 
-
+<!--
 class: inverse,center
 
 .center2[
@@ -34,7 +34,7 @@ class: inverse,center
 ---
 
 class: center, inverse
-
+-->
 
 # [COURSE OBJECTIVES](http://uc-r.github.io/data_wrangling/week-1)
 
