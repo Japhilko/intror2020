@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # Introduction to R
 ## Import and export data
 ### Jan-Philipp Kolb
-### 09 März, 2020
+### 10 März, 2020
 
 ---
 
@@ -246,15 +246,16 @@ head(ab)
 
 ```
 ## # A tibble: 6 x 16
-##   query   lat   lon lat_min lat_max lon_min lon_max place_id osm_type osm_id place_rank display_name
-##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;       
-## 1 Inne~  49.5  8.45    49.5    49.5    8.44    8.48   2.36e8 relation 3.29e6         18 Innenstadt/~
-## 2 Neck~  49.5  8.47    49.5    49.5    8.42    8.48   2.36e8 relation 5.19e6         20 Neckarstadt~
-## 3 Neck~  49.5  8.48    49.5    49.5    8.47    8.51   2.36e8 relation 5.19e6         20 Neckarstadt~
-## 4 Osts~  49.5  8.48    49.5    49.5    8.46    8.50   1.69e7 node     1.64e9         20 Oststadt, S~
-## 5 Schw~  49.5  8.48    49.5    49.5    8.47    8.50   2.36e8 relation 3.29e6         20 Schwetzinge~
-## 6 Lind~  49.5  8.47    49.5    49.5    8.46    8.48   2.36e8 relation 3.29e6         18 Lindenhof, ~
-## # ... with 4 more variables: class &lt;chr&gt;, type &lt;chr&gt;, importance &lt;chr&gt;, icon &lt;chr&gt;
+##   query   lat   lon lat_min lat_max lon_min lon_max place_id osm_type osm_id
+##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+## 1 Inne…  49.5  8.45    49.5    49.5    8.44    8.48   2.36e8 relation 3.29e6
+## 2 Neck…  49.5  8.47    49.5    49.5    8.42    8.48   2.36e8 relation 5.19e6
+## 3 Neck…  49.5  8.48    49.5    49.5    8.47    8.51   2.36e8 relation 5.19e6
+## 4 Osts…  49.5  8.48    49.5    49.5    8.46    8.50   1.69e7 node     1.64e9
+## 5 Schw…  49.5  8.48    49.5    49.5    8.47    8.50   2.36e8 relation 3.29e6
+## 6 Lind…  49.5  8.47    49.5    49.5    8.46    8.48   2.36e8 relation 3.29e6
+## # … with 6 more variables: place_rank &lt;dbl&gt;, display_name &lt;chr&gt;, class &lt;chr&gt;,
+## #   type &lt;chr&gt;, importance &lt;chr&gt;, icon &lt;chr&gt;
 ```
 
 ---
@@ -361,8 +362,9 @@ head(dat$bbzc007a)
 ```
 
 ```
-## [1] Nein         Nein         Nein         Nein         Ja, manchmal Nein        
-## 10 Levels: Ambiguous answer Item nonresponse Missing by filter Not reached ... Ja, oft
+## [1] Nein         Nein         Nein         Nein         Ja, manchmal
+## [6] Nein        
+## 10 Levels: Ambiguous answer Item nonresponse Missing by filter ... Ja, oft
 ```
 
 ---
@@ -394,9 +396,10 @@ names(att_dat)
 ```
 
 ```
-##  [1] "row.names"        "names"            "datalabel"        "time.stamp"       "formats"         
-##  [6] "types"            "val.labels"       "var.labels"       "version"          "label.table"     
-## [11] "expansion.fields" "byteorder"        "orig.dim"         "class"
+##  [1] "row.names"        "names"            "datalabel"        "time.stamp"      
+##  [5] "formats"          "types"            "val.labels"       "var.labels"      
+##  [9] "version"          "label.table"      "expansion.fields" "byteorder"       
+## [13] "orig.dim"         "class"
 ```
 
 ### Example: the variable names 
@@ -530,7 +533,7 @@ getwd()
 ```
 
 ```
-## [1] "D:/github/intror2020/slides"
+## [1] "E:/github/intror2020/slides"
 ```
 
 ```r
@@ -539,7 +542,7 @@ getwd()
 ```
 
 ```
-## [1] "D:/github/intror2020"
+## [1] "E:/github/intror2020"
 ```
 
 ---
@@ -654,25 +657,25 @@ mydata
    &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; A &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.3663668 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9710820 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; B &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1582374 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6595340 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; C &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.1167908 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0677742 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; D &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.0593629 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1082289 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
