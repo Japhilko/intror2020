@@ -87,19 +87,6 @@ airq <- na.omit(airquality)
 tapply(airquality$Ozone,airquality$Month,mean,na.rm=T)
 
 
-# Exercise: Advanced Base Graphics ----------------------------------------
-
-data(cars)
-plot(cars)
-plot(cars,lab=c(25,25,25))
-
-plot(cars,lab=c(25,25,25), cex.axis=.6)
-
-plot(cars, lab=c(20,10,6), cex.axis=.6, las=1)
-
-points(x=c(23,26), y=c(60,61), col="red")
-
-
 # ch: basic graphics ------------------------------------------------------
 
 
@@ -113,6 +100,61 @@ library(datasets)
 data(VADeaths)
 barplot(VADeaths, border = "dark blue",beside=T,
         col=c(1,2,3,4,5)) 
+
+
+# Exercise: Advanced Base Graphics ----------------------------------------
+
+data(cars)
+plot(cars)
+plot(cars,lab=c(25,25,25))
+
+plot(cars,lab=c(25,25,25), cex.axis=.6)
+
+plot(cars, lab=c(20,10,6), cex.axis=.6, las=1)
+
+points(x=c(23,26), y=c(60,61), col="red")
+
+
+
+# ch: Datawrangling tidyverse ---------------------------------------------
+
+
+# Exercise: random numbers ------------------------------------------------
+
+# 1) Draw 8 random numbers from the uniform distribution (`rnorm`) and save them in a vector `x`
+
+x <- runif(8)
+
+# 2) Compute the natural logarithm of `x`,  
+
+x <- log(x)
+
+# 3) and round the result
+
+round(x)
+
+
+# Exercise: Vignette and additional documentation -------------------------
+
+# Are there vignettes for the `dplyr` package?
+
+vignette("dplyr")
+
+# Can you find additional documentation explaining the `flights`data set?
+
+# https://www.r-project.org/nosvn/pandoc/nycflights13.html
+
+
+
+# Exercise: `dplyr` and `flights` dataset ---------------------------------
+
+### Find the number of flights that:
+
+# (a) Had an arrival delay of two or more hours
+
+# (b) Flew to Houston (IAH or HOU)
+
+# (c) Arrived more than two hours late, but didn’t leave late
 
 
 

@@ -47,7 +47,11 @@ class: center, middle, inverse, title-slide
 - Almost every plot type is supported by R
 - A large number of export formats are available in R
 
+\small
 
+
+
+ \normalsize
 
 ---
 
@@ -70,16 +74,24 @@ https://cran.r-project.org/web/views/Graphics.html
 ## The example dataset
 
 
+\small
+
 
 ```r
 install.packages("AmesHousing")
 ```
 
+ \normalsize
+
+
+\small
 
 
 ```r
 ames_df &lt;- AmesHousing::make_ames()
 ```
+
+ \normalsize
 
 ### Variables used in this section
 
@@ -100,18 +112,26 @@ Paved - gepflastert
 
 We create a histogram of the variable `duration`:
 
+\small
+
 
 ```r
 ?hist
 ```
 
+ \normalsize
+
+
+\small
 
 
 ```r
 hist(ames_df$Lot_Area)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
@@ -121,6 +141,8 @@ hist(ames_df$Lot_Area)
 - At least one observation vector must be passed to the function
 - `hist()` has many more arguments, which all have (meaningful) default values
 
+\small
+
 
 ```r
 hist(ames_df$Lot_Area,col="blue",
@@ -128,7 +150,9 @@ hist(ames_df$Lot_Area,col="blue",
      xlab="Lot size")
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
@@ -137,6 +161,8 @@ hist(ames_df$Lot_Area,col="blue",
 - Many of the arguments are valid for all base graphics like `main` or `xlab`.
 - You can see many of them if you call help on `?par`.
 
+\small
+
 
 ```r
 ?plot
@@ -144,7 +170,13 @@ hist(ames_df$Lot_Area,col="blue",
 ?par
 ```
 
+ \normalsize
+
+\small
+
 &lt;img src="figure/helppagepar.PNG" width="1855" /&gt;
+
+ \normalsize
 
 
 
@@ -159,6 +191,8 @@ hist(ames_df$Lot_Area,col="blue",
 
 ## The `xlim` argument
 
+\small
+
 
 ```r
 hist(ames_df$Lot_Area,col="blue",
@@ -166,7 +200,9 @@ hist(ames_df$Lot_Area,col="blue",
      xlim=c(0,50000))
 ```
 
-&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-10-1.png" height="40%" /&gt;
+&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-24-1.png" height="40%" /&gt;
+
+ \normalsize
 
 &lt;!--
 ![](figure/xlimargument.PNG)
@@ -178,6 +214,8 @@ hist(ames_df$Lot_Area,col="blue",
 
 - While the previous arguments are valid for many graphics functions, the following apply mainly to histogrames:
 
+\small
+
 
 ```r
 hist(ames_df$Lot_Area,col="red",
@@ -185,7 +223,9 @@ hist(ames_df$Lot_Area,col="red",
      xlim=c(0,50000),breaks=60)
 ```
 
-&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-11-1.png" height="40%" /&gt;
+&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-25-1.png" height="40%" /&gt;
+
+ \normalsize
 
 - with `breaks` you can control the number of bars...
 
@@ -198,13 +238,17 @@ hist(ames_df$Lot_Area,col="red",
 
 ## A vector for the breaks
 
+\small
+
 
 ```r
 hist(ames_df$Lot_Area,col="purple",
      main="Size of Lot", xlab="Lot Area",breaks=c(0,5000,10000,22000,215245))
 ```
 
-&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-12-1.png" height="40%" /&gt;
+&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-26-1.png" height="40%" /&gt;
+
+ \normalsize
 
 
 
@@ -216,71 +260,99 @@ hist(ames_df$Lot_Area,col="purple",
 - The command `barplot()` generates a barplot from a frequency table
 - We get the frequency table with the following command:
 
+\small
+
 
 ```r
 tab_alley &lt;- table(ames_df$Alley)
 ```
 
+ \normalsize
+
+
+\small
 
 
 ```r
 barplot(tab_alley)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-28-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
 ## More colour:
+
+\small
 
 
 ```r
 barplot(tab_alley,col=rgb(0,0,1))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-29-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
 ## Green colour 
+
+\small
 
 
 ```r
 barplot(tab_alley,col=rgb(0,1,0))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-30-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
 ## Red colour
+
+\small
 
 
 ```r
 barplot(tab_alley,col=rgb(1,0,0))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-31-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
 ## Transparent
+
+\small
 
 
 ```r
 barplot(tab_alley,col=rgb(1,0,0,.3))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-32-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
 ## Rstudio addin `colourpicker`
 
+\small
+
 
 ```r
 install.packages("colourpicker")
 ```
+
+ \normalsize
 
 ![](figure/colourpicker.PNG){height=80%}
 
@@ -288,12 +360,16 @@ install.packages("colourpicker")
 
 ## Set various colors
 
+\small
+
 
 ```r
 barplot(tab_alley,col=c(20,"#62D6C8", "darkorange"))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 
 ---
@@ -303,12 +379,18 @@ barplot(tab_alley,col=c(20,"#62D6C8", "darkorange"))
 
 
 
+\small
+
 
 ```r
 tab2dim &lt;- table(ames_df$Alley,ames_df$Street)
 ```
 
+ \normalsize
+
 - If the passed table object is two-dimensional, a conditional barplot is created
+
+\small
 
 
 ```r
@@ -323,28 +405,38 @@ tab2dim
 ##   Paved              0   78
 ```
 
+ \normalsize
+
 
 ---
 
 ## Conditional `barplot`
+
+\small
 
 
 ```r
 barplot(tab2dim,col=1:3)
 ```
 
-&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-23-1.png" height="20%" /&gt;
+&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-37-1.png" height="20%" /&gt;
+
+ \normalsize
 
 ---
 
 ## Conditional `barplot` beside
+
+\small
 
 
 ```r
 barplot(tab2dim,col=1:3,beside=T)
 ```
 
-&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-24-1.png" height="20%" /&gt;
+&lt;img src="A4_basic_graphics_files/figure-html/unnamed-chunk-38-1.png" height="20%" /&gt;
+
+ \normalsize
 
 
 ---
@@ -353,7 +445,11 @@ barplot(tab2dim,col=1:3,beside=T)
 
 - Load the dataset `VADeaths` and create the following plot:
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+\small
+
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 
 ---
@@ -363,18 +459,26 @@ barplot(tab2dim,col=1:3,beside=T)
 - A simple [**boxplot**](http://edoc.hu-berlin.de/dissertationen/gruenwald-andreas-2005-01-17/HTML/chapter2.html) can be created with `boxplot()`
 - For the command `boxplot()` at least one observation vector must be passed
 
+\small
+
 
 ```r
 ?boxplot
 ```
 
+ \normalsize
+
+
+\small
 
 
 ```r
 boxplot(ames_df$Sale_Price,horizontal=TRUE)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-41-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
@@ -384,12 +488,16 @@ boxplot(ames_df$Sale_Price,horizontal=TRUE)
 - To do this, a so-called formula object must be passed to the `boxplot()` function.
 - The conditional variable is located on the right side of a tilde
 
+\small
+
 
 ```r
 boxplot(ames_df$Sale_Price~ames_df$Alley,horizontal=TRUE)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-28-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-42-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
@@ -400,7 +508,13 @@ boxplot(ames_df$Sale_Price~ames_df$Alley,horizontal=TRUE)
 - The further the expansion, the higher the density at this point. 
 - White dot - median
 
+\small
 
+
+
+ \normalsize
+
+\small
 
 
 ```r
@@ -408,10 +522,16 @@ library(vioplot)
 vioplot(na.omit(ames_df$Sale_Price),col="royalblue")
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-30-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-44-1.png)&lt;!-- --&gt;
+
+ \normalsize
+
+
+\small
 
 
 
+ \normalsize
 
 ---
 
@@ -424,8 +544,14 @@ https://autodeskresearch.com/publications/samestats
 interesting example on this page
 --&gt;
 
+\small
 
 
+
+ \normalsize
+
+
+\small
 
 
 ```r
@@ -435,7 +561,9 @@ boxplot(Sale_Price~Alley,data=ames_df,col="blue")
 beanplot(Sale_Price~Alley,data=ames_df,col="orange")
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-47-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
@@ -447,18 +575,28 @@ beanplot(Sale_Price~Alley,data=ames_df,col="orange")
 - Argument `pch` to specify plot symbols (plotting character) (character or numeric)
 - The labels are defined with `xlab` and `ylab`.
 
+\small
 
+
+
+ \normalsize
+
+\small
 
 
 ```r
 plot(ames_df$Sale_Price,ames_df$Lot_Area)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-49-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
 ## Changing the ploting character
+
+\small
 
 
 ```r
@@ -467,22 +605,30 @@ plot(ames_df$Sale_Price,ames_df$Lot_Area,
      col=rgb(0,0,1,.2)) # make the points transparent
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-36-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
 ## Relationship between variables - `pairs` plot
+
+\small
 
 
 ```r
 pairs(iris[,1:4])
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-37-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-51-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
 ## Enhanced multivariate plots
+
+\small
 
 
 ```r
@@ -492,6 +638,8 @@ pairs.panels(iris[,1:4],
              pch=21,main="")
 ```
 
+ \normalsize
+
 ![](figure/psychplot.PNG)
 
 
@@ -499,6 +647,8 @@ pairs.panels(iris[,1:4],
 
 ## Tabulating
 
+
+\small
 
 
 ```r
@@ -516,43 +666,59 @@ pairs.panels(iris[,1:4],
 ##   Partial      1             230    14
 ```
 
+ \normalsize
+
 ---
 
 ## Relationship - categorial variables
+
+\small
 
 
 ```r
 mosaicplot(tab2, color = TRUE,main="")
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-40-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 
 ---
 
 ## Surfaces are shaded according to the residuals:
 
+\small
+
 
 ```r
 mosaicplot(tab2, main=F,shade = TRUE)
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-41-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-55-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
 ## Density plot
+
+\small
 
 
 ```r
 plot(density(ames_df$Sale_Price))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-42-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-56-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
 ## Stem and leaf plot
+
+\small
 
 
 ```r
@@ -583,6 +749,8 @@ stem(airquality$Ozone)
 ##   16 | 8
 ```
 
+ \normalsize
+
 ---
 
 ## Export with Rstudio
@@ -595,12 +763,18 @@ stem(airquality$Ozone)
 
 - Alternatively also with the commands `png`, `pdf` or `jpeg` for example
 
+\small
+
 
 ```r
 png("Histogramm.png")
   hist(dat$duration)
 dev.off()
 ```
+
+ \normalsize
+
+\small
 
 
 ```r
@@ -609,12 +783,18 @@ pdf("Histogramm.pdf")
 dev.off()
 ```
 
+ \normalsize
+
+\small
+
 
 ```r
 jpeg("Histogramm.jpeg")
   hist(dat$duration)
 dev.off()
 ```
+
+ \normalsize
 
 
 ---
@@ -679,22 +859,32 @@ b) Add the two new observations using the `points` function.
 
 ## Relationship between variables - `pairs` plot
 
+\small
+
 
 ```r
 pairs(iris[,1:4])
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-47-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-61-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
 ## Enhanced multivariate plots
+
+\small
 
 
 ```r
 install.packages("psych")
 ```
 
+ \normalsize
+
+
+\small
 
 
 ```r
@@ -703,7 +893,9 @@ bgcol &lt;- c("red","yellow","blue")[iris$Species]
 pairs.panels(iris[,1:4],bg=bgcol,pch=21,main="")
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-49-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-63-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
@@ -713,6 +905,8 @@ pairs.panels(iris[,1:4],bg=bgcol,pch=21,main="")
 
 --&gt;
 
+\small
+
 
 ```r
 library("lattice")
@@ -720,7 +914,9 @@ levelplot(table(ames_df$MS_Zoning,ames_df$Alley),
           xlab="education",ylab="job")
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-64-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
@@ -731,13 +927,17 @@ https://www.datanovia.com/en/blog/top-r-color-palettes-to-know-for-great-data-vi
 --&gt;
 
 
+\small
+
 
 ```r
 library(RColorBrewer)
 display.brewer.all()
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-51-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-65-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
@@ -747,8 +947,14 @@ display.brewer.all()
 https://www.r-bloggers.com/variable-importance-plot-and-variable-selection/
 --&gt;
 
+\small
 
 
+
+ \normalsize
+
+
+\small
 
 
 ```r
@@ -757,7 +963,9 @@ corrplot(cor(ames_df[,c("Sale_Price",
             "Gr_Liv_Area","TotRms_AbvGrd")]))
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-53-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-67-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 ---
 
@@ -765,7 +973,13 @@ corrplot(cor(ames_df[,c("Sale_Price",
 
 The necessary data is on [my github repo ](https://github.com/Japhilko/intror2020/blob/master/data/gp_studytab.RData)
 
+\small
 
+
+
+ \normalsize
+
+\small
 
 
 ```r
@@ -774,7 +988,9 @@ library(wordcloud) # load the package
 wordcloud(studytab$Title) # create the wordcloud
 ```
 
-![](A4_basic_graphics_files/figure-html/unnamed-chunk-55-1.png)&lt;!-- --&gt;
+![](A4_basic_graphics_files/figure-html/unnamed-chunk-69-1.png)&lt;!-- --&gt;
+
+ \normalsize
 
 
 ---

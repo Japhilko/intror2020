@@ -6,7 +6,7 @@
     <meta name="author" content="Jan-Philipp Kolb" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
-    <link rel="stylesheet" href="..\workshop.css" type="text/css" />
+    <link rel="stylesheet" href="workshop.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # Introduction to R
 ## Data wrangling with tidyverse
 ### Jan-Philipp Kolb
-### 09 März, 2020
+### 10 März, 2020
 
 ---
 
@@ -68,19 +68,22 @@ library(tidyverse)
 
 ![](figure/whatistidyverse.PNG)
 
+
 ---
 
-## `tidyr`
+## Basics: the pipe
 
-### Four key `tidyr` functions
 
-You'll learn four key `tidyr` functions that allow you to solve
-the vast majority of your data tidying challenges:
+### The package `magrittr`
 
--  `gather`: transforms data from wide to long
--  `spread`: transforms data from long to wide
--  `separate`: splits a single column into multiple columns
--  `unite`: combines multiple columns into a single column
+
+```r
+library(magrittr)
+```
+
+![](figure/magrittr_vignette.jpg)
+
+The pipe is used in many tidyverse packages
 
 ---
 
@@ -102,16 +105,6 @@ https://www.math.ucla.edu/~anderson/rw1001/library/base/html/diff.html
 
 
 
----
-
-## The package `magrittr`
-
-
-```r
-library(magrittr)
-```
-
-![](figure/magrittr_vignette.jpg)
 
 ---
 
@@ -128,8 +121,21 @@ x %&gt;% log() %&gt;%
 ```
 
 ```
-## [1] -0.5 -1.2 -1.3 -0.8 -4.1 -0.3 -1.0 -0.3
+## [1] -1.4 -7.0 -1.7 -1.6  0.0 -1.8 -0.2 -0.1
 ```
+
+---
+
+## Four key tidyr functions
+
+You'll learn four key `tidyr` functions that allow you to solve
+the vast majority of your data tidying challenges:
+
+-  `gather`: transforms data from wide to long
+-  `spread`: transforms data from long to wide
+-  `separate`: splits a single column into multiple columns
+-  `unite`: combines multiple columns into a single column
+
 
 ---
 
@@ -465,8 +471,11 @@ arrange(flights, desc(dep_delay))
 ### Sort and find flights
 
 (a) Sort flights to find those with largest departure delays.
+
 (b) Find the flights that left earliest based on departure time.
+
 (c) Which flights traveled the longest distance?
+
 (d) Which traveled the shortest?
 
 ---
@@ -532,7 +541,7 @@ rename(flights, ANNOYING = dep_delay)
 
 ---
 
-## Exercises: the commands `select` and `one_of()` 
+## Exercises: `select` and `one_of()` 
 
 (a) What happens if you include the name of a variable multiple times in a `select` call?
 (b) What does the `one_of()` function do? Why might it be helpful in conjunction with this vector?
@@ -865,14 +874,22 @@ group_by(iris, Species) %&gt;%
 ## Links and resources
 
 - UC Business Analytics R Programming Guide  - [**Course: Data Wrangling with R**](http://uc-r.github.io/data_wrangling/week-3)
+
 - [**Manipulating, analyzing and exporting data with tidyverse**](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html)
 [**Pipes in R Tutorial For Beginners**](https://www.datacamp.com/community/tutorials/pipe-r-tutorial)
+
 - [**Convert all columns** to characters in a data.frame](https://stackoverflow.com/questions/43789278/convert-all-columns-to-characters-in-a-data-frame)
 
+- [tidyverse exercises and solutions](http://people.duke.edu/~ccc14/duke-hts-2018/cliburn/R_tidyyverse_Exercise_Solutions.html)
+
+- [Import and the tibble](http://cbdm-01.zdv.uni-mainz.de/~galanisl/danalysis/import-and-the-tibble.html#the-tibble)
+
+- [tidyverse explained in German](https://www.tiq-solutions.de/tidyverse-ein-moderner-ansatz-fuer-datenanalysen-in-r/)
+
 &lt;!--
-http://people.duke.edu/~ccc14/duke-hts-2018/cliburn/R_tidyyverse_Exercise_Solutions.html
-http://cbdm-01.zdv.uni-mainz.de/~galanisl/danalysis/import-and-the-tibble.html#the-tibble
 https://b-rodrigues.github.io/modern_R/getting-to-know-rstudio.html#panes
+
+http://uc-r.github.io/data_wrangling/week-3
 
 --&gt;
     </textarea>

@@ -7,7 +7,7 @@ location: "GESIS, Mannheim, Germany"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["default", "default-fonts", "../workshop.css"]
+    css: ["default", "default-fonts", "workshop.css"]
     nature:
       highlightStyle: "github"
       highlightLines: true
@@ -486,7 +486,7 @@ rename(flights, ANNOYING = dep_delay)
 
 ---
 
-## Exercises: the commands `select` and `one_of()` 
+## Exercises: `select` and `one_of()` 
 
 (a) What happens if you include the name of a variable multiple times in a `select` call?
 (b) What does the `one_of()` function do? Why might it be helpful in conjunction with this vector?
@@ -609,16 +609,20 @@ group_by(iris, Species) %>%
 ## Links and resources
 
 - UC Business Analytics R Programming Guide  - [**Course: Data Wrangling with R**](http://uc-r.github.io/data_wrangling/week-3)
+
 - [**Manipulating, analyzing and exporting data with tidyverse**](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html)
 [**Pipes in R Tutorial For Beginners**](https://www.datacamp.com/community/tutorials/pipe-r-tutorial)
+
 - [**Convert all columns** to characters in a data.frame](https://stackoverflow.com/questions/43789278/convert-all-columns-to-characters-in-a-data-frame)
 
-<!--
-http://people.duke.edu/~ccc14/duke-hts-2018/cliburn/R_tidyyverse_Exercise_Solutions.html
-http://cbdm-01.zdv.uni-mainz.de/~galanisl/danalysis/import-and-the-tibble.html#the-tibble
-https://b-rodrigues.github.io/modern_R/getting-to-know-rstudio.html#panes
+- [tidyverse exercises and solutions](http://people.duke.edu/~ccc14/duke-hts-2018/cliburn/R_tidyyverse_Exercise_Solutions.html)
 
-https://www.tiq-solutions.de/tidyverse-ein-moderner-ansatz-fuer-datenanalysen-in-r/
+- [Import and the tibble](http://cbdm-01.zdv.uni-mainz.de/~galanisl/danalysis/import-and-the-tibble.html#the-tibble)
+
+- [tidyverse explained in German](https://www.tiq-solutions.de/tidyverse-ein-moderner-ansatz-fuer-datenanalysen-in-r/)
+
+<!--
+https://b-rodrigues.github.io/modern_R/getting-to-know-rstudio.html#panes
 
 http://uc-r.github.io/data_wrangling/week-3
 
