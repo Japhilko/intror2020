@@ -9,7 +9,7 @@
 
 1+1
 
-
+read.csv(file.choose())
 
 
 
